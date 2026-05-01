@@ -1,0 +1,350 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radtouren-Karte</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  #map { width: 100%; height: 100vh; }
+
+  .controls {
+    position: absolute; top: 12px; left: 56px; z-index: 1000;
+    background: white; border-radius: 8px; padding: 10px 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2); max-width: 320px;
+  }
+  .controls select {
+    width: 100%; padding: 6px 8px; font-size: 14px;
+    border: 1px solid #ccc; border-radius: 4px;
+  }
+  .controls .tour-info {
+    margin-top: 8px; font-size: 13px; color: #555; line-height: 1.4;
+  }
+  .controls .tour-info a { color: #0066CC; text-decoration: none; }
+  .controls .tour-info a:hover { text-decoration: underline; }
+
+  .legend {
+    position: absolute; bottom: 24px; left: 12px; z-index: 1000;
+    background: white; border-radius: 8px; padding: 10px 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2); font-size: 13px;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 8px;
+    padding: 3px 0; cursor: pointer; user-select: none;
+  }
+  .legend-item.disabled { opacity: 0.4; }
+  .legend-icon { font-size: 18px; width: 24px; text-align: center; }
+
+  .leaflet-popup-content { font-size: 13px; line-height: 1.5; }
+  .leaflet-popup-content strong { font-size: 14px; }
+  .poi-details { color: #666; margin-top: 4px; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+
+<div class="controls">
+  <select id="tour-select">
+    <option value="">— Tour wählen —</option>
+  </select>
+  <div class="tour-info" id="tour-info"></div>
+</div>
+
+<div class="legend" id="legend" style="display:none;">
+  <div class="legend-item" data-category="sight">
+    <span class="legend-icon">🏛️</span> Sehenswürdigkeiten
+  </div>
+  <div class="legend-item" data-category="art">
+    <span class="legend-icon">🎨</span> Kunst
+  </div>
+  <div class="legend-item" data-category="food">
+    <span class="legend-icon">🍺</span> Einkehr
+  </div>
+  <div class="legend-item" data-category="swim">
+    <span class="legend-icon">🏊</span> Badestellen
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-gpx@2.1.2/gpx.js"></script>
+<script>
+const CATEGORY_MAP = {
+  museum: 'sight', castle: 'sight', memorial: 'sight', ruins: 'sight',
+  church: 'sight', viewpoint: 'sight',
+  artwork: 'art', gallery: 'art',
+  beer_garden: 'food', cafe: 'food', restaurant: 'food',
+  swimming: 'swim'
+};
+
+const CATEGORY_EMOJI = {
+  sight: '🏛️', art: '🎨', food: '🍺', swim: '🏊'
+};
+
+const CATEGORY_LABEL = {
+  sight: 'Sehenswürdigkeit', art: 'Kunst', food: 'Einkehr', swim: 'Badestelle'
+};
+
+const TOURS = [
+  {
+    id: 'strausberg-buckow',
+    name: 'Strausberg–Buckow-Runde',
+    distance: '39 km',
+    region: 'Märkische Schweiz',
+    pois: [
+      {cat:'artwork',lat:52.58312,lon:13.87949,name:'Skulptur'},
+      {cat:'artwork',lat:52.57871,lon:13.88622,name:'Angoraziegenbock (Gerhard Rommel)'},
+      {cat:'artwork',lat:52.57814,lon:13.88544,name:'Wildschwein'},
+      {cat:'artwork',lat:52.58927,lon:13.90087,name:'Strauß'},
+      {cat:'gallery',lat:52.5785,lon:13.8835,name:'Hingucker Atelier'},
+      {cat:'restaurant',lat:52.5758,lon:13.87877,name:'Landhaus am See',info:'Bayerisch, Mo/Mi–Sa 12–21'},
+      {cat:'cafe',lat:52.5682,lon:14.07398,name:'Café am Markt',info:'Di–So 11–17'},
+      {cat:'restaurant',lat:52.58772,lon:13.89512,name:'Restaurant Kreta',info:'Griechisch'},
+      {cat:'restaurant',lat:52.56534,lon:14.07451,name:'Zur Märkischen Schweiz',info:'Täglich 11–22'},
+      {cat:'restaurant',lat:52.58155,lon:13.8789,name:'am Fischerkietz',info:'Mi–So'},
+      {cat:'restaurant',lat:52.58611,lon:13.91558,name:'Restaurant Doppeldecker',info:'Di–So 12–21'},
+      {cat:'museum',lat:52.56108,lon:14.07548,name:'Buckower Kleinbahn Museum',info:'Sa/So 10–18'},
+      {cat:'viewpoint',lat:52.56963,lon:14.06489,name:'Bismarckhöhe'},
+      {cat:'castle',lat:52.535,lon:13.94357,name:'Schloss Garzau'},
+      {cat:'memorial',lat:52.53865,lon:13.94489,name:'Pyramide Garzau'},
+      {cat:'museum',lat:52.58682,lon:13.9181,name:'Flugplatzmuseum'},
+      {cat:'museum',lat:52.57212,lon:13.87631,name:'Stadtmuseum Strausberg',info:'Di–Do 10–17'},
+      {cat:'swimming',lat:52.57452,lon:14.07013,name:'Strandbad Schermützelsee'},
+      {cat:'swimming',lat:52.58508,lon:13.88799,name:'Strausbad'},
+      {cat:'swimming',lat:52.55946,lon:14.06589,name:'Badestelle Schermützelsee Süd'}
+    ]
+  },
+  {
+    id: 'dahme-seen',
+    name: 'Dahme-Seen-Runde',
+    distance: '136 km',
+    region: 'Dahme-Seenland',
+    pois: [
+      {cat:'artwork',lat:52.24279,lon:13.62722,name:'Groß Bestener Windmühle'},
+      {cat:'artwork',lat:52.28788,lon:13.63798,name:'Skulpturengruppe Jäger'},
+      {cat:'artwork',lat:52.31837,lon:13.62984,name:'Gleisskulptur'},
+      {cat:'museum',lat:52.16911,lon:13.70803,name:'Germanische Siedlung'},
+      {cat:'museum',lat:52.29829,lon:13.62508,name:'Jagdschloss KW',info:'Apr–Okt Di–So 10–17:30'},
+      {cat:'museum',lat:52.22344,lon:13.76645,name:'Heimathaus Prieros',info:'Mi/Sa/So 11–17'},
+      {cat:'castle',lat:52.27324,lon:13.64307,name:'Schloss Zeesen'},
+      {cat:'viewpoint',lat:52.13678,lon:13.60687,name:'Seebrücke'},
+      {cat:'restaurant',lat:52.29658,lon:13.62593,name:'Jagdschloss 1896',info:'Di–So ab 11:30'},
+      {cat:'restaurant',lat:52.23774,lon:13.88667,name:'Aalhof',info:'So–Do 11–20, Fr–Sa 11–21'},
+      {cat:'restaurant',lat:52.28395,lon:13.74372,name:'Bindower Dorfkrug',info:'Fr–So 11–21'},
+      {cat:'cafe',lat:52.21151,lon:14.00551,name:'Atelier Café',info:'Do–So 12–18'},
+      {cat:'swimming',lat:52.29273,lon:13.73956,name:'Badestelle Krossinsee'},
+      {cat:'swimming',lat:52.22992,lon:13.61285,name:'Naturcamp Kiessee'},
+      {cat:'swimming',lat:52.17182,lon:13.69806,name:'Badestelle Klein Köris'},
+      {cat:'swimming',lat:52.15690,lon:13.63778,name:'Naturbadestelle Schweriner See'}
+    ]
+  },
+  {
+    id: 'eberswalde-chorin-werbellinsee',
+    name: 'Eberswalde–Chorin–Werbellinsee-Runde',
+    distance: '63 km',
+    region: 'Schorfheide / Uckermark',
+    pois: [
+      {cat:'artwork',lat:52.83211,lon:13.81722,name:'Raubvogel'},
+      {cat:'artwork',lat:52.84495,lon:13.77593,name:'Zauberberg mit Drachen'},
+      {cat:'artwork',lat:52.83469,lon:13.81972,name:'Flussgöttin Finow'},
+      {cat:'museum',lat:52.83451,lon:13.82011,name:'Museum Eberswalde',info:'Di–Fr 10–17, So 13–17'},
+      {cat:'viewpoint',lat:52.84255,lon:13.77416,name:'Großer Montagekran'},
+      {cat:'viewpoint',lat:52.89029,lon:13.88955,name:'Choriner Knack'},
+      {cat:'ruins',lat:52.89240,lon:13.88243,name:'Mühlenruine'},
+      {cat:'cafe',lat:52.89206,lon:13.88397,name:'Kloster Café',info:'Mo–So 11–16'},
+      {cat:'restaurant',lat:52.91335,lon:13.70817,name:'Theodors Restaurant'},
+      {cat:'beer_garden',lat:52.84414,lon:13.76912,name:'KATI Hausbrauerei'},
+      {cat:'swimming',lat:52.92029,lon:13.72305,name:'Werbellinsee'},
+      {cat:'swimming',lat:52.88384,lon:13.86805,name:'Badestelle Amtssee'},
+      {cat:'swimming',lat:52.85678,lon:13.82968,name:'Finowkanal'}
+    ]
+  },
+  {
+    id: 'erkner-mueggelsee',
+    name: 'Erkner–Müggelsee-Runde',
+    distance: '27 km',
+    region: 'Müggelsee / Köpenick',
+    pois: [
+      {cat:'artwork',lat:52.44417,lon:13.62509,name:'Seepferdchen'},
+      {cat:'artwork',lat:52.45119,lon:13.62382,name:'Reiherbrunnen'},
+      {cat:'artwork',lat:52.47191,lon:13.69682,name:'Wirbel Sandstein'},
+      {cat:'artwork',lat:52.44091,lon:13.68952,name:'Älteres Paar'},
+      {cat:'gallery',lat:52.42485,lon:13.75245,name:'KuCK Kabinett',info:'Mi 14–17'},
+      {cat:'museum',lat:52.45002,lon:13.75527,name:'Heimatmuseum Woltersdorf',info:'Do 16–18, Sa 14–18'},
+      {cat:'museum',lat:52.48033,lon:13.69436,name:'Raufutterspeicher'},
+      {cat:'viewpoint',lat:52.45855,lon:13.73778,name:'Hausberg'},
+      {cat:'restaurant',lat:52.44171,lon:13.68725,name:'Seepalast',info:'12–22:30'},
+      {cat:'restaurant',lat:52.44291,lon:13.67681,name:'Fisch-Borke',info:'Mär–Okt'},
+      {cat:'cafe',lat:52.44776,lon:13.62464,name:'Mokkafee',info:'Mi–So 9–18'},
+      {cat:'cafe',lat:52.48011,lon:13.69706,name:'Schloss-Café Schöneiche',info:'Fr–So 12–17:30'},
+      {cat:'swimming',lat:52.44668,lon:13.66889,name:'FKK-Strandbad Müggelsee'},
+      {cat:'swimming',lat:52.44557,lon:13.67275,name:'Strandbad Müggelsee'},
+      {cat:'swimming',lat:52.44946,lon:13.60461,name:'Kamerun'},
+      {cat:'swimming',lat:52.43466,lon:13.76061,name:'Badestelle Flakensee'}
+    ]
+  },
+  {
+    id: 'potsdam-baumbluetefest',
+    name: 'Potsdam–Baumblütenfest-Runde',
+    distance: '41 km',
+    region: 'Potsdam / Werder',
+    pois: [
+      {cat:'artwork',lat:52.39618,lon:13.06949,name:'Harmonie (Dietrich Rohde)'},
+      {cat:'artwork',lat:52.39506,lon:13.06251,name:'Der Jahrhundertschritt'},
+      {cat:'gallery',lat:52.39922,lon:13.05133,name:'Monsieur Franck'},
+      {cat:'gallery',lat:52.37793,lon:12.94201,name:'Atelier Paula Grün'},
+      {cat:'gallery',lat:52.34698,lon:12.98759,name:'Galerie Ralf W. Schmidt',info:'Fr–Mo 12–18'},
+      {cat:'museum',lat:52.34811,lon:13.00040,name:'Einstein-Ausstellung Caputh',info:'Apr–Okt Di–So 11–17'},
+      {cat:'museum',lat:52.39524,lon:13.05777,name:'Filmmuseum Potsdam',info:'Di–So 10–18'},
+      {cat:'museum',lat:52.39522,lon:13.06223,name:'Museum Barberini',info:'Mi–Mo 10–19'},
+      {cat:'museum',lat:52.38883,lon:13.06417,name:'Das Minsk Kunsthaus',info:'Mo–So 10–19'},
+      {cat:'castle',lat:52.39556,lon:13.02554,name:'Schloss Charlottenhof'},
+      {cat:'castle',lat:52.34913,lon:13.00010,name:'Schloss Caputh'},
+      {cat:'castle',lat:52.39499,lon:13.06048,name:'Stadtschloss / Landtag'},
+      {cat:'viewpoint',lat:52.38046,lon:12.92946,name:'Aussichtsturm Bismarckhöhe'},
+      {cat:'church',lat:52.39629,lon:13.06095,name:'St. Nikolaikirche'},
+      {cat:'restaurant',lat:52.38086,lon:12.93940,name:'Al Lago',info:'Italienisch, täglich'},
+      {cat:'beer_garden',lat:52.38000,lon:12.92962,name:'Bismarckhöhe Biergarten',info:'Fr–So'},
+      {cat:'restaurant',lat:52.35937,lon:13.02340,name:'Braumanufaktur Forsthaus Templin',info:'Do–So ab 11'},
+      {cat:'cafe',lat:52.37827,lon:12.94001,name:'Eiscafé Isola Bella'},
+      {cat:'cafe',lat:52.34715,lon:12.98706,name:'Café Heimath',info:'Mo–So 9–16'},
+      {cat:'swimming',lat:52.34525,lon:12.98054,name:'Summer Lounge Caputh'},
+      {cat:'swimming',lat:52.35890,lon:12.94150,name:'Badestelle Petzow'}
+    ]
+  },
+  {
+    id: 'spreewald',
+    name: 'Spreewald-Runde',
+    distance: '55 km',
+    region: 'Spreewald',
+    pois: [
+      {cat:'artwork',lat:51.93543,lon:13.89709,name:'Sorbisches Mädchen'},
+      {cat:'artwork',lat:51.86912,lon:13.96654,name:'Balance-Engel für Lübbenau'},
+      {cat:'artwork',lat:51.86459,lon:13.97214,name:'Schlangenkönig'},
+      {cat:'artwork',lat:51.84157,lon:14.08301,name:'Der Kunstschuppen'},
+      {cat:'museum',lat:51.86604,lon:13.99102,name:'Gurkenmuseum'},
+      {cat:'museum',lat:51.93998,lon:13.89933,name:'Museum Schloss Lübben',info:'Mi–So 11–17'},
+      {cat:'museum',lat:51.86951,lon:13.96540,name:'Spreewald-Museum',info:'Apr–Okt Di–So 10:30–18'},
+      {cat:'museum',lat:51.86279,lon:13.99241,name:'Freilandmuseum Lehde',info:'Apr–Sep 10–18'},
+      {cat:'museum',lat:51.83695,lon:14.14813,name:'Heimatstube Burg',info:'Di–So 12–17'},
+      {cat:'castle',lat:51.94006,lon:13.89908,name:'Schloss Lübben'},
+      {cat:'viewpoint',lat:51.91087,lon:13.94668,name:'Aussichtsturm Kockrowsberg'},
+      {cat:'restaurant',lat:51.86706,lon:13.97319,name:'Großer Hafen'},
+      {cat:'restaurant',lat:51.94134,lon:13.89643,name:'Goldener Löwe',info:'Regionale Küche'},
+      {cat:'restaurant',lat:51.83763,lon:14.14739,name:'Hafeneck',info:'Ab 11:30'},
+      {cat:'cafe',lat:51.86817,lon:13.96816,name:'Bäckerei Bubner'},
+      {cat:'beer_garden',lat:51.86753,lon:13.97229,name:'Strubels Biergarten'},
+      {cat:'swimming',lat:51.93336,lon:13.90067,name:'Jägerbadeanstalt'},
+      {cat:'swimming',lat:51.93766,lon:13.89789,name:'Spree-Lagune Lübben'}
+    ]
+  }
+];
+
+// --- Map setup ---
+const map = L.map('map').setView([52.4, 13.4], 9);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  maxZoom: 18
+}).addTo(map);
+
+let currentGpxLayer = null;
+let poiLayers = { sight: [], art: [], food: [], swim: [] };
+let categoryVisible = { sight: true, art: true, food: true, swim: true };
+
+// --- Tour selector ---
+const select = document.getElementById('tour-select');
+const infoDiv = document.getElementById('tour-info');
+const legendDiv = document.getElementById('legend');
+
+TOURS.forEach(t => {
+  const opt = document.createElement('option');
+  opt.value = t.id;
+  opt.textContent = t.name + ' (' + t.distance + ')';
+  select.appendChild(opt);
+});
+
+select.addEventListener('change', () => {
+  const tour = TOURS.find(t => t.id === select.value);
+  if (tour) loadTour(tour);
+});
+
+// --- Load tour ---
+function loadTour(tour) {
+  // Clear previous
+  if (currentGpxLayer) map.removeLayer(currentGpxLayer);
+  Object.values(poiLayers).flat().forEach(m => map.removeLayer(m));
+  poiLayers = { sight: [], art: [], food: [], swim: [] };
+
+  // Load GPX
+  const gpxUrl = 'gpx/' + tour.id + '.gpx';
+  currentGpxLayer = new L.GPX(gpxUrl, {
+    async: true,
+    polyline_options: { color: '#0066CC', weight: 4, opacity: 0.8 },
+    marker_options: {
+      startIconUrl: null, endIconUrl: null, shadowUrl: null,
+      wptIconUrls: { '': null }
+    }
+  }).on('loaded', function(e) {
+    map.fitBounds(e.target.getBounds().pad(0.1));
+  }).addTo(map);
+
+  // Add POI markers
+  if (tour.pois) {
+    tour.pois.forEach(poi => {
+      const group = CATEGORY_MAP[poi.cat] || 'sight';
+      const emoji = CATEGORY_EMOJI[group];
+      const label = CATEGORY_LABEL[group];
+
+      const icon = L.divIcon({
+        html: '<span style="font-size:22px;filter:drop-shadow(1px 1px 1px rgba(0,0,0,0.3))">' + emoji + '</span>',
+        className: 'poi-marker',
+        iconSize: [28, 28],
+        iconAnchor: [14, 14]
+      });
+
+      let popupHtml = '<strong>' + emoji + ' ' + (poi.name || 'Unbenannt') + '</strong>';
+      popupHtml += '<br><em>' + label + '</em>';
+      if (poi.info) popupHtml += '<div class="poi-details">' + poi.info + '</div>';
+
+      const marker = L.marker([poi.lat, poi.lon], { icon: icon })
+        .bindPopup(popupHtml);
+
+      if (categoryVisible[group]) marker.addTo(map);
+      poiLayers[group].push(marker);
+    });
+  }
+
+  // Update info
+  infoDiv.innerHTML = '<strong>' + tour.distance + '</strong> · ' + tour.region +
+    '<br><a href="' + tour.id + '.html">Tourbeschreibung →</a>';
+  legendDiv.style.display = 'block';
+}
+
+// --- Legend toggle ---
+document.querySelectorAll('.legend-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const cat = item.dataset.category;
+    categoryVisible[cat] = !categoryVisible[cat];
+    item.classList.toggle('disabled');
+
+    poiLayers[cat].forEach(marker => {
+      if (categoryVisible[cat]) marker.addTo(map);
+      else map.removeLayer(marker);
+    });
+  });
+});
+
+// --- Load from URL hash ---
+const hash = window.location.hash.slice(1);
+if (hash) {
+  select.value = hash;
+  const tour = TOURS.find(t => t.id === hash);
+  if (tour) loadTour(tour);
+}
+</script>
+</body>
+</html>
