@@ -13,7 +13,8 @@
       "autoApprove": [
         "calculate_route",
         "search_location",
-        "render_gpx_map"
+        "render_gpx_map",
+        "render_elevation_profile"
       ]
     },
     "weather": {
