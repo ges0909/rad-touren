@@ -6,15 +6,6 @@ All tours are **round trips** (start = finish) reachable by regional train from 
 
 **→ [Tour catalog (German)](touren/README.md)**
 
-## Tours
-
-| Tour                                                             | Distance | Region               | Highlights                                              |
-| ---------------------------------------------------------------- | -------- | -------------------- | ------------------------------------------------------- |
-| [Potsdam–Baumblütenfest](touren/potsdam-baumbluetefest-runde.md) | 41 km    | Potsdam / Werder     | Park Sanssouci, Tree Blossom Festival, Schwielowsee     |
-| [Spreewald-Runde](touren/spreewald-runde.md)                     | 55 km    | Spreewald            | Sorbian culture, canal landscape, Lehde open-air museum |
-| [Dahme-Seen-Runde](touren/dahme-seen-runde.md)                   | 136 km   | Dahme lake district  | 4 swimming lakes, medieval castles, forest trails       |
-| [Erkner–Müggelsee](touren/erkner-mueggelsee-runde.md)            | 27 km    | Müggelsee / Köpenick | Berlin's largest lake, brewery, two beaches             |
-
 ## Why a Custom BRouter MCP Server?
 
 This project initially used the [openroute-mcp](https://pypi.org/project/openroute-mcp/) server for routing via the [OpenRouteService API](https://openrouteservice.org/). While functional, it had recurring issues:

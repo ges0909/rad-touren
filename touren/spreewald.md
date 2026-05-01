@@ -1,12 +1,10 @@
 # Spreewald-Runde ab Lübben
 
-|                |                                                      |
-| -------------- | ---------------------------------------------------- |
-| **Distanz**    | ~55 km (55,1 km lt. BRouter)                         |
-| **Fahrzeit**   | ca. 3,5–4 Std. (ohne Pausen)                         |
-| **Routentyp**  | Rundtour, flach                                      |
-| **Start/Ziel** | S Lübben (Spreewald) Bhf                             |
-| **GPX-Datei**  | [`gpx/spreewald-runde.gpx`](gpx/spreewald-runde.gpx) |
+**Distanz:** ~55 km (55,1 km lt. BRouter)
+**Fahrzeit:** ca. 3,5–4 Std. (ohne Pausen)
+**Routentyp:** Rundtour, flach
+**Start/Ziel:** S Lübben (Spreewald) Bhf
+**GPX-Datei:** [gpx/spreewald.gpx](gpx/spreewald.gpx)
 
 > 🌿 **Tipp:** Spreewaldtour durch die einzigartige Fließlandschaft — sorbische Kultur, Kahnfahrten und Gurkenradweg inklusive!
 
@@ -16,7 +14,7 @@
 
 Lübben → Lübbenau → Lehde → Burg (Spreewald) → Lübben
 
-![Spreewald-Runde Karte](img/spreewald-runde.png)
+![Spreewald-Runde Karte](img/spreewald.png)
 
 ---
 

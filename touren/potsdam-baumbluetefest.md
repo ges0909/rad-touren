@@ -1,12 +1,10 @@
 # Potsdam–Baumblütenfest-Runde ab Potsdam Hbf
 
-|                |                                                                                |
-| -------------- | ------------------------------------------------------------------------------ |
-| **Distanz**    | ~41 km (41,1 km lt. BRouter)                                                   |
-| **Fahrzeit**   | ca. 2,5–3 Std. (ohne Pausen)                                                   |
-| **Routentyp**  | Rundtour, überwiegend flach                                                    |
-| **Start/Ziel** | S Potsdam Hauptbahnhof                                                         |
-| **GPX-Datei**  | [`gpx/potsdam-baumbluetefest-runde.gpx`](gpx/potsdam-baumbluetefest-runde.gpx) |
+**Distanz:** ~41 km (41,1 km lt. BRouter)
+**Fahrzeit:** ca. 2,5–3 Std. (ohne Pausen)
+**Routentyp:** Rundtour, überwiegend flach
+**Start/Ziel:** S Potsdam Hauptbahnhof
+**GPX-Datei:** [gpx/potsdam-baumbluetefest.gpx](gpx/potsdam-baumbluetefest.gpx)
 
 > 🌸 **Besonderes Highlight:** Am 3. Mai 2026 findet das **Baumblütenfest in Werder (Havel)** statt — eines der ältesten Volksfeste Brandenburgs direkt an der Havel!
 
@@ -16,7 +14,7 @@
 
 Potsdam Hbf → Schloss Charlottenhof → Werder (Baumblütenfest!) → Petzow → Geltow → Caputh → Schwielowsee → Templiner See → Potsdam Hbf
 
-![Potsdam–Baumblütenfest-Runde Karte](img/potsdam-baumbluetefest-runde.png)
+![Potsdam–Baumblütenfest-Runde Karte](img/potsdam-baumbluetefest.png)
 
 ---
 

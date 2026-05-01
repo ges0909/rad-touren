@@ -1,12 +1,10 @@
 # Erkner–Müggelsee-Runde ab Erkner
 
-|                |                                                                      |
-| -------------- | -------------------------------------------------------------------- |
-| **Distanz**    | ~27 km (27,1 km lt. BRouter)                                         |
-| **Fahrzeit**   | ca. 1,5–2 Std. (ohne Pausen)                                         |
-| **Routentyp**  | Rundtour, flach                                                      |
-| **Start/Ziel** | S Erkner Bhf                                                         |
-| **GPX-Datei**  | [`gpx/erkner-mueggelsee-runde.gpx`](gpx/erkner-mueggelsee-runde.gpx) |
+**Distanz:** ~27 km (27,1 km lt. BRouter)
+**Fahrzeit:** ca. 1,5–2 Std. (ohne Pausen)
+**Routentyp:** Rundtour, flach
+**Start/Ziel:** S Erkner Bhf
+**GPX-Datei:** [gpx/erkner-mueggelsee.gpx](gpx/erkner-mueggelsee.gpx)
 
 > **Tipp:** Kompakte Rundtour direkt ab S Erkner Bhf — ideal als halber Tagesausflug oder in Kombination mit einem Besuch am Müggelsee.
 
@@ -16,7 +14,7 @@
 
 Erkner → Rahnsdorf → Müggelseedamm → Friedrichshagen → Schöneiche bei Berlin → Erkner
 
-![Erkner–Müggelsee-Runde Karte](img/erkner-mueggelsee-runde.png)
+![Erkner–Müggelsee-Runde Karte](img/erkner-mueggelsee.png)
 
 ---
 

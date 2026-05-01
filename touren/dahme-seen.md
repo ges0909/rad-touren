@@ -1,18 +1,16 @@
 # Dahme-Seen-Runde ab Königs Wusterhausen
 
-|                |                                                        |
-| -------------- | ------------------------------------------------------ |
-| **Distanz**    | ~136 km (135,8 km lt. BRouter)                         |
-| **Fahrzeit**   | ca. 9 Std. (ohne Pausen)                               |
-| **Routentyp**  | Rundtour, flach                                        |
-| **Start/Ziel** | S Königs Wusterhausen Bhf                              |
-| **GPX-Datei**  | [`gpx/dahme-seen-runde.gpx`](gpx/dahme-seen-runde.gpx) |
+**Distanz:** ~136 km (135,8 km lt. BRouter)
+**Fahrzeit:** ca. 9 Std. (ohne Pausen)
+**Routentyp:** Rundtour, flach
+**Start/Ziel:** S Königs Wusterhausen Bhf
+**GPX-Datei:** [gpx/dahme-seen.gpx](gpx/dahme-seen.gpx)
 
 ## Streckenverlauf
 
 Königs Wusterhausen → Zeuthen → Zeuthener See → Prieros → Storkower See → Wendisch Rietz → Teupitz → Bindow → Königs Wusterhausen
 
-![Dahme-Seen-Runde Karte](img/dahme-seen-runde.png)
+![Dahme-Seen-Runde Karte](img/dahme-seen.png)
 
 ---
 
