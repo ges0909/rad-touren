@@ -1,0 +1,29 @@
+{
+  "mcpServers": {
+    "openroute-mcp": {
+      "command": "uvx",
+      "args": ["openroute-mcp@latest"],
+      "env": {
+        "OPENROUTESERVICE_API_KEY": "env.OPENROUTESERVICE_API_KEY"
+      },
+      "disabled": false,
+      "autoApprove": ["create_route_from_to", "search_location_coordinates"]
+    },
+    "weather": {
+      "command": "npx",
+      "args": ["-y", "open-meteo-mcp-server"],
+      "disabled": false,
+      "autoApprove": ["weather_forecast", "geocoding"]
+    },
+    "berlin-transport": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://berlin-transport.mcp-tools.app/sse"
+      ],
+      "disabled": false,
+      "autoApprove": ["search_stops", "get_journeys"]
+    }
+  }
+}
