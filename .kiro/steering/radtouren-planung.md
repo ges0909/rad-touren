@@ -139,6 +139,33 @@ Use these emoji prefixes consistently in all tour output:
 3. Present only API-verified information: line names, transfer stations, number of changes, travel times.
 4. If the API is unavailable or returns errors, state: `ℹ️ Verbindungen nicht per API verifiziert.`
 
+### Disruption & Replacement Service Check
+
+Before finalizing transit connections, check for active disruptions — not only on the home station line (S2), but on **all lines and segments** used for the journey (outbound, return, and any transfers in between).
+
+1. Search `remote_web_search` for `S-Bahn Berlin Störungen Schienenersatzverkehr` or the specific lines used in the connection.
+2. Fetch `https://sbahn.berlin/en/plan-a-journey/timetable-changes/` and check for replacement services affecting any segment of the planned journey.
+3. If SEV (Schienenersatzverkehr) is active on any part of the route:
+   - Note the affected segment and duration in the Nahverkehrsanbindung section.
+   - Add a warning: `> ⚠️ **Schienenersatzverkehr:** {Linie} zwischen {A} und {B} bis {Datum}. Ersatzbusse fahren — zusätzliche Reisezeit einplanen.`
+   - **Fahrradmitnahme**: SEV-Busse erlauben in der Regel **keine Fahrradmitnahme**. If SEV affects the planned connection, explicitly warn: `> 🚲⚠️ In Ersatzbussen ist die Fahrradmitnahme in der Regel nicht möglich. Alternative Verbindung ohne SEV-Abschnitt prüfen.`
+   - Suggest an alternative connection that avoids the SEV segment (e.g., Regionalbahn instead of S-Bahn, or a different transfer point).
+   - If no bike-friendly alternative exists and the disruption significantly impacts the tour, suggest an alternative date.
+
+### Disruption Check (Schienenersatzverkehr)
+
+Before finalizing transit information, check for construction work and rail replacement services affecting the home station or the tour's start/end station:
+
+1. Search `remote_web_search` for `"S-Bahn Berlin Bauarbeiten Störungen {tour date month/year}"`.
+2. Fetch the S-Bahn disruption page: `https://sbahn.berlin/en/plan-a-journey/timetable-changes/` and check for entries affecting relevant lines (S2, RB24, RE5, RE7, RE8).
+3. If SEV or disruptions are found on the planned travel date, add a warning box in the Nahverkehrsanbindung section:
+
+```markdown
+> ⚠️ **Schienenersatzverkehr:** {Linie} zwischen {Von} und {Bis} bis {Datum}. Ersatzbusse fahren — zusätzliche Reisezeit einplanen.
+```
+
+4. If no disruptions are found, no warning is needed.
+
 ## Events
 
 - Search for current events along the route using `remote_web_search`.

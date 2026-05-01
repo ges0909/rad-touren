@@ -54,16 +54,7 @@ The project started with third-party MCP servers: [openroute-mcp](https://pypi.o
 
 ## Setup
 
-Requires [Kiro](https://kiro.dev) and [uv](https://docs.astral.sh/uv/getting-started/installation/).
-
-```bash
-cd mcp/brouter && uv sync && cd ../..
-cd mcp/open-meteo && uv sync && cd ../..
-cd mcp/vbb && uv sync && cd ../..
-cd mcp/overpass && uv sync && cd ../..
-```
-
-Servers are configured in `.kiro/settings/mcp.json` and connect automatically on startup:
+Requires [Kiro](https://kiro.dev) and [uv](https://docs.astral.sh/uv/getting-started/installation/). Servers are configured in `.kiro/settings/mcp.json` and connect automatically on startup:
 
 ```json
 {
