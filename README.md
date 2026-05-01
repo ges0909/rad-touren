@@ -29,9 +29,7 @@ The [steering file](.kiro/steering/radtouren-planung.md) is what turns Kiro from
 - **Transit rules** — home station, API verification before claiming connections
 - **Lifecycle** — which sections are stable (GPX, map) vs. date-dependent (weather, events, transit)
 
-A single prompt like _"Plan a 50 km tour through the Spreewald"_ produces a complete tour document with route map, elevation profile, verified transit connections, and current weather.
-
-To adapt this project to your own location, change the home station in the steering file.
+A single prompt like _"Plan a 50 km tour through the Spreewald"_ produces a complete tour document with route map, elevation profile, verified transit connections, and current weather. To adapt this project to your own region, change the home station and geographic bounds in the steering file.
 
 ## MCP Servers
 
