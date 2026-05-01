@@ -475,5 +475,81 @@ async def search_location(
     return "\n".join(lines)
 
 
+# ---------------------------------------------------------------------------
+# MCP Tool: render_gpx_map
+# ---------------------------------------------------------------------------
+
+import os
+from pathlib import Path
+
+import gpxpy
+from staticmap import StaticMap, Line
+
+
+@mcp.tool()
+async def render_gpx_map(
+    gpx_path: str,
+    output_path: str,
+    width: int = 800,
+    height: int = 600,
+    line_color: str = "#0066CC",
+    line_width: int = 3,
+) -> str:
+    """Render a GPX track as a PNG map image with OpenStreetMap tiles.
+
+    Args:
+        gpx_path: Path to the GPX file to render.
+        output_path: Path where the PNG image will be saved.
+        width: Image width in pixels (default: 800).
+        height: Image height in pixels (default: 600).
+        line_color: Route line color as hex string (default: "#0066CC").
+        line_width: Route line width in pixels (default: 3).
+
+    Returns:
+        Success message with output path, or a descriptive error message.
+    """
+    # Validate input file exists
+    if not os.path.isfile(gpx_path):
+        return f"Error: GPX file not found: {gpx_path}"
+
+    try:
+        with open(gpx_path, "r", encoding="utf-8") as f:
+            gpx = gpxpy.parse(f)
+    except Exception as exc:
+        return f"Error parsing GPX file: {exc}"
+
+    # Collect all trackpoints
+    coordinates: list[tuple[float, float]] = []
+    for track in gpx.tracks:
+        for segment in track.segments:
+            for point in segment.points:
+                coordinates.append((point.longitude, point.latitude))
+
+    if len(coordinates) < 2:
+        return "Error: GPX file contains fewer than 2 trackpoints."
+
+    # Create static map and add the route line
+    m = StaticMap(width, height, padding_x=20, padding_y=20)
+    line = Line(coordinates, line_color, line_width)
+    m.add_line(line)
+
+    try:
+        image = m.render()
+    except Exception as exc:
+        return f"Error rendering map: {exc}"
+
+    # Ensure output directory exists
+    output_dir = os.path.dirname(output_path)
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
+
+    try:
+        image.save(output_path)
+    except Exception as exc:
+        return f"Error saving image: {exc}"
+
+    return f"Map rendered successfully: {output_path} ({width}x{height}px, {len(coordinates)} trackpoints)"
+
+
 if __name__ == "__main__":
     mcp.run()

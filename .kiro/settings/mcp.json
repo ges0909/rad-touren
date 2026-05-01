@@ -4,7 +4,7 @@
       "command": "uv",
       "args": ["run", "--directory", "brouter-mcp", "python", "server.py"],
       "disabled": false,
-      "autoApprove": ["calculate_route", "search_location"]
+      "autoApprove": ["calculate_route", "search_location", "render_gpx_map"]
     },
     "weather": {
       "command": "npx",

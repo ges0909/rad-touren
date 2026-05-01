@@ -6,6 +6,8 @@ requires-python = ">=3.11"
 dependencies = [
     "fastmcp",
     "httpx",
+    "staticmap",
+    "gpxpy",
 ]
 
 [dependency-groups]

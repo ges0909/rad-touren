@@ -2,7 +2,7 @@
 
 Ein Python MCP-Server, der die [BRouter](https://brouter.de) Fahrrad-Routing-API und die [Nominatim](https://nominatim.openstreetmap.org) Geocoding-API als MCP-Tools bereitstellt. Gebaut mit [FastMCP](https://github.com/jlowin/fastmcp).
 
-BRouter ist spezialisiert auf Fahrrad-Routing: es folgt Fernradwegen, ist tolerant beim Waypoint-Snapping und berücksichtigt Höhenprofile. Kein API-Key nötig.
+BRouter ist spezialisiert auf Fahrrad-Routing: es folgt Fernradwegen, ist tolerant beim Waypoint-Snapping und berücksichtigt Höhenprofile. Kein API-Key nötig. Zusätzlich kann der Server GPX-Tracks als Kartenbilder (PNG) mit OpenStreetMap-Hintergrund rendern.
 
 ## Tools
 
@@ -34,6 +34,23 @@ Sucht Orte per Name über die Nominatim-API.
 | `limit`        | `int` | Nein    | `5`     | Maximale Anzahl Ergebnisse (1–40)    |
 
 **Rückgabe:** Nummerierte Ergebnisse mit Name, Koordinaten als `[Längengrad, Breitengrad]` und Adresse.
+
+### `render_gpx_map`
+
+Rendert einen GPX-Track als PNG-Kartenbild mit OpenStreetMap-Kacheln.
+
+| Parameter     | Typ   | Pflicht | Default     | Beschreibung                 |
+| ------------- | ----- | ------- | ----------- | ---------------------------- |
+| `gpx_path`    | `str` | Ja      | —           | Pfad zur GPX-Datei           |
+| `output_path` | `str` | Ja      | —           | Pfad für das PNG-Ausgabebild |
+| `width`       | `int` | Nein    | `800`       | Bildbreite in Pixeln         |
+| `height`      | `int` | Nein    | `600`       | Bildhöhe in Pixeln           |
+| `line_color`  | `str` | Nein    | `"#0066CC"` | Linienfarbe als Hex-String   |
+| `line_width`  | `int` | Nein    | `3`         | Linienbreite in Pixeln       |
+
+**Hinweis:** Pfade werden relativ zum Arbeitsverzeichnis des MCP-Servers aufgelöst. Bei Kiro-Konfiguration mit `--directory brouter-mcp` absolute Pfade verwenden.
+
+**Rückgabe:** Erfolgsmeldung mit Dateipfad, Bildgröße und Anzahl der Trackpoints.
 
 ## Voraussetzungen
 
@@ -85,6 +102,7 @@ Die Testsuite umfasst:
 - **Property-Based Tests** (Hypothesis) — Validierung, URL-Konstruktion, GPX-Parsing, Koordinatentransformation
 - **Unit Tests** — Defaults, Randfälle, Fehlerbehandlung
 - **Integrationstests** (respx) — Gemockte HTTP-Aufrufe für beide APIs
+- **Render-Tests** — GPX-zu-PNG-Rendering, Fehlerbehandlung, Dateierzeugung
 
 ## Projektstruktur
 
@@ -94,5 +112,6 @@ brouter-mcp/
 ├── pyproject.toml     # Paketdefinition und Abhängigkeiten
 └── tests/
     ├── test_server.py        # Property-Based und Unit Tests
-    └── test_integration.py   # Integrationstests mit HTTP-Mocks
+    ├── test_integration.py   # Integrationstests mit HTTP-Mocks
+    └── test_render_gpx_map.py # Tests für GPX-zu-PNG-Rendering
 ```
