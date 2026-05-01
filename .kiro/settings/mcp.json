@@ -22,6 +22,12 @@
       "args": ["run", "--directory", "mcp/vbb", "python", "server.py"],
       "disabled": false,
       "autoApprove": ["search_stops", "get_departures", "get_journeys"]
+    },
+    "overpass": {
+      "command": "uv",
+      "args": ["run", "--directory", "mcp/overpass", "python", "server.py"],
+      "disabled": false,
+      "autoApprove": ["search_pois_along_route"]
     }
   }
 }

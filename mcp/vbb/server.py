@@ -31,6 +31,31 @@ async def _get_json(path: str, params: dict | None = None) -> dict | list | str:
 
 
 # ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
+
+# Remark types that indicate disruptions or service alerts
+_DISRUPTION_TYPES = {"warning", "status"}
+_DISRUPTION_CODES = {"text.realtime.journey.cancelled", "text.realtime.stop.cancelled"}
+
+
+def _extract_disruptions(remarks: list[dict]) -> list[str]:
+    """Extract disruption/warning messages from VBB remarks."""
+    disruptions = []
+    for r in remarks:
+        if not isinstance(r, dict):
+            continue
+        rtype = r.get("type", "")
+        code = r.get("code", "")
+        text = r.get("text", "").strip()
+        if not text:
+            continue
+        if rtype in _DISRUPTION_TYPES or code in _DISRUPTION_CODES:
+            disruptions.append(text)
+    return disruptions
+
+
+# ---------------------------------------------------------------------------
 # Tools
 # ---------------------------------------------------------------------------
 
@@ -126,6 +151,7 @@ async def get_departures(stop_id: str, results: int = 10, duration: int = 60) ->
         planned = dep.get("plannedWhen", dep.get("when", "?"))
         delay = dep.get("delay")
         platform = dep.get("platform", "")
+        cancelled = dep.get("cancelled", False)
 
         time_str = planned[11:16] if planned and len(planned) > 16 else planned
         delay_str = ""
@@ -133,7 +159,13 @@ async def get_departures(stop_id: str, results: int = 10, duration: int = 60) ->
             delay_str = f" (+{delay // 60} min)"
 
         plat_str = f" [Gl. {platform}]" if platform else ""
-        lines.append(f"- {time_str}{delay_str} {line_name} → {direction}{plat_str}")
+        cancel_str = " ❌ FÄLLT AUS" if cancelled else ""
+        lines.append(f"- {time_str}{delay_str} {line_name} → {direction}{plat_str}{cancel_str}")
+
+        # Show disruption remarks for this departure
+        remarks = dep.get("remarks", [])
+        for warning in _extract_disruptions(remarks):
+            lines.append(f"  ⚠️ {warning}")
 
     return "\n".join(lines)
 
@@ -225,17 +257,24 @@ async def get_journeys(
             platform_arr = leg.get("arrivalPlatform", "")
             plat_str = f" [Gl. {platform_dep}→{platform_arr}]" if platform_dep else ""
 
-            # Check bicycle
+            # Check bicycle and disruptions
             remarks = leg.get("remarks", [])
             bike = any("bicycle" in (r.get("text", "") + r.get("code", "")).lower()
                       for r in remarks if isinstance(r, dict))
             bike_str = " 🚲" if bike else ""
 
+            cancelled = leg.get("cancelled", False)
+            cancel_str = " ❌ FÄLLT AUS" if cancelled else ""
+
             lines.append(
                 f"  {leg_dep_str}–{leg_arr_str} "
-                f"**{line_name}** → {direction}{plat_str}{bike_str}\n"
+                f"**{line_name}** → {direction}{plat_str}{bike_str}{cancel_str}\n"
                 f"    {origin_name} → {dest_name}"
             )
+
+            # Show disruption remarks for this leg
+            for warning in _extract_disruptions(remarks):
+                lines.append(f"    ⚠️ {warning}")
 
         lines.append("")
 

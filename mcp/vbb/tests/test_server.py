@@ -194,3 +194,113 @@ async def test_get_journeys_with_walking():
     assert "Walk" in result
     assert "150m" in result
     assert "U2" in result
+
+
+# ---------------------------------------------------------------------------
+# Disruption tests
+# ---------------------------------------------------------------------------
+
+from server import _extract_disruptions
+
+
+def test_extract_disruptions_warning():
+    """Test extraction of warning-type remarks."""
+    remarks = [
+        {"type": "hint", "code": "FK", "text": "Bicycle conveyance"},
+        {"type": "warning", "code": "", "text": "S5: Zugausfall zwischen Strausberg und Strausberg Nord"},
+        {"type": "status", "code": "", "text": "Bauarbeiten bis 15.05., Busse statt Bahnen"},
+    ]
+    result = _extract_disruptions(remarks)
+    assert len(result) == 2
+    assert "Zugausfall" in result[0]
+    assert "Bauarbeiten" in result[1]
+
+
+def test_extract_disruptions_cancelled_code():
+    """Test extraction of cancelled journey codes."""
+    remarks = [
+        {"type": "hint", "code": "text.realtime.journey.cancelled", "text": "Journey cancelled"},
+    ]
+    result = _extract_disruptions(remarks)
+    assert len(result) == 1
+    assert "cancelled" in result[0]
+
+
+def test_extract_disruptions_no_warnings():
+    """Test that hints are not treated as disruptions."""
+    remarks = [
+        {"type": "hint", "code": "FK", "text": "Bicycle conveyance"},
+        {"type": "hint", "code": "OPERATOR", "text": "DB Regio"},
+    ]
+    result = _extract_disruptions(remarks)
+    assert result == []
+
+
+def test_extract_disruptions_empty():
+    """Test empty remarks list."""
+    assert _extract_disruptions([]) == []
+
+
+@respx.mock
+@pytest.mark.asyncio
+async def test_get_departures_with_disruption():
+    """Test departures showing disruption warnings."""
+    mock_response = [
+        {
+            "line": {"name": "S5", "product": "suburban"},
+            "direction": "S Westkreuz",
+            "plannedWhen": "2026-05-03T10:15:00+02:00",
+            "delay": None,
+            "platform": "2",
+            "cancelled": True,
+            "remarks": [
+                {"type": "warning", "text": "Zugausfall wegen Signalstörung"},
+            ],
+        },
+    ]
+    respx.get(f"{BASE}/stops/900320001/departures").mock(
+        return_value=httpx.Response(200, json=mock_response)
+    )
+
+    result = await get_departures("900320001")
+    assert "FÄLLT AUS" in result
+    assert "⚠️" in result
+    assert "Signalstörung" in result
+
+
+@respx.mock
+@pytest.mark.asyncio
+async def test_get_journeys_with_disruption():
+    """Test journeys showing disruption warnings on legs."""
+    mock_response = {
+        "journeys": [
+            {
+                "legs": [
+                    {
+                        "origin": {"name": "Stop A"},
+                        "destination": {"name": "Stop B"},
+                        "line": {"name": "RB24", "product": "regional"},
+                        "direction": "Eberswalde",
+                        "plannedDeparture": "2026-05-03T10:09:00+02:00",
+                        "plannedArrival": "2026-05-03T10:45:00+02:00",
+                        "departurePlatform": "2",
+                        "arrivalPlatform": "3",
+                        "cancelled": False,
+                        "remarks": [
+                            {"type": "warning", "text": "Verspätungen wegen Bauarbeiten"},
+                            {"type": "hint", "code": "FK", "text": "Bicycle conveyance"},
+                        ],
+                    },
+                ]
+            }
+        ]
+    }
+    respx.get(f"{BASE}/journeys").mock(
+        return_value=httpx.Response(200, json=mock_response)
+    )
+
+    result = await get_journeys("900000001", "900000002")
+    assert "⚠️" in result
+    assert "Bauarbeiten" in result
+    # Hint should not appear as disruption
+    assert result.count("⚠️") == 1

@@ -13,6 +13,7 @@ All tours are round trips reachable by regional train from Blankenfelde-Mahlow. 
 ├── mcp/                     # Custom MCP servers (all Python/FastMCP)
 │   ├── brouter/             # Cycling routing, geocoding, map rendering
 │   ├── open-meteo/          # Weather forecast
+│   ├── overpass/            # POI search along routes (OpenStreetMap)
 │   └── vbb/                 # Berlin/Brandenburg public transport
 └── .kiro/
     ├── settings/mcp.json    # MCP server configuration
@@ -38,8 +39,9 @@ A single prompt like _"Plan a 50 km tour through the Spreewald"_ produces a comp
 | [`brouter`](mcp/brouter/README.md)       | Routing, geocoding, map rendering | [BRouter](https://brouter.de) + [Nominatim](https://nominatim.openstreetmap.org) |
 | [`open-meteo`](mcp/open-meteo/README.md) | Weather forecast + geocoding      | [Open-Meteo](https://open-meteo.com/)                                            |
 | [`vbb`](mcp/vbb/README.md)               | Stop search, departures, journeys | [VBB REST](https://v6.vbb.transport.rest/)                                       |
+| [`overpass`](mcp/overpass/README.md)     | POI search along routes           | [Overpass](https://overpass-api.de/) (OpenStreetMap)                             |
 
-All three are custom Python servers (FastMCP + httpx). No API keys, no Node.js.
+All four are custom Python servers (FastMCP + httpx). No API keys, no Node.js.
 
 ## Why Custom Servers?
 
@@ -58,6 +60,7 @@ Requires [Kiro](https://kiro.dev) and [uv](https://docs.astral.sh/uv/getting-sta
 cd mcp/brouter && uv sync && cd ../..
 cd mcp/open-meteo && uv sync && cd ../..
 cd mcp/vbb && uv sync && cd ../..
+cd mcp/overpass && uv sync && cd ../..
 ```
 
 Servers are configured in `.kiro/settings/mcp.json` and connect automatically on startup:
@@ -76,6 +79,10 @@ Servers are configured in `.kiro/settings/mcp.json` and connect automatically on
     "vbb": {
       "command": "uv",
       "args": ["run", "--directory", "mcp/vbb", "python", "server.py"]
+    },
+    "overpass": {
+      "command": "uv",
+      "args": ["run", "--directory", "mcp/overpass", "python", "server.py"]
     }
   }
 }
@@ -87,6 +94,7 @@ Servers are configured in `.kiro/settings/mcp.json` and connect automatically on
 uv run --directory mcp/brouter pytest -v
 uv run --directory mcp/open-meteo pytest -v
 uv run --directory mcp/vbb pytest -v
+uv run --directory mcp/overpass pytest -v
 ```
 
 ## License
