@@ -29,6 +29,15 @@ Use `mcp_brouter_calculate_route` with `profile=trekking` (default).
 - **Round trips (Rundtouren)**: first and last waypoint MUST have identical coordinates.
 - Start/end points: choose locations near train stations with S-Bahn/Regionalbahn access.
 - Waypoints must form a logical loop — no backtracking or unnecessary detours.
+- **Waypoint placement**: Place waypoints on **through-roads or intersections**, never on dead-end streets. BRouter routes to the nearest road segment — if that segment is a cul-de-sac, the route will include a spur (out-and-back). Verify waypoint coordinates against the road network.
+
+### GPX Post-Processing: Spur Removal
+
+After saving a GPX file, check for **spurs** (segments where the route doubles back on itself). Spurs occur when BRouter routes to a dead-end road and returns the same way.
+
+Detection: A spur exists when `point[i] ≈ point[j]` (distance < 15m) with `j > i + 4` — the route went out and came back to nearly the same spot.
+
+If spurs are found, remove the duplicated segment (points `i+1` through `j-1`) from the GPX track and re-save. Update distance in the tour markdown accordingly.
 
 ### Well-Known Regional Cycling Routes
 
@@ -63,6 +72,17 @@ Renders a GPX track as a PNG map with OSM tiles. Defaults: 800×600 px.
 
 **CRITICAL**: Both `gpx_path` and `output_path` MUST be **absolute paths**. The MCP server runs from `mcp/brouter/`, so relative paths resolve to the wrong location.
 
+**POI markers**: Pass an optional `pois` list to render emoji markers on the map. Each POI is a dict with `lat`, `lon`, `category` (optional), and `name` (optional). Categories map to Twemoji icons:
+
+| Icon | Categories                                         |
+| ---- | -------------------------------------------------- |
+| 🏛️   | museum, castle, memorial, ruins, church, viewpoint |
+| 🎨   | artwork, gallery                                   |
+| 🍺   | beer_garden, cafe, restaurant                      |
+| 🏊   | swimming                                           |
+
+A legend is automatically drawn in the bottom-left corner when POIs are present. Category names match the Overpass server output — POI results can be passed through directly.
+
 ### `mcp_brouter_render_elevation_profile`
 
 Renders an elevation profile chart as PNG from a GPX track. Reports min/max elevation, total ascent/descent. Same **absolute path requirement** as `render_gpx_map`.
@@ -72,6 +92,8 @@ Renders an elevation profile chart as PNG from a GPX track. Reports min/max elev
 Finds POIs along a GPX route via OpenStreetMap/Overpass API. Requires an **absolute** GPX path.
 
 Available presets: `einkehr`, `badestellen`, `sehenswuerdigkeiten`, `kunst`, `radservice`, `rast`.
+
+**Rate limit**: The Overpass API enforces rate limits. Query presets **sequentially** (one at a time), not in parallel. Wait for each response before sending the next request.
 
 Supplement with `remote_web_search` for events, opening hours, and details not in OSM.
 
@@ -271,15 +293,16 @@ Execute these steps in order when the user requests a new tour:
 1. **Geocode** waypoints via `mcp_brouter_search_location`. Verify all coordinates are within bounds.
 2. **Calculate route** via `mcp_brouter_calculate_route` with 3–6 waypoints. First = last for round trips.
 3. **Save GPX** to `touren/gpx/{name}.gpx`. Write the GPX XML directly from the route response.
-4. **Render map** via `mcp_brouter_render_gpx_map` (absolute paths). Save to `touren/img/{name}.png`.
-5. **Render elevation profile** via `mcp_brouter_render_elevation_profile` (absolute paths). Save to `touren/img/{name}-elevation.png`.
-6. **Search POIs** via `mcp_overpass_search_pois_along_route` with presets: `einkehr`, `badestellen`, `sehenswuerdigkeiten`, `kunst`.
-7. **Query weather** for the tour date and start-location coordinates.
-8. **Verify transit** from/to S Blankenfelde (TF) Bhf via VBB tools.
-9. **Search events** along the route via `remote_web_search`.
-10. **Write tour markdown** to `touren/{name}.md` following the template.
-11. **Update index** — append a row to `touren/README.md`.
-12. **Present summary** to the user in German.
+4. **Remove spurs** from the GPX track (see GPX Post-Processing above). Re-save if spurs were found.
+5. **Search POIs** via `mcp_overpass_search_pois_along_route` with presets: `einkehr`, `badestellen`, `sehenswuerdigkeiten`, `kunst`. Query presets **sequentially** to avoid rate limits.
+6. **Render map** via `mcp_brouter_render_gpx_map` (absolute paths) **with POI markers**. Pass a curated selection of POIs (deduplicated, ~15–25 per tour) to the `pois` parameter. Save to `touren/img/{name}.png`.
+7. **Render elevation profile** via `mcp_brouter_render_elevation_profile` (absolute paths). Save to `touren/img/{name}-elevation.png`.
+8. **Query weather** for the tour date and start-location coordinates.
+9. **Verify transit** from/to S Blankenfelde (TF) Bhf via VBB tools.
+10. **Search events** along the route via `remote_web_search`.
+11. **Write tour markdown** to `touren/{name}.md` following the template.
+12. **Update index** — append a row to `touren/README.md`.
+13. **Present summary** to the user in German.
 
 ### Error Handling
 
