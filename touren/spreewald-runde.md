@@ -85,19 +85,21 @@ Keine bekannten Großveranstaltungen direkt an der Route. Ruhige Spreewaldlandsc
 
 ## Nahverkehrsanbindung
 
-> ℹ️ _Verbindungen nicht per API verifiziert. Vor der Tour aktuelle Fahrpläne prüfen._
+> ℹ️ _Verbindungen verifiziert für So, 3. Mai 2026. Vor der Tour aktuelle Fahrpläne prüfen._
 
 **Hinfahrt:**
-Ab **S Blankenfelde-Mahlow** → **RB24** bis Flughafen BER → **RE2** bis **Lübben (Spreewald)**
+Ab **S Blankenfelde (TF) Bhf** → **RB24** bis Flughafen BER → **RE20** bis **Lübben, Bahnhof**
 
-- Abfahrt: ca. 10:00 Uhr ab Blankenfelde
-- 1 Umstieg, ca. 60–75 Min.
+- Abfahrt: 12:09 Uhr ab Blankenfelde → Ankunft 13:06 Uhr in Lübben
+- 1 Umstieg am Flughafen BER, 57 Min.
+- Stündliche Verbindungen (auch 13:09, 14:09 Uhr)
 
 **Rückfahrt:**
-Ab **Lübben (Spreewald)** → **RE2** bis Flughafen BER → **RB24** bis **S Blankenfelde-Mahlow**
+Ab **Lübben, Bahnhof** → **RE7** bis S Ostkreuz → **RB24** bis **S Blankenfelde (TF) Bhf**
 
-- Stündliche Verbindungen
-- 1 Umstieg, ca. 60–75 Min.
+- Abfahrt: 20:02 Uhr ab Lübben → Ankunft 21:51 Uhr in Blankenfelde
+- 1 Umstieg am Ostkreuz, 109 Min.
+- Alternative: RE2 (ab 20:34) über Königs Wusterhausen → RB22 → RB24 (2 Umstiege, 77 Min.)
 
 > 🚲 Fahrradmitnahme in S-Bahn und Regionalbahn ist im VBB möglich (Fahrradkarte erforderlich).
 

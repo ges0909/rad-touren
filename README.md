@@ -4,16 +4,16 @@ Day trip cycling tours in the Berlin/Brandenburg region — planned and generate
 
 All tours are **round trips** (start = finish) reachable by regional train from Blankenfelde-Mahlow. Tour descriptions are in German; this README provides the project overview in English.
 
-**→ [Tour catalog (German)](touren.md)**
+**→ [Tour catalog (German)](touren/README.md)**
 
 ## Tours
 
-| Tour                                                      | Distance | Region               | Highlights                                              |
-| --------------------------------------------------------- | -------- | -------------------- | ------------------------------------------------------- |
-| [Potsdam–Baumblütenfest](potsdam-baumbluetefest-runde.md) | 41 km    | Potsdam / Werder     | Park Sanssouci, Tree Blossom Festival, Schwielowsee     |
-| [Spreewald-Runde](spreewald-runde.md)                     | 55 km    | Spreewald            | Sorbian culture, canal landscape, Lehde open-air museum |
-| [Dahme-Seen-Runde](dahme-seen-runde.md)                   | 136 km   | Dahme lake district  | 4 swimming lakes, medieval castles, forest trails       |
-| [Erkner–Müggelsee](erkner-mueggelsee-runde.md)            | 27 km    | Müggelsee / Köpenick | Berlin's largest lake, brewery, two beaches             |
+| Tour                                                             | Distance | Region               | Highlights                                              |
+| ---------------------------------------------------------------- | -------- | -------------------- | ------------------------------------------------------- |
+| [Potsdam–Baumblütenfest](touren/potsdam-baumbluetefest-runde.md) | 41 km    | Potsdam / Werder     | Park Sanssouci, Tree Blossom Festival, Schwielowsee     |
+| [Spreewald-Runde](touren/spreewald-runde.md)                     | 55 km    | Spreewald            | Sorbian culture, canal landscape, Lehde open-air museum |
+| [Dahme-Seen-Runde](touren/dahme-seen-runde.md)                   | 136 km   | Dahme lake district  | 4 swimming lakes, medieval castles, forest trails       |
+| [Erkner–Müggelsee](touren/erkner-mueggelsee-runde.md)            | 27 km    | Müggelsee / Köpenick | Berlin's largest lake, brewery, two beaches             |
 
 ## Why a Custom BRouter MCP Server?
 
@@ -31,10 +31,10 @@ See [brouter-mcp/README.md](brouter-mcp/README.md) for the server documentation.
 ## Project Structure
 
 ```
-├── touren.md                # Tour catalog with map previews (German)
-├── *-runde.md               # Individual tour descriptions (German)
-├── gpx/                     # GPX tracks (BRouter trekking profile)
-├── img/                     # Route map images (auto-generated PNGs)
+├── touren/                  # Tour descriptions, GPX tracks, map images (German)
+│   ├── *.md                 # Individual tour descriptions
+│   ├── gpx/                 # GPX tracks (BRouter trekking profile)
+│   └── img/                 # Route map images (auto-generated PNGs)
 ├── brouter-mcp/             # Custom BRouter MCP server (Python)
 │   ├── server.py            # Single-file FastMCP server
 │   ├── tests/               # Property-based, unit, and integration tests
