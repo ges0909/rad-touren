@@ -1,77 +1,102 @@
-# 🚲 Radtouren Berlin/Brandenburg
+# 🚲 Cycling Tours Berlin/Brandenburg
 
-Radtouren-Planung für Tagestouren im Raum Berlin/Brandenburg — generiert mit [Kiro](https://kiro.dev), OpenRouteService und VBB-Nahverkehrsdaten.
+Day trip cycling tours in the Berlin/Brandenburg region — planned and generated with [Kiro](https://kiro.dev) using MCP servers for routing, weather, and public transit.
 
-**→ [Tourenkatalog ansehen](touren.md)**
+All tours are **round trips** (start = finish) reachable by regional train from Blankenfelde-Mahlow. Tour descriptions are in German; this README provides the project overview in English.
 
-## Projektstruktur
+**→ [Tour catalog (German)](touren.md)**
+
+## Tours
+
+| Tour                                                      | Distance | Region               | Highlights                                              |
+| --------------------------------------------------------- | -------- | -------------------- | ------------------------------------------------------- |
+| [Potsdam–Baumblütenfest](potsdam-baumbluetefest-runde.md) | 41 km    | Potsdam / Werder     | Park Sanssouci, Tree Blossom Festival, Schwielowsee     |
+| [Spreewald-Runde](spreewald-runde.md)                     | 55 km    | Spreewald            | Sorbian culture, canal landscape, Lehde open-air museum |
+| [Dahme-Seen-Runde](dahme-seen-runde.md)                   | 136 km   | Dahme lake district  | 4 swimming lakes, medieval castles, forest trails       |
+| [Erkner–Müggelsee](erkner-mueggelsee-runde.md)            | 27 km    | Müggelsee / Köpenick | Berlin's largest lake, brewery, two beaches             |
+
+## Why a Custom BRouter MCP Server?
+
+This project initially used the [openroute-mcp](https://pypi.org/project/openroute-mcp/) server for routing via the [OpenRouteService API](https://openrouteservice.org/). While functional, it had recurring issues:
+
+- **Waypoint snapping failures** — the API returned 404 errors when waypoints couldn't be snapped to the road network, especially in rural areas and near water
+- **Poor geocoding in Brandenburg** — location search often returned results outside Germany
+- **API key requirement** — OpenRouteService requires a free API key, adding setup friction
+- **No cycling specialization** — generic routing that doesn't follow designated long-distance cycling routes
+
+To solve these problems, we built a custom MCP server (`brouter-mcp/`) that wraps the [BRouter](https://brouter.de) cycling routing engine and [Nominatim](https://nominatim.openstreetmap.org) geocoding API. BRouter is purpose-built for cycling: it follows long-distance cycle routes (EuroVelo, national routes), handles waypoint snapping more gracefully, includes elevation awareness, and requires no API key. The server also includes a `render_gpx_map` tool that generates static map images from GPX tracks using OpenStreetMap tiles — something the OpenRouteService MCP didn't offer.
+
+See [brouter-mcp/README.md](brouter-mcp/README.md) for the server documentation.
+
+## Project Structure
 
 ```
-├── touren.md             # Tourenkatalog mit Kartenvorschau
-├── *.md                  # Einzelne Tourbeschreibungen (deutsch)
-├── gpx/                  # GPX-Dateien für Garmin, Wahoo, Komoot, Strava
-├── img/                  # Routenkarten als PNG
-├── data/generated_routes/# Rohdaten vom Routing-API (GPX, HTML, PNG)
+├── touren.md                # Tour catalog with map previews (German)
+├── *-runde.md               # Individual tour descriptions (German)
+├── gpx/                     # GPX tracks (BRouter trekking profile)
+├── img/                     # Route map images (auto-generated PNGs)
+├── brouter-mcp/             # Custom BRouter MCP server (Python)
+│   ├── server.py            # Single-file FastMCP server
+│   ├── tests/               # Property-based, unit, and integration tests
+│   └── pyproject.toml       # Dependencies: fastmcp, httpx, staticmap, gpxpy
 └── .kiro/
-    ├── hooks/            # Agent-Hooks (z.B. GPX-Validierung)
-    ├── settings/         # MCP-Server-Konfiguration
-    └── steering/         # KI-Steuerungsdokumente
+    ├── settings/mcp.json    # MCP server configuration
+    ├── specs/               # Spec-driven development documents
+    └── steering/            # AI steering rules for tour planning
 ```
-
-## GPX-Dateien verwenden
-
-Die GPX-Dateien im `gpx/`-Ordner können direkt importiert werden in:
-
-- **[gpx.studio](https://gpx.studio/app)** — Visualisierung und Bearbeitung im Browser
-- **[brouter-web](https://brouter.de/brouter-web/)** — Routenoptimierung
-- **Garmin Connect** / **Wahoo ELEMNT** / **Komoot** / **Strava** — auf Gerät übertragen
 
 ## Setup
 
-### Voraussetzungen
+### Prerequisites
 
 - [Kiro IDE](https://kiro.dev)
-- [uv](https://docs.astral.sh/uv/getting-started/installation/) (Python-Paketmanager für MCP-Server)
-- Node.js / npm (für Weather- und Transport-MCP-Server)
+- [uv](https://docs.astral.sh/uv/getting-started/installation/) (Python package manager)
+- Node.js / npm (for weather and transit MCP servers)
 
-### MCP-Server konfigurieren
+### Install and configure
 
-1. Kopiere die Vorlage:
+```bash
+cd brouter-mcp && uv sync
+```
 
-   ```bash
-   cp .kiro/settings/mcp.json.example .kiro/settings/mcp.json
-   ```
+The MCP servers are configured in `.kiro/settings/mcp.json`. Kiro connects to them automatically on startup.
 
-2. Trage deinen [OpenRouteService API-Key](https://openrouteservice.org/dev/#/signup) ein:
+### MCP Servers
 
-   ```json
-   "OPENROUTESERVICE_API_KEY": "<DEIN_KEY>"
-   ```
+| Server                                                                       | Purpose                                   | API Key |
+| ---------------------------------------------------------------------------- | ----------------------------------------- | ------- |
+| `brouter-mcp` (custom)                                                       | Cycling routing, geocoding, map rendering | ❌ None |
+| [open-meteo-mcp-server](https://www.npmjs.com/package/open-meteo-mcp-server) | Weather forecast                          | ❌ None |
+| [berlin-transport](https://berlin-transport.mcp-tools.app)                   | Public transit (S-Bahn, regional trains)  | ❌ None |
 
-3. Kiro startet die MCP-Server automatisch.
+No API keys required — all services are free and open.
 
-### Verwendete MCP-Server
+## Creating a New Tour
 
-| Server                                                                       | Zweck                            | API-Key nötig?    |
-| ---------------------------------------------------------------------------- | -------------------------------- | ----------------- |
-| [openroute-mcp](https://pypi.org/project/openroute-mcp/)                     | Fahrrad-Routing, GPX-Generierung | ✅ Ja (kostenlos) |
-| [open-meteo-mcp-server](https://www.npmjs.com/package/open-meteo-mcp-server) | Wettervorhersage                 | ❌ Nein           |
-| [berlin-transport](https://berlin-transport.mcp-tools.app)                   | VBB-Nahverkehr (S-Bahn, RE, Bus) | ❌ Nein           |
+Ask Kiro in natural language, e.g.:
 
-## Neue Tour erstellen
+> _"Plan a 50 km round trip cycling tour from Potsdam for next Saturday"_
 
-Einfach Kiro fragen, z.B.:
+Kiro will:
 
-> _„Plane eine Radtour von ca. 50 km als Rundkurs ab Potsdam für nächsten Samstag"_
+1. Geocode waypoints and calculate the route via BRouter
+2. Generate a GPX track with elevation data
+3. Render a route map as PNG
+4. Check the weather forecast
+5. Look up public transit connections from Blankenfelde-Mahlow
+6. Find points of interest, swimming spots, and cafés along the route
+7. Write a markdown tour description with embedded map
 
-Kiro wird automatisch:
+## Running Tests
 
-1. Route berechnen und GPX generieren
-2. Wetter abfragen
-3. Nahverkehrsverbindungen ab Blankenfelde-Mahlow prüfen
-4. Sehenswürdigkeiten, Badestellen und Cafés entlang der Route finden
-5. Tourbeschreibung als Markdown mit Kartenbild erstellen
+```bash
+cd brouter-mcp && uv run pytest -v
+```
 
-## Lizenz
+34 tests: property-based validation (Hypothesis), unit tests, integration tests (respx), and GPX rendering.
 
-Routendaten: © [OpenRouteService](https://openrouteservice.org/) / [OpenStreetMap](https://www.openstreetmap.org/copyright) Contributors
+## License
+
+- Route data: © [BRouter](https://brouter.de) / [OpenStreetMap](https://www.openstreetmap.org/copyright) Contributors
+- Map tiles: © [OpenStreetMap](https://www.openstreetmap.org/copyright) Contributors
+- Geocoding: [Nominatim](https://nominatim.openstreetmap.org) (OpenStreetMap data)
