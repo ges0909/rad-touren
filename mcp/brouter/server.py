@@ -483,7 +483,36 @@ import os
 from pathlib import Path
 
 import gpxpy
-from staticmap import StaticMap, Line
+from staticmap import StaticMap, IconMarker, Line
+
+# Directory containing Twemoji-based marker icons (CC-BY 4.0)
+_ICONS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "icons")
+
+# POI category → emoji icon file mapping (4 main categories from steering)
+POI_CATEGORY_ICON: dict[str, str] = {
+    # 🏛️ Sehenswürdigkeiten
+    "museum": "sight.png",
+    "castle": "sight.png",
+    "memorial": "sight.png",
+    "ruins": "sight.png",
+    "church": "sight.png",
+    "viewpoint": "sight.png",
+    # 🎨 Kunst
+    "artwork": "art.png",
+    "gallery": "art.png",
+    # 🍺 Einkehr
+    "beer_garden": "food.png",
+    "cafe": "food.png",
+    "restaurant": "food.png",
+    # 🏊 Badestellen
+    "swimming": "swim.png",
+    # Radservice & Rast → sight as fallback
+    "bicycle_repair": "sight.png",
+    "drinking_water": "sight.png",
+    "picnic": "sight.png",
+}
+
+_DEFAULT_ICON = "sight.png"
 
 
 @mcp.tool()
@@ -494,6 +523,7 @@ async def render_gpx_map(
     height: int = 600,
     line_color: str = "#0066CC",
     line_width: int = 3,
+    pois: list[dict] | None = None,
 ) -> str:
     """Render a GPX track as a PNG map image with OpenStreetMap tiles.
 
@@ -504,6 +534,15 @@ async def render_gpx_map(
         height: Image height in pixels (default: 600).
         line_color: Route line color as hex string (default: "#0066CC").
         line_width: Route line width in pixels (default: 3).
+        pois: Optional list of POIs to render as colored markers on the map.
+            Each POI is a dict with keys:
+            - "lat" (float, required): Latitude of the POI.
+            - "lon" (float, required): Longitude of the POI.
+            - "category" (str, optional): POI category for color coding.
+              Valid categories: museum, castle, memorial, ruins, church,
+              viewpoint, artwork, gallery, beer_garden, cafe, restaurant,
+              swimming, bicycle_repair, drinking_water, picnic.
+            - "name" (str, optional): Name of the POI (for the summary).
 
     Returns:
         Success message with output path, or a descriptive error message.
@@ -533,6 +572,23 @@ async def render_gpx_map(
     line = Line(coordinates, line_color, line_width)
     m.add_line(line)
 
+    # Add POI markers
+    poi_count = 0
+    if pois:
+        for poi in pois:
+            lat = poi.get("lat")
+            lon = poi.get("lon")
+            if lat is None or lon is None:
+                continue
+            category = poi.get("category", "")
+            icon_file = POI_CATEGORY_ICON.get(category, _DEFAULT_ICON)
+            icon_path = os.path.join(_ICONS_DIR, icon_file)
+            if not os.path.isfile(icon_path):
+                continue
+            marker = IconMarker((lon, lat), icon_path, 9, 9)
+            m.add_marker(marker)
+            poi_count += 1
+
     try:
         image = m.render()
     except Exception as exc:
@@ -548,7 +604,8 @@ async def render_gpx_map(
     except Exception as exc:
         return f"Error saving image: {exc}"
 
-    return f"Map rendered successfully: {output_path} ({width}x{height}px, {len(coordinates)} trackpoints)"
+    poi_info = f", {poi_count} POI markers" if poi_count else ""
+    return f"Map rendered successfully: {output_path} ({width}x{height}px, {len(coordinates)} trackpoints{poi_info})"
 
 
 # ---------------------------------------------------------------------------
