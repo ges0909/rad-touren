@@ -16,6 +16,8 @@ Potsdam Hbf → Schloss Charlottenhof → Werder (Baumblütenfest!) → Petzow �
 
 ![Potsdam–Baumblütenfest-Runde Karte](img/potsdam-baumbluetefest.png)
 
+![Höhenprofil](img/potsdam-baumbluetefest-elevation.png)
+
 ---
 
 ## Streckenabschnitte

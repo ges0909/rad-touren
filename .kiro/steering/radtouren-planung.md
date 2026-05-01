@@ -1,117 +1,118 @@
 ---
-inclusion: automatic
+inclusion: always
 ---
 
 # Radtouren-Planung — Berlin/Brandenburg
 
-Guide for planning, generating, and presenting cycling tours in the Berlin/Brandenburg region.
+Planning, generating, and presenting cycling day-trip tours in the Berlin/Brandenburg region.
 
-## Language
+## Language Rules
 
-- All tour output (descriptions, highlights, summaries, markdown files) MUST be in **German**.
-- Tool calls, code identifiers, and file names use English/kebab-case.
+- All user-facing tour output (markdown files, descriptions, summaries, chat responses about tours) MUST be in **German**.
+- Tool calls, code identifiers, file names, and GPX `track_name` values use English/kebab-case.
+
+## Geographic Scope
+
+- Region: Berlin/Brandenburg (lat ~51.3–53.6, lon ~11.3–14.8).
+- All tours start from locations reachable by public transit from **S Blankenfelde (TF) Bhf**.
+- After geocoding any waypoint, verify its coordinates fall within the region bounds above. Reject and re-geocode if outside.
 
 ## Coordinate Convention
 
-- Format: `[longitude, latitude]` — longitude first. Applies to all MCP tool calls.
-- Scope: Berlin/Brandenburg. Tours start from locations reachable by public transit from Blankenfelde-Mahlow.
-- Geocoding: Use `mcp_brouter_search_location` (Nominatim). Verify coordinates fall within Berlin/Brandenburg (lat ~51.3–53.6, lon ~11.3–14.8).
+All MCP tool calls use `[longitude, latitude]` — longitude first. This applies to `mcp_brouter_calculate_route` waypoints and any other coordinate parameters.
 
 ## Routing
 
-- Use `mcp_brouter_calculate_route` with `profile=trekking` (default).
-- The `trekking` profile automatically prefers designated cycle paths (`highway=cycleway`), regional/national cycling routes, and quiet side roads. No manual avoidance rules needed.
-- Use **3–6 intermediate waypoints** to define the route shape for round trips.
-- BRouter handles waypoint snapping gracefully — no 404 errors like OpenRouteService.
+Use `mcp_brouter_calculate_route` with `profile=trekking` (default). The trekking profile prefers designated cycle paths, regional cycling routes, and quiet roads automatically.
 
-### Round Trips (Rundtouren)
+- Define routes with **3–6 intermediate waypoints** to shape the path.
+- For **round trips (Rundtouren)**: first and last waypoint MUST be identical coordinates.
+- Choose start/end points near train stations with good S-Bahn/Regionalbahn access.
+- Verify waypoints form a logical loop — no backtracking or unnecessary detours.
 
-- First and last waypoint must be identical (same coordinates).
-- Define route shape through intermediate waypoints.
-- Choose start/end points with good public transit access (S-Bahn, Regionalbahn).
-- Avoid unnecessary detours — verify waypoints form a logical loop without backtracking.
+### Well-Known Regional Cycling Routes
 
-## Well-Known Regional Cycling Routes
+Reference these when selecting waypoints and describing route segments:
 
-Reference these when selecting waypoints and describing segments:
+| Route             | Area                                  |
+| ----------------- | ------------------------------------- |
+| Havelradweg       | Potsdam → Werder → Brandenburg        |
+| Europaradweg R1   | Through Potsdam and Werder            |
+| Berliner Mauerweg | Former Berlin Wall loop               |
+| Spreeradweg       | Along the Spree through Berlin        |
+| Dahme-Radweg      | South of Berlin along the Dahme       |
+| Oder-Havel-Radweg | North of Berlin                       |
+| Tour Brandenburg  | Long-distance loop around Brandenburg |
+| Gurkenradweg      | Through the Spreewald                 |
 
-| Route             | Description                                            |
-| ----------------- | ------------------------------------------------------ |
-| Havelradweg       | Along the Havel from Potsdam via Werder to Brandenburg |
-| Europaradweg R1   | Passes through Potsdam and Werder                      |
-| Berliner Mauerweg | Loop along the former Berlin Wall                      |
-| Spreeradweg       | Along the Spree through Berlin and surroundings        |
-| Dahme-Radweg      | Along the Dahme south of Berlin                        |
-| Oder-Havel-Radweg | North of Berlin                                        |
-| Tour Brandenburg  | Long-distance loop around Brandenburg                  |
-| Gurkenradweg      | Through the Spreewald                                  |
+## MCP Tool Reference
 
-## MCP Tool Usage
+### `mcp_brouter_search_location`
 
-### Route Calculation — `mcp_brouter_calculate_route`
+Geocode place names via Nominatim. Default country: `de`. Returns `[longitude, latitude]`. Rate-limited to 1 req/s (handled by server).
 
-- Required: `waypoints` (list of `[lon, lat]` pairs, minimum 2).
+### `mcp_brouter_calculate_route`
+
+- Required: `waypoints` — list of `[lon, lat]` pairs (minimum 2).
 - Optional: `profile` (default `trekking`), `format` (`gpx`/`geojson`), `track_name`, `nogos`, `alternativeidx`.
-- Returns: route summary (distance, elevation, duration) + GPX/GeoJSON data.
-- GPX is already in `<trk>/<trkseg>/<trkpt>` format with elevation — no post-processing needed.
+- Returns: distance, elevation, duration + GPX/GeoJSON. GPX uses `<trk>/<trkseg>/<trkpt>` with elevation — no post-processing needed.
 
-### Location Search — `mcp_brouter_search_location`
+### `mcp_brouter_render_gpx_map`
 
-- Search by place name via Nominatim. Default country: Germany (`de`).
-- Returns coordinates as `[longitude, latitude]`.
-- Rate-limited to 1 request/second (handled automatically by the server).
-
-### Map Rendering — `mcp_brouter_render_gpx_map`
-
-- Renders a GPX file as PNG with OpenStreetMap tiles.
-- Required: `gpx_path`, `output_path` (use **absolute paths** — the MCP server runs from `brouter-mcp/`).
-- Optional: `width` (default 800), `height` (default 600), `line_color`, `line_width`.
+Renders GPX as PNG with OSM tiles. Both `gpx_path` and `output_path` MUST be **absolute paths** (the MCP server runs from `brouter-mcp/`, so relative paths resolve incorrectly). Defaults: 800×600px.
 
 ### POI Search
 
-- BRouter and Nominatim do not provide POI search.
-- Use `remote_web_search` to find attractions, swimming spots, cafés, and events along the route.
+BRouter and Nominatim have no POI search. Use `remote_web_search` to find attractions, swimming spots, cafés, and events along the route.
 
-## Points of Interest Categories
+### `mcp_weather_weather_forecast`
 
-Use these emoji prefixes consistently in all output:
+Query forecast for the tour date and start location coordinates.
 
-| Emoji | Category             | What to include                                                                                                      |
-| ----- | -------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| 🏛️    | Sehenswürdigkeiten   | Castles, parks, historic buildings, museums, viewpoints, churches, memorials                                         |
-| 🎨    | Moderne Kunst        | Galleries, sculpture parks, installations, street art, Ateliers. **Always highlight — user has a special interest.** |
-| 🍺    | Einkehrmöglichkeiten | Cafés, beer gardens, restaurants. **Prioritize cafés with selbstgebackener Kuchen.**                                 |
-| 🏊    | Badestellen          | Swimming spots at lakes along the route                                                                              |
+### Berlin Transport Tools
+
+- `mcp_berlin_transport_search_stops` — resolve stop names to stop IDs.
+- `mcp_berlin_transport_get_journeys` — plan connections between stops.
+- `mcp_berlin_transport_get_departures` — check departure times at a stop.
+
+## Points of Interest
+
+Use these emoji prefixes consistently in all tour output:
+
+| Emoji | Category             | Guidance                                                                                                                    |
+| ----- | -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| 🏛️    | Sehenswürdigkeiten   | Castles, parks, historic buildings, museums, viewpoints, churches, memorials                                                |
+| 🎨    | Moderne Kunst        | Galleries, sculpture parks, installations, street art, ateliers. **Always highlight — user has a special interest in art.** |
+| 🍺    | Einkehrmöglichkeiten | Cafés, beer gardens, restaurants. **Prioritize cafés with selbstgebackener Kuchen.**                                        |
+| 🏊    | Badestellen          | Swimming spots at lakes along the route                                                                                     |
 
 ## Weather
 
-- Query forecast for the tour date and start location using `mcp_weather_weather_forecast`.
-- Include: temperature range, precipitation probability, wind conditions.
-- Warn if rain probability >50%, storms, or extreme temperatures (>35°C, <0°C).
-- Suggest alternative dates or time windows if weather is unfavorable.
+- Include in every tour: temperature range, precipitation probability, wind speed/direction.
+- Warn explicitly if: rain probability >50%, storms forecast, temperature >35°C or <0°C.
+- If weather is unfavorable, suggest alternative dates or time windows.
 
 ## Public Transit (Nahverkehr)
 
-- **Home station**: S Blankenfelde (TF) Bhf (S2, RB24, RE5, RE7, RE8). Always use as origin/destination.
+- **Home station**: S Blankenfelde (TF) Bhf (lines: S2, RB24, RE5, RE7, RE8). Always use as origin and destination.
 - Connections with 1–2 transfers are acceptable.
-- Tools:
-  - `mcp_berlin_transport_search_stops` — resolve stop IDs.
-  - `mcp_berlin_transport_get_journeys` — plan connections from/to Blankenfelde.
-  - `mcp_berlin_transport_get_departures` — check departure times.
-- Always include: Fahrradmitnahme in S-Bahn und Regionalbahn ist im VBB möglich (Fahrradkarte erforderlich).
+- Every tour MUST include: `> 🚲 Fahrradmitnahme in S-Bahn und Regionalbahn ist im VBB möglich (Fahrradkarte erforderlich).`
 
-### Verification Rule
+### Transit Verification Rule
 
-- **NEVER** claim specific transit lines, direct connections, or travel times without querying the API first.
-- Resolve stop IDs via `mcp_berlin_transport_search_stops`, then verify connections via `mcp_berlin_transport_get_journeys`.
-- Present only verified information: line names, transfer stations, number of changes, travel times.
-- If the API is unavailable, explicitly state: ℹ️ Verbindungen nicht per API verifiziert.
+**NEVER** claim specific line names, direct connections, or travel times without querying the API first.
+
+1. Resolve stop IDs via `mcp_berlin_transport_search_stops`.
+2. Verify connections via `mcp_berlin_transport_get_journeys`.
+3. Present only API-verified information: line names, transfer stations, number of changes, travel times.
+4. If the API is unavailable, state: `ℹ️ Verbindungen nicht per API verifiziert.`
 
 ## Events
 
 - Search for current events along the route using `remote_web_search`.
 - Preferred sources: visitberlin.de, potsdam.de, reiseland-brandenburg.de, local event calendars.
 - Mention seasonal highlights (e.g., Baumblütenfest in Werder, Chorin Musiksommer).
+- If no events found, include the section with a note that no events were found.
 
 ## File Structure
 
@@ -120,53 +121,153 @@ All tour files live under `touren/`:
 ```
 touren/
 ├── README.md              # Tour catalog (index)
-├── {tour-name}.md         # Individual tour descriptions
-├── gpx/{tour-name}.gpx    # GPX tracks
-└── img/{tour-name}.png    # Route map images
+├── {tour-name}.md         # Individual tour description
+├── gpx/{tour-name}.gpx    # GPX track
+└── img/{tour-name}.png    # Route map image
 ```
 
-- File naming: descriptive kebab-case without `-runde` suffix, e.g., `spreewald.md`, `spreewald.gpx`.
-- GPX and image paths in tour markdown are relative: `gpx/spreewald.gpx`, `img/spreewald.png`.
+- File naming: descriptive kebab-case, no `-runde` suffix. Example: `spreewald.md`, `spreewald.gpx`.
+- Paths inside tour markdown are relative: `gpx/spreewald.gpx`, `img/spreewald.png`.
 
-## Markdown Tour Description
+## Tour Markdown Template
 
-### Required Sections (in order)
+Every tour markdown file MUST contain these sections in this order:
 
-1. **Title**: `# {Tour-Name} ab {Start/Ziel}` (H1)
-2. **Metadata table**: Distanz, Fahrzeit, Routentyp, Start/Ziel, GPX-Datei (clickable link)
-3. **Tip box**: `> 🏛️/🌿/🌸 **Tipp:** ...` — one-line highlight
-4. **Streckenverlauf**: Arrow-separated (`→`) overview, followed by map image: `![Name Karte](img/name.png)`
-5. **Streckenabschnitte**: H3 per segment with distance, description, POI highlights using emoji prefixes
-6. **Badestellen**: Swimming spots list (omit if none)
-7. **Einkehrmöglichkeiten**: Food/drink stops summary
-8. **Wetter**: Forecast for tour date — temperature, rain, wind. Warn if unfavorable.
-9. **Veranstaltungen**: Events near the route (omit if none)
-10. **Nahverkehrsanbindung**: Transit connections with verification status, bike transport note
+### 1. Title (H1)
 
-### Segment Pattern
+```markdown
+# {Tour-Name}-Runde ab {Start/Ziel}
+```
+
+### 2. Metadata Block
+
+Bold key-value pairs, one per line (not a table):
+
+```markdown
+**Distanz:** ~{X} km ({X} km lt. BRouter)
+**Fahrzeit:** ca. {X}–{Y} Std. (ohne Pausen)
+**Routentyp:** Rundtour, {terrain}
+**Start/Ziel:** {Station name}
+**GPX-Datei:** [gpx/{name}.gpx](gpx/{name}.gpx)
+```
+
+### 3. Tip Box
+
+```markdown
+> {emoji} **Tipp:** {one-line highlight of the tour}
+```
+
+Use 🏛️, 🌿, 🌸, or 🌊 depending on the tour's main theme.
+
+### 4. Streckenverlauf
+
+Arrow-separated waypoint overview followed by the map image:
+
+```markdown
+## Streckenverlauf
+
+{Start} → {Waypoint 1} → {Waypoint 2} → … → {Start}
+
+![{Tour-Name} Karte](img/{name}.png)
+```
+
+### 5. Streckenabschnitte
+
+One H3 subsection per segment:
 
 ```markdown
 ### {N}. {Von} → {Nach} (ca. {X} km)
 
-{Route description with path/street names in **bold**.}
+{Description with path/street names in **bold**. Mention named cycling routes where applicable.}
 
 🏛️ **{Name}** — {short description}
 🎨 **{Name}** — {short description}
-🍺 {Description of café/restaurant}
+🍺 {Café/restaurant description}
 🏊 **{Name}** — {short description}
 ```
 
+Not every segment needs all POI types. Include only what exists along that segment.
+
+### 6. Badestellen
+
+List of swimming spots. Omit section entirely if none along the route.
+
+```markdown
+## Badestellen
+
+- 🏊 **{Name}** — {description}
+```
+
+### 7. Einkehrmöglichkeiten
+
+Summary of food/drink stops from all segments.
+
+### 8. Wetter
+
+```markdown
+## Wetter am {Wochentag}, {Datum}
+
+> ℹ️ _Zuletzt geprüft: {date}. Vor der Tour aktuelles Wetter prüfen._
+
+{emoji} **{Summary}**
+
+|                |                                |
+| -------------- | ------------------------------ |
+| **Temperatur** | {min}–{max}°C                  |
+| **Regen**      | {mm} ({X}% Wahrscheinlichkeit) |
+| **Wind**       | ~{X} km/h {direction}          |
+| **Wetterlage** | {description}                  |
+```
+
+### 9. Veranstaltungen
+
+Events near the route. Omit section if none found.
+
+### 10. Nahverkehrsanbindung
+
+```markdown
+## Nahverkehrsanbindung
+
+> ℹ️ _Verbindungen verifiziert für {date}. Vor der Tour aktuelle Fahrpläne prüfen._
+
+**Hinfahrt:**
+{Verified connection details}
+
+**Rückfahrt:**
+{Verified connection details}
+
+> 🚲 Fahrradmitnahme in S-Bahn und Regionalbahn ist im VBB möglich (Fahrradkarte erforderlich).
+```
+
+## Tour Catalog Index (`touren/README.md`)
+
+The index uses a table with columns: Tour (linked), Distanz, Fahrzeit, Region. Each tour row uses a theme emoji prefix. The file ends with the bike transport note.
+
+When adding a tour, append a new row to the existing table. Do not rewrite the entire file.
+
 ## Workflow
 
-Execute these steps in order when the user requests a tour:
+Execute these steps in order when the user requests a new tour:
 
-1. **Geocode** waypoints via `mcp_brouter_search_location`. Verify coordinates are in Brandenburg.
+1. **Geocode** waypoints via `mcp_brouter_search_location`. Verify all coordinates are within Brandenburg bounds.
 2. **Calculate route** via `mcp_brouter_calculate_route` with 3–6 waypoints. First = last for round trips.
-3. **Save GPX**: Extract GPX XML from the response, save to `touren/gpx/{name}.gpx`.
-4. **Render map**: Use `mcp_brouter_render_gpx_map` with absolute paths, save to `touren/img/{name}.png`.
-5. **Query weather** forecast for tour date.
-6. **Verify transit** connections from/to Blankenfelde via `mcp_berlin_transport_get_journeys`.
+3. **Save GPX** to `touren/gpx/{name}.gpx`. Extract the GPX XML directly from the route response.
+4. **Render map** via `mcp_brouter_render_gpx_map` with absolute paths. Save to `touren/img/{name}.png`.
+5. **Query weather** for the tour date and start location.
+6. **Verify transit** from/to S Blankenfelde (TF) Bhf via `mcp_berlin_transport_get_journeys`.
 7. **Search events** along the route via `remote_web_search`.
-8. **Write markdown** tour description to `touren/{name}.md`.
-9. **Update index**: Add tour to `touren/README.md`.
+8. **Write tour markdown** to `touren/{name}.md` following the template above.
+9. **Update index** — append a row to `touren/README.md`.
 10. **Present summary** to the user in German.
+
+## Tour Lifecycle
+
+Tours serve as **templates and inspiration**. GPX tracks and map images are stable, but date-dependent sections must be refreshed before riding:
+
+| Section              | Tool to refresh                     | Why                                   |
+| -------------------- | ----------------------------------- | ------------------------------------- |
+| Wetter               | `mcp_weather_weather_forecast`      | Forecasts change daily                |
+| Veranstaltungen      | `remote_web_search`                 | Events are seasonal                   |
+| Nahverkehrsanbindung | `mcp_berlin_transport_get_journeys` | Schedules change per timetable period |
+
+When refreshing, update the `ℹ️ Zuletzt geprüft: {date}` timestamp. If a section cannot be verified, mark it: `ℹ️ Nicht verifiziert.`

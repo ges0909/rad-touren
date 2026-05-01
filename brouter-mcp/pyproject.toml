@@ -8,6 +8,7 @@ dependencies = [
     "httpx",
     "staticmap",
     "gpxpy",
+    "matplotlib",
 ]
 
 [dependency-groups]

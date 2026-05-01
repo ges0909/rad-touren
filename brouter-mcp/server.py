@@ -551,5 +551,107 @@ async def render_gpx_map(
     return f"Map rendered successfully: {output_path} ({width}x{height}px, {len(coordinates)} trackpoints)"
 
 
+# ---------------------------------------------------------------------------
+# MCP Tool: render_elevation_profile
+# ---------------------------------------------------------------------------
+
+import matplotlib
+matplotlib.use("Agg")  # Non-interactive backend for server use
+import matplotlib.pyplot as plt
+
+
+@mcp.tool()
+async def render_elevation_profile(
+    gpx_path: str,
+    output_path: str,
+    width: int = 800,
+    height: int = 300,
+) -> str:
+    """Render an elevation profile chart from a GPX track as a PNG image.
+
+    Args:
+        gpx_path: Path to the GPX file to render.
+        output_path: Path where the PNG image will be saved.
+        width: Image width in pixels (default: 800).
+        height: Image height in pixels (default: 300).
+
+    Returns:
+        Success message with stats, or a descriptive error message.
+    """
+    if not os.path.isfile(gpx_path):
+        return f"Error: GPX file not found: {gpx_path}"
+
+    try:
+        with open(gpx_path, "r", encoding="utf-8") as f:
+            gpx = gpxpy.parse(f)
+    except Exception as exc:
+        return f"Error parsing GPX file: {exc}"
+
+    # Collect distances and elevations
+    distances: list[float] = []
+    elevations: list[float] = []
+    cumulative_dist = 0.0
+
+    for track in gpx.tracks:
+        for segment in track.segments:
+            prev_point = None
+            for point in segment.points:
+                if point.elevation is None:
+                    continue
+                if prev_point is not None:
+                    cumulative_dist += point.distance_2d(prev_point)
+                distances.append(cumulative_dist / 1000.0)  # km
+                elevations.append(point.elevation)
+                prev_point = point
+
+    if len(distances) < 2:
+        return "Error: GPX file contains fewer than 2 points with elevation data."
+
+    # Calculate stats
+    min_ele = min(elevations)
+    max_ele = max(elevations)
+    total_ascent = sum(
+        elevations[i] - elevations[i - 1]
+        for i in range(1, len(elevations))
+        if elevations[i] > elevations[i - 1]
+    )
+    total_descent = sum(
+        elevations[i - 1] - elevations[i]
+        for i in range(1, len(elevations))
+        if elevations[i] < elevations[i - 1]
+    )
+
+    # Render chart
+    dpi = 100
+    fig, ax = plt.subplots(figsize=(width / dpi, height / dpi), dpi=dpi)
+    ax.fill_between(distances, elevations, alpha=0.3, color="#0066CC")
+    ax.plot(distances, elevations, color="#0066CC", linewidth=1.5)
+    ax.set_xlabel("Distanz (km)")
+    ax.set_ylabel("Höhe (m)")
+    ax.set_xlim(distances[0], distances[-1])
+    ele_range = max_ele - min_ele
+    ax.set_ylim(min_ele - max(ele_range * 0.1, 5), max_ele + max(ele_range * 0.1, 5))
+    ax.grid(True, alpha=0.3)
+    fig.tight_layout()
+
+    # Save
+    output_dir = os.path.dirname(output_path)
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
+
+    try:
+        fig.savefig(output_path, dpi=dpi)
+    except Exception as exc:
+        return f"Error saving image: {exc}"
+    finally:
+        plt.close(fig)
+
+    return (
+        f"Elevation profile rendered: {output_path} ({width}x{height}px, "
+        f"{distances[-1]:.1f} km, {min_ele:.0f}–{max_ele:.0f} m, "
+        f"↑{total_ascent:.0f} m ↓{total_descent:.0f} m)"
+    )
+
+
 if __name__ == "__main__":
     mcp.run()

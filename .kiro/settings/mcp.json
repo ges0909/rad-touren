@@ -2,15 +2,31 @@
   "mcpServers": {
     "brouter": {
       "command": "uv",
-      "args": ["run", "--directory", "brouter-mcp", "python", "server.py"],
+      "args": [
+        "run",
+        "--directory",
+        "brouter-mcp",
+        "python",
+        "server.py"
+      ],
       "disabled": false,
-      "autoApprove": ["calculate_route", "search_location", "render_gpx_map"]
+      "autoApprove": [
+        "calculate_route",
+        "search_location",
+        "render_gpx_map"
+      ]
     },
     "weather": {
       "command": "npx",
-      "args": ["-y", "open-meteo-mcp-server"],
+      "args": [
+        "-y",
+        "open-meteo-mcp-server"
+      ],
       "disabled": false,
-      "autoApprove": ["weather_forecast", "geocoding"]
+      "autoApprove": [
+        "weather_forecast",
+        "geocoding"
+      ]
     },
     "berlin-transport": {
       "command": "npx",
@@ -20,7 +36,10 @@
         "https://berlin-transport.mcp-tools.app/sse"
       ],
       "disabled": false,
-      "autoApprove": ["search_stops", "get_journeys"]
+      "autoApprove": [
+        "search_stops",
+        "get_journeys"
+      ]
     }
   }
 }
