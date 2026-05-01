@@ -2,24 +2,18 @@
 
 Radtouren-Planung für Tagestouren im Raum Berlin/Brandenburg — generiert mit [Kiro](https://kiro.dev), OpenRouteService und VBB-Nahverkehrsdaten.
 
-## Touren
-
-| Tour                                                               | Distanz | Start/Ziel          | Karte                                     |
-| ------------------------------------------------------------------ | ------- | ------------------- | ----------------------------------------- |
-| [🌸 Potsdam–Baumblütenfest-Runde](potsdam-baumbluetefest-runde.md) | ~33 km  | Potsdam Hbf         | ![](img/potsdam-baumbluetefest-runde.png) |
-| [🌊 Dahme-Seen-Runde](dahme-seen-runde.md)                         | ~73 km  | Königs Wusterhausen | ![](img/dahme-seen-runde.png)             |
-| [🌲 Erkner–Müggelsee-Runde](erkner-mueggelsee-runde.md)            | ~26 km  | Erkner Bhf          | ![](img/erkner-mueggelsee-runde.png)      |
-
-Alle Touren sind **Rundkurse** (Start = Ziel) und per Nahverkehr ab Blankenfelde-Mahlow erreichbar.
+**→ [Tourenkatalog ansehen](touren.md)**
 
 ## Projektstruktur
 
 ```
-├── *.md                  # Tourbeschreibungen (deutsch)
+├── touren.md             # Tourenkatalog mit Kartenvorschau
+├── *.md                  # Einzelne Tourbeschreibungen (deutsch)
 ├── gpx/                  # GPX-Dateien für Garmin, Wahoo, Komoot, Strava
 ├── img/                  # Routenkarten als PNG
 ├── data/generated_routes/# Rohdaten vom Routing-API (GPX, HTML, PNG)
 └── .kiro/
+    ├── hooks/            # Agent-Hooks (z.B. GPX-Validierung)
     ├── settings/         # MCP-Server-Konfiguration
     └── steering/         # KI-Steuerungsdokumente
 ```

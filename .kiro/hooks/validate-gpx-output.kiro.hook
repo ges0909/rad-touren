@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "GPX Rundkurs-Validierung",
+  "description": "Prüft nach jeder GPX-Dateierstellung ob Start = Ziel (Rundkurs), ob das Format trk/trkseg/trkpt verwendet wird, und gibt die Distanz aus.",
+  "version": "1",
+  "when": {
+    "type": "fileCreated",
+    "patterns": [
+      "gpx/*.gpx"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Eine neue GPX-Datei wurde erstellt. Prüfe folgendes:\n1. Enthält die Datei `<trk>/<trkseg>/<trkpt>` (NICHT `<rte>/<rtept>`)?\n2. Ist der erste Trackpoint identisch oder sehr nah am letzten Trackpoint (Rundkurs)?\n3. Wie viele Trackpoints enthält die Datei?\nFalls Probleme gefunden werden, weise den Nutzer darauf hin."
+  }
+}

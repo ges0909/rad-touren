@@ -2,19 +2,19 @@
 
 |                |                                                                      |
 | -------------- | -------------------------------------------------------------------- |
-| **Distanz**    | ~17 km (Kernschleife) / ~40 km mit Anreise ab Ostkreuz per Rad       |
-| **Fahrzeit**   | ca. 1–1,5 Std. Kernschleife                                          |
+| **Distanz**    | ~26 km                                                               |
+| **Fahrzeit**   | ca. 1,5–2 Std.                                                       |
 | **Routentyp**  | Rundtour, flach                                                      |
 | **Start/Ziel** | S Erkner Bhf                                                         |
 | **GPX-Datei**  | [`gpx/erkner-mueggelsee-runde.gpx`](gpx/erkner-mueggelsee-runde.gpx) |
 
-> **Hinweis:** Zwischen Erkner und Fürstenwalde gilt derzeit **Schienenersatzverkehr** (Bus). Empfehlung: Direkt in Erkner starten und die ~17 km Kernschleife fahren, oder ab Ostkreuz per Rad (~40 km Gesamttour).
+> **Tipp:** Kompakte Rundtour direkt ab S Erkner Bhf — ideal als halber Tagesausflug oder in Kombination mit einem Besuch am Müggelsee.
 
 ---
 
 ## Streckenverlauf
 
-Erkner → Müggelseedamm → Friedrichshagen → Rahnsdorf → Schöneiche bei Berlin → Erkner
+Erkner → Rahnsdorf → Müggelseedamm → Friedrichshagen → Schöneiche bei Berlin → Erkner
 
 ![Erkner–Müggelsee-Runde Karte](img/erkner-mueggelsee-runde.png)
 
@@ -22,26 +22,26 @@ Erkner → Müggelseedamm → Friedrichshagen → Rahnsdorf → Schöneiche bei 
 
 ## Streckenabschnitte
 
-### 1. Erkner → Müggelseedamm → Friedrichshagen (ca. 8 km)
+### 1. Erkner → Rahnsdorf (ca. 7 km)
 
-Vom Bahnhof Erkner auf dem **Müggelseedamm** westwärts am Nordufer des Müggelsees entlang bis Friedrichshagen. Herrlicher Blick auf den See, überwiegend flacher Radweg.
+Vom Bahnhof Erkner westwärts über den **Müggelseedamm** am Nordufer des Müggelsees entlang. Herrlicher Blick auf den größten Berliner Binnensee, überwiegend flacher Radweg bis Rahnsdorf.
 
+🏛️ **Gerhart-Hauptmann-Museum Erkner** — Literaturmuseum im ehemaligen Wohnhaus des Nobelpreisträgers (kurzer Abstecher vom Start)
 🏛️ **Müggelsee** — größter Berliner Binnensee, beeindruckende Weite
-🏛️ **Müggelturm** — Aussichtsturm in den Müggelbergen (kleiner Umweg lohnt sich)
+🏊 **Strandbad Rahnsdorf** — naturnaher Badestrand am Müggelsee-Ostufer
+
+### 2. Rahnsdorf → Friedrichshagen (ca. 8 km)
+
+Am Südufer des Müggelsees entlang durch die **Müggelheide** nach Friedrichshagen. Ruhige Waldwege, kaum Autoverkehr. In Friedrichshagen lohnt ein Bummel durch die **Bölschestraße** mit ihren Cafés und Galerien.
+
+🏛️ **Müggelturm** — Aussichtsturm in den Müggelbergen (kleiner Umweg, tolle Aussicht)
+🎨 **Ateliers in Friedrichshagen** — im ehemaligen Villenviertel leben viele Künstler, wechselnde Ausstellungen
 🍺 **Brauhaus Friedrichshagen** — historisches Brauhaus direkt am See, Biergarten
 🏊 **Strandbad Müggelsee** — großes Strandbad in Friedrichshagen
 
-### 2. Friedrichshagen → Rahnsdorf (ca. 5 km)
+### 3. Friedrichshagen → Schöneiche → Erkner (ca. 11 km)
 
-Durch die Müggelheide nach Rahnsdorf. Ruhige Waldwege, kaum Autoverkehr.
-
-🏛️ **Gerhart-Hauptmann-Museum Erkner** — Literaturmuseum im ehemaligen Wohnhaus des Nobelpreisträgers
-🎨 **Kunstgalerie Erkner** — wechselnde Ausstellungen zeitgenössischer Kunst
-🏊 **Strandbad Rahnsdorf** — naturnaher Badestrand am Müggelsee-Ostufer
-
-### 3. Rahnsdorf → Schöneiche → Erkner (ca. 4 km)
-
-Durch Schöneiche bei Berlin zurück nach Erkner. Ruhige Wohnstraßen und Waldwege.
+Von Friedrichshagen über die **Bölschestraße** nach Süden, durch Schöneiche bei Berlin zurück nach Erkner. Ruhige Wohnstraßen und Waldwege.
 
 🍺 Café in Schöneiche — Kaffee und selbstgebackener Kuchen
 
@@ -63,6 +63,8 @@ Durch Schöneiche bei Berlin zurück nach Erkner. Ruhige Wohnstraßen und Waldwe
 
 ## Wetter am Sonntag, 3. Mai 2026
 
+> ℹ️ _Zuletzt geprüft: 1. Mai 2026. Vor der Tour aktuelles Wetter prüfen._
+
 ☀️ **Sehr gutes Radwetter!**
 
 |                |                              |
@@ -82,13 +84,20 @@ Keine bekannten Großveranstaltungen direkt an der Route. Ruhige Natur- und Seen
 
 ## Nahverkehrsanbindung
 
-**Anreise (verifiziert für So, 3. Mai 2026):**
+> ℹ️ _Verbindungen verifiziert für So, 3. Mai 2026. Vor der Tour aktuelle Fahrpläne prüfen._
 
+**Hinfahrt:**
 Ab **S Blankenfelde-Mahlow** → **RB24** bis Ostkreuz → **S3** bis **S Erkner Bhf**
 
 - Abfahrt: 10:09 Uhr ab Blankenfelde
 - Ankunft Erkner: 11:10 Uhr (1 Umstieg, ca. 61 Min.)
-- ⚠️ Kein direkter Zug Erkner–Fürstenwalde (SEV/Bus)
+
+**Rückfahrt:**
+Ab **S Erkner Bhf** → **S3** bis Ostkreuz → **RB24** bis **S Blankenfelde-Mahlow**
+
+- Abfahrt: 19:45 Uhr ab Erkner
+- Ankunft Blankenfelde: 20:51 Uhr (1 Umstieg, ca. 66 Min.)
+- Stündliche Verbindungen
 
 > 🚲 Fahrradmitnahme in S-Bahn und Regionalbahn ist im VBB möglich (Fahrradkarte erforderlich).
 

@@ -70,6 +70,8 @@ Rückweg über Bindow und den **Dahme-Radweg** zurück nach KW. Flache Waldwege,
 
 ## Wetter am Sonntag, 3. Mai 2026
 
+> ℹ️ _Zuletzt geprüft: 1. Mai 2026. Vor der Tour aktuelles Wetter prüfen._
+
 ☀️ **Sehr gutes Radwetter!**
 
 |                |                              |
@@ -91,12 +93,20 @@ Kein bekanntes Großevent direkt an der Route. Ruhige Seenlandschaft — ideal f
 
 ## Nahverkehrsanbindung
 
-**Anreise (verifiziert für So, 3. Mai 2026):**
+> ℹ️ _Verbindungen verifiziert für So, 3. Mai 2026. Vor der Tour aktuelle Fahrpläne prüfen._
 
+**Hinfahrt:**
 Ab **S Blankenfelde-Mahlow** → **RB24** bis Flughafen BER → Umstieg **RE20** oder **RB22** → **S Königs Wusterhausen Bhf**
 
 - Abfahrt: 10:09 Uhr ab Blankenfelde
 - Ankunft KW: 10:42 Uhr (1 Umstieg, ca. 33 Min.)
+- Stündliche Verbindungen
+
+**Rückfahrt:**
+Ab **S Königs Wusterhausen Bhf** → **RE20** bis Flughafen BER → **RB24** bis **S Blankenfelde-Mahlow**
+
+- Abfahrt: 19:16 Uhr ab KW
+- Ankunft Blankenfelde: 19:51 Uhr (1 Umstieg, ca. 35 Min.)
 - Stündliche Verbindungen
 
 > 🚲 Fahrradmitnahme in S-Bahn und Regionalbahn ist im VBB möglich (Fahrradkarte erforderlich).
