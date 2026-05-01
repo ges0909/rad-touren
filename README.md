@@ -31,6 +31,8 @@ The [steering file](.kiro/steering/radtouren-planung.md) is what turns Kiro from
 
 A single prompt like _"Plan a 50 km tour through the Spreewald"_ produces a complete tour document with route map, elevation profile, verified transit connections, and current weather.
 
+To adapt this project to your own location, change the home station in the steering file.
+
 ## MCP Servers
 
 | Server                                   | Purpose                           | API                                                                              |
