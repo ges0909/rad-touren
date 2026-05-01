@@ -1,93 +1,75 @@
 # 🚲 Cycling Tours Berlin/Brandenburg
 
-Day trip cycling tours in the Berlin/Brandenburg region — planned and generated with [Kiro](https://kiro.dev) using MCP servers for routing, weather, and public transit.
+Day trip cycling tours in the Berlin/Brandenburg region — planned and generated with [Kiro](https://kiro.dev) using custom MCP servers for routing, weather, and public transit.
 
-All tours are **round trips** (start = finish) reachable by regional train from Blankenfelde-Mahlow. Tour descriptions are in German; this README provides the project overview in English.
+All tours are round trips reachable by regional train from Blankenfelde-Mahlow. Tour descriptions are in German.
 
-**→ [Tour catalog (German)](touren/README.md)**
-
-## Why a Custom BRouter MCP Server?
-
-This project initially used the [openroute-mcp](https://pypi.org/project/openroute-mcp/) server for routing via the [OpenRouteService API](https://openrouteservice.org/). While functional, it had recurring issues:
-
-- **Waypoint snapping failures** — the API returned 404 errors when waypoints couldn't be snapped to the road network, especially in rural areas and near water
-- **Poor geocoding in Brandenburg** — location search often returned results outside Germany
-- **API key requirement** — OpenRouteService requires a free API key, adding setup friction
-- **No cycling specialization** — generic routing that doesn't follow designated long-distance cycling routes
-
-To solve these problems, we built a custom MCP server (`brouter-mcp/`) that wraps the [BRouter](https://brouter.de) cycling routing engine and [Nominatim](https://nominatim.openstreetmap.org) geocoding API. BRouter is purpose-built for cycling: it follows long-distance cycle routes (EuroVelo, national routes), handles waypoint snapping more gracefully, includes elevation awareness, and requires no API key. The server also includes a `render_gpx_map` tool that generates static map images from GPX tracks using OpenStreetMap tiles — something the OpenRouteService MCP didn't offer.
-
-See [brouter-mcp/README.md](brouter-mcp/README.md) for the server documentation.
+**→ [Tour catalog](touren/README.md)**
 
 ## Project Structure
 
 ```
-├── touren/                  # Tour descriptions, GPX tracks, map images (German)
-│   ├── *.md                 # Individual tour descriptions
-│   ├── gpx/                 # GPX tracks (BRouter trekking profile)
-│   └── img/                 # Route map images (auto-generated PNGs)
-├── brouter-mcp/             # Custom BRouter MCP server (Python)
-│   ├── server.py            # Single-file FastMCP server
-│   ├── tests/               # Property-based, unit, and integration tests
-│   └── pyproject.toml       # Dependencies: fastmcp, httpx, staticmap, gpxpy
+├── touren/                  # Tour descriptions, GPX tracks, map images
+├── mcp/                     # Custom MCP servers (all Python/FastMCP)
+│   ├── brouter/             # Cycling routing, geocoding, map rendering
+│   ├── open-meteo/          # Weather forecast
+│   └── vbb/                 # Berlin/Brandenburg public transport
 └── .kiro/
     ├── settings/mcp.json    # MCP server configuration
-    ├── specs/               # Spec-driven development documents
     └── steering/            # AI steering rules for tour planning
 ```
 
+## Steering
+
+The [steering file](.kiro/steering/radtouren-planung.md) is what turns Kiro from a general-purpose assistant into a cycling tour planner. It encodes:
+
+- **Workflow** — 10-step sequence: geocode → route → GPX → map → weather → transit → events → markdown → index → summary
+- **Template** — consistent markdown structure, emoji conventions, POI categories
+- **Constraints** — geographic bounds, coordinate conventions, round-trip rules
+- **Transit rules** — home station, API verification before claiming connections
+- **Lifecycle** — which sections are stable (GPX, map) vs. date-dependent (weather, events, transit)
+
+A single prompt like _"Plan a 50 km tour through the Spreewald"_ produces a complete tour document with route map, elevation profile, verified transit connections, and current weather.
+
+## MCP Servers
+
+| Server                                   | Purpose                           | API                                                                              |
+| ---------------------------------------- | --------------------------------- | -------------------------------------------------------------------------------- |
+| [`brouter`](mcp/brouter/README.md)       | Routing, geocoding, map rendering | [BRouter](https://brouter.de) + [Nominatim](https://nominatim.openstreetmap.org) |
+| [`open-meteo`](mcp/open-meteo/README.md) | Weather forecast + geocoding      | [Open-Meteo](https://open-meteo.com/)                                            |
+| [`vbb`](mcp/vbb/README.md)               | Stop search, departures, journeys | [VBB REST](https://v6.vbb.transport.rest/)                                       |
+
+All three are custom Python servers (FastMCP + httpx). No API keys, no Node.js.
+
+## Why Custom Servers?
+
+The project started with third-party MCP servers: [openroute-mcp](https://pypi.org/project/openroute-mcp/) for routing, [open-meteo-mcp-server](https://www.npmjs.com/package/open-meteo-mcp-server) (npm) for weather, and [berlin-transport-mcp](https://github.com/harshil1712/berlin-transport-mcp) (remote SSE) for transit. I replaced all three for these reasons:
+
+- **Routing quality** — OpenRouteService had waypoint snapping failures in rural Brandenburg, poor geocoding, and no cycling route specialization. BRouter follows designated cycle routes (EuroVelo, national routes) and handles rural areas gracefully.
+- **Runtime consistency** — the weather and transit servers required Node.js/npm alongside Python, creating a mixed stack with two package managers.
+- **Reliability** — the transit server ran on a third-party hosting platform (`mcp-tools.app`). The weather server was an unmaintained community npm package. Both could break without notice.
+- **Control** — all underlying APIs are free and keyless, so wrapping them directly in Python removes unnecessary intermediaries.
+
 ## Setup
 
-### Prerequisites
-
-- [Kiro IDE](https://kiro.dev)
-- [uv](https://docs.astral.sh/uv/getting-started/installation/) (Python package manager)
-- Node.js / npm (for weather and transit MCP servers)
-
-### Install and configure
+Requires [Kiro](https://kiro.dev) and [uv](https://docs.astral.sh/uv/getting-started/installation/).
 
 ```bash
-cd brouter-mcp && uv sync
+cd mcp/brouter && uv sync && cd ../..
+cd mcp/open-meteo && uv sync && cd ../..
+cd mcp/vbb && uv sync && cd ../..
 ```
 
-The MCP servers are configured in `.kiro/settings/mcp.json`. Kiro connects to them automatically on startup.
+Servers are configured in `.kiro/settings/mcp.json` and connect automatically on startup.
 
-### MCP Servers
-
-| Server                                                                       | Purpose                                   | API Key |
-| ---------------------------------------------------------------------------- | ----------------------------------------- | ------- |
-| `brouter-mcp` (custom)                                                       | Cycling routing, geocoding, map rendering | ❌ None |
-| [open-meteo-mcp-server](https://www.npmjs.com/package/open-meteo-mcp-server) | Weather forecast                          | ❌ None |
-| [berlin-transport](https://berlin-transport.mcp-tools.app)                   | Public transit (S-Bahn, regional trains)  | ❌ None |
-
-No API keys required — all services are free and open.
-
-## Creating a New Tour
-
-Ask Kiro in natural language, e.g.:
-
-> _"Plan a 50 km round trip cycling tour from Potsdam for next Saturday"_
-
-Kiro will:
-
-1. Geocode waypoints and calculate the route via BRouter
-2. Generate a GPX track with elevation data
-3. Render a route map as PNG
-4. Check the weather forecast
-5. Look up public transit connections from Blankenfelde-Mahlow
-6. Find points of interest, swimming spots, and cafés along the route
-7. Write a markdown tour description with embedded map
-
-## Running Tests
+## Tests
 
 ```bash
-cd brouter-mcp && uv run pytest -v
+uv run --directory mcp/brouter pytest -v
+uv run --directory mcp/open-meteo pytest -v
+uv run --directory mcp/vbb pytest -v
 ```
-
-34 tests: property-based validation (Hypothesis), unit tests, integration tests (respx), and GPX rendering.
 
 ## License
 
-- Route data: © [BRouter](https://brouter.de) / [OpenStreetMap](https://www.openstreetmap.org/copyright) Contributors
-- Map tiles: © [OpenStreetMap](https://www.openstreetmap.org/copyright) Contributors
-- Geocoding: [Nominatim](https://nominatim.openstreetmap.org) (OpenStreetMap data)
+Route data: © [BRouter](https://brouter.de) / [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors. Map tiles: © OpenStreetMap contributors. Geocoding: [Nominatim](https://nominatim.openstreetmap.org).

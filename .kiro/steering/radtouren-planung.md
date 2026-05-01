@@ -59,21 +59,21 @@ Geocode place names via Nominatim. Default country: `de`. Returns `[longitude, l
 
 ### `mcp_brouter_render_gpx_map`
 
-Renders GPX as PNG with OSM tiles. Both `gpx_path` and `output_path` MUST be **absolute paths** (the MCP server runs from `brouter-mcp/`, so relative paths resolve incorrectly). Defaults: 800×600px.
+Renders GPX as PNG with OSM tiles. Both `gpx_path` and `output_path` MUST be **absolute paths** (the MCP server runs from `mcp/brouter/`, so relative paths resolve incorrectly). Defaults: 800×600px.
 
 ### POI Search
 
 BRouter and Nominatim have no POI search. Use `remote_web_search` to find attractions, swimming spots, cafés, and events along the route.
 
-### `mcp_weather_weather_forecast`
+### `mcp_open_meteo_weather_forecast`
 
 Query forecast for the tour date and start location coordinates.
 
-### Berlin Transport Tools
+### VBB Transport Tools
 
-- `mcp_berlin_transport_search_stops` — resolve stop names to stop IDs.
-- `mcp_berlin_transport_get_journeys` — plan connections between stops.
-- `mcp_berlin_transport_get_departures` — check departure times at a stop.
+- `mcp_vbb_search_stops` — resolve stop names to stop IDs.
+- `mcp_vbb_get_journeys` — plan connections between stops.
+- `mcp_vbb_get_departures` — check departure times at a stop.
 
 ## Points of Interest
 
@@ -102,8 +102,8 @@ Use these emoji prefixes consistently in all tour output:
 
 **NEVER** claim specific line names, direct connections, or travel times without querying the API first.
 
-1. Resolve stop IDs via `mcp_berlin_transport_search_stops`.
-2. Verify connections via `mcp_berlin_transport_get_journeys`.
+1. Resolve stop IDs via `mcp_vbb_search_stops`.
+2. Verify connections via `mcp_vbb_get_journeys`.
 3. Present only API-verified information: line names, transfer stations, number of changes, travel times.
 4. If the API is unavailable, state: `ℹ️ Verbindungen nicht per API verifiziert.`
 
@@ -254,7 +254,7 @@ Execute these steps in order when the user requests a new tour:
 3. **Save GPX** to `touren/gpx/{name}.gpx`. Extract the GPX XML directly from the route response.
 4. **Render map** via `mcp_brouter_render_gpx_map` with absolute paths. Save to `touren/img/{name}.png`.
 5. **Query weather** for the tour date and start location.
-6. **Verify transit** from/to S Blankenfelde (TF) Bhf via `mcp_berlin_transport_get_journeys`.
+6. **Verify transit** from/to S Blankenfelde (TF) Bhf via `mcp_vbb_get_journeys`.
 7. **Search events** along the route via `remote_web_search`.
 8. **Write tour markdown** to `touren/{name}.md` following the template above.
 9. **Update index** — append a row to `touren/README.md`.
@@ -264,10 +264,10 @@ Execute these steps in order when the user requests a new tour:
 
 Tours serve as **templates and inspiration**. GPX tracks and map images are stable, but date-dependent sections must be refreshed before riding:
 
-| Section              | Tool to refresh                     | Why                                   |
-| -------------------- | ----------------------------------- | ------------------------------------- |
-| Wetter               | `mcp_weather_weather_forecast`      | Forecasts change daily                |
-| Veranstaltungen      | `remote_web_search`                 | Events are seasonal                   |
-| Nahverkehrsanbindung | `mcp_berlin_transport_get_journeys` | Schedules change per timetable period |
+| Section              | Tool to refresh                   | Why                                   |
+| -------------------- | --------------------------------- | ------------------------------------- |
+| Wetter               | `mcp_open_meteo_weather_forecast` | Forecasts change daily                |
+| Veranstaltungen      | `remote_web_search`               | Events are seasonal                   |
+| Nahverkehrsanbindung | `mcp_vbb_get_journeys`            | Schedules change per timetable period |
 
 When refreshing, update the `ℹ️ Zuletzt geprüft: {date}` timestamp. If a section cannot be verified, mark it: `ℹ️ Nicht verifiziert.`

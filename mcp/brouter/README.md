@@ -107,7 +107,7 @@ Die Testsuite umfasst:
 ## Projektstruktur
 
 ```
-brouter-mcp/
+mcp/brouter/
 ├── server.py          # MCP-Server (Single-File)
 ├── pyproject.toml     # Paketdefinition und Abhängigkeiten
 └── tests/
