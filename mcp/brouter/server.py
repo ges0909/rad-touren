@@ -514,6 +514,85 @@ POI_CATEGORY_ICON: dict[str, str] = {
 
 _DEFAULT_ICON = "sight.png"
 
+# Legend entries: (icon_file, label)
+_LEGEND_ENTRIES = [
+    ("sight.png", "Sehenswürdigkeiten"),
+    ("art.png", "Kunst"),
+    ("food.png", "Einkehr"),
+    ("swim.png", "Badestellen"),
+]
+
+
+def _draw_legend(image: "Image.Image") -> "Image.Image":
+    """Draw a small legend box in the bottom-left corner of the map image."""
+    from PIL import Image, ImageDraw, ImageFont
+
+    img = image.convert("RGBA")
+    overlay = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    draw = ImageDraw.Draw(overlay)
+
+    # Try to load a decent font, fall back to default
+    font = None
+    for font_path in [
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+        "/usr/share/fonts/truetype/ubuntu/Ubuntu[wdth,wght].ttf",
+    ]:
+        if os.path.isfile(font_path):
+            try:
+                font = ImageFont.truetype(font_path, 12)
+                break
+            except Exception:
+                pass
+    if font is None:
+        font = ImageFont.load_default()
+
+    icon_size = 16
+    padding = 8
+    line_height = icon_size + 4
+    text_offset_x = icon_size + 6
+
+    # Measure legend dimensions
+    max_text_width = 0
+    for _, label in _LEGEND_ENTRIES:
+        bbox = draw.textbbox((0, 0), label, font=font)
+        max_text_width = max(max_text_width, bbox[2] - bbox[0])
+
+    legend_w = padding + text_offset_x + max_text_width + padding
+    legend_h = padding + len(_LEGEND_ENTRIES) * line_height + padding - 4
+
+    # Position: bottom-left
+    x0 = 10
+    y0 = img.height - legend_h - 10
+
+    # Semi-transparent white background with rounded feel
+    draw.rectangle(
+        [x0, y0, x0 + legend_w, y0 + legend_h],
+        fill=(255, 255, 255, 210),
+        outline=(180, 180, 180, 255),
+        width=1,
+    )
+
+    # Draw each legend entry
+    for i, (icon_file, label) in enumerate(_LEGEND_ENTRIES):
+        ey = y0 + padding + i * line_height
+        icon_path = os.path.join(_ICONS_DIR, icon_file)
+        if os.path.isfile(icon_path):
+            try:
+                icon = Image.open(icon_path).convert("RGBA")
+                icon = icon.resize((icon_size, icon_size), Image.LANCZOS)
+                overlay.paste(icon, (x0 + padding, ey), icon)
+            except Exception:
+                pass
+        draw.text(
+            (x0 + padding + text_offset_x, ey + 1),
+            label,
+            fill=(50, 50, 50, 255),
+            font=font,
+        )
+
+    result = Image.alpha_composite(img, overlay)
+    return result.convert("RGB")
+
 
 @mcp.tool()
 async def render_gpx_map(
@@ -593,6 +672,10 @@ async def render_gpx_map(
         image = m.render()
     except Exception as exc:
         return f"Error rendering map: {exc}"
+
+    # Draw legend overlay if POIs were added
+    if poi_count > 0:
+        image = _draw_legend(image)
 
     # Ensure output directory exists
     output_dir = os.path.dirname(output_path)
