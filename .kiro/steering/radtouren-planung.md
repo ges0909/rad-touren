@@ -1,5 +1,5 @@
 ---
-inclusion: always
+inclusion: manual
 ---
 
 # Radtouren-Planung — Berlin/Brandenburg

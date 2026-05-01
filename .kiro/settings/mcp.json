@@ -1,5 +1,11 @@
 {
   "mcpServers": {
+    "brouter": {
+      "command": "uv",
+      "args": ["run", "--directory", "brouter-mcp", "python", "server.py"],
+      "disabled": false,
+      "autoApprove": ["calculate_route", "search_location"]
+    },
     "weather": {
       "command": "npx",
       "args": ["-y", "open-meteo-mcp-server"],
