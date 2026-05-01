@@ -2,8 +2,8 @@
 
 |                |                                                        |
 | -------------- | ------------------------------------------------------ |
-| **Distanz**    | ~73 km                                                 |
-| **Fahrzeit**   | ca. 4–5 Std. (ohne Pausen)                             |
+| **Distanz**    | ~136 km (135,8 km lt. BRouter)                         |
+| **Fahrzeit**   | ca. 9 Std. (ohne Pausen)                               |
 | **Routentyp**  | Rundtour, flach                                        |
 | **Start/Ziel** | S Königs Wusterhausen Bhf                              |
 | **GPX-Datei**  | [`gpx/dahme-seen-runde.gpx`](gpx/dahme-seen-runde.gpx) |

@@ -2,8 +2,8 @@
 
 |                |                                                                                |
 | -------------- | ------------------------------------------------------------------------------ |
-| **Distanz**    | ~33 km                                                                         |
-| **Fahrzeit**   | ca. 2–2,5 Std. (ohne Pausen)                                                   |
+| **Distanz**    | ~41 km (41,1 km lt. BRouter)                                                   |
+| **Fahrzeit**   | ca. 2,5–3 Std. (ohne Pausen)                                                   |
 | **Routentyp**  | Rundtour, überwiegend flach                                                    |
 | **Start/Ziel** | S Potsdam Hauptbahnhof                                                         |
 | **GPX-Datei**  | [`gpx/potsdam-baumbluetefest-runde.gpx`](gpx/potsdam-baumbluetefest-runde.gpx) |

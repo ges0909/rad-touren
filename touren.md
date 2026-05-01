@@ -10,8 +10,8 @@ Radtouren-Sammlung für Tagesausflüge im Raum Berlin/Brandenburg. Alle Touren s
 
 |                      |                                |
 | -------------------- | ------------------------------ |
-| **Distanz**          | ~33 km                         |
-| **Fahrzeit**         | 2–2,5 Std.                     |
+| **Distanz**          | ~41 km (41,1 km lt. BRouter)   |
+| **Fahrzeit**         | 2,5–3 Std.                     |
 | **Start/Ziel**       | Potsdam Hbf                    |
 | **Region**           | Potsdam / Werder (Havel)       |
 | **Badeseen**         | 🏊 Schwielowsee, Templiner See |
@@ -30,12 +30,12 @@ Durch den **Park Sanssouci** nach **Werder (Havel)** zum Baumblütenfest, zurüc
 
 |                      |                                                           |
 | -------------------- | --------------------------------------------------------- |
-| **Distanz**          | ~73 km                                                    |
-| **Fahrzeit**         | 4–5 Std.                                                  |
+| **Distanz**          | ~136 km (135,8 km lt. BRouter)                            |
+| **Fahrzeit**         | ca. 9 Std.                                                |
 | **Start/Ziel**       | Königs Wusterhausen Bhf                                   |
 | **Region**           | Dahme-Seenland                                            |
 | **Badeseen**         | 🏊 Zeuthener See, Storkower See, Teupitzsee, Bindower See |
-| **Schwierigkeit**    | ⭐⭐ Mittel (Distanz)                                     |
+| **Schwierigkeit**    | ⭐⭐⭐ Schwer (Distanz)                                   |
 | **Beste Jahreszeit** | Mai–Sep                                                   |
 
 Große Seenrunde auf dem **Dahme-Radweg** über **Zeuthen**, **Storkow**, **Teupitz** und **Bindow**. Vier Badeseen, mittelalterliche Burgen und viel Waldschatten.
@@ -50,8 +50,8 @@ Große Seenrunde auf dem **Dahme-Radweg** über **Zeuthen**, **Storkow**, **Teup
 
 |                      |                                             |
 | -------------------- | ------------------------------------------- |
-| **Distanz**          | ~26 km                                      |
-| **Fahrzeit**         | 1,5–2 Std.                                  |
+| **Distanz**          | ~27 km (27,1 km lt. BRouter)                |
+| **Fahrzeit**         | ca. 1,5–2 Std.                              |
 | **Start/Ziel**       | Erkner Bhf                                  |
 | **Region**           | Müggelsee / Köpenick                        |
 | **Badeseen**         | 🏊 Strandbad Müggelsee, Strandbad Rahnsdorf |
@@ -66,9 +66,9 @@ Kompakte Runde um den **Müggelsee** — Berlins größten Binnensee. Über **Ra
 
 ## Nach Distanz
 
-- **Kurz (< 30 km):** [Erkner–Müggelsee](erkner-mueggelsee-runde.md) (~26 km)
-- **Mittel (30–50 km):** [Potsdam–Baumblütenfest](potsdam-baumbluetefest-runde.md) (~33 km)
-- **Lang (> 50 km):** [Dahme-Seen-Runde](dahme-seen-runde.md) (~73 km)
+- **Kurz (< 30 km):** [Erkner–Müggelsee](erkner-mueggelsee-runde.md) (~27 km)
+- **Mittel (30–50 km):** [Potsdam–Baumblütenfest](potsdam-baumbluetefest-runde.md) (~41 km)
+- **Lang (> 50 km):** [Dahme-Seen-Runde](dahme-seen-runde.md) (~136 km)
 
 ## Nach Region
 

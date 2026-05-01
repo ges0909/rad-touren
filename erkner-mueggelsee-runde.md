@@ -2,8 +2,8 @@
 
 |                |                                                                      |
 | -------------- | -------------------------------------------------------------------- |
-| **Distanz**    | ~26 km                                                               |
-| **Fahrzeit**   | ca. 1,5–2 Std.                                                       |
+| **Distanz**    | ~27 km (27,1 km lt. BRouter)                                         |
+| **Fahrzeit**   | ca. 1,5–2 Std. (ohne Pausen)                                         |
 | **Routentyp**  | Rundtour, flach                                                      |
 | **Start/Ziel** | S Erkner Bhf                                                         |
 | **GPX-Datei**  | [`gpx/erkner-mueggelsee-runde.gpx`](gpx/erkner-mueggelsee-runde.gpx) |
