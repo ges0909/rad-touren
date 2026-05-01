@@ -44,6 +44,26 @@ Große Seenrunde auf dem **Dahme-Radweg** über **Zeuthen**, **Storkow**, **Teup
 
 ---
 
+## 🌿 Spreewald-Runde
+
+[![Spreewald-Runde Karte](img/spreewald-runde.png)](spreewald-runde.md)
+
+|                      |                                              |
+| -------------------- | -------------------------------------------- |
+| **Distanz**          | ~55 km (55,1 km lt. BRouter)                 |
+| **Fahrzeit**         | ca. 3,5–4 Std.                               |
+| **Start/Ziel**       | Lübben (Spreewald) Bhf                       |
+| **Region**           | Spreewald                                    |
+| **Badeseen**         | 🏊 Spreebad Lübben, Spreewelten Bad Lübbenau |
+| **Schwierigkeit**    | ⭐⭐ Mittel (Distanz)                        |
+| **Beste Jahreszeit** | Mai–Sep                                      |
+
+Spreewaldtour über den **Gurkenradweg** durch **Lübbenau**, **Lehde** und **Burg**. Sorbische Kultur, Fließlandschaft und Kahnfahrthäfen.
+
+→ [Zur Tourbeschreibung](spreewald-runde.md)
+
+---
+
 ## 🌲 Erkner–Müggelsee-Runde
 
 [![Erkner–Müggelsee-Runde Karte](img/erkner-mueggelsee-runde.png)](erkner-mueggelsee-runde.md)
@@ -68,31 +88,33 @@ Kompakte Runde um den **Müggelsee** — Berlins größten Binnensee. Über **Ra
 
 - **Kurz (< 30 km):** [Erkner–Müggelsee](erkner-mueggelsee-runde.md) (~27 km)
 - **Mittel (30–50 km):** [Potsdam–Baumblütenfest](potsdam-baumbluetefest-runde.md) (~41 km)
-- **Lang (> 50 km):** [Dahme-Seen-Runde](dahme-seen-runde.md) (~136 km)
+- **Lang (> 50 km):** [Spreewald-Runde](spreewald-runde.md) (~55 km), [Dahme-Seen-Runde](dahme-seen-runde.md) (~136 km)
 
 ## Nach Region
 
 - **Potsdam / Havel:** [Potsdam–Baumblütenfest](potsdam-baumbluetefest-runde.md)
 - **Dahme-Seenland (südöstlich):** [Dahme-Seen-Runde](dahme-seen-runde.md)
+- **Spreewald (südöstlich):** [Spreewald-Runde](spreewald-runde.md)
 - **Müggelsee / Köpenick (östlich):** [Erkner–Müggelsee](erkner-mueggelsee-runde.md)
 
 ## Saisonale Empfehlungen
 
-| Jahreszeit            | Empfehlung                                                | Warum                                                             |
-| --------------------- | --------------------------------------------------------- | ----------------------------------------------------------------- |
-| 🌸 Frühling (Apr–Mai) | [Potsdam–Baumblütenfest](potsdam-baumbluetefest-runde.md) | Baumblütenfest in Werder, Obstbaumblüte, Park Sanssouci           |
-| ☀️ Sommer (Jun–Aug)   | [Dahme-Seen-Runde](dahme-seen-runde.md)                   | 4 Badeseen entlang der Route, Waldschatten                        |
-| 🍂 Herbst (Sep–Okt)   | [Erkner–Müggelsee](erkner-mueggelsee-runde.md)            | Laubfärbung am Müggelsee, kurze Tour für kürzere Tage             |
-| ❄️ Winter (Nov–Mär)   | [Erkner–Müggelsee](erkner-mueggelsee-runde.md)            | Kurz genug für kalte Tage, Brauhaus Friedrichshagen zum Aufwärmen |
+| Jahreszeit            | Empfehlung                                                                     | Warum                                                             |
+| --------------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------- |
+| 🌸 Frühling (Apr–Mai) | [Potsdam–Baumblütenfest](potsdam-baumbluetefest-runde.md)                      | Baumblütenfest in Werder, Obstbaumblüte, Park Sanssouci           |
+| ☀️ Sommer (Jun–Aug)   | [Dahme-Seen-Runde](dahme-seen-runde.md), [Spreewald-Runde](spreewald-runde.md) | 4 Badeseen bzw. Fließlandschaft, Waldschatten                     |
+| 🍂 Herbst (Sep–Okt)   | [Erkner–Müggelsee](erkner-mueggelsee-runde.md)                                 | Laubfärbung am Müggelsee, kurze Tour für kürzere Tage             |
+| ❄️ Winter (Nov–Mär)   | [Erkner–Müggelsee](erkner-mueggelsee-runde.md)                                 | Kurz genug für kalte Tage, Brauhaus Friedrichshagen zum Aufwärmen |
 
 ## Anreise & Rückfahrt
 
 Alle Touren sind per Nahverkehr ab **S Blankenfelde-Mahlow** erreichbar:
 
-| Tour                   | Hinfahrt           | Umstiege | Fahrzeit | Rückfahrt   | Umstiege | Fahrzeit |
-| ---------------------- | ------------------ | -------- | -------- | ----------- | -------- | -------- |
-| Potsdam–Baumblütenfest | RB24 → RB22 → RB33 | 2        | ~70 Min. | RE1 → RE8   | 1        | ~51 Min. |
-| Dahme-Seen-Runde       | RB24 → RE20        | 1        | ~33 Min. | RE20 → RB24 | 1        | ~35 Min. |
-| Erkner–Müggelsee       | RB24 → S3          | 1        | ~61 Min. | S3 → RB24   | 1        | ~66 Min. |
+| Tour                   | Hinfahrt           | Umstiege | Fahrzeit    | Rückfahrt   | Umstiege | Fahrzeit    |
+| ---------------------- | ------------------ | -------- | ----------- | ----------- | -------- | ----------- |
+| Potsdam–Baumblütenfest | RB24 → RB22 → RB33 | 2        | ~70 Min.    | RE1 → RE8   | 1        | ~51 Min.    |
+| Dahme-Seen-Runde       | RB24 → RE20        | 1        | ~33 Min.    | RE20 → RB24 | 1        | ~35 Min.    |
+| Spreewald-Runde        | RB24 → RE2         | 1        | ~60–75 Min. | RE2 → RB24  | 1        | ~60–75 Min. |
+| Erkner–Müggelsee       | RB24 → S3          | 1        | ~61 Min.    | S3 → RB24   | 1        | ~66 Min.    |
 
 > 🚲 Fahrradmitnahme in S-Bahn und Regionalbahn ist im VBB möglich (Fahrradkarte erforderlich).
