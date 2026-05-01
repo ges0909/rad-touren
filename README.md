@@ -60,34 +60,26 @@ cd mcp/open-meteo && uv sync && cd ../..
 cd mcp/vbb && uv sync && cd ../..
 ```
 
-Servers are configured in `.kiro/settings/mcp.json` and connect automatically on startup.
-
-<details>
-<summary>mcp.json</summary>
+Servers are configured in `.kiro/settings/mcp.json` and connect automatically on startup:
 
 ```json
 {
   "mcpServers": {
     "brouter": {
       "command": "uv",
-      "args": ["run", "--directory", "mcp/brouter", "python", "server.py"],
-      "autoApprove": []
+      "args": ["run", "--directory", "mcp/brouter", "python", "server.py"]
     },
     "open-meteo": {
       "command": "uv",
-      "args": ["run", "--directory", "mcp/open-meteo", "python", "server.py"],
-      "autoApprove": []
+      "args": ["run", "--directory", "mcp/open-meteo", "python", "server.py"]
     },
     "vbb": {
       "command": "uv",
-      "args": ["run", "--directory", "mcp/vbb", "python", "server.py"],
-      "autoApprove": []
+      "args": ["run", "--directory", "mcp/vbb", "python", "server.py"]
     }
   }
 }
 ```
-
-</details>
 
 ## Tests
 
