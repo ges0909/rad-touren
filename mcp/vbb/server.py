@@ -55,6 +55,34 @@ def _extract_disruptions(remarks: list[dict]) -> list[str]:
     return disruptions
 
 
+def _format_tickets(tickets: list[dict]) -> list[str]:
+    """Format ticket/fare information from VBB API into readable lines.
+
+    Focuses on single tickets and day passes (most relevant for day trips).
+    Prices are returned in cents by the API.
+    """
+    lines = []
+    for ticket_group in tickets:
+        name = ticket_group.get("name", "")
+        # Only show single tickets and day passes, skip monthly/annual
+        name_lower = name.lower()
+        if any(skip in name_lower for skip in ["monatskarte", "abonnement", "zeitkarte"]):
+            continue
+
+        sub_tickets = ticket_group.get("tickets", [])
+        for sub in sub_tickets:
+            sub_name = sub.get("name", "")
+            price = sub.get("price", {})
+            amount = price.get("amount")
+            currency = price.get("currency", "EUR")
+            if amount is None:
+                continue
+            price_str = f"{amount / 100:.2f} €" if currency == "EUR" else f"{amount / 100:.2f} {currency}"
+            lines.append(f"- {name} ({sub_name}): {price_str}")
+
+    return lines
+
+
 # ---------------------------------------------------------------------------
 # Tools
 # ---------------------------------------------------------------------------
@@ -205,6 +233,7 @@ async def get_journeys(
         "express": "true",
         "regional": "true",
         "bicycle": "true",
+        "tickets": "true",
     }
 
     if departure:
@@ -275,6 +304,15 @@ async def get_journeys(
             # Show disruption remarks for this leg
             for warning in _extract_disruptions(remarks):
                 lines.append(f"    ⚠️ {warning}")
+
+        # Ticket/fare information
+        tickets = journey.get("tickets", [])
+        if tickets:
+            fare_lines = _format_tickets(tickets)
+            if fare_lines:
+                lines.append("  **Tarif:**")
+                for fl in fare_lines:
+                    lines.append(f"  {fl}")
 
         lines.append("")
 

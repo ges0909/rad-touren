@@ -6,42 +6,43 @@ inclusion: always
 
 Plan, generate, and present cycling day-trip tours in the Berlin/Brandenburg region.
 
-## Language
+## Language Rules
 
-- All user-facing output (tour markdown, descriptions, summaries, chat responses about tours): **German**.
+- User-facing output (tour markdown, descriptions, summaries, chat responses): **German**.
 - Tool calls, code identifiers, file names, GPX `track_name` values: **English/kebab-case**.
 
 ## Geographic Scope
 
 - Bounding box: lat 51.3–53.6, lon 11.3–14.8.
 - All tours must be reachable by public transit from **S Blankenfelde (TF) Bhf**.
-- After every geocode call, verify coordinates fall within bounds. If outside, reject and re-geocode with a more specific query.
+- After every geocode call, verify coordinates fall within bounds. Reject and re-geocode with a more specific query if outside.
 
-## Coordinate Convention
+## Critical Conventions
 
-**CRITICAL**: All MCP tool calls use **[longitude, latitude]** — longitude first. This applies to `mcp_brouter_calculate_route` waypoints and all other coordinate parameters. Swapping the order produces routes in the wrong location.
+- **Coordinate order**: All MCP tool calls use **[longitude, latitude]** — longitude first. Swapping produces routes in the wrong location.
+- **Absolute paths**: `mcp_brouter_render_gpx_map`, `mcp_brouter_render_elevation_profile`, and `mcp_overpass_search_pois_along_route` require **absolute file paths**. The MCP server runs from `mcp/brouter/`, so relative paths resolve incorrectly.
+- **Overpass rate limit**: Query POI presets **sequentially** (one at a time). Do not parallelize Overpass requests.
 
 ## Routing Rules
 
 Use `mcp_brouter_calculate_route` with `profile=trekking` (default).
 
-- Shape routes with **3–6 waypoints total** (including start/end).
-- **Round trips (Rundtouren)**: first and last waypoint MUST have identical coordinates.
-- Start/end points: choose locations near train stations with S-Bahn/Regionalbahn access.
-- Waypoints must form a logical loop — no backtracking or unnecessary detours.
-- **Waypoint placement**: Place waypoints on **through-roads or intersections**, never on dead-end streets. BRouter routes to the nearest road segment — if that segment is a cul-de-sac, the route will include a spur (out-and-back). Verify waypoint coordinates against the road network.
+- **3–6 waypoints** total (including start/end).
+- **Round trips**: First and last waypoint MUST have identical coordinates.
+- Start/end near train stations with S-Bahn/Regionalbahn access.
+- Waypoints form a logical loop — no backtracking.
+- Place waypoints on **through-roads or intersections**, never dead-end streets. BRouter snaps to the nearest road segment; a cul-de-sac creates a spur.
 
 ### GPX Post-Processing: Spur Removal
 
-After saving a GPX file, check for **spurs** (segments where the route doubles back on itself). Spurs occur when BRouter routes to a dead-end road and returns the same way.
+After saving a GPX file, check for spurs (out-and-back segments from dead-end snapping).
 
-Detection: A spur exists when `point[i] ≈ point[j]` (distance < 15m) with `j > i + 4` — the route went out and came back to nearly the same spot.
+**Detection**: `point[i] ≈ point[j]` (distance < 15 m) with `j > i + 4`.
+**Fix**: Remove points `i+1` through `j-1`, re-save GPX, update distance in tour markdown.
 
-If spurs are found, remove the duplicated segment (points `i+1` through `j-1`) from the GPX track and re-save. Update distance in the tour markdown accordingly.
+### Regional Cycling Routes Reference
 
-### Well-Known Regional Cycling Routes
-
-Reference these when selecting waypoints and writing segment descriptions:
+Use these when selecting waypoints and writing segment descriptions:
 
 | Route             | Area                                  |
 | ----------------- | ------------------------------------- |
@@ -56,56 +57,26 @@ Reference these when selecting waypoints and writing segment descriptions:
 
 ## MCP Tool Reference
 
-### `mcp_brouter_search_location`
+### Routing & Maps (`mcp_brouter_*`)
 
-Geocode place names via Nominatim. Default `country_code=de`. Returns coordinates as `[longitude, latitude]`. Rate-limited to 1 req/s (handled by server).
+- **`search_location`** — Geocode via Nominatim. Default `country_code=de`. Returns `[lon, lat]`. Rate-limited to 1 req/s (server-side).
+- **`calculate_route`** — Required: `waypoints` (list of `[lon, lat]`). Optional: `profile`, `format` (`gpx`|`geojson`), `track_name`, `nogos`, `alternativeidx`. Returns distance, elevation, duration, GPX/GeoJSON. GPX includes elevation in `<trkpt>`.
+- **`render_gpx_map`** — Renders GPX as PNG (800×600 default). Accepts optional `pois` list (dicts with `lat`, `lon`, `category`, `name`) for emoji markers. Legend auto-drawn when POIs present. **Absolute paths required.**
+- **`render_elevation_profile`** — Renders elevation chart as PNG. Reports min/max elevation, total ascent/descent. **Absolute paths required.**
 
-### `mcp_brouter_calculate_route`
+### POIs (`mcp_overpass_*`)
 
-- **Required**: `waypoints` — list of `[lon, lat]` pairs (minimum 2).
-- **Optional**: `profile` (default `trekking`), `format` (`gpx`|`geojson`), `track_name`, `nogos`, `alternativeidx`.
-- **Returns**: distance, elevation gain/loss, estimated duration, and GPX/GeoJSON data. GPX contains `<trk>/<trkseg>/<trkpt>` with elevation — no post-processing needed.
+- **`search_pois_along_route`** — Finds POIs along GPX route. **Absolute GPX path required.** Presets: `einkehr`, `badestellen`, `sehenswuerdigkeiten`, `kunst`, `radservice`, `rast`. Query sequentially.
 
-### `mcp_brouter_render_gpx_map`
+### Weather (`mcp_open_meteo_*`)
 
-Renders a GPX track as a PNG map with OSM tiles. Defaults: 800×600 px.
+- **`weather_forecast`** — Forecast for coordinates. Use start-location coords and tour date.
 
-**CRITICAL**: Both `gpx_path` and `output_path` MUST be **absolute paths**. The MCP server runs from `mcp/brouter/`, so relative paths resolve to the wrong location.
+### Transit (`mcp_vbb_*`)
 
-**POI markers**: Pass an optional `pois` list to render emoji markers on the map. Each POI is a dict with `lat`, `lon`, `category` (optional), and `name` (optional). Categories map to Twemoji icons:
-
-| Icon | Categories                                         |
-| ---- | -------------------------------------------------- |
-| 🏛️   | museum, castle, memorial, ruins, church, viewpoint |
-| 🎨   | artwork, gallery                                   |
-| 🍺   | beer_garden, cafe, restaurant                      |
-| 🏊   | swimming                                           |
-
-A legend is automatically drawn in the bottom-left corner when POIs are present. Category names match the Overpass server output — POI results can be passed through directly.
-
-### `mcp_brouter_render_elevation_profile`
-
-Renders an elevation profile chart as PNG from a GPX track. Reports min/max elevation, total ascent/descent. Same **absolute path requirement** as `render_gpx_map`.
-
-### `mcp_overpass_search_pois_along_route`
-
-Finds POIs along a GPX route via OpenStreetMap/Overpass API. Requires an **absolute** GPX path.
-
-Available presets: `einkehr`, `badestellen`, `sehenswuerdigkeiten`, `kunst`, `radservice`, `rast`.
-
-**Rate limit**: The Overpass API enforces rate limits. Query presets **sequentially** (one at a time), not in parallel. Wait for each response before sending the next request.
-
-Supplement with `remote_web_search` for events, opening hours, and details not in OSM.
-
-### `mcp_open_meteo_weather_forecast`
-
-Query weather forecast for the tour date using start-location coordinates.
-
-### VBB Transport Tools
-
-- `mcp_vbb_search_stops` — resolve stop names to stop IDs.
-- `mcp_vbb_get_journeys` — plan connections between two stops.
-- `mcp_vbb_get_departures` — list upcoming departures at a stop.
+- **`search_stops`** — Resolve stop names to IDs.
+- **`get_journeys`** — Plan connections between stops. Returns fare info for Regionaltarif.
+- **`get_departures`** — Upcoming departures at a stop.
 
 ## Points of Interest
 
@@ -118,60 +89,63 @@ Use these emoji prefixes consistently in all tour output:
 | 🍺    | Einkehrmöglichkeiten | Cafés, beer gardens, restaurants. **Prioritize cafés with selbstgebackener Kuchen.**                                        |
 | 🏊    | Badestellen          | Swimming spots at lakes along the route                                                                                     |
 
+POI marker categories for `render_gpx_map`:
+
+| Icon | Categories                                         |
+| ---- | -------------------------------------------------- |
+| 🏛️   | museum, castle, memorial, ruins, church, viewpoint |
+| 🎨   | artwork, gallery                                   |
+| 🍺   | beer_garden, cafe, restaurant                      |
+| 🏊   | swimming                                           |
+
+Category names match Overpass output — pass POI results through directly.
+
 ## Weather Rules
 
 - Every tour MUST include: temperature range, precipitation probability, wind speed/direction.
-- Warn explicitly if: rain probability >50 %, storms forecast, temperature >35 °C or <0 °C.
-- If weather is unfavorable, suggest alternative dates or time windows.
+- Warn if: rain probability > 50%, storms forecast, temperature > 35 °C or < 0 °C.
+- If unfavorable, suggest alternative dates or time windows.
 
 ## Public Transit Rules
 
-- **Home station**: S Blankenfelde (TF) Bhf (lines: S2, RB24, RE5, RE7, RE8). Always use as origin and destination for journey planning.
-- Connections with 1–2 transfers are acceptable.
-- Every tour MUST include the bike-transport note: `> 🚲 Fahrradmitnahme in S-Bahn und Regionalbahn ist im VBB möglich (Fahrradkarte erforderlich).`
+- **Home station**: S Blankenfelde (TF) Bhf (lines: S2, RB24, RE5, RE7, RE8).
+- **Default group**: 2 persons + 2 bicycles. Calculate fares and recommend cheapest option.
+- 1–2 transfers acceptable.
+- Every tour MUST include: `> 🚲 Fahrradmitnahme in S-Bahn und Regionalbahn ist im VBB möglich (Fahrradkarte erforderlich).`
 
 ### Transit Verification
 
-**NEVER** claim specific line names, direct connections, or travel times without querying the VBB API first.
+**Never** claim line names, connections, or travel times without querying VBB API first.
 
-1. Resolve stop IDs via `mcp_vbb_search_stops`.
-2. Query connections via `mcp_vbb_get_journeys`.
-3. Present only API-verified information: line names, transfer stations, number of changes, travel times.
-4. If the API is unavailable or returns errors, state: `ℹ️ Verbindungen nicht per API verifiziert.`
-
-### Disruption & Replacement Service Check
-
-Before finalizing transit connections, check for active disruptions — not only on the home station line (S2), but on **all lines and segments** used for the journey (outbound, return, and any transfers in between).
-
-1. Search `remote_web_search` for `S-Bahn Berlin Störungen Schienenersatzverkehr` or the specific lines used in the connection.
-2. Fetch `https://sbahn.berlin/en/plan-a-journey/timetable-changes/` and check for replacement services affecting any segment of the planned journey.
-3. If SEV (Schienenersatzverkehr) is active on any part of the route:
-   - Note the affected segment and duration in the Nahverkehrsanbindung section.
-   - Add a warning: `> ⚠️ **Schienenersatzverkehr:** {Linie} zwischen {A} und {B} bis {Datum}. Ersatzbusse fahren — zusätzliche Reisezeit einplanen.`
-   - **Fahrradmitnahme**: SEV-Busse erlauben in der Regel **keine Fahrradmitnahme**. If SEV affects the planned connection, explicitly warn: `> 🚲⚠️ In Ersatzbussen ist die Fahrradmitnahme in der Regel nicht möglich. Alternative Verbindung ohne SEV-Abschnitt prüfen.`
-   - Suggest an alternative connection that avoids the SEV segment (e.g., Regionalbahn instead of S-Bahn, or a different transfer point).
-   - If no bike-friendly alternative exists and the disruption significantly impacts the tour, suggest an alternative date.
+1. Resolve stop IDs via `search_stops`.
+2. Query connections via `get_journeys`.
+3. Present only API-verified information.
+4. If API unavailable: `ℹ️ Verbindungen nicht per API verifiziert.`
 
 ### Disruption Check (Schienenersatzverkehr)
 
-Before finalizing transit information, check for construction work and rail replacement services affecting the home station or the tour's start/end station:
+Before finalizing transit, check for disruptions on **all lines and segments** used (outbound, return, transfers):
 
-1. Search `remote_web_search` for `"S-Bahn Berlin Bauarbeiten Störungen {tour date month/year}"`.
-2. Fetch the S-Bahn disruption page: `https://sbahn.berlin/en/plan-a-journey/timetable-changes/` and check for entries affecting relevant lines (S2, RB24, RE5, RE7, RE8).
-3. If SEV or disruptions are found on the planned travel date, add a warning box in the Nahverkehrsanbindung section:
+1. `remote_web_search` for `S-Bahn Berlin Störungen Schienenersatzverkehr` and specific lines used.
+2. `remote_web_search` for `"S-Bahn Berlin Bauarbeiten Störungen {tour date month/year}"`.
+3. Fetch `https://sbahn.berlin/en/plan-a-journey/timetable-changes/` for replacement services on relevant lines (S2, RB24, RE5, RE7, RE8, and any others used).
 
-```markdown
-> ⚠️ **Schienenersatzverkehr:** {Linie} zwischen {Von} und {Bis} bis {Datum}. Ersatzbusse fahren — zusätzliche Reisezeit einplanen.
-```
+**If SEV active on any segment:**
 
-4. If no disruptions are found, no warning is needed.
+- Note affected segment and duration in Nahverkehrsanbindung.
+- Add: `> ⚠️ **Schienenersatzverkehr:** {Linie} zwischen {A} und {B} bis {Datum}. Ersatzbusse fahren — zusätzliche Reisezeit einplanen.`
+- Add: `> 🚲⚠️ In Ersatzbussen ist die Fahrradmitnahme in der Regel nicht möglich. Alternative Verbindung ohne SEV-Abschnitt prüfen.`
+- Suggest alternative connection avoiding SEV (e.g., Regionalbahn instead of S-Bahn).
+- If no bike-friendly alternative exists, suggest alternative date.
+
+**If no disruptions found**: No warning needed.
 
 ## Events
 
-- Search for current events along the route using `remote_web_search`.
-- Preferred sources: visitberlin.de, potsdam.de, reiseland-brandenburg.de, local event calendars.
+- Search via `remote_web_search` for events along the route.
+- Preferred sources: visitberlin.de, potsdam.de, reiseland-brandenburg.de, local calendars.
 - Mention seasonal highlights (e.g., Baumblütenfest in Werder, Chorin Musiksommer).
-- If no events found, include the section with a note that none were found.
+- If none found, include section with a note.
 
 ## File Structure
 
@@ -179,19 +153,19 @@ All tour files live under `routes/`:
 
 ```
 routes/
-├── README.md                    # Tour catalog index
-├── {tour-name}.md               # Tour description
-├── gpx/{tour-name}.gpx          # GPX track
-├── img/{tour-name}.png          # Route map image
+├── README.md                     # Tour catalog index
+├── {tour-name}.md                # Tour description
+├── gpx/{tour-name}.gpx           # GPX track
+├── img/{tour-name}.png           # Route map image
 └── img/{tour-name}-elevation.png # Elevation profile image
 ```
 
-- File naming: descriptive kebab-case, no `-runde` suffix. Example: `spreewald.md`, `spreewald.gpx`.
+- Naming: descriptive kebab-case, no `-runde` suffix. Example: `spreewald.md`, `spreewald.gpx`.
 - Paths inside tour markdown are **relative**: `gpx/spreewald.gpx`, `img/spreewald.png`.
 
 ## Tour Markdown Template
 
-Every tour file MUST contain these sections in this exact order, separated by `---` horizontal rules.
+Every tour file MUST start with an empty YAML front matter (`---\n---\n`) and contain these sections in order, separated by `---` horizontal rules. Sections 6 (Badestellen) is omitted if no swimming spots exist.
 
 ### 1. Title
 
@@ -201,7 +175,7 @@ Every tour file MUST contain these sections in this exact order, separated by `-
 
 ### 2. Metadata Block
 
-Bold key-value pairs, one per line (not a table):
+Bold key-value pairs, one per line:
 
 ```markdown
 **Distanz:** ~{X} km ({X} km lt. BRouter)
@@ -217,11 +191,9 @@ Bold key-value pairs, one per line (not a table):
 > {emoji} **Tipp:** {one-line highlight of the tour}
 ```
 
-Choose emoji by tour theme: 🏛️ (culture), 🌿 (nature), 🌸 (seasonal), 🌊 (water/lakes), 🌲 (forest).
+Emoji by theme: 🏛️ culture, 🌿 nature, 🌸 seasonal, 🌊 water/lakes, 🌲 forest.
 
 ### 4. Streckenverlauf
-
-Arrow-separated waypoint overview, followed by the route map and elevation profile images:
 
 ```markdown
 ## Streckenverlauf
@@ -235,12 +207,14 @@ Arrow-separated waypoint overview, followed by the route map and elevation profi
 
 ### 5. Streckenabschnitte
 
-One H3 subsection per segment. Include only POI types that actually exist along that segment:
+One H3 per segment. Include only POI types that exist along that segment:
 
 ```markdown
+## Streckenabschnitte
+
 ### {N}. {Von} → {Nach} (ca. {X} km)
 
-{Description with path/street names in **bold**. Mention named cycling routes where applicable.}
+{Description with path/street names in **bold**. Mention named cycling routes.}
 
 🏛️ **{Name}** — {short description}
 🎨 **{Name}** — {short description}
@@ -248,9 +222,7 @@ One H3 subsection per segment. Include only POI types that actually exist along 
 🏊 **{Name}** — {short description}
 ```
 
-### 6. Badestellen
-
-Omit section entirely if no swimming spots along the route.
+### 6. Badestellen (optional — omit if none)
 
 ```markdown
 ## Badestellen
@@ -260,7 +232,7 @@ Omit section entirely if no swimming spots along the route.
 
 ### 7. Einkehrmöglichkeiten
 
-Summary of all food/drink stops mentioned in the segments.
+Summary of all food/drink stops from the segments.
 
 ### 8. Wetter
 
@@ -279,7 +251,7 @@ Summary of all food/drink stops mentioned in the segments.
 | **Wetterlage** | {description}                  |
 ```
 
-Add warnings or recommendations below the table when conditions are notable (heat, rain, wind).
+Add warnings below the table for notable conditions (heat, rain, wind).
 
 ### 9. Veranstaltungen
 
@@ -304,49 +276,103 @@ Ab **{Start}** → {line} bis {station} → {line} bis **S Blankenfelde (TF) Bhf
 - Abfahrt: {HH:MM} Uhr ab {Start} → Ankunft {HH:MM} Uhr in Blankenfelde
 - {N} Umstieg(e), {X} Min.
 
+**Tarif (2 Personen + 2 Fahrräder):**
+
+| Option                                     | Preis        |
+| ------------------------------------------ | ------------ |
+| 2× Einzelfahrt + 2× Fahrradkarte (pro Weg) | {X},XX €     |
+| 2× Tageskarte + 2× Fahrradkarte            | {X},XX €     |
+| Kleingruppen-Tageskarte (bis 5 Pers.)      | {X},XX €     |
+| **Empfehlung: {günstigste Option}**        | **{X},XX €** |
+
 > 🚲 Fahrradmitnahme in S-Bahn und Regionalbahn ist im VBB möglich (Fahrradkarte erforderlich).
 ```
 
+### Fare Calculation Rules
+
+- `get_journeys` returns Regionaltarif fares automatically (distance-based, use as-is).
+- For Berlin ABC fares, use the reference table below.
+- Always calculate for **2 persons + 2 bicycles**.
+- Einzelfahrt is per direction (Hin+Rück = 2×); Tageskarte covers both ways.
+- Determine tariff zone: stations like Strausberg, Eberswalde, Königs Wusterhausen use Regionaltarif (API prices). Berlin-area stations use ABC tariff (table below).
+
+### VBB Fare Reference (Berlin ABC, Stand 01.01.2026)
+
+Since 01.01.2026, Berlin BC tariff area no longer exists. No 4-Fahrten-Karte for ABC.
+
+**Personentickets:**
+
+| Ticket                              | Regeltarif | Ermäßigt |
+| ----------------------------------- | ---------- | -------- |
+| Einzelfahrt Berlin AB               | 4,00 €     | 2,90 €   |
+| Einzelfahrt Berlin ABC              | 5,00 €     | 3,30 €   |
+| 24-Stunden-Karte Berlin AB          | 11,20 €    | 7,40 €   |
+| 24-Stunden-Karte Berlin ABC         | 12,90 €    | 8,00 €   |
+| Kleingruppen-Tageskarte AB (≤5 P.)  | 35,30 €    | —        |
+| Kleingruppen-Tageskarte ABC (≤5 P.) | 37,70 €    | —        |
+| Tageskarte VBB-Gesamtnetz           | 28,50 €    | —        |
+
+**Fahrradtickets:**
+
+| Ticket                              | Preis  |
+| ----------------------------------- | ------ |
+| Fahrrad-Einzelfahrt Berlin AB       | 2,70 € |
+| Fahrrad-Einzelfahrt Berlin ABC      | 3,30 € |
+| Fahrrad-Tageskarte Berlin AB (24h)  | 5,90 € |
+| Fahrrad-Tageskarte Berlin ABC (24h) | 6,80 € |
+| Fahrrad-Tageskarte VBB-Gesamtnetz   | 7,50 € |
+
 ## Tour Catalog Index (`routes/README.md`)
 
-Table format with columns: Tour (linked, with theme emoji prefix), Distanz, Fahrzeit, Region. File ends with the bike-transport note.
+Table with columns: Tour (linked, theme emoji prefix), Distanz, Fahrzeit, Region. Ends with bike-transport note.
 
-When adding a tour, **append** a new row to the existing table. Do not rewrite the entire file.
+When adding a tour, **append** a row to the existing table. Do not rewrite the file.
 
 ## Workflow
 
-Execute these steps in order when the user requests a new tour:
+Execute in order when the user requests a new tour:
 
-1. **Geocode** waypoints via `mcp_brouter_search_location`. Verify all coordinates are within bounds.
-2. **Calculate route** via `mcp_brouter_calculate_route` with 3–6 waypoints. First = last for round trips.
-3. **Save GPX** to `routes/gpx/{name}.gpx`. Write the GPX XML directly from the route response.
-4. **Remove spurs** from the GPX track (see GPX Post-Processing above). Re-save if spurs were found.
-5. **Search POIs** via `mcp_overpass_search_pois_along_route` with presets: `einkehr`, `badestellen`, `sehenswuerdigkeiten`, `kunst`. Query presets **sequentially** to avoid rate limits.
-6. **Render map** via `mcp_brouter_render_gpx_map` (absolute paths) **with POI markers**. Pass a curated selection of POIs (deduplicated, ~15–25 per tour) to the `pois` parameter. Save to `routes/img/{name}.png`.
-7. **Render elevation profile** via `mcp_brouter_render_elevation_profile` (absolute paths). Save to `routes/img/{name}-elevation.png`.
-8. **Query weather** for the tour date and start-location coordinates.
+### Phase 1: Route Generation
+
+1. **Geocode** waypoints via `mcp_brouter_search_location`. Verify coordinates within bounds.
+2. **Calculate route** via `mcp_brouter_calculate_route` (3–6 waypoints, first = last for round trips).
+3. **Save GPX** to `routes/gpx/{name}.gpx`.
+4. **Remove spurs** from GPX (see Spur Removal). Re-save if found.
+
+### Phase 2: Enrichment
+
+5. **Search POIs** via `mcp_overpass_search_pois_along_route` with presets `einkehr`, `badestellen`, `sehenswuerdigkeiten`, `kunst` — **sequentially**.
+6. **Render map** via `mcp_brouter_render_gpx_map` with curated POI markers (~15–25, deduplicated). Save to `routes/img/{name}.png`.
+7. **Render elevation** via `mcp_brouter_render_elevation_profile`. Save to `routes/img/{name}-elevation.png`.
+8. **Query weather** for tour date at start-location coordinates.
 9. **Verify transit** from/to S Blankenfelde (TF) Bhf via VBB tools.
-10. **Search events** along the route via `remote_web_search`.
-11. **Write tour markdown** to `routes/{name}.md` following the template.
-12. **Update index** — append a row to `routes/README.md`.
-13. **Present summary** to the user in German.
+10. **Check disruptions** (see Disruption Check section).
+11. **Search events** via `remote_web_search`.
+
+### Phase 3: Output
+
+12. **Write tour markdown** to `routes/{name}.md` following the template.
+13. **Update index** — append row to `routes/README.md`.
+14. **Present summary** to user in German.
 
 ### Error Handling
 
-- **Geocode returns no results**: retry with a more specific or alternative place name. If still failing, ask the user for clarification.
-- **Route calculation fails**: check waypoint order and coordinates. Try removing or adjusting problematic intermediate waypoints.
-- **VBB API unavailable**: include the fallback note `ℹ️ Verbindungen nicht per API verifiziert.` and skip specific line/time claims.
-- **POI search returns empty**: note the absence in the relevant section; do not fabricate POIs.
-- **Weather API unavailable**: state `ℹ️ Wetterdaten nicht verfügbar.` in the weather section.
+| Failure                    | Action                                                                  |
+| -------------------------- | ----------------------------------------------------------------------- |
+| Geocode returns no results | Retry with more specific name. If still failing, ask user.              |
+| Route calculation fails    | Check waypoint order/coordinates. Adjust intermediate waypoints.        |
+| VBB API unavailable        | Add `ℹ️ Verbindungen nicht per API verifiziert.` Skip line/time claims. |
+| POI search empty           | Note absence in section. Do not fabricate POIs.                         |
+| Weather API unavailable    | Add `ℹ️ Wetterdaten nicht verfügbar.`                                   |
 
 ## Tour Lifecycle
 
-Tours are **templates and inspiration**. GPX tracks and map images are stable, but date-dependent sections must be refreshed before riding:
+Tours are templates. GPX tracks and map images are stable, but date-dependent sections need refreshing:
 
-| Section              | Tool to refresh                   | Reason                                |
+| Section              | Tool                              | Reason                                |
 | -------------------- | --------------------------------- | ------------------------------------- |
 | Wetter               | `mcp_open_meteo_weather_forecast` | Forecasts change daily                |
 | Veranstaltungen      | `remote_web_search`               | Events are seasonal                   |
 | Nahverkehrsanbindung | `mcp_vbb_get_journeys`            | Schedules change per timetable period |
 
-When refreshing, update the `ℹ️ Zuletzt geprüft: {date}` timestamp. If a section cannot be verified, mark it: `ℹ️ Nicht verifiziert.`
+When refreshing, update the `ℹ️ Zuletzt geprüft: {date}` timestamp. If unverifiable: `ℹ️ Nicht verifiziert.`

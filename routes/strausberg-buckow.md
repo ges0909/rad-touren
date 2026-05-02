@@ -25,7 +25,7 @@ S Strausberg Nord → Waldsieversdorf → Buckow → Pritzhagen → Garzau → S
 
 ## Streckenabschnitte
 
-### 1. S Strausberg Nord → Waldsieversdorf (ca. 12 km)
+### 1. S Strausberg Nord → Waldsieversdorf (ca. 10 km)
 
 Vom S-Bahnhof Strausberg Nord geht es südwärts durch die Strausberger Vorstadt. Über die **Hegermühlenstraße** und ruhige Nebenstraßen führt die Route durch den Wald Richtung Südosten. Die Strecke verläuft überwiegend auf asphaltierten Feld- und Waldwegen durch die Brandenburger Endmoränenlandschaft.
 
@@ -60,7 +60,7 @@ Buckow, die „Perle der Märkischen Schweiz", ist der Höhepunkt der Tour. Der 
 
 🏊 **Strandbad Schermützelsee** — Öffentliches Strandbad mit Sandstrand, Steg und klarem Wasser
 
-### 4. Buckow → Garzau → S Strausberg Nord (ca. 24 km)
+### 4. Buckow → Garzau → S Strausberg Nord (ca. 17 km)
 
 Die Rückfahrt führt über die nördliche Route durch den Naturpark. Über **Pritzhagen** und die Höhen nördlich von Buckow geht es durch abwechslungsreiche Wald- und Feldlandschaft. Über **Garzau** und die Waldwege nördlich von Strausberg erreicht man den S-Bahnhof. Die Strecke ist hügeliger als der Hinweg und bietet weite Ausblicke über die Endmoränenlandschaft.
 
@@ -97,16 +97,16 @@ Die Rückfahrt führt über die nördliche Route durch den Naturpark. Über **Pr
 
 ## Wetter am Sonntag, 3. Mai 2026
 
-> ℹ️ _Zuletzt geprüft: 1. Mai 2026. Vor der Tour aktuelles Wetter prüfen._
+> ℹ️ _Zuletzt geprüft: 2. Mai 2026. Vor der Tour aktuelles Wetter prüfen._
 
-☀️ **Hervorragendes Radwetter — sonnig und warm**
+☀️ **Sehr gutes Radwetter — warm und weitgehend trocken**
 
-|                |                                       |
-| -------------- | ------------------------------------- |
-| **Temperatur** | 9–27°C                                |
-| **Regen**      | 0 mm (3% Wahrscheinlichkeit)          |
-| **Wind**       | ~15 km/h Südwest                      |
-| **Wetterlage** | Überwiegend bewölkt, trocken und warm |
+|                |                                            |
+| -------------- | ------------------------------------------ |
+| **Temperatur** | 8–27°C                                     |
+| **Regen**      | 0,1 mm (3% Wahrscheinlichkeit)             |
+| **Wind**       | ~16 km/h Südwest                           |
+| **Wetterlage** | Leicht bewölkt, vereinzelt Schauer möglich |
 
 Sonnencreme und ausreichend Wasser mitnehmen bei bis zu 27°C.
 
@@ -114,7 +114,7 @@ Sonnencreme und ausreichend Wasser mitnehmen bei bis zu 27°C.
 
 ## Veranstaltungen
 
-Keine aktuellen Veranstaltungen entlang der Route gefunden. Buckow bietet im Sommer regelmäßig Konzerte und Lesungen im Brecht-Weigel-Haus — vorab auf [buckow-info.de](https://www.buckow-info.de) prüfen.
+Keine aktuellen Veranstaltungen entlang der Route gefunden. Buckow bietet im Sommer regelmäßig Konzerte und Lesungen im Brecht-Weigel-Haus — vorab auf [buckow-info.de](https://www.buckow-info.de) prüfen. Seetours Märkische Schweiz bietet tägliche Rundfahrten auf dem Schermützelsee (Apr–Okt, ca. 1 Std.).
 
 ---
 
@@ -122,18 +122,29 @@ Keine aktuellen Veranstaltungen entlang der Route gefunden. Buckow bietet im Som
 
 > ℹ️ _Verbindungen verifiziert für 3. Mai 2026. Vor der Tour aktuelle Fahrpläne prüfen._
 
+> ⚠️ **Schienenersatzverkehr:** S2 zwischen Blankenfelde und Priesterweg bis Mo 4.5. 01:30 Uhr. Die empfohlenen Verbindungen nutzen RB24/S5 und sind **nicht betroffen**.
+
 **Hinfahrt:**
 Ab **S Blankenfelde (TF) Bhf** → _RB24_ → S+U Lichtenberg Bhf → _S5_ → **S Strausberg Nord**
 
 - Abfahrt: 10:09 Uhr ab Blankenfelde → Ankunft 11:45 Uhr in Strausberg Nord
 - 1 Umstieg, 1 Std. 36 Min.
-- Takt: stündlich (RB24), alle 20 Min. (S5)
+- Alternativ: 10:52 Uhr RE8 → Hbf → S5, Ankunft 12:25 (1 Umstieg)
 
 **Rückfahrt:**
-Ab **S Strausberg Nord** → _S5_ → S+U Lichtenberg Bhf → _RB24_ → **S Blankenfelde (TF) Bhf**
+Ab **S Strausberg Nord** → _S5_ → S Ostkreuz → _RB24_ → **S Blankenfelde (TF) Bhf**
 
-- Abfahrt: 19:10 Uhr ab Strausberg Nord → Ankunft 20:51 Uhr in Blankenfelde
-- 1 Umstieg, 1 Std. 41 Min.
-- Alternativ: ab 20:30 über S Ostkreuz, Ankunft 21:51
+- Abfahrt: 20:30 Uhr ab Strausberg Nord → Ankunft 21:51 Uhr in Blankenfelde
+- 1 Umstieg, 1 Std. 21 Min.
+- Alternativ: 21:10 Uhr S5 → Lichtenberg → RB24, Ankunft 22:51
+
+**Tarif (2 Personen + 2 Fahrräder):**
+
+| Option                                     | Preis       |
+| ------------------------------------------ | ----------- |
+| 2× Einzelfahrt + 2× Fahrradkarte (pro Weg) | 19,80 €     |
+| Hin + Rück (4× Einzelfahrt + 2× Fahrrad)   | 32,40 €     |
+| 2× Tageskarte + 2× Fahrradkarte            | 31,20 €     |
+| **Empfehlung: 2× Tageskarte + 2× Fahrrad** | **31,20 €** |
 
 > 🚲 Fahrradmitnahme in S-Bahn und Regionalbahn ist im VBB möglich (Fahrradkarte erforderlich).
