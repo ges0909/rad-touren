@@ -4,12 +4,12 @@ Day trip cycling tours in the Berlin/Brandenburg region — planned and generate
 
 All tours are round trips reachable by regional train from Blankenfelde-Mahlow. Tour descriptions are in German.
 
-**→ [Tour catalog](touren/README.md)**
+**→ [Tour catalog](routes/README.md)**
 
 ## Project Structure
 
 ```
-├── touren/                  # Tour descriptions, GPX tracks, map images
+├── routes/                  # Tour descriptions, GPX tracks, map images
 ├── mcp/                     # Custom MCP servers (all Python/FastMCP)
 │   ├── brouter/             # Cycling routing, geocoding, map rendering
 │   ├── open-meteo/          # Weather forecast

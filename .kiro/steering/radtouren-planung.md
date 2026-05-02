@@ -175,10 +175,10 @@ Before finalizing transit information, check for construction work and rail repl
 
 ## File Structure
 
-All tour files live under `touren/`:
+All tour files live under `routes/`:
 
 ```
-touren/
+routes/
 ├── README.md                    # Tour catalog index
 ├── {tour-name}.md               # Tour description
 ├── gpx/{tour-name}.gpx          # GPX track
@@ -307,7 +307,7 @@ Ab **{Start}** → {line} bis {station} → {line} bis **S Blankenfelde (TF) Bhf
 > 🚲 Fahrradmitnahme in S-Bahn und Regionalbahn ist im VBB möglich (Fahrradkarte erforderlich).
 ```
 
-## Tour Catalog Index (`touren/README.md`)
+## Tour Catalog Index (`routes/README.md`)
 
 Table format with columns: Tour (linked, with theme emoji prefix), Distanz, Fahrzeit, Region. File ends with the bike-transport note.
 
@@ -319,16 +319,16 @@ Execute these steps in order when the user requests a new tour:
 
 1. **Geocode** waypoints via `mcp_brouter_search_location`. Verify all coordinates are within bounds.
 2. **Calculate route** via `mcp_brouter_calculate_route` with 3–6 waypoints. First = last for round trips.
-3. **Save GPX** to `touren/gpx/{name}.gpx`. Write the GPX XML directly from the route response.
+3. **Save GPX** to `routes/gpx/{name}.gpx`. Write the GPX XML directly from the route response.
 4. **Remove spurs** from the GPX track (see GPX Post-Processing above). Re-save if spurs were found.
 5. **Search POIs** via `mcp_overpass_search_pois_along_route` with presets: `einkehr`, `badestellen`, `sehenswuerdigkeiten`, `kunst`. Query presets **sequentially** to avoid rate limits.
-6. **Render map** via `mcp_brouter_render_gpx_map` (absolute paths) **with POI markers**. Pass a curated selection of POIs (deduplicated, ~15–25 per tour) to the `pois` parameter. Save to `touren/img/{name}.png`.
-7. **Render elevation profile** via `mcp_brouter_render_elevation_profile` (absolute paths). Save to `touren/img/{name}-elevation.png`.
+6. **Render map** via `mcp_brouter_render_gpx_map` (absolute paths) **with POI markers**. Pass a curated selection of POIs (deduplicated, ~15–25 per tour) to the `pois` parameter. Save to `routes/img/{name}.png`.
+7. **Render elevation profile** via `mcp_brouter_render_elevation_profile` (absolute paths). Save to `routes/img/{name}-elevation.png`.
 8. **Query weather** for the tour date and start-location coordinates.
 9. **Verify transit** from/to S Blankenfelde (TF) Bhf via VBB tools.
 10. **Search events** along the route via `remote_web_search`.
-11. **Write tour markdown** to `touren/{name}.md` following the template.
-12. **Update index** — append a row to `touren/README.md`.
+11. **Write tour markdown** to `routes/{name}.md` following the template.
+12. **Update index** — append a row to `routes/README.md`.
 13. **Present summary** to the user in German.
 
 ### Error Handling
