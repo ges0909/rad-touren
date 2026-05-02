@@ -1,5 +1,6 @@
 ---
-inclusion: always
+inclusion: fileMatch
+fileMatchPattern: "routes/**"
 ---
 
 # Radtouren-Planung — Berlin/Brandenburg
