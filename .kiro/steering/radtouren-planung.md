@@ -296,7 +296,9 @@ Ab **{Start}** → {line} bis {station} → {line} bis **S Blankenfelde (TF) Bhf
 - Einzelfahrt is per direction (Hin+Rück = 2×); Tageskarte covers both ways.
 - Determine tariff zone: stations like Strausberg, Eberswalde, Königs Wusterhausen use Regionaltarif (API prices). Berlin-area stations use ABC tariff (table below).
 
-### VBB Fare Reference (Berlin ABC, Stand 01.01.2026)
+### VBB Fare Reference (Berlin ABC)
+
+> _Last updated: 2026-05-02. Source: vbb.de, sbahn.berlin. Verify at [vbb.de/en/tickets](https://www.vbb.de/en/tickets/) if older than 6 months._
 
 Since 01.01.2026, Berlin BC tariff area no longer exists. No 4-Fahrten-Karte for ABC.
 
