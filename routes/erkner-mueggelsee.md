@@ -17,9 +17,9 @@
 
 Erkner → Rahnsdorf → Müggelseedamm → Friedrichshagen → Schöneiche bei Berlin → Erkner
 
-![Erkner–Müggelsee-Runde Karte](img/erkner-mueggelsee.png)
+[![Erkner–Müggelsee-Runde Karte](img/erkner-mueggelsee.png)](img/erkner-mueggelsee.png)
 
-![Höhenprofil](img/erkner-mueggelsee-elevation.png)
+[![Höhenprofil](img/erkner-mueggelsee-elevation.png)](img/erkner-mueggelsee-elevation.png)
 
 ---
 

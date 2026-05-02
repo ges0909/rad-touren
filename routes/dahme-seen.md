@@ -13,9 +13,9 @@
 
 Königs Wusterhausen → Zeuthen → Zeuthener See → Prieros → Storkower See → Wendisch Rietz → Teupitz → Bindow → Königs Wusterhausen
 
-![Dahme-Seen-Runde Karte](img/dahme-seen.png)
+[![Dahme-Seen-Runde Karte](img/dahme-seen.png)](img/dahme-seen.png)
 
-![Höhenprofil](img/dahme-seen-elevation.png)
+[![Höhenprofil](img/dahme-seen-elevation.png)](img/dahme-seen-elevation.png)
 
 ---
 

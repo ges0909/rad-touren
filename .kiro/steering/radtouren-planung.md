@@ -200,9 +200,9 @@ Emoji by theme: 🏛️ culture, 🌿 nature, 🌸 seasonal, 🌊 water/lakes, �
 
 {Start} → {Waypoint 1} → {Waypoint 2} → … → {Start}
 
-![{Tour-Name} Karte](img/{name}.png)
+[![{Tour-Name} Karte](img/{name}.png)](img/{name}.png)
 
-![Höhenprofil](img/{name}-elevation.png)
+[![Höhenprofil](img/{name}-elevation.png)](img/{name}-elevation.png)
 ```
 
 ### 5. Streckenabschnitte

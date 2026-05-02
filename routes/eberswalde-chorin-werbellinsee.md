@@ -17,9 +17,9 @@
 
 Eberswalde → Kloster Chorin → Niederfinow (Schiffshebewerk) → Werbellinsee → Eberswalde
 
-![Eberswalde–Chorin–Werbellinsee-Runde Karte](img/eberswalde-chorin-werbellinsee.png)
+[![Eberswalde–Chorin–Werbellinsee-Runde Karte](img/eberswalde-chorin-werbellinsee.png)](img/eberswalde-chorin-werbellinsee.png)
 
-![Höhenprofil](img/eberswalde-chorin-werbellinsee-elevation.png)
+[![Höhenprofil](img/eberswalde-chorin-werbellinsee-elevation.png)](img/eberswalde-chorin-werbellinsee-elevation.png)
 
 ---
 
