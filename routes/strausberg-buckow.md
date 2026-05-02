@@ -3,7 +3,7 @@
 
 # Strausberg–Buckow-Runde ab S Strausberg Nord
 
-**Distanz:** ~39 km (39,1 km lt. BRouter)
+**Distanz:** ~39 km (38,6 km lt. BRouter)
 **Fahrzeit:** ca. 2,5–3,5 Std. (ohne Pausen)
 **Routentyp:** Rundtour, hügelig (Märkische Schweiz)
 **Start/Ziel:** S Strausberg Nord (S5)

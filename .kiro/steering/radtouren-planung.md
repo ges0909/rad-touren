@@ -109,6 +109,7 @@ Category names match Overpass output — pass POI results through directly.
 ## Public Transit Rules
 
 - **Home station**: S Blankenfelde (TF) Bhf (lines: S2, RB24, RE5, RE7, RE8).
+- **Default departure**: ~09:00 Uhr ab Blankenfelde. Query outbound connections starting from 08:45.
 - **Default group**: 2 persons + 2 bicycles. Calculate fares and recommend cheapest option.
 - 1–2 transfers acceptable.
 - Every tour MUST include: `> 🚲 Fahrradmitnahme in S-Bahn und Regionalbahn ist im VBB möglich (Fahrradkarte erforderlich).`
