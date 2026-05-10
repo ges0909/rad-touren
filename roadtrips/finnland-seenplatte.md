@@ -51,7 +51,7 @@ Ankunft am Flughafen, Mietwagen übernehmen, kurzer Abend in der Stadt. Helsinki
 
 ## 2. Repovesi Nationalpark / Kouvola (2 Nächte)
 
-Dramatische Schluchten, Hängebrücken und stille Seen — einer der schönsten Nationalparks Südfinnlands.
+Dramatische Schluchten, Hängebrücken und stille Seen — einer der schönsten Nationalparks Südfinnlands. [visitkouvola.fi](https://www.visitkouvola.fi/en/repovesi-national-park)
 
 **Unterkunft:** Mökki (Ferienhaus) am See bei Hillosensalmi oder Orilampi — ab ~80 €/Nacht
 
@@ -101,7 +101,7 @@ Das Herz der finnischen Seenplatte — Europas viertgrößter See, mittelalterli
 
 ### Kultur
 
-- 🏛️ **Olavinlinna** — Mittelalterliche Wasserburg (1475), Wahrzeichen Savonlinnas. Im Sommer Opernfestival.
+- 🏛️ **[Olavinlinna](https://visitsavonlinna.fi/en/olavinlinna-castle/)** — Mittelalterliche Wasserburg (1475), Wahrzeichen Savonlinnas. Im Sommer Opernfestival.
 - 🎨 **Retretti Kunstzentrum** (saisonal) — Unterirdische Kunsthöhlen bei Punkaharju
 - 🏛️ **Savonlinnan Maakuntamuseo** — Regionalmuseum zur Saimaa-Geschichte
 
@@ -109,7 +109,7 @@ Das Herz der finnischen Seenplatte — Europas viertgrößter See, mittelalterli
 
 ## 4. Koli Nationalpark (2 Nächte)
 
-Finnlands Nationallandschaft — die Aussicht vom Ukko-Koli über den Pielinen-See inspirierte Sibelius und die finnischen Nationalmaler. Anfang September beginnt hier die Ruska.
+Finnlands Nationallandschaft — die Aussicht vom Ukko-Koli über den Pielinen-See inspirierte Sibelius und die finnischen Nationalmaler. Anfang September beginnt hier die Ruska. [koli.fi](https://www.koli.fi/en/)
 
 **Unterkunft:** Break Sokos Hotel Koli (direkt am Park) oder Mökki — ~100–150 €/Nacht
 
@@ -156,7 +156,7 @@ Lebhafte Universitätsstadt am Kallavesi-See — Sauna-Hauptstadt, Markthalle un
 ### Essen & Trinken
 
 - 🍷 **Hanna Partanen Kalakukkoleipomo** — Die beste Kalakukko-Bäckerei seit 1931. Vendace-Fisch im Roggenbrot.
-- 🍷 **Kuopion Kauppahalli (Markthalle)** — Seit 1902, lokale Spezialitäten, Fisch, Käse, Brot.
+- 🍷 **[Kuopion Kauppahalli (Markthalle)](https://www.visitfinland.com/en/product/0554db4f-ac90-4bab-ba37-0baeaf2dbf57/kuopio-market-hall/)** — Seit 1902, lokale Spezialitäten, Fisch, Käse, Brot.
 - 🍷 **Ravintola Musta Lammas** — Gehobene finnische Küche mit regionalen Zutaten.
 - 🍷 **Marktplatz** — Muikku, Kalakukko und Lihapiirakka (Fleischpastete) vom Stand.
 
@@ -195,7 +195,7 @@ Finnlands zweitgrößte Stadt zwischen zwei Seen — Sauna-Hauptstadt der Welt (
 ### Kultur
 
 - 🏛️ **Vapriikki Museumszentrum** — Mehrere Museen unter einem Dach (Naturkunde, Eishockey, Medien)
-- 🎨 **Sara Hildén Kunstmuseum** — Moderne und zeitgenössische Kunst am Seeufer
+- 🎨 **[Sara Hildén Kunstmuseum](https://sarahildenartmuseum.com/)** — Moderne und zeitgenössische Kunst am Seeufer
 - 🏛️ **Rajaportti Sauna** — Älteste öffentliche Sauna Finnlands (seit 1906). Holzbeheizt, authentisch.
 - 🏛️ **Finlayson-Areal** — Historische Textilfabrik, heute Kulturzentrum mit Kinos, Restaurants, Museen.
 
@@ -255,8 +255,8 @@ Zurück in Helsinki für den ausführlichen Stadtbesuch. Mietwagen abgeben (Flug
 
 ### Kultur
 
-- 🎨 **Kiasma** — Museum für zeitgenössische Kunst (Steven Holl Architektur)
-- 🎨 **Amos Rex** — Unterirdisches Kunstmuseum, wechselnde Ausstellungen
+- 🎨 **[Kiasma](https://kiasma.fi/en/)** — Museum für zeitgenössische Kunst (Steven Holl Architektur)
+- 🎨 **[Amos Rex](https://amosrex.fi/en/)** — Unterirdisches Kunstmuseum, wechselnde Ausstellungen
 - 🏛️ **Suomenlinna** — UNESCO-Welterbe Inselfestung, per Fähre erreichbar
 - 🏛️ **Temppeliaukio-Kirche** — In Fels gehauene Kirche, einzigartige Akustik
 

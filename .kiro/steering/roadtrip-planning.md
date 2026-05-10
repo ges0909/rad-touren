@@ -36,6 +36,7 @@ Plan, generate, and present multi-day car rental road trips across Europe.
 - **Max single drive**: 4 hours. If exceeded, suggest a break stop or split the segment.
 - **Train segments**: Allowed as alternative between stops where scenic or practical
 - **Cycling day trips**: Can replace hiking if bike rental is available. Search for rental options and suggest routes.
+- **Detours between stops**: When driving from one station to the next, suggest brief detours (max 30–60 min extra) to notable sights, viewpoints, or villages along the way. Present as optional "Unterwegs" tips.
 - **Interests**: See `user-preferences.md` for full priority list. Key "always" items:
   - 🎨 Moderne Kunst — **always highlight**
   - 🌿 Botanische Gärten — **always include when nearby**
