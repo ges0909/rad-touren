@@ -84,11 +84,12 @@ Execute in order when the user requests a new roadtrip:
 
 ### Phase 1: Route Design
 
-1. **Determine airports**: Search for flights from BER to destination region via `remote_web_search`. Identify arrival/departure airport.
-2. **Design itinerary**: Plan 4–8 stops forming a logical loop back to the departure airport.
-3. **Geocode stops**: Resolve all stop names to coordinates via `geocode` (with `country` filter).
-4. **Calculate driving times**: Use `driving_time` for each segment. Flag segments > 4 hours.
-5. **Validate**: Ensure total trip fits requested duration. Apply buffer rule for same-city start/end.
+1. **Check travel advisories**: Search `remote_web_search` for `"Auswärtiges Amt Reisehinweise {country}"`. If warnings exist (partial travel warning, travel warning), note them prominently at the top of the trip document. If a full travel warning is active, inform the user and ask whether to proceed.
+2. **Determine airports**: Search for flights from BER to destination region via `remote_web_search`. Identify arrival/departure airport.
+3. **Design itinerary**: Plan 4–8 stops forming a logical loop back to the departure airport.
+4. **Geocode stops**: Resolve all stop names to coordinates via `geocode` (with `country` filter).
+5. **Calculate driving times**: Use `driving_time` for each segment. Flag segments > 4 hours.
+6. **Validate**: Ensure total trip fits requested duration. Apply buffer rule for same-city start/end.
 
 ### Phase 2: Enrichment (per stop)
 
@@ -269,13 +270,20 @@ Every roadtrip MUST include this section:
 ```markdown
 ## Länderinfo
 
-|                           |                                                |
-| ------------------------- | ---------------------------------------------- |
-| **Preisniveau**           | {günstiger / ähnlich / teurer} als Deutschland |
-| **Tempolimit Landstraße** | {X} km/h                                       |
-| **Tempolimit Autobahn**   | {X} km/h                                       |
-| **Tempolimit innerorts**  | {X} km/h                                       |
-| **Besonderheiten**        | {Maut, Lichtpflicht, Winterreifen, etc.}       |
+|                           |                                                                                                                                      |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| **Preisniveau**           | {günstiger / ähnlich / teurer} als Deutschland                                                                                       |
+| **Tempolimit Landstraße** | {X} km/h                                                                                                                             |
+| **Tempolimit Autobahn**   | {X} km/h                                                                                                                             |
+| **Tempolimit innerorts**  | {X} km/h                                                                                                                             |
+| **Besonderheiten**        | {Maut, Lichtpflicht, Winterreifen, etc.}                                                                                             |
+| **Reisehinweise**         | {Keine Einschränkungen / Teilreisewarnung / Reisewarnung} ([Auswärtiges Amt](https://www.auswaertiges-amt.de/de/ReiseUndSicherheit)) |
+```
+
+If a travel advisory exists, add a warning box above the table:
+
+```markdown
+> ⚠️ **Reisehinweis Auswärtiges Amt:** {Zusammenfassung der Warnung}. Aktuelle Infos: [auswaertiges-amt.de](https://www.auswaertiges-amt.de/de/ReiseUndSicherheit/{country-path})
 ```
 
 ### 10. Erweiterungsideen (optional)

@@ -22,6 +22,13 @@ Shared defaults for all tour types (cycling, hiking, roadtrips). Domain-specific
 - **Station**: S Blankenfelde (TF) Bhf
 - **Default departure**: ~09:00 Uhr
 
+## Flight Preferences (Roadtrips)
+
+- **Prefer direct flights** from BER. Only suggest connections with stops if no direct option exists.
+- **Outbound**: Early morning (07:00–09:00) to maximize the first day at the destination.
+- **Return**: Afternoon/evening (15:00–17:00) to use the last morning at the destination.
+- **Preferred days**: Avoid Friday/Monday (business traveler surcharge). Tuesday–Thursday outbound, Sunday return tends to be cheapest.
+
 ## Interests — Priority Order
 
 When planning any tour, actively search for and surface these interests. Higher priority = more prominent placement in output. Items marked "always" MUST appear in the output whenever found, even if not the main theme of the tour.

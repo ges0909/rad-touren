@@ -283,7 +283,14 @@ Zurück in Helsinki für den ausführlichen Stadtbesuch. Mietwagen abgeben (Flug
 ## Anreise & Mietwagen
 
 **Hinflug:** BER → HEL, ~2,5 Std. Direktflüge mit Ryanair, Eurowings, Finnair.
+
+- Empfehlung: **Di 1. September, Abflug 07:00–09:00 Uhr** → Ankunft Helsinki ~10:30–12:00 (Zeitverschiebung +1h)
+- Früher Flug = maximaler erster Tag
+
 **Rückflug:** HEL → BER, ~2,5 Std.
+
+- Empfehlung: **So 14. September, Abflug 15:00–17:00 Uhr** → Ankunft BER ~16:30–18:00
+- Später Flug = entspannter letzter Vormittag in Helsinki
 
 - Geschätzte Flugkosten: ~90–180 € pro Person (Roundtrip, je nach Buchungszeitpunkt)
 - Frühbucher-Tipp: 2–3 Monate vorher buchen für beste Preise
