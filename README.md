@@ -1,97 +1,98 @@
 # 🗺️ Tour Planning — Cycling, Hiking & Roadtrips
 
-AI-powered tour planning with [Kiro](https://kiro.dev) using custom MCP servers for routing, weather, POIs, and public transit.
+KI-gestützte Tourenplanung mit [Kiro](https://kiro.dev) und eigenen MCP-Servern für Routing, Wetter, POIs, ÖPNV und Reiseführer-Inhalte.
 
-- **Cycling** — Day trips in Berlin/Brandenburg, round trips by regional train
-- **Hiking** — Day hikes in Berlin/Brandenburg (planned)
-- **Roadtrips** — Multi-day car rental trips across Europe
+| Kategorie    | Beschreibung                                       | Status  |
+| ------------ | -------------------------------------------------- | ------- |
+| 🚴 Cycling   | Tagestouren in Berlin/Brandenburg per Regionalbahn | Aktiv   |
+| 🥾 Hiking    | Tageswanderungen in Berlin/Brandenburg             | Geplant |
+| 🚗 Roadtrips | Mehrtägige Mietwagen-Trips durch Europa            | Aktiv   |
 
-All tour descriptions are in German.
+**→ [Radtouren](cycling/README.md)** · **→ [Roadtrips](roadtrips/README.md)**
 
-**→ [Cycling tours](cycling/README.md)** · **[Roadtrips](roadtrips/README.md)**
+---
 
-## Project Structure
+## Quickstart
 
-```
-├── cycling/                 # Cycling tours: GPX tracks, maps, markdown
-├── hiking/                  # Hiking tours (planned)
-├── roadtrips/               # Multi-day car trips in Europe
-├── mcp/                     # Custom MCP servers (all Python/FastMCP)
-│   ├── brouter/             # Cycling/hiking routing, geocoding, map rendering
-│   ├── ors/                 # Car/bike/foot routing via OpenRouteService
-│   ├── open-meteo/          # Weather forecast
-│   ├── overpass/            # POI search along routes (OpenStreetMap)
-│   └── vbb/                 # Berlin/Brandenburg public transport
-├── docs/                    # Concept documents
-└── .kiro/
-    ├── settings/mcp.json    # MCP server configuration
-    ├── hooks/               # Agent hooks (GPX consistency check)
-    └── steering/            # AI steering rules
-        ├── user-preferences.md        # Shared interests & defaults (always loaded)
-        ├── cycling-tour-planning.md   # Cycling workflow & template
-        ├── roadtrip-planning.md       # Roadtrip workflow & template
-        └── commit-messages.md         # Commit conventions
-```
-
-## Steering
-
-Multiple steering files turn Kiro into a domain-specific tour planner:
-
-| File                       | Scope          | Purpose                                                             |
-| -------------------------- | -------------- | ------------------------------------------------------------------- |
-| `user-preferences.md`      | Always         | Personal interests, food/accommodation rules, travel group defaults |
-| `cycling-tour-planning.md` | `cycling/**`   | Cycling workflow, BRouter routing, VBB transit, fare tables         |
-| `roadtrip-planning.md`     | `roadtrips/**` | Roadtrip workflow, ORS car routing, buffer rule, country info       |
-| `commit-messages.md`       | Always         | Conventional Commits format                                         |
-
-A single prompt like _"Plan a 50 km tour through the Spreewald"_ or _"Plan a 2-week roadtrip through Finland"_ produces a complete tour document with route, map, POIs, weather, and transport connections.
-
-## MCP Servers
-
-| Server                                   | Purpose                                              | API                                                                              | Used by         |
-| ---------------------------------------- | ---------------------------------------------------- | -------------------------------------------------------------------------------- | --------------- |
-| [`brouter`](mcp/brouter/README.md)       | Cycling/hiking routing, geocoding, map rendering     | [BRouter](https://brouter.de) + [Nominatim](https://nominatim.openstreetmap.org) | Cycling, Hiking |
-| [`ors`](mcp/ors/README.md)               | Car/bike/foot routing, geocoding, isochrones, matrix | [OpenRouteService](https://openrouteservice.org/)                                | Roadtrips       |
-| [`open-meteo`](mcp/open-meteo/README.md) | Weather forecast + geocoding                         | [Open-Meteo](https://open-meteo.com/)                                            | All             |
-| [`vbb`](mcp/vbb/README.md)               | Stop search, departures, journeys, fares             | [VBB REST](https://v6.vbb.transport.rest/)                                       | Cycling         |
-| [`overpass`](mcp/overpass/README.md)     | POI search along routes                              | [Overpass](https://overpass-api.de/) (OpenStreetMap)                             | All             |
-
-All five are custom Python servers (FastMCP + httpx). No Node.js.
-
-### What doesn't need an MCP server
-
-These are handled via `remote_web_search` because no free, stable API exists:
-
-| Need                | Approach                           | Sources                           |
-| ------------------- | ---------------------------------- | --------------------------------- |
-| Flight search       | Web search for routes and prices   | Skyscanner, Google Flights, Kayak |
-| Hotel/accommodation | Web search for recommendations     | Booking.com, Airbnb, travel blogs |
-| Rental cars         | Web search for price comparison    | CHECK24, billiger-mietwagen.de    |
-| Events & festivals  | Web search for current events      | visitberlin.de, local calendars   |
-| S-Bahn disruptions  | Web search + fetch disruption page | sbahn.berlin                      |
-
-## Hooks
-
-Agent hooks automate consistency checks:
-
-| Hook                  | Trigger                                    | Action                                                  |
-| --------------------- | ------------------------------------------ | ------------------------------------------------------- |
-| GPX Consistency Check | GPX file edited in `cycling/` or `hiking/` | Re-render map + elevation, update distances in markdown |
-
-## Setup
-
-Requires [Kiro](https://kiro.dev) and [uv](https://docs.astral.sh/uv/getting-started/installation/).
+Voraussetzungen: [Kiro](https://kiro.dev) + [uv](https://docs.astral.sh/uv/getting-started/installation/)
 
 ```bash
-# Install all MCP server dependencies
-uv sync --directory mcp/brouter
-uv sync --directory mcp/ors
-uv sync --directory mcp/open-meteo
-uv sync --directory mcp/vbb
-uv sync --directory mcp/overpass
+# Alle MCP-Server installieren
+for dir in mcp/brouter mcp/ors mcp/open-meteo mcp/vbb mcp/overpass mcp/waymarkedtrails mcp/wikivoyage; do
+  uv sync --directory "$dir"
+done
 ```
 
-Servers are configured in `.kiro/settings/mcp.json` and connect automatically on startup. The ORS server requires an API key (free at [openrouteservice.org](https://openrouteservice.org/dev/#/signup)).
+```bash
+# API Key für OpenRouteService (.env wird gitignored)
+echo "ORS_API_KEY=dein-key-hier" > .env
+```
+
+Kostenlosen Key gibt's bei [openrouteservice.org](https://openrouteservice.org/dev/#/signup). Alle anderen Server nutzen freie APIs ohne Key.
+
+---
+
+## Wie es funktioniert
+
+Ein einzelner Prompt wie _„Plane eine 50-km-Tour durch den Spreewald"_ oder _„Plane einen 2-Wochen-Roadtrip durch Nordspanien"_ erzeugt ein vollständiges Tour-Dokument mit Route, Karte, POIs, Wetter und Verbindungen.
+
+Dafür sorgen drei Bausteine:
+
+### Steering Files
+
+Steering-Dateien machen Kiro zum domänenspezifischen Tourenplaner:
+
+| Datei                      | Scope          | Funktion                                           |
+| -------------------------- | -------------- | -------------------------------------------------- |
+| `user-preferences.md`      | Immer          | Interessen, Essens-/Unterkunftsregeln, Reisegruppe |
+| `cycling-tour-planning.md` | `cycling/**`   | Rad-Workflow, BRouter-Routing, VBB-Tarife          |
+| `roadtrip-planning.md`     | `roadtrips/**` | Roadtrip-Workflow, ORS-Routing, Pufferregel        |
+| `commit-messages.md`       | Immer          | Conventional Commits                               |
+
+### MCP Server
+
+Sieben eigene Python-Server (FastMCP + httpx), kein Node.js:
+
+| Server                                    | Funktion                                       | API                                                                              |
+| ----------------------------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------- |
+| [`brouter`](mcp/brouter/)                 | Rad-/Wanderrouting, Geocoding, Kartenrendering | [BRouter](https://brouter.de) + [Nominatim](https://nominatim.openstreetmap.org) |
+| [`ors`](mcp/ors/)                         | Auto-/Rad-/Fußrouting, Isochrone, Matrix       | [OpenRouteService](https://openrouteservice.org/)                                |
+| [`open-meteo`](mcp/open-meteo/)           | Wettervorhersage + Geocoding                   | [Open-Meteo](https://open-meteo.com/)                                            |
+| [`vbb`](mcp/vbb/)                         | Haltestellensuche, Abfahrten, Verbindungen     | [VBB REST](https://v6.vbb.transport.rest/)                                       |
+| [`overpass`](mcp/overpass/)               | POI-Suche entlang von Routen                   | [Overpass API](https://overpass-api.de/)                                         |
+| [`waymarkedtrails`](mcp/waymarkedtrails/) | Markierte Wander- & Radrouten finden           | [Waymarked Trails](https://waymarkedtrails.org/)                                 |
+| [`wikivoyage`](mcp/wikivoyage/)           | Reiseführer, Zielsuche, Umkreissuche           | [Wikivoyage](https://de.wikivoyage.org/)                                         |
+
+Zusätzlich wird `remote_web_search` genutzt für Flüge, Hotels, Mietwagen und Events — dort existiert keine stabile freie API.
+
+### Hooks
+
+| Hook                  | Trigger                                         | Aktion                                                   |
+| --------------------- | ----------------------------------------------- | -------------------------------------------------------- |
+| GPX Consistency Check | GPX-Datei in `cycling/` oder `hiking/` geändert | Karte + Höhenprofil neu rendern, Distanzen aktualisieren |
+
+---
+
+## Projektstruktur
+
+```
+cycling/                     Radtouren: Markdown, GPX, Karten
+hiking/                      Wandertouren (geplant)
+roadtrips/                   Mehrtägige Auto-Trips
+├── mcp/
+├── brouter/                 Rad-/Wanderrouting + Karten
+├── ors/                     Auto-Routing (OpenRouteService)
+├── open-meteo/              Wetter
+├── overpass/                POI-Suche (OpenStreetMap)
+├── vbb/                     ÖPNV Berlin/Brandenburg
+├── waymarkedtrails/         Markierte Wander-/Radrouten
+└── wikivoyage/              Reiseführer-Inhalte
+.kiro/
+├── settings/mcp.json        Server-Konfiguration
+├── hooks/                   Agent Hooks
+└── steering/                Steering-Regeln
+.env                         API Keys (gitignored)
+```
 
 ## Tests
 
@@ -100,8 +101,19 @@ uv run --directory mcp/brouter pytest -v
 uv run --directory mcp/open-meteo pytest -v
 uv run --directory mcp/vbb pytest -v
 uv run --directory mcp/overpass pytest -v
+uv run --directory mcp/waymarkedtrails pytest -v
+uv run --directory mcp/wikivoyage pytest -v
 ```
 
-## License
+## Lizenzen & Datenquellen
 
-Route data: © [BRouter](https://brouter.de) / [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors. Map tiles: © OpenStreetMap / OpenTopoMap contributors. Geocoding: [Nominatim](https://nominatim.openstreetmap.org). Routing: [OpenRouteService](https://openrouteservice.org/).
+| Quelle                                                   | Lizenz       |
+| -------------------------------------------------------- | ------------ |
+| [OpenStreetMap](https://www.openstreetmap.org/copyright) | ODbL         |
+| [BRouter](https://brouter.de)                            | MIT          |
+| [OpenRouteService](https://openrouteservice.org/)        | MIT          |
+| [Nominatim](https://nominatim.openstreetmap.org)         | ODbL         |
+| [Wikivoyage](https://www.wikivoyage.org/)                | CC BY-SA 3.0 |
+| [Waymarked Trails](https://waymarkedtrails.org/)         | ODbL         |
+| [Open-Meteo](https://open-meteo.com/)                    | CC BY 4.0    |
+| Map Tiles: OpenStreetMap / OpenTopoMap                   | ODbL         |

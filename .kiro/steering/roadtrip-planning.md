@@ -48,11 +48,13 @@ Plan, generate, and present multi-day car rental road trips across Europe.
 
 Use **only** these MCP servers for roadtrip planning. Do **not** use VBB (Berlin-only transit).
 
-| Server     | Prefix                   | Purpose                                         |
-| ---------- | ------------------------ | ----------------------------------------------- |
-| ors        | `mcp_openrouteservice_*` | Car/bike/foot routing, geocoding, driving times |
-| overpass   | `mcp_overpass_*`         | POI search along routes or near stops           |
-| open-meteo | `mcp_open_meteo_*`       | Weather forecast for destinations               |
+| Server          | Prefix                   | Purpose                                         |
+| --------------- | ------------------------ | ----------------------------------------------- |
+| ors             | `mcp_openrouteservice_*` | Car/bike/foot routing, geocoding, driving times |
+| overpass        | `mcp_overpass_*`         | POI search along routes or near stops           |
+| open-meteo      | `mcp_open_meteo_*`       | Weather forecast for destinations               |
+| wikivoyage      | `mcp_wikivoyage_*`       | Travel guide content for destinations           |
+| waymarkedtrails | `mcp_waymarkedtrails_*`  | Discover marked hiking/cycling routes           |
 
 Flights, rental cars, and hotels: use `remote_web_search`.
 
@@ -95,11 +97,12 @@ Execute in order when the user requests a new roadtrip:
 ### Phase 2: Enrichment (per stop)
 
 6. **Accommodation**: Search via `remote_web_search`. Apply rules from `user-preferences.md` (small/boutique, central, 80–150 €/night).
-7. **Hiking**: Search for day hikes near each stop (moderate, 3–5 hours). Use local-language terms if needed (sentiero, randonnée, polku).
+7. **Hiking**: Search `mcp_waymarkedtrails_*` for marked routes near each stop (`search_routes` with region/area name). Get details for promising routes. Supplement with `remote_web_search` for unmarked local trails.
 8. **Swimming**: Search for beaches, lakes, or thermal baths.
 9. **Food & Drink**: Search for regional restaurants, markets, local specialties. Apply food rules from `user-preferences.md`.
 10. **Culture & Art**: Search for galleries, museums, historic sites. Prioritize modern/contemporary art.
-11. **Weather**: Query `weather_forecast` for each stop's coordinates and travel dates.
+11. **Travel guide context**: Query `mcp_wikivoyage_*` for destination articles — use `get_section` for Küche, Sehenswürdigkeiten, Aktivitäten to enrich local knowledge.
+12. **Weather**: Query `weather_forecast` for each stop's coordinates and travel dates.
 
 ### Phase 3: Output
 

@@ -1,20 +1,21 @@
 [project]
-name = "ors-mcp"
+name = "wikivoyage-mcp"
 version = "1.0.0"
-description = "MCP server wrapping OpenRouteService for car/bike/foot routing"
+description = "MCP server wrapping the Wikivoyage MediaWiki API for travel information"
 requires-python = ">=3.11"
 dependencies = [
     "fastmcp",
     "httpx",
-    "python-dotenv",
 ]
 
 [dependency-groups]
 dev = [
     "pytest",
+    "pytest-asyncio",
     "respx",
 ]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
+asyncio_mode = "auto"

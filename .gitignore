@@ -1,0 +1,15 @@
+# Virtual environments
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Environment variables (secrets)
+.env
+
+# Hypothesis test database
+.hypothesis/
+
+# pytest cache
+.pytest_cache/

@@ -62,12 +62,13 @@ Use when selecting waypoints and writing segment descriptions:
 
 Use **only** these MCP servers for cycling tour planning. Do not use other available servers unless explicitly requested.
 
-| Server     | Prefix             | Purpose                                     |
-| ---------- | ------------------ | ------------------------------------------- |
-| brouter    | `mcp_brouter_*`    | Route calculation, geocoding, map rendering |
-| overpass   | `mcp_overpass_*`   | POI search along routes                     |
-| open-meteo | `mcp_open_meteo_*` | Weather forecast                            |
-| vbb        | `mcp_vbb_*`        | Public transit connections                  |
+| Server          | Prefix                  | Purpose                                     |
+| --------------- | ----------------------- | ------------------------------------------- |
+| brouter         | `mcp_brouter_*`         | Route calculation, geocoding, map rendering |
+| overpass        | `mcp_overpass_*`        | POI search along routes                     |
+| open-meteo      | `mcp_open_meteo_*`      | Weather forecast                            |
+| vbb             | `mcp_vbb_*`             | Public transit connections                  |
+| waymarkedtrails | `mcp_waymarkedtrails_*` | Discover marked cycling routes              |
 
 ## MCP Tool Reference
 

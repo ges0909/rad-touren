@@ -1,9 +1,15 @@
 """MCP server wrapping OpenRouteService for car, bike, and foot routing."""
 
 import os
+from pathlib import Path
 
 import httpx
+from dotenv import load_dotenv
 from fastmcp import FastMCP
+
+# Load .env from project root (two levels up from mcp/ors/)
+_env_path = Path(__file__).resolve().parent.parent.parent / ".env"
+load_dotenv(_env_path)
 
 mcp = FastMCP("OpenRouteService Routing")
 

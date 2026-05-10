@@ -44,7 +44,7 @@ Gastronomie-Hauptstadt Europas — mehr Michelin-Sterne pro Kopf als irgendwo so
 
 - 🥾 **Monte Urgull** — 3 km, 1,5 Std., leicht. Festung über der Altstadt mit 360°-Panorama über die Bucht.
 - 🥾 **Monte Igueldo → Paseo Nuevo** — 8 km, 3 Std., moderat. Küstenwanderung mit Blick auf die Concha-Bucht.
-- 🥾 **Camino del Norte (Etappe Pasaia → San Sebastián)** — 12 km, 4 Std., moderat. Küstenabschnitt des Jakobswegs.
+- 🥾 **Camino del Norte (Etappe Pasaia → San Sebastián)** — 12 km, 4 Std., moderat. Küstenabschnitt des Jakobswegs. Markierter Fernwanderweg (gelbe Muschel auf blau). [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=1116809) · [OSM](https://www.openstreetmap.org/relation/1116809)
 
 ### Baden
 
@@ -53,9 +53,9 @@ Gastronomie-Hauptstadt Europas — mehr Michelin-Sterne pro Kopf als irgendwo so
 
 ### Essen & Trinken
 
-- 🍷 **Parte Vieja (Altstadt) Pintxos-Crawl** — Bar Nestor (Tortilla), La Cuchara de San Telmo (heiße Pintxos), Gandarias (Txuleta).
+- 🍷 **Parte Vieja (Altstadt) Pintxos-Crawl** — Bar Nestor (Tortilla), La Cuchara de San Telmo (heiße Pintxos), Gandarias (Txuleta). Pintxos (baskisch: Pintxo) sind Häppchen auf Brotscheiben mit Holzspieß — man bedient sich an der Theke und gibt beim Zahlen die Anzahl an.
 - 🍷 **Bar Zeruko** — Avantgarde-Pintxos, molekulare Küche auf dem Tresen.
-- 🍇 **Txakoli-Weingut Getaria** (20 Min. Fahrt) — Baskischer Weißwein direkt am Meer, Verkostung.
+- 🍇 **Txakoli-Weingut Getaria** (20 Min. Fahrt) — Baskischer Weißwein direkt am Meer, Verkostung. Txakoli wird traditionell aus Höhe ins Glas geschenkt.
 - ☕ **Sakona Coffee Roasters** — Specialty Coffee in der Altstadt.
 
 ### Kultur
@@ -113,9 +113,10 @@ Spaniens spektakulärster Nationalpark — 2.600 m hohe Kalksteingipfel, tiefe S
 
 ### Wandern
 
-- 🥾 **Ruta del Cares** — 22 km (hin+zurück), 6–7 Std., moderat. Spektakulärste Schlucht-Wanderung Spaniens — Pfad in Felswände gehauen, 200 m über dem Fluss. **Highlight der Reise.**
-- 🥾 **Lagos de Covadonga Rundweg** — 6 km, 2,5 Std., leicht. Zwei Gletscherseen auf 1.000 m, umgeben von Gipfeln. Morgens früh starten (Zufahrt im Sommer limitiert).
+- 🥾 **Ruta del Cares** [PR-PNPE 3] — 21 km (hin+zurück), 6–7 Std., moderat. Spektakulärste Schlucht-Wanderung Spaniens — Pfad in Felswände gehauen, 200 m über dem Fluss. 160 m Aufstieg, 899 m Abstieg (one-way). **Highlight der Reise.** [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=2687934) · [OSM](https://www.openstreetmap.org/relation/2687934)
+- 🥾 **Lagos de Covadonga Rundweg** [PR-PNPE 2] — 6,4 km, 2,5 Std., leicht. Zwei Gletscherseen auf 1.000 m, umgeben von Gipfeln. Betreiber: Parque Nacional de los Picos de Europa. Morgens früh starten (Zufahrt im Sommer limitiert). [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=4664408) · [Offizielle Info](https://parquesnacionales.cnig.es/web/cnig/picos-de-europa#rutas_6_28)
 - 🥾 **Mirador del Naranjo de Bulnes** (ab Sotres) — 10 km, 4 Std., moderat. Blick auf den ikonischen Felszahn der Picos.
+- 🥾 **El Anillo de Picos (3 Macizos)** [AP-3M] — 110 km Rundweg, 9.350 m Aufstieg, mehrtägig. Für Ambitionierte: die große Picos-Umrundung. [elanillodepicos.com](http://www.elanillodepicos.com) · [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=8359856)
 
 ### Baden
 
@@ -144,7 +145,7 @@ Zwei Städte, ein Aufenthalt — Gijón (Hafen, Strand, Sidra) und Oviedo (Prär
 ### Wandern
 
 - 🥾 **Senda del Cervigón** (Gijón) — 8 km, 2,5 Std., leicht. Küstenpfad mit Skulpturen entlang der Klippen.
-- 🥾 **Senda del Oso** (30 Min. ab Oviedo) — 12 km, 3 Std., leicht. Ehemaliger Bergbau-Pfad durch Schluchten, Bären-Schutzgebiet.
+- 🥾 **Senda del Oso** (30 Min. ab Oviedo) — 12 km, 3 Std., leicht. Ehemaliger Bergbau-Pfad durch Schluchten, Bären-Schutzgebiet. [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=14507335)
 
 ### Baden
 
@@ -179,10 +180,12 @@ Zurück in Bilbao für Guggenheim, Pintxos und Puffer. Mietwagen am Flughafen ab
 
 ### Essen & Trinken
 
-- 🍷 **Plaza Nueva Pintxos-Crawl** — Gilda (Sardelle+Olive+Peperoni), Txuleta, Bacalao.
+- 🍷 **Plaza Nueva Pintxos-Crawl** — Gilda (Sardelle+Olive+Peperoni), Txuleta, Bacalao al Pil-Pil (Klippfisch in Olivenöl-Knoblauch-Sauce).
 - 🍷 **Mercado de la Ribera** — Europas größte überdachte Markthalle, Tapas-Bars im Obergeschoss.
 - 🍷 **Restaurante Mina** — Michelin-Stern, baskische Avantgarde-Küche am Fluss.
+- 🍷 Typisch baskisch: Txipirones en su Tinta (Tintenfisch in eigener Tinte), Marmitako (Thunfisch-Kartoffel-Eintopf), Pimientos de Gernika.
 - ☕ **Café Iruña** — Maurisch dekoriertes Café von 1903, Institution.
+- 🍇 Als Digestif: **Patxaran** — Likör aus wilden Schlehenbeeren, baskische Spezialität.
 
 ### Kultur
 
@@ -267,3 +270,22 @@ Zurück in Bilbao für Guggenheim, Pintxos und Puffer. Mietwagen am Flughafen ab
 | **Tempolimit innerorts**  | 50 km/h (30 in Wohngebieten)                                                                            |
 | **Besonderheiten**        | Autovías (Autobahnen) meist mautfrei. Einige Autopistas kostenpflichtig. Lichtpflicht bei Regen/Tunnel. |
 | **Reisehinweise**         | Keine Einschränkungen ([Auswärtiges Amt](https://www.auswaertiges-amt.de/de/ReiseUndSicherheit))        |
+
+---
+
+## Quellen & Wanderrouten
+
+Markierte Wanderwege auf dieser Route (via [Waymarked Trails](https://waymarkedtrails.org), OSM-Daten):
+
+| Route                            | Ref       | Länge  | Typ     | Link                                                                        |
+| -------------------------------- | --------- | ------ | ------- | --------------------------------------------------------------------------- |
+| Ruta del Cares                   | PR-PNPE 3 | 21 km  | Strecke | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=2687934) |
+| Lagos de Covadonga               | PR-PNPE 2 | 6,4 km | Strecke | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=4664408) |
+| El Anillo de Picos (3 Macizos)   | AP-3M     | 110 km | Rundweg | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=8359856) |
+| Camino del Norte (Euskal Herria) | CdN       | 228 km | Strecke | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=1116809) |
+
+Reiseführer-Quellen (Wikivoyage, CC BY-SA 3.0):
+
+- [Donostia-San Sebastián](https://de.wikivoyage.org/wiki/Donostia-San_Sebastián)
+- [Bilbao](https://de.wikivoyage.org/wiki/Bilbao)
+- [Costa Vasca](https://de.wikivoyage.org/wiki/Costa_Vasca)
