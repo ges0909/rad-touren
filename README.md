@@ -4,12 +4,14 @@ Day trip cycling tours in the Berlin/Brandenburg region — planned and generate
 
 All tours are round trips reachable by regional train from Blankenfelde-Mahlow. Tour descriptions are in German.
 
-**→ [Tour catalog](routes/README.md)**
+**→ [Tour catalog](cycling/README.md)**
 
 ## Project Structure
 
 ```
-├── routes/                  # Tour descriptions, GPX tracks, map images
+├── cycling/                 # Cycling tour descriptions, GPX tracks, map images
+├── hiking/                  # Hiking tour descriptions (planned)
+├── roadtrips/               # Multi-day car trips in Europe (planned)
 ├── mcp/                     # Custom MCP servers (all Python/FastMCP)
 │   ├── brouter/             # Cycling routing, geocoding, map rendering
 │   ├── open-meteo/          # Weather forecast
@@ -22,7 +24,7 @@ All tours are round trips reachable by regional train from Blankenfelde-Mahlow. 
 
 ## Steering
 
-The [steering file](.kiro/steering/radtouren-planung.md) is what turns Kiro from a general-purpose assistant into a cycling tour planner. It encodes:
+The [steering file](.kiro/steering/cycling-tour-planning.md) is what turns Kiro from a general-purpose assistant into a cycling tour planner. It encodes:
 
 - **Workflow** — 10-step sequence: geocode → route → GPX → map → weather → transit → events → markdown → index → summary
 - **Template** — consistent markdown structure, emoji conventions, POI categories
@@ -78,6 +80,17 @@ Requires [Kiro](https://kiro.dev) and [uv](https://docs.astral.sh/uv/getting-sta
   }
 }
 ```
+
+## Hooks
+
+Agent hooks automate consistency checks. When a GPX file is modified, the **GPX Consistency Check** hook triggers and ensures:
+
+1. Route map is re-rendered (with POI markers)
+2. Elevation profile is re-rendered
+3. Distance in the tour markdown is updated
+4. Tour catalog index is updated if distance changed
+
+This prevents GPX, map images, and markdown from drifting out of sync after route edits or spur removal.
 
 ## Tests
 
