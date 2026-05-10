@@ -102,12 +102,14 @@ Use **only** these MCP servers for cycling tour planning. Do not use other avail
 
 ## Points of Interest
 
-| Emoji | Category             | Overpass categories                                | Guidance                                                 |
-| ----- | -------------------- | -------------------------------------------------- | -------------------------------------------------------- |
-| 🏛️    | Sehenswürdigkeiten   | museum, castle, memorial, ruins, church, viewpoint | Castles, parks, historic buildings, museums, viewpoints  |
-| 🎨    | Moderne Kunst        | artwork, gallery                                   | **Always highlight — user has special interest in art.** |
-| 🍺    | Einkehrmöglichkeiten | beer_garden, cafe, restaurant                      | **Prioritize cafés with selbstgebackener Kuchen.**       |
-| 🏊    | Badestellen          | swimming                                           | Swimming spots at lakes along the route                  |
+POI categories and user interests are defined in `user-preferences.md`. For map rendering, use these Overpass category mappings:
+
+| Emoji | Overpass categories                                |
+| ----- | -------------------------------------------------- |
+| 🏛️    | museum, castle, memorial, ruins, church, viewpoint |
+| 🎨    | artwork, gallery                                   |
+| 🍺    | beer_garden, cafe, restaurant                      |
+| 🏊    | swimming                                           |
 
 Pass Overpass category names directly to `render_gpx_map` `pois` parameter.
 
@@ -126,8 +128,8 @@ Pass Overpass category names directly to `render_gpx_map` `pois` parameter.
 ## Public Transit
 
 - **Home station**: S Blankenfelde (TF) Bhf (lines: S2, RB24, RE5, RE7, RE8)
-- **Default departure**: ~09:00 ab Blankenfelde. Query outbound connections starting from 08:45.
-- **Default group**: 2 persons + 2 bicycles. Calculate fares and recommend cheapest option.
+- **Default departure**: ~09:00 ab Blankenfelde (see `user-preferences.md`)
+- **Default group**: 2 persons + 2 bicycles (see `user-preferences.md`)
 - 1–2 transfers acceptable
 - Every tour MUST include: `> 🚲 Fahrradmitnahme in S-Bahn und Regionalbahn ist im VBB möglich (Fahrradkarte erforderlich).`
 

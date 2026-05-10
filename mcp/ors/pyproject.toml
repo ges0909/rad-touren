@@ -1,0 +1,19 @@
+[project]
+name = "ors-mcp"
+version = "1.0.0"
+description = "MCP server wrapping OpenRouteService for car/bike/foot routing"
+requires-python = ">=3.11"
+dependencies = [
+    "fastmcp",
+    "httpx",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "respx",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
