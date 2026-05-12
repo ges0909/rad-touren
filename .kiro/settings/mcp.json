@@ -2,13 +2,25 @@
   "mcpServers": {
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@latest"],
+      "args": [
+        "-y",
+        "@upstash/context7-mcp@latest"
+      ],
       "disabled": true,
-      "autoApprove": ["resolve-library-id", "query-docs"]
+      "autoApprove": [
+        "resolve-library-id",
+        "query-docs"
+      ]
     },
     "brouter": {
       "command": "uv",
-      "args": ["run", "--directory", "mcp/brouter", "python", "server.py"],
+      "args": [
+        "run",
+        "--directory",
+        "mcp/brouter",
+        "python",
+        "server.py"
+      ],
       "disabled": false,
       "autoApprove": [
         "calculate_route",
@@ -19,27 +31,65 @@
     },
     "open-meteo": {
       "command": "uv",
-      "args": ["run", "--directory", "mcp/open-meteo", "python", "server.py"],
+      "args": [
+        "run",
+        "--directory",
+        "mcp/open-meteo",
+        "python",
+        "server.py"
+      ],
       "disabled": false,
-      "autoApprove": ["weather_forecast", "geocoding"]
+      "autoApprove": [
+        "weather_forecast",
+        "geocoding"
+      ]
     },
     "vbb": {
       "command": "uv",
-      "args": ["run", "--directory", "mcp/vbb", "python", "server.py"],
+      "args": [
+        "run",
+        "--directory",
+        "mcp/vbb",
+        "python",
+        "server.py"
+      ],
       "disabled": false,
-      "autoApprove": ["search_stops", "get_departures", "get_journeys"]
+      "autoApprove": [
+        "search_stops",
+        "get_departures",
+        "get_journeys"
+      ]
     },
     "overpass": {
       "command": "uv",
-      "args": ["run", "--directory", "mcp/overpass", "python", "server.py"],
+      "args": [
+        "run",
+        "--directory",
+        "mcp/overpass",
+        "python",
+        "server.py"
+      ],
       "disabled": false,
-      "autoApprove": ["search_pois_along_route"]
+      "autoApprove": [
+        "search_pois_along_route"
+      ]
     },
     "openrouteservice": {
       "command": "uv",
-      "args": ["run", "--directory", "mcp/ors", "python", "server.py"],
+      "args": [
+        "run",
+        "--directory",
+        "mcp/ors",
+        "python",
+        "server.py"
+      ],
       "disabled": false,
-      "autoApprove": ["calculate_route", "geocode", "driving_time"],
+      "autoApprove": [
+        "calculate_route",
+        "geocode",
+        "driving_time",
+        "distance_matrix"
+      ],
       "disabledTools": []
     },
     "wikivoyage": {

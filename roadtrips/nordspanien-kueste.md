@@ -1,40 +1,41 @@
 ---
 ---
 
-# Nordspanien Küste Roadtrip (14 Tage)
+# Nordspanien Küste Roadtrip (16 Tage)
 
-**Reisezeitraum:** 15. September – 28. September 2026
-**Dauer:** 14 Tage / 13 Nächte
-**Stationen:** 7 Stopps
-**Gesamtstrecke:** ~870 km
-**Flug:** BER → Bilbao BIO (1 Stopp) / Bilbao BIO → BER (1 Stopp)
+**Reisezeitraum:** 4. September – 19. September 2026
+**Dauer:** 16 Tage / 15 Nächte
+**Stationen:** 5 Stopps
+**Gesamtstrecke:** ~960 km
+**Flug:** BER → Bilbao BIO (Direktflug Eurowings, Ankunft abends) / Bilbao BIO → BER (Direktflug Eurowings, Abflug nachmittags)
 **Mietwagen:** Übernahme/Abgabe Bilbao Flughafen
 
-> 🌊 **Tipp:** Die spanische Nordküste ist das Gegenteil vom Mittelmeer-Klischee — grüne Berge, wilde Atlantikküste, Pintxos-Bars, Sidra-Häuser und die Picos de Europa direkt hinter dem Strand. September: warm, wenig Touristen, perfekte Wanderbedingungen.
+> 🌊 **Tipp:** Die spanische Nordküste ist das Gegenteil vom Mittelmeer-Klischee — grüne Berge, wilde Atlantikküste, Pintxos-Bars, Sidra-Häuser und die Picos de Europa direkt hinter dem Strand. Anfang September: warm, wenig Touristen, perfekte Wanderbedingungen.
 
 ---
 
 ## Routenübersicht
 
-Bilbao → San Sebastián → Santander → Picos de Europa → Gijón/Oviedo → Bilbao (Puffer + Abreise)
+Bilbao (Ankunft) → San Sebastián → Santander → Picos de Europa → Gijón/Oviedo → Bilbao (Puffer + Abreise)
 
 | #   | Station                          | Nächte | Fahrzeit ab vorheriger |
 | --- | -------------------------------- | ------ | ---------------------- |
-| 1   | San Sebastián                    | 2      | ~1 Std. (102 km)       |
-| 2   | Santander                        | 2      | ~1,5 Std. (105 km)     |
-| 3   | Picos de Europa / Cangas de Onís | 3      | ~1,5 Std. (136 km)     |
-| 4   | Gijón / Oviedo                   | 2      | ~1 Std. (86 km)        |
+| 0   | Bilbao (Ankunft abends)          | 1      | — (Flughafen)          |
+| 1   | San Sebastián                    | 3      | ~1 Std. (102 km)       |
+| 2   | Santander                        | 2      | ~2,5 Std. (197 km)     |
+| 3   | Picos de Europa / Cangas de Onís | 4      | ~1,5 Std. (136 km)     |
+| 4   | Gijón / Oviedo                   | 3      | ~1 Std. (86 km)        |
 | 5   | Bilbao (Puffer + Abreise)        | 2      | ~3 Std. (269 km)       |
 
 > ⚠️ **Längste Etappe:** Gijón → Bilbao (269 km, ~3 Std.) am letzten Fahrtag. Alternativ: Zwischenstopp in Castro Urdiales (Küstenort auf halber Strecke).
 
-> 💡 **Puffer-Regel:** Bilbao am Ende mit 2 Nächten — genug Zeit für Guggenheim, Pintxos und Puffer für den Rückflug.
+> 💡 **Puffer-Regel:** Bilbao am Ende mit 2 Nächten — genug Zeit für Guggenheim, Pintxos und Puffer für den Rückflug am Nachmittag. Erste Nacht in Bilbao nur Ankunft (Abendessen in der Altstadt, kein Programm).
 
 [![Routenkarte](img/nordspanien-kueste.png)](img/nordspanien-kueste.png)
 
 ---
 
-## 1. San Sebastián / Donostia (2 Nächte)
+## 1. San Sebastián / Donostia (3 Nächte)
 
 Gastronomie-Hauptstadt Europas — mehr Michelin-Sterne pro Kopf als irgendwo sonst. Drei perfekte Stadtstrände, baskische Kultur und die beste Pintxos-Szene der Welt.
 
@@ -101,13 +102,13 @@ Elegante Hafenstadt an der kantabrischen Küste — Strände, Surfen, Markthalle
 
 ### Unterwegs (San Sebastián → Santander)
 
-- 🏛️ **Comillas** — Gaudí-Gebäude (El Capricho), mittelalterliches Dorf. 30 Min. Abstecher.
+- 🏛️ **Castro Urdiales** — Hübscher Fischerort auf halber Strecke, gotische Kirche am Hafen. Guter Stopp für Kaffee und Pintxos.
 
 ---
 
-## 3. Picos de Europa / Cangas de Onís (3 Nächte)
+## 3. Picos de Europa / Cangas de Onís (4 Nächte)
 
-Spaniens spektakulärster Nationalpark — 2.600 m hohe Kalksteingipfel, tiefe Schluchten, Gletscherseen und asturische Bergdörfer. Drei Nächte für die besten Wanderungen.
+Spaniens spektakulärster Nationalpark — 2.600 m hohe Kalksteingipfel, tiefe Schluchten, Gletscherseen und asturische Bergdörfer. Vier Nächte für die besten Wanderungen und einen Ruhetag.
 
 **Unterkunft:** Hotel Posada del Valle oder Casa Rural bei Cangas de Onís — ~80–120 €/Nacht
 
@@ -134,18 +135,22 @@ Spaniens spektakulärster Nationalpark — 2.600 m hohe Kalksteingipfel, tiefe S
 - 🏛️ **Basílica de Covadonga** — Heilige Stätte der Reconquista (722 n.Chr.), in Felshöhle gebaut.
 - 🏛️ **Puente Romano** (Cangas de Onís) — Römische Brücke mit hängendem Kreuz, Wahrzeichen Asturiens.
 
+### Unterwegs (Santander → Cangas de Onís)
+
+- 🏛️ **Comillas** — Gaudí-Gebäude (El Capricho), mittelalterliches Dorf. 20 Min. Abstecher ab der Küstenstraße.
+
 ---
 
-## 4. Gijón / Oviedo (2 Nächte)
+## 4. Gijón / Oviedo (3 Nächte)
 
-Zwei Städte, ein Aufenthalt — Gijón (Hafen, Strand, Sidra) und Oviedo (Präromanik, Kunst, Eleganz). 30 Min. auseinander.
+Zwei Städte, ein Aufenthalt — Gijón (Hafen, Strand, Sidra) und Oviedo (Präromanik, Kunst, Eleganz). 30 Min. auseinander. Drei Nächte für je einen vollen Tag pro Stadt plus Wanderung.
 
 **Unterkunft:** Hotel Casona de Jovellanos (Gijón) oder Hotel de la Reconquista (Oviedo) — ~90–130 €/Nacht
 
 ### Wandern
 
 - 🥾 **Senda del Cervigón** (Gijón) — 8 km, 2,5 Std., leicht. Küstenpfad mit Skulpturen entlang der Klippen.
-- 🥾 **Senda del Oso** (30 Min. ab Oviedo) — 12 km, 3 Std., leicht. Ehemaliger Bergbau-Pfad durch Schluchten, Bären-Schutzgebiet. [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=14507335)
+- 🥾 **Senda del Oso** (30 Min. ab Oviedo) — 12 km, 3 Std., leicht. Ehemaliger Bergbau-Pfad durch Schluchten, Bären-Schutzgebiet. [Vía Verde Info](https://www.viasverdes.com/itinerarios/itinerario.asp?id=27)
 
 ### Baden
 
@@ -170,7 +175,7 @@ Zwei Städte, ein Aufenthalt — Gijón (Hafen, Strand, Sidra) und Oviedo (Prär
 
 ## 5. Bilbao — Puffer & Abreise (2 Nächte)
 
-Zurück in Bilbao für Guggenheim, Pintxos und Puffer. Mietwagen am Flughafen abgeben, dann per Metro in die Stadt.
+Zurück in Bilbao für Guggenheim, Pintxos und Puffer. Mietwagen am Flughafen abgeben, dann per Metro in die Stadt. Rückflug am Nachmittag des 19. September — morgens noch Zeit für einen letzten Pintxos-Bummel.
 
 **Unterkunft:** Hotel Miró oder Gran Hotel Domine (Guggenheim-Blick) — ~100–150 €/Nacht
 
@@ -198,7 +203,7 @@ Zurück in Bilbao für Guggenheim, Pintxos und Puffer. Mietwagen am Flughafen ab
 
 ## Wetter
 
-> ℹ️ _Mitte September an der spanischen Nordküste: Spätsommer, noch warm aber Atlantik bringt gelegentlich Regen. Richtwerte — aktuelle Vorhersage vor Reiseantritt prüfen._
+> ℹ️ _Anfang September an der spanischen Nordküste: Spätsommer, noch warm aber Atlantik bringt gelegentlich Regen. Richtwerte — aktuelle Vorhersage vor Reiseantritt prüfen._
 
 | Station         | Temperatur | Regen | Besonderheiten                       |
 | --------------- | ---------- | ----- | ------------------------------------ |
@@ -214,22 +219,23 @@ Zurück in Bilbao für Guggenheim, Pintxos und Puffer. Mietwagen am Flughafen ab
 
 ## Anreise & Mietwagen
 
-**Hinflug:** BER → Bilbao (BIO), 1 Stopp (via Madrid oder Barcelona), ~4 Std. total
+**Hinflug:** BER → Bilbao (BIO), Direktflug Eurowings, ~2,5 Std.
 
-- Empfehlung: **Mo 15. September, Abflug 07:00–08:00 Uhr** → Ankunft Bilbao ~11:00–12:00
-- Airlines: Vueling (via BCN), Iberia (via MAD), Ryanair (via MAD)
-- Geschätzte Kosten: ~100–180 € pro Person (one-way)
+- Empfehlung: **Do 4. September, Ankunft Bilbao abends**
+- Geschätzte Kosten: ~80–150 € pro Person (one-way)
+- Erste Nacht in Bilbao: Mietwagen am Flughafen übernehmen, Fahrt ins Zentrum (~15 Min.), Abendessen in der Altstadt
 
-**Rückflug:** Bilbao (BIO) → BER, 1 Stopp
+**Rückflug:** Bilbao (BIO) → BER, Direktflug Eurowings, ~2,5 Std.
 
-- Empfehlung: **So 28. September, Abflug 14:00–16:00 Uhr**
+- Empfehlung: **Fr 19. September, Abflug nachmittags**
+- Morgens auschecken, letzter Bummel durch Bilbao, dann zum Flughafen (~30 Min. vor Abflug einplanen)
 
 **Mietwagen:**
 
-- Übernahme: Bilbao Flughafen, 15. September
-- Abgabe: Bilbao Flughafen, 28. September (morgens vor Rückflug)
+- Übernahme: Bilbao Flughafen, 4. September abends
+- Abgabe: Bilbao Flughafen, 19. September mittags (vor Rückflug)
 - Empfehlung: Kompaktwagen
-- Geschätzte Kosten: ~400–600 € für 14 Tage (Vollkasko inkl.)
+- Geschätzte Kosten: ~450–700 € für 16 Tage (Vollkasko inkl.)
 
 > 💡 Mietwagen frühzeitig buchen. Vergleichsportale: CHECK24, billiger-mietwagen.de
 
@@ -239,12 +245,12 @@ Zurück in Bilbao für Guggenheim, Pintxos und Puffer. Mietwagen am Flughafen ab
 
 | Posten                  | Geschätzt          |
 | ----------------------- | ------------------ |
-| Flüge (2×, Roundtrip)   | ~400–720 €         |
-| Mietwagen (14 Tage)     | ~400–600 €         |
-| Unterkünfte (13 Nächte) | ~1.200–1.700 €     |
-| Benzin (~870 km)        | ~90–120 €          |
-| Essen & Aktivitäten     | ~800–1.200 €       |
-| **Gesamt**              | **~2.900–4.340 €** |
+| Flüge (2×, Roundtrip)   | ~320–600 €         |
+| Mietwagen (16 Tage)     | ~450–700 €         |
+| Unterkünfte (15 Nächte) | ~1.400–2.000 €     |
+| Benzin (~960 km)        | ~100–130 €         |
+| Essen & Aktivitäten     | ~900–1.400 €       |
+| **Gesamt**              | **~3.060–4.820 €** |
 
 ---
 

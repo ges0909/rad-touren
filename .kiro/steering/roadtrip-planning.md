@@ -22,7 +22,7 @@ Plan, generate, and present multi-day car rental road trips across Europe.
 
 1. **No fabrication**: Never invent restaurants, hotels, hike names, travel times, or prices. Only present information from web search or API results.
 2. **Coordinate order**: All MCP tool calls use **[longitude, latitude]** — longitude first.
-3. **Verify distances**: Always calculate driving times between stops. Flag if a single segment exceeds 4 hours.
+3. **Verify distances**: Always calculate driving times between **every pair of consecutive stops** via `driving_time` or `distance_matrix` before writing the route table. Never estimate from map distance or straight-line distance — coastal and mountain roads can be 1.5–2× longer than the Luftlinie. Flag if a single segment exceeds 4 hours.
 4. **Seasonal awareness**: Check weather and seasonal closures (mountain passes, ferry schedules, swimming season).
 5. **Overpass rate limit**: Query POI presets **sequentially** (one at a time). Never parallelize Overpass requests.
 6. **Buffer rule**: When the trip starts and ends in the same city, place the **longer stay (2+ nights) at the end** as a buffer for the return flight. First night(s) at the departure city: 1 night max (arrival/jet lag only).

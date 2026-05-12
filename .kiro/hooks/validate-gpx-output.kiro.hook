@@ -1,16 +1,17 @@
 {
   "enabled": true,
-  "name": "GPX Rundkurs-Validierung",
-  "description": "Prüft nach jeder GPX-Dateierstellung ob Start = Ziel (Rundkurs), ob das Format trk/trkseg/trkpt verwendet wird, und gibt die Distanz aus.",
+  "name": "GPX Round Trip Validation",
+  "description": "Validates newly created cycling/hiking GPX files: checks trk/trkseg/trkpt format, verifies start ≈ end (round trip), and reports trackpoint count.",
   "version": "1",
   "when": {
     "type": "fileCreated",
     "patterns": [
-      "gpx/*.gpx"
+      "cycling/gpx/*.gpx",
+      "hiking/gpx/*.gpx"
     ]
   },
   "then": {
     "type": "askAgent",
-    "prompt": "Eine neue GPX-Datei wurde erstellt. Prüfe folgendes:\n1. Enthält die Datei `<trk>/<trkseg>/<trkpt>` (NICHT `<rte>/<rtept>`)?\n2. Ist der erste Trackpoint identisch oder sehr nah am letzten Trackpoint (Rundkurs)?\n3. Wie viele Trackpoints enthält die Datei?\nFalls Probleme gefunden werden, weise den Nutzer darauf hin."
+    "prompt": "A new GPX file was created. Validate the following:\n1. Does the file use `<trk>/<trkseg>/<trkpt>` format (NOT `<rte>/<rtept>`)?\n2. Is the first trackpoint identical or very close to the last trackpoint (round trip)?\n3. How many trackpoints does the file contain?\nIf any issues are found, inform the user."
   }
 }
