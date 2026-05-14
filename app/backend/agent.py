@@ -5,6 +5,7 @@ from collections.abc import AsyncGenerator
 
 from google import genai
 from google.genai import types
+from google.genai.errors import ClientError, ServerError
 
 from steering import build_system_prompt
 from tools import TOOL_DECLARATIONS, TOOL_REGISTRY
@@ -57,11 +58,36 @@ async def run_agent(
     # Agent loop: call LLM, execute tools, feed results back
     max_iterations = 15
     for iteration in range(max_iterations):
-        response = client.models.generate_content(
-            model="gemini-2.0-flash",
-            contents=contents,
-            config=config,
-        )
+        try:
+            response = client.models.generate_content(
+                model="gemini-2.0-flash",
+                contents=contents,
+                config=config,
+            )
+        except ClientError as e:
+            if e.code == 429:
+                yield {
+                    "event": "error",
+                    "data": {"error": "API-Quota erschöpft. Bitte warte einige Minuten oder prüfe dein Gemini-Kontingent."},
+                }
+            else:
+                yield {
+                    "event": "error",
+                    "data": {"error": f"Gemini API-Fehler ({e.code}): {e.message or e!s}"},
+                }
+            return
+        except ServerError as e:
+            yield {
+                "event": "error",
+                "data": {"error": f"Gemini-Server nicht erreichbar ({e.code}). Bitte später erneut versuchen."},
+            }
+            return
+        except Exception as e:
+            yield {
+                "event": "error",
+                "data": {"error": f"Unerwarteter Fehler: {e!s}"},
+            }
+            return
 
         # Check if response has function calls
         candidate = response.candidates[0]
@@ -115,4 +141,4 @@ async def run_agent(
         )
 
     # Max iterations reached
-    yield {"event": "error", "data": {"message": "Max iterations reached"}}
+    yield {"event": "error", "data": {"error": "Maximale Iterationen erreicht. Bitte versuche eine kürzere Anfrage."}}

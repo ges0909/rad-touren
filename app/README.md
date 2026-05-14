@@ -1,4 +1,4 @@
-# Trip Planner Web App
+# Trip Planner App
 
 AI-powered tour planner — FastAPI backend with Gemini agent + Vue 3 frontend.
 

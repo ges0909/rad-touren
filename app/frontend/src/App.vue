@@ -7,12 +7,13 @@ import TourMap from "./components/TourMap.vue";
 const messages = ref<Array<{ role: string; content: string }>>([]);
 const tourMarkdown = ref("");
 const isLoading = ref(false);
-const tourType = ref("road");
+const errorMessage = ref("");
 
 async function handleSend(message: string) {
   messages.value.push({ role: "user", content: message });
   isLoading.value = true;
   tourMarkdown.value = "";
+  errorMessage.value = "";
 
   try {
     const response = await fetch("/api/chat", {
@@ -20,10 +21,14 @@ async function handleSend(message: string) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         message,
-        tour_type: tourType.value,
         session_id: "default",
       }),
     });
+
+    if (!response.ok) {
+      errorMessage.value = `Server-Fehler (${response.status}). Bitte prüfe das Backend-Log.`;
+      return;
+    }
 
     const reader = response.body?.getReader();
     const decoder = new TextDecoder();
@@ -31,6 +36,7 @@ async function handleSend(message: string) {
     if (!reader) return;
 
     let buffer = "";
+    let receivedData = false;
     while (true) {
       const { done, value } = await reader.read();
       if (done) break;
@@ -45,8 +51,10 @@ async function handleSend(message: string) {
           if (!data) continue;
           try {
             const parsed = JSON.parse(data);
-            // Handle based on preceding event line
-            if (parsed.markdown) {
+            receivedData = true;
+            if (parsed.error) {
+              errorMessage.value = parsed.error;
+            } else if (parsed.markdown) {
               tourMarkdown.value = parsed.markdown;
             } else if (parsed.message) {
               messages.value.push({
@@ -60,11 +68,14 @@ async function handleSend(message: string) {
         }
       }
     }
+
+    if (!receivedData && !errorMessage.value) {
+      errorMessage.value =
+        "Keine Antwort vom Server erhalten. Bitte prüfe das Backend-Log.";
+    }
   } catch (error) {
-    messages.value.push({
-      role: "assistant",
-      content: "Fehler bei der Verbindung zum Server.",
-    });
+    errorMessage.value =
+      "Verbindung zum Server fehlgeschlagen. Ist das Backend gestartet?";
   } finally {
     isLoading.value = false;
   }
@@ -82,44 +93,24 @@ async function handleSend(message: string) {
       </p>
     </header>
 
-    <!-- Tour Type Selector -->
-    <div class="mb-4 flex gap-2">
-      <button
-        v-for="t in [
-          { id: 'road', label: '🚗 Roadtrip' },
-          { id: 'bike', label: '🚲 Radtour' },
-          { id: 'hike', label: '🥾 Wanderung' },
-        ]"
-        :key="t.id"
-        :class="[
-          'px-3 py-1.5 rounded-md text-sm font-medium transition',
-          tourType === t.id
-            ? 'bg-blue-600 text-white'
-            : 'bg-gray-200 text-gray-700 hover:bg-gray-300',
-        ]"
-        @click="tourType = t.id"
-      >
-        {{ t.label }}
-      </button>
-    </div>
-
     <!-- Chat Input -->
     <ChatInput :is-loading="isLoading" @send="handleSend" />
 
-    <!-- Messages -->
-    <div v-if="messages.length" class="mt-4 space-y-2">
-      <div
-        v-for="(msg, i) in messages"
-        :key="i"
-        :class="[
-          'px-3 py-2 rounded-lg text-sm max-w-[80%]',
-          msg.role === 'user'
-            ? 'bg-blue-100 text-blue-900 ml-auto'
-            : 'bg-gray-100 text-gray-800',
-        ]"
-      >
-        {{ msg.content }}
+    <!-- Error Display -->
+    <div
+      v-if="errorMessage"
+      class="mt-4 px-4 py-3 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3"
+    >
+      <span class="text-red-500 text-lg leading-none">⚠️</span>
+      <div class="flex-1">
+        <p class="text-sm text-red-800">{{ errorMessage }}</p>
       </div>
+      <button
+        @click="errorMessage = ''"
+        class="text-red-400 hover:text-red-600 text-lg leading-none"
+      >
+        ✕
+      </button>
     </div>
 
     <!-- Tour Result -->

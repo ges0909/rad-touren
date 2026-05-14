@@ -41,7 +41,6 @@ async def chat(request: Request):
     body = await request.json()
     message = body.get("message", "")
     session_id = body.get("session_id", "default")
-    tour_type = body.get("tour_type", "road")
 
     if not message:
         return {"error": "No message provided"}
@@ -53,16 +52,34 @@ async def chat(request: Request):
     chat_history = sessions[session_id]
 
     async def event_generator():
-        async for event in run_agent(
-            client=get_client(),
-            user_message=message,
-            chat_history=chat_history,
-            tour_type=tour_type,
-        ):
+        try:
+            client = get_client()
+        except RuntimeError as e:
             yield {
-                "event": event["event"],
-                "data": json.dumps(event["data"], ensure_ascii=False),
+                "event": "error",
+                "data": json.dumps({"error": str(e)}, ensure_ascii=False),
             }
+            return
+
+        try:
+            async for event in run_agent(
+                client=client,
+                user_message=message,
+                chat_history=chat_history,
+            ):
+                yield {
+                    "event": event["event"],
+                    "data": json.dumps(event["data"], ensure_ascii=False),
+                }
+        except Exception as e:
+            yield {
+                "event": "error",
+                "data": json.dumps(
+                    {"error": f"Interner Fehler: {e!s}"},
+                    ensure_ascii=False,
+                ),
+            }
+            return
 
         # Save to history after completion
         chat_history.append({"role": "user", "content": message})
