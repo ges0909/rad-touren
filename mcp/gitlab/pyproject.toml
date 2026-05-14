@@ -1,0 +1,19 @@
+[project]
+name = "gitlab-mcp"
+version = "1.0.0"
+description = "MCP server for GitLab API access via personal access token"
+requires-python = ">=3.11"
+dependencies = [
+    "fastmcp",
+    "httpx",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "respx",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

@@ -1,21 +1,5 @@
 {
   "mcpServers": {
-    "context7": {
-      "command": "uv",
-      "args": [
-        "run",
-        "--directory",
-        "mcp/context7",
-        "fastmcp",
-        "run",
-        "server.py"
-      ],
-      "env": {
-        "CONTEXT7_API_KEY": "ctx7sk-dein-key"
-      },
-      "disabled": true,
-      "autoApprove": ["resolve_library_id", "get_library_docs"]
-    },
     "brouter": {
       "command": "uv",
       "args": ["run", "--directory", "mcp/brouter", "python", "server.py"],
@@ -99,6 +83,95 @@
       "args": ["run", "--directory", "mcp/osrm", "fastmcp", "run", "server.py"],
       "disabled": false,
       "autoApprove": ["calculate_car_route", "route_to_gpx"]
+    },
+    "context7": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "mcp/context7",
+        "fastmcp",
+        "run",
+        "server.py"
+      ],
+      "env": {
+        "CONTEXT7_API_KEY": "${CONTEXT7_API_KEY}"
+      },
+      "disabled": true,
+      "autoApprove": ["resolve_library_id", "get_library_docs"]
+    },
+    "gitlab": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "mcp/gitlab",
+        "fastmcp",
+        "run",
+        "server.py"
+      ],
+      "env": {
+        "GITLAB_URL": "${GITLAB_URL}",
+        "GITLAB_TOKEN": "${GITLAB_TOKEN}"
+      },
+      "disabled": true,
+      "autoApprove": [
+        "list_projects",
+        "get_project",
+        "list_merge_requests",
+        "get_merge_request",
+        "get_merge_request_changes",
+        "list_pipelines",
+        "get_pipeline_jobs",
+        "list_issues",
+        "get_file",
+        "list_repository_tree",
+        "search_code"
+      ]
+    },
+    "jira": {
+      "command": "uv",
+      "args": ["run", "--directory", "mcp/jira", "fastmcp", "run", "server.py"],
+      "env": {
+        "JIRA_URL": "${JIRA_URL}",
+        "JIRA_TOKEN": "${JIRA_TOKEN}",
+        "JIRA_EMAIL": "${JIRA_EMAIL}"
+      },
+      "disabled": true,
+      "autoApprove": [
+        "search_issues",
+        "get_issue",
+        "get_issue_comments",
+        "list_boards",
+        "get_sprint_issues",
+        "search_users"
+      ]
+    },
+    "sonarqube": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "mcp/sonarqube",
+        "fastmcp",
+        "run",
+        "server.py"
+      ],
+      "env": {
+        "SONARQUBE_URL": "${SONARQUBE_URL}",
+        "SONARQUBE_TOKEN": "${SONARQUBE_TOKEN}"
+      },
+      "disabled": true,
+      "autoApprove": [
+        "list_projects",
+        "get_project_status",
+        "list_issues",
+        "get_issue",
+        "list_hotspots",
+        "get_measures_history",
+        "get_duplications",
+        "get_source_with_issues"
+      ]
     }
   }
 }
