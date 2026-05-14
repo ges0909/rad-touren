@@ -13,7 +13,7 @@ AI-powered tour planner — FastAPI backend with Gemini agent + Vue 3 frontend.
 
 ### 1. Environment Variables
 
-Create a `.env` file in the project root (or copy from `.env.example`):
+Create a `.env` file in the project root:
 
 ```
 GEMINI_API_KEY=your-api-key-here
