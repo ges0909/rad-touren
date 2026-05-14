@@ -224,11 +224,11 @@ def render_map(
         )
         draw.text((tx, ty), text, fill="#1D3557", font=font_bold)
 
-    # --- Legend overlay (bottom-left corner) ---
+    # --- Legend overlay (bottom-left corner) — POI icons only ---
     if pois:
         used_categories = sorted(set(cat for cat, _, _, _ in pois))
         line_height = 18
-        legend_h = 30 + (len(used_categories) + 2) * line_height
+        legend_h = 16 + len(used_categories) * line_height
         legend_w = 175
         lx = 12
         ly = height - legend_h - 12
@@ -250,23 +250,9 @@ def render_map(
         )
 
         cx = lx + 10
-        cy = ly + 10
+        cy = ly + 8
 
-        draw.text((cx, cy), "Legende", fill="#333333", font=font_bold)
-        cy += line_height + 4
-
-        # Station marker
-        draw.ellipse([cx, cy + 2, cx + 10, cy + 12], fill="#1D3557")
-        draw.ellipse([cx + 2, cy + 4, cx + 8, cy + 10], fill="white")
-        draw.text((cx + 16, cy), "Station (Tag)", fill="#333333", font=font_small)
-        cy += line_height
-
-        # Route line
-        draw.line([(cx, cy + 6), (cx + 10, cy + 6)], fill="#E63946", width=3)
-        draw.text((cx + 16, cy), "Route", fill="#333333", font=font_small)
-        cy += line_height + 2
-
-        # POI categories
+        # POI categories only
         for cat in used_categories:
             info = POI_CATEGORIES.get(cat, {"color": "#999", "label": cat})
             icon_file = ICON_DIR / info.get("icon", "sight.png")

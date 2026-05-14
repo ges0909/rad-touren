@@ -22,22 +22,22 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 
 | Tag | Datum      | Station                                           | Programm                                                                                                                                                                                                                                                                   |
 | --- | ---------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | Do 4. Sep  | **Bilbao** (Ankunft)                              | Abendflug BER→BIO. Mietwagen übernehmen, Fahrt ins Zentrum (~15 Min.). Abendessen Casco Viejo.                                                                                                                                                                             |
-| 2   | Fr 5. Sep  | 🚗 → **San Sebastián** · 139 km, ~3 Std. + Stopps | Küstenstraße: Gaztelugatxe (morgens früh, 241 Stufen), Bermeo Kaffee am Hafen, Urdaibai Aussichtspunkt, Lekeitio Mittagessen (Fisch), Zumaia Flysch-Küste (30 Min. Spaziergang), 🎨 Balenciaga Museum Getaria, 🍇 Txakoli-Verkostung. Ankunft abends. Pintxos Parte Vieja. |
-| 3   | Sa 6. Sep  | San Sebastián                                     | 🥾 Monte Igueldo Küstenwanderung (8 km, 3 Std.). 🏊 Playa de la Concha. 🎨 Chillida-Leku Skulpturenpark. Abend: Pintxos-Crawl (Zeruko, La Cuchara de San Telmo).                                                                                                           |
-| 4   | So 7. Sep  | 🚗 → **Santander** · 198 km, ~2,5 Std.            | Stopp Castro Urdiales (Kaffee, gotische Kirche). Ankunft Mittag. 🎨 Centro Botín (Renzo Piano). 🏛️ Palacio de la Magdalena. 🏊 Playa del Sardinero. Abend: Mercado de la Esperanza.                                                                                        |
-| 5   | Mo 8. Sep  | Santander                                         | 🥾 Cabo Mayor → Mataleñas Klippenpfad (6 km, 2 Std.). 🏊 Playa de la Arnía. Abend: Bodega del Riojano.                                                                                                                                                                     |
-| 6   | Di 9. Sep  | 🚗 → **Potes** · 106 km, ~1,5 Std. + Stopps       | 🏛️ Santillana del Mar (mittelalterliches Dorf) + Altamira-Museum. Optional: Comillas (Gaudís El Capricho). 🏛️ Desfiladero de la Hermida (21 km Schlucht, 175 Kurven). 🥾 Mirador de Santa Catalina (4 km, 1,5 Std.). Abend: Cocido Lebaniego + 🍇 Orujo-Verkostung.        |
-| 7   | Mi 10. Sep | 🚗 → **Cangas de Onís** · 109 km, ~1,5 Std.       | Fahrt über Desfiladero de los Beyos. 🏛️ Puente Romano, Basílica de Covadonga. Abend: Sidrería — Sidra escanciar lernen.                                                                                                                                                    |
-| 8   | Do 11. Sep | Picos de Europa                                   | 🥾 **Ruta del Cares** (21 km, 6–7 Std.) — Ganztageswanderung, früh starten. Abend: Quesu Cabrales in Arenas de Cabrales.                                                                                                                                                   |
-| 9   | Fr 12. Sep | Picos de Europa                                   | 🚗🥾 Lagos de Covadonga (Rundweg 6,4 km, 2,5 Std., morgens früh). 🏊 Río Sella Flussbaden oder Playa de Gulpiyuri (Inland-Strand). Abend: Fabada Asturiana im El Molín de la Pedrera.                                                                                      |
-| 10  | Sa 13. Sep | 🚗 → **Gijón** · 87 km, ~1 Std.                   | 🥾 Senda del Cervigón Küstenpfad (8 km, 2,5 Std.). 🏊 Playa de San Lorenzo. 🌿 Jardín Botánico Atlántico. Abend: Sidrería Tierra Astur.                                                                                                                                    |
-| 11  | So 14. Sep | Oviedo (Tagesausflug, 30 Min.)                    | 🏛️ Präromanische Kirchen (UNESCO). 🎨 Museo de Bellas Artes. Mercado del Fontán. ☕ Cafetería Rialto. Rückweg: 🎨 LABoral Centro de Arte (Gijón).                                                                                                                          |
-| 12  | Mo 15. Sep | 🚗 → **Vitoria-Gasteiz** · 326 km, ~3,5 Std.      | Pause Castro Urdiales (~2 Std. Fahrt). Ankunft Nachmittag. 🎨 Itinerario Muralístico Rundgang (1,5 Std.). Abend: Pintxos Casco Viejo (Calle Cuchillería).                                                                                                                  |
-| 13  | Di 16. Sep | Rioja Alavesa (Tagesausflug, 30 Min.)             | 🍇 Bodegas Ysios (Calatrava-Bau, Verkostung). Mittag: Lamm al sarmiento. 🍇 Marqués de Riscal (Gehry-Hotel). 🏛️ Laguardia Altstadt + unterirdische Keller. 🏛️ Salinas de Añana (Rückweg, geführte Tour).                                                                   |
-| 14  | Mi 17. Sep | 🚗 → **Bilbao** · 66 km, ~1 Std.                  | 🎨 Artium Museoa (2 Std.). 🏛️ Catedral de Santa María. Fahrt Bilbao. Mietwagen Flughafen abgeben, Metro Zentrum. Abend: Mercado de la Ribera.                                                                                                                              |
-| 15  | Do 18. Sep | Bilbao                                            | 🎨 **Guggenheim** (3 Std.). Restaurante Mina. 🏛️ Casco Viejo + Puente Bizkaia (UNESCO). 🥾 Artxanda Funicular (Sonnenuntergang). Abend: Plaza Nueva Pintxos-Crawl.                                                                                                         |
-| 16  | Fr 19. Sep | Bilbao (Abreise)                                  | ☕ Café Iruña. Bummel Altstadt. Metro Flughafen. Rückflug BIO→BER nachmittags.                                                                                                                                                                                             |
+| 1   | Fr 4. Sep  | **Bilbao** (Ankunft)                              | Abendflug BER→BIO. Mietwagen übernehmen, Fahrt ins Zentrum (~15 Min.). Abendessen Casco Viejo.                                                                                                                                                                             |
+| 2   | Sa 5. Sep  | 🚗 → **San Sebastián** · 139 km, ~3 Std. + Stopps | Küstenstraße: Gaztelugatxe (morgens früh, 241 Stufen), Bermeo Kaffee am Hafen, Urdaibai Aussichtspunkt, Lekeitio Mittagessen (Fisch), Zumaia Flysch-Küste (30 Min. Spaziergang), 🎨 Balenciaga Museum Getaria, 🍇 Txakoli-Verkostung. Ankunft abends. Pintxos Parte Vieja. |
+| 3   | So 6. Sep  | San Sebastián                                     | 🥾 Monte Igueldo Küstenwanderung (8 km, 3 Std.). 🏊 Playa de la Concha. 🎨 Chillida-Leku Skulpturenpark. Abend: Pintxos-Crawl (Zeruko, La Cuchara de San Telmo).                                                                                                           |
+| 4   | Mo 7. Sep  | 🚗 → **Santander** · 198 km, ~2,5 Std.            | Stopp Castro Urdiales (Kaffee, gotische Kirche). Ankunft Mittag. 🎨 Centro Botín (Renzo Piano). 🏛️ Palacio de la Magdalena. 🏊 Playa del Sardinero. Abend: Mercado de la Esperanza.                                                                                        |
+| 5   | Di 8. Sep  | Santander                                         | 🥾 Cabo Mayor → Mataleñas Klippenpfad (6 km, 2 Std.). 🏊 Playa de la Arnía. Abend: Bodega del Riojano.                                                                                                                                                                     |
+| 6   | Mi 9. Sep  | 🚗 → **Potes** · 106 km, ~1,5 Std. + Stopps       | 🏛️ Santillana del Mar (mittelalterliches Dorf) + Altamira-Museum. Optional: Comillas (Gaudís El Capricho). 🏛️ Desfiladero de la Hermida (21 km Schlucht, 175 Kurven). 🥾 Mirador de Santa Catalina (4 km, 1,5 Std.). Abend: Cocido Lebaniego + 🍇 Orujo-Verkostung.        |
+| 7   | Do 10. Sep | 🚗 → **Cangas de Onís** · 109 km, ~1,5 Std.       | Fahrt über Desfiladero de los Beyos. 🏛️ Puente Romano, Basílica de Covadonga. Abend: Sidrería — Sidra escanciar lernen.                                                                                                                                                    |
+| 8   | Fr 11. Sep | Picos de Europa                                   | 🥾 **Ruta del Cares** (21 km, 6–7 Std.) — Ganztageswanderung, früh starten. Abend: Quesu Cabrales in Arenas de Cabrales.                                                                                                                                                   |
+| 9   | Sa 12. Sep | Picos de Europa                                   | 🚗🥾 Lagos de Covadonga (Rundweg 6,4 km, 2,5 Std., morgens früh). 🏊 Río Sella Flussbaden oder Playa de Gulpiyuri (Inland-Strand). Abend: Fabada Asturiana im El Molín de la Pedrera.                                                                                      |
+| 10  | So 13. Sep | 🚗 → **Gijón** · 87 km, ~1 Std.                   | 🥾 Senda del Cervigón Küstenpfad (8 km, 2,5 Std.). 🏊 Playa de San Lorenzo. 🌿 Jardín Botánico Atlántico. Abend: Sidrería Tierra Astur.                                                                                                                                    |
+| 11  | Mo 14. Sep | Oviedo (Tagesausflug, 30 Min.)                    | 🏛️ Präromanische Kirchen (UNESCO). 🎨 Museo de Bellas Artes. Mercado del Fontán. ☕ Cafetería Rialto. Rückweg: 🎨 LABoral Centro de Arte (Gijón).                                                                                                                          |
+| 12  | Di 15. Sep | 🚗 → **Vitoria-Gasteiz** · 326 km, ~3,5 Std.      | Pause Castro Urdiales (~2 Std. Fahrt). Ankunft Nachmittag. 🎨 Itinerario Muralístico Rundgang (1,5 Std.). Abend: Pintxos Casco Viejo (Calle Cuchillería).                                                                                                                  |
+| 13  | Mi 16. Sep | Rioja Alavesa (Tagesausflug, 30 Min.)             | 🍇 Bodegas Ysios (Calatrava-Bau, Verkostung). Mittag: Lamm al sarmiento. 🍇 Marqués de Riscal (Gehry-Hotel). 🏛️ Laguardia Altstadt + unterirdische Keller. 🏛️ Salinas de Añana (Rückweg, geführte Tour).                                                                   |
+| 14  | Do 17. Sep | 🚗 → **Bilbao** · 66 km, ~1 Std.                  | 🎨 Artium Museoa (2 Std.). 🏛️ Catedral de Santa María. Fahrt Bilbao. Mietwagen Flughafen abgeben, Metro Zentrum. Abend: Mercado de la Ribera.                                                                                                                              |
+| 15  | Fr 18. Sep | Bilbao                                            | 🎨 **Guggenheim** (3 Std.). Restaurante Mina. 🏛️ Casco Viejo + Puente Bizkaia (UNESCO). 🥾 Artxanda Funicular (Sonnenuntergang). Abend: Plaza Nueva Pintxos-Crawl.                                                                                                         |
+| 16  | Sa 19. Sep | Bilbao (Abreise)                                  | ☕ Café Iruña. Bummel Altstadt. Metro Flughafen. Rückflug BIO→BER nachmittags.                                                                                                                                                                                             |
 
 > ⚠️ **Längste Etappe:** Tag 12, Gijón → Vitoria (326 km, ~3,5 Std.). Pause in Castro Urdiales empfohlen.
 
@@ -170,6 +170,7 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 
 > ℹ️ _Anfang September: Spätsommer, noch warm aber Atlantik bringt gelegentlich Regen. Aktuelle Vorhersage vor Reiseantritt prüfen._
 
+
 | Station         | Temperatur | Regen | Besonderheiten             |
 | --------------- | ---------- | ----- | -------------------------- |
 | San Sebastián   | 15–24°C    | 30%   | Milde Küste, abends frisch |
@@ -199,9 +200,9 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 
 - Übernahme: Bilbao Flughafen, 4. Sep abends
 - Abgabe: Bilbao Flughafen, 19. Sep mittags
-- Kompaktwagen, ~450–700 € für 16 Tage (Vollkasko inkl.)
+- Kompaktwagen, ~450–700 € für 15 Tage (Vollkasko inkl.)
 
-> 💡 Frühzeitig buchen. Vergleich: CHECK24, billiger-mietwagen.de
+> 💡 Frühzeitig buchen: billiger-mietwagen.de
 
 ---
 
@@ -210,7 +211,7 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 | Posten                  | Geschätzt          |
 | ----------------------- | ------------------ |
 | Flüge (2×, Roundtrip)   | ~320–600 €         |
-| Mietwagen (16 Tage)     | ~450–700 €         |
+| Mietwagen (15 Tage)     | ~450–700 €         |
 | Unterkünfte (15 Nächte) | ~1.400–2.000 €     |
 | Benzin (~1.086 km)      | ~120–150 €         |
 | Essen & Aktivitäten     | ~900–1.400 €       |
@@ -228,6 +229,7 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 - Sidra: „Escanciar" — aus 1 m Höhe ins Glas, sofort trinken
 - Txakoli: Aus Höhe eingeschenkt
 - Sprache: Baskisch (Euskara) + Spanisch im Baskenland, Asturisch (Bable) in Asturien
+
 
 | Thema              | Info                                                                                             |
 | ------------------ | ------------------------------------------------------------------------------------------------ |
@@ -251,6 +253,7 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 ## Quellen
 
 Markierte Wanderwege ([Waymarked Trails](https://waymarkedtrails.org), OSM-Daten):
+
 
 | Route                            | Länge  | Link                                                                        |
 | -------------------------------- | ------ | --------------------------------------------------------------------------- |

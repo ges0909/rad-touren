@@ -274,7 +274,7 @@ Rules:
 
 **Mietwagen:** Kompaktwagen, ~{X}–{Y} € für {N} Tage (Vollkasko inkl.)
 
-> 💡 Frühzeitig buchen. CHECK24, billiger-mietwagen.de
+> 💡 Frühzeitig buchen. billiger-mietwagen.de
 ```
 
 ### 6. Kostenübersicht

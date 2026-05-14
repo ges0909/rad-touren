@@ -15,7 +15,7 @@ Single source of truth for personal defaults shared across all tour types (cycli
 
 - **Default group size**: 2 persons
 - **Cycling**: 2 persons + 2 bicycles (affects fare calculations and transit constraints)
-- **Car trips**: Compact rental car, pickup/dropoff at airport
+- **Car trips**: Compact rental car, pickup/dropoff at airport. Booking via billiger-mietwagen.de (preferred)
 
 ## Home Base
 
@@ -30,7 +30,6 @@ Single source of truth for personal defaults shared across all tour types (cycli
 - **Fallback**: If no direct flight to the destination exists, search for the nearest airport with a direct BER connection. Accept up to ~3 hours driving from that airport to the trip region. Note: cross-border rental car usage (e.g., Portugal → Spain) is acceptable within EU/Schengen — book with "cross-border" option and note the surcharge in the cost estimate.
 - Outbound: early morning (07:00–09:00) to maximize the first day
 - Return: afternoon/evening (15:00–17:00) to use the last morning
-- Preferred days: avoid Friday/Monday (business surcharge). Tuesday–Thursday outbound, Sunday return.
 
 ## Interests — Priority Order
 
@@ -68,11 +67,12 @@ Apply when selecting restaurants, cafés, and stops:
 
 Apply when suggesting overnight stays:
 
-- Small/boutique over large chains
+- Small/familial hotels, B&Bs, pensiones over large chains
+- Breakfast included (Frühstück) preferred
+- Booking via booking.com (preferred)
 - Central location, walkable to sights
 - Price range: ~80–150 €/night for 2 persons
 - Sauna/wellness is a plus — mention when available
-- **Never** recommend hostels or budget chains
 
 ## Content Integrity Rules
 
