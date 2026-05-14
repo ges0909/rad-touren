@@ -10,12 +10,14 @@ RUN npm run build
 FROM python:3.12-slim
 WORKDIR /app
 
-# Install backend dependencies
-COPY backend/requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+# Install uv
+RUN pip install --no-cache-dir uv
 
-# Copy backend code
+# Copy backend project
 COPY backend/ ./
+
+# Install dependencies via uv
+RUN uv sync --no-dev
 
 # Copy built frontend
 COPY --from=frontend-build /app/frontend/dist ./frontend/dist
@@ -25,4 +27,4 @@ COPY ../.kiro/steering /app/steering
 COPY ../mcp /app/mcp
 
 EXPOSE 8000
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uv", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

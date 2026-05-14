@@ -98,7 +98,8 @@ Workflow: Develop steering in Kiro → push → auto-deploy → web app uses upd
 
 ## Backend
 
-- **Framework**: FastAPI (Python, async)
+- **Framework**: FastAPI (Python 3.12+, async)
+- **Tooling**:  for dependency management,  (no requirements.txt, no pip)
 - **LLM**: Google Gemini 2.0 Flash (free tier: 15 RPM, 1M tokens/day)
 - **Streaming**: Server-Sent Events (SSE)
 - **Hosting**: Railway ($5/Mo) — serves frontend + API in one container
