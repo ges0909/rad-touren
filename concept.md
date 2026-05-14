@@ -1,4 +1,4 @@
-# Tourenplaner — Web App Concept
+# Trip Planner — Web App Concept
 
 AI-powered tour planner for cycling (Berlin/Brandenburg), hiking, and road trips across Europe. Natural language prompts produce complete tour packages with routes, maps, POIs, weather, ratings, and travel connections.
 

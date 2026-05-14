@@ -1,5 +1,5 @@
 [project]
-name = "tourenplaner-backend"
+name = "trip-planner-backend"
 version = "0.1.0"
 description = "AI-powered tour planner backend"
 requires-python = ">=3.12"

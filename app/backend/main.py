@@ -1,4 +1,4 @@
-"""FastAPI backend for the Tourenplaner web app."""
+"""FastAPI backend for the Trip Planner web app."""
 
 import json
 import os
@@ -15,7 +15,7 @@ from agent import create_client, run_agent
 # Load environment variables
 load_dotenv(Path(__file__).parent.parent.parent / ".env")
 
-app = FastAPI(title="Tourenplaner API")
+app = FastAPI(title="Trip Planner API")
 
 # Gemini client (initialized on first request)
 _client = None

@@ -1,4 +1,4 @@
-# Tourenplaner Web App
+# Trip Planner Web App
 
 AI-powered tour planner — FastAPI backend with Gemini agent + Vue 3 frontend.
 
@@ -63,8 +63,8 @@ Open http://localhost:5173 in the browser.
 
 ```bash
 cd app
-docker build -t tourenplaner .
-docker run -p 8000:8000 -e GEMINI_API_KEY=your-key tourenplaner
+docker build -t trip-planner .
+docker run -p 8000:8000 -e GEMINI_API_KEY=your-key trip-planner
 ```
 
 ### Without Docker

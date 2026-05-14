@@ -75,7 +75,7 @@ async function handleSend(message: string) {
   <div class="max-w-7xl mx-auto px-4 py-6">
     <!-- Header -->
     <header class="mb-6">
-      <h1 class="text-2xl font-bold text-gray-800">Tourenplaner</h1>
+      <h1 class="text-2xl font-bold text-gray-800">Trip Planner</h1>
       <p class="text-gray-600 mt-1">
         Plane Radtouren, Wanderungen und Roadtrips mit KI. Beschreibe einfach,
         was du dir vorstellst.
