@@ -18,6 +18,13 @@ Plan, generate, and present cycling day-trip tours in the Berlin/Brandenburg reg
 - All tours reachable by public transit from **S Blankenfelde (TF) Bhf**
 - After every geocode call, verify coordinates fall within bounds. Reject and re-geocode with a more specific query if outside.
 
+## Home Base
+
+- **Station**: S Blankenfelde (TF) Bhf
+- **Lines**: S2, RB24, RE5, RE7, RE8
+- **Departure**: ~09:00 Uhr
+- All Berlin/Brandenburg tours must be reachable from this station.
+
 ## Critical Conventions (Never Violate)
 
 1. **Coordinate order**: All MCP tool calls use **[longitude, latitude]** — longitude first. Swapping produces routes in the wrong location.

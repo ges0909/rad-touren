@@ -49,7 +49,7 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 
 ### San Sebastián / Donostia (2 Nächte)
 
-**Unterkunft:** Pensión Bellas Artes oder Hotel Parma — Altstadt-Nähe (~100–140 €/Nacht)
+**Unterkunft:** Pensión Nuevas Artes (9,1, ~200 Reviews) oder Hotel Parma (8,5, ~2.300 Reviews) — Altstadt-Nähe, Frühstück inkl. (~100–140 €/Nacht, booking.com)
 
 - 🥾 **Monte Urgull** — 3 km, 1,5 Std., leicht. Festung, 360°-Panorama.
 - 🥾 **Monte Igueldo → Paseo Nuevo** — 8 km, 3 Std., moderat. ⭐ 4,5 (58 Reviews). Küstenwanderung.
@@ -76,7 +76,7 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 
 ### Santander (2 Nächte)
 
-**Unterkunft:** Hotel Bahía oder Jardín Secreto — Zentrum/Sardinero (~90–130 €/Nacht)
+**Unterkunft:** Hostal Jardín Secreto (9,7, ~45 Reviews) — Zentrum, familiär, Frühstück inkl. (~90–130 €/Nacht, booking.com)
 
 - 🥾 **Cabo Mayor → Mataleñas** — 6 km, 2 Std., leicht. Klippenpfad, Leuchtturm.
 - 🏊 **Playa del Sardinero** — Stadtstrand, Belle-Époque.
@@ -90,7 +90,7 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 
 ### Potes / Liébana-Tal (1 Nacht)
 
-**Unterkunft:** Posada San Pelayo oder Casa Rural — ~80–110 €/Nacht
+**Unterkunft:** Posada San Pelayo (9,7, ~540 Reviews) — familiär, Pool, Picos-Blick, Frühstück inkl. (~80–110 €/Nacht, booking.com)
 
 - 🥾 **Mirador de Santa Catalina** — 4 km, 1,5 Std., leicht. Picos-Panorama.
 - 🏛️ **Torre del Infantado** — Wehrturm (15. Jh.), Ausstellungsraum.
@@ -104,7 +104,7 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 
 ### Picos de Europa / Cangas de Onís (3 Nächte)
 
-**Unterkunft:** Hotel Posada del Valle oder Casa Rural — ~80–120 €/Nacht
+**Unterkunft:** Hotel Posada del Valle (9,4, ~150 Reviews) — familiär, ländlich, Frühstück inkl. (~80–120 €/Nacht, booking.com)
 
 - 🥾 **Ruta del Cares** [PR-PNPE 3] — 21 km, 6–7 Std., moderat. ⭐ 4,5 (1.880 Reviews). Schlucht-Wanderung, Pfad in Felswände gehauen. **Highlight.** [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=2687934)
 - 🥾 **Lagos de Covadonga** [PR-PNPE 2] — 6,4 km, 2,5 Std., leicht. ⭐ 4,2 (520 Reviews). Gletscherseen auf 1.000 m. [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=4664408)
@@ -119,7 +119,7 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 
 ### Gijón / Oviedo (2 Nächte)
 
-**Unterkunft:** Hotel Casona de Jovellanos (Gijón) oder Hotel de la Reconquista (Oviedo) — ~90–130 €/Nacht
+**Unterkunft:** La Casona de Jovellanos (9,4, ~300 Reviews) — Gijón Altstadt, familiär, Frühstück inkl. (~90–130 €/Nacht, booking.com)
 
 - 🥾 **Senda del Cervigón** (Gijón) — 8 km, 2,5 Std., leicht. Küstenpfad mit Skulpturen.
 - 🥾 **Senda del Oso** (30 Min. ab Oviedo) — 12 km, 3 Std., leicht. ⭐ 4,5 (54 Reviews). Ehem. Bergbau-Pfad. [Vía Verde](https://www.viasverdes.com/itinerarios/itinerario.asp?id=27)
@@ -136,7 +136,7 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 
 ### Vitoria-Gasteiz / Rioja Alavesa (2 Nächte)
 
-**Unterkunft:** Hospedería de los Parajes (Laguardia) — Boutique, Weinkeller, Spa (~110–150 €/Nacht). Oder Hotel Silken Ciudad de Vitoria (~90–120 €/Nacht).
+**Unterkunft:** Hospedería de los Parajes (9,1, ~670 Reviews) — Laguardia, Boutique, Weinkeller, Spa, Frühstück inkl. (~110–150 €/Nacht, booking.com)
 
 - 🥾 **Salinas de Añana Salzweg** — 8 km, 3 Std., leicht. Oder nur geführte Salinen-Tour (1,5 Std.).
 - 🎨 **[Artium Museoa](https://www.artium.eus)** — Zeitgenössische Kunst, 2.700+ Werke, 1950er bis heute. **Pflichtbesuch.**
@@ -151,7 +151,7 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 
 ### Bilbao — Puffer & Abreise (2 Nächte)
 
-**Unterkunft:** Hotel Miró oder Gran Hotel Domine (Guggenheim-Blick) — ~100–150 €/Nacht
+**Unterkunft:** Hotel Miró (8,8, ~370 Reviews) — Guggenheim-Nähe, Design, Frühstück inkl. (~100–150 €/Nacht, booking.com)
 
 - 🥾 **Artxanda Funicular + Rundweg** — 5 km, 2 Std., leicht. Panorama.
 - 🎨 **[Guggenheim Bilbao](https://www.guggenheim-bilbao.eus/en)** — Gehry-Ikone, zeitgenössische Kunst. **Pflichtbesuch.**
@@ -169,7 +169,6 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 ## Wetter
 
 > ℹ️ _Anfang September: Spätsommer, noch warm aber Atlantik bringt gelegentlich Regen. Aktuelle Vorhersage vor Reiseantritt prüfen._
-
 
 | Station         | Temperatur | Regen | Besonderheiten             |
 | --------------- | ---------- | ----- | -------------------------- |
@@ -189,7 +188,7 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 
 **Hinflug:** BER → Bilbao (BIO), Direktflug Eurowings, ~2,5 Std.
 
-- Empfehlung: Do 4. September, Ankunft abends
+- Empfehlung: Fr 4. September, Ankunft abends
 - Geschätzte Kosten: ~80–150 € pro Person (one-way)
 
 **Rückflug:** Bilbao (BIO) → BER, Direktflug Eurowings, ~2,5 Std.
@@ -230,13 +229,13 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 - Txakoli: Aus Höhe eingeschenkt
 - Sprache: Baskisch (Euskara) + Spanisch im Baskenland, Asturisch (Bable) in Asturien
 
-
-| Thema              | Info                                                                                             |
-| ------------------ | ------------------------------------------------------------------------------------------------ |
-| **Preisniveau**    | Ähnlich wie Deutschland (Baskenland etwas teurer, Asturien günstiger)                            |
-| **Tempolimit**     | Innerorts 50 (30 Wohngebiete), Landstraße 90, Autobahn 120 km/h                                  |
-| **Besonderheiten** | Autovías meist mautfrei. Lichtpflicht bei Regen/Tunnel.                                          |
-| **Reisehinweise**  | Keine Einschränkungen ([Auswärtiges Amt](https://www.auswaertiges-amt.de/de/ReiseUndSicherheit)) |
+| Thema              | Info                                                                                                                                               |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Preisniveau**    | Ähnlich wie Deutschland (Baskenland etwas teurer, Asturien günstiger)                                                                              |
+| **Tempolimit**     | Innerorts 50 (30 Wohngebiete), Landstraße 90, Autobahn 120 km/h                                                                                    |
+| **Besonderheiten** | Autovías meist mautfrei. Lichtpflicht bei Regen/Tunnel.                                                                                            |
+| **Reisehinweise**  | Keine Einschränkungen ([Auswärtiges Amt](https://www.auswaertiges-amt.de/de/ReiseUndSicherheit))                                                   |
+| **Notruf**         | 112 (allgemein, auch Bergrettung), 091 (Policía Nacional), 062 (Guardia Civil), 061 (Rettungsdienst). Bergrettung (GREIM) wird über 112 alarmiert. |
 
 ---
 
@@ -253,7 +252,6 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 ## Quellen
 
 Markierte Wanderwege ([Waymarked Trails](https://waymarkedtrails.org), OSM-Daten):
-
 
 | Route                            | Länge  | Link                                                                        |
 | -------------------------------- | ------ | --------------------------------------------------------------------------- |

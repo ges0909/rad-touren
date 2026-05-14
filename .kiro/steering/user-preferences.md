@@ -4,118 +4,118 @@ inclusion: always
 
 # User Preferences
 
-Single source of truth for personal defaults shared across all tour types (cycling, hiking, roadtrips). Domain-specific steering files (cycling-tour-planning.md, roadtrip-planning.md) reference and extend these rules.
+Single source of truth for personal defaults across all tour types (cycling, hiking, roadtrips). Domain-specific steering files reference and extend these rules.
 
-## Output Language
+## Response Language
 
-- User-facing text (tour descriptions, summaries, chat responses, section headings): **German**
-- Code, file names, GPX metadata (`track_name`), MCP tool parameters, commit messages: **English/kebab-case**
+- Detect the user's input language and respond in the same language for chat, tour `.md` files, POI descriptions, and section headings.
+- Code artifacts (file names, GPX metadata, MCP tool parameters, commit messages) are always in English using kebab-case.
 
 ## Travel Group
 
-- **Default group size**: 2 persons
-- **Cycling**: 2 persons + 2 bicycles (affects fare calculations and transit constraints)
-- **Car trips**: Compact rental car, pickup/dropoff at airport. Booking via billiger-mietwagen.de (preferred)
+| Tour Type | Group                                  |
+| --------- | -------------------------------------- |
+| Default   | 2 persons                              |
+| Cycling   | 2 persons + 2 bicycles (fare/transit)  |
+| Car trips | Compact rental, airport pickup/dropoff |
 
-## Home Base
-
-- **Station**: S Blankenfelde (TF) Bhf
-- **Available lines**: S2, RB24, RE5, RE7, RE8
-- **Default departure**: ~09:00 Uhr
-- **Scope**: All Berlin/Brandenburg tours must be reachable from this station
+- Car rental: book via **billiger-mietwagen.de**.
 
 ## Flight Preferences (Roadtrips)
 
-- Prefer **direct flights** from BER. Only suggest connections if no direct option exists.
-- **Fallback**: If no direct flight to the destination exists, search for the nearest airport with a direct BER connection. Accept up to ~3 hours driving from that airport to the trip region. Note: cross-border rental car usage (e.g., Portugal → Spain) is acceptable within EU/Schengen — book with "cross-border" option and note the surcharge in the cost estimate.
-- Outbound: early morning (07:00–09:00) to maximize the first day
-- Return: afternoon/evening (15:00–17:00) to use the last morning
+- Prefer **direct flights from BER**. Only suggest connections when no direct option exists.
+- Fallback: nearest airport with direct BER connection; accept up to ~3 h driving to reach it. Cross-border rental (EU/Schengen) is acceptable — note surcharge.
+- Outbound: early morning (07:00–09:00).
+- Return: afternoon/evening (15:00–17:00).
 
 ## Interests — Priority Order
 
-When planning any tour, actively search for these interests using available tools (Overpass POI search, web search). Higher priority = more prominent placement in output. Items marked "always" MUST appear whenever found, even if not the tour's main theme.
+Actively search for these when planning any tour. Higher priority = more prominent placement. Items marked "Always" MUST appear in output whenever found nearby.
 
-| Priority | Emoji | Interest                  | Behavior                                                                                   |
-| -------- | ----- | ------------------------- | ------------------------------------------------------------------------------------------ |
-| 1        | 🎨    | Moderne Kunst             | **Always highlight.** Galleries, sculpture parks, installations, contemporary art museums. |
-| 2        | 🥾    | Wandern                   | Day hikes, nature trails, coastal paths. Moderate difficulty, 3–5 hours. **Prefer routes with ≥4.0 stars on AllTrails/Komoot.** Always include rating when available. |
-| 3        | 🏊    | Baden                     | Lakes, beaches, thermal baths, natural swimming spots.                                     |
-| 4        | 🍷    | Regionale Küche           | Local restaurants, markets, food specialties. Authentic over fancy.                        |
-| 5        | 🌿    | Botanische Gärten & Parks | **Always include when available nearby.** Botanical gardens, arboretums, landscape parks.  |
-| 6        | ☕    | Kaffeeröstereien          | **Always mention when found.** Specialty roasters with tastings or café.                   |
-| 7        | 🍇    | Weingüter                 | **Always include in wine regions.** Wineries with tastings/cellar door.                    |
-| 8        | 🪖    | Kalter Krieg              | **Always highlight.** Cold War sites, bunkers, border installations, military history.     |
+| #   | Emoji | Interest          | Behavior                                                                                                        |
+| --- | ----- | ----------------- | --------------------------------------------------------------------------------------------------------------- |
+| 1   | 🥾    | Wandern           | Day hikes, 3–5 h, moderate difficulty. Prefer ≥4.0 stars (≥30 reviews) on AllTrails/Komoot. Always show rating. |
+| 2   | 🏊    | Baden             | Lakes, beaches, thermal baths, natural swimming spots.                                                          |
+| 3   | 🍷    | Regionale Küche   | Local restaurants, markets, food specialties. Authentic over fancy.                                             |
+| 4   | 🌿    | Botanische Gärten | **Always include when nearby.** Botanical gardens, arboretums, landscape parks.                                 |
+| 5   | 🎨    | Moderne Kunst     | **Always highlight.** Galleries, sculpture parks, contemporary art museums.                                     |
 
-### Applying Interests
+### How to Apply Interests
 
-- Use the emoji from this table consistently in all tour documents when listing POIs
-- When multiple interests overlap at one location, list the highest-priority one first
-- For cycling tours: map to Overpass presets (`kunst`, `sehenswuerdigkeiten`, `einkehr`, `badestellen`)
-- For roadtrips: use web search to find relevant POIs matching these interests
+- Use the emoji from the table above consistently in all tour documents.
+- When multiple interests apply to one location, list highest-priority first.
+- Cycling tours: map interests to Overpass POI presets — `kunst`, `sehenswuerdigkeiten`, `einkehr`, `badestellen`.
+- Roadtrips: use web search to find POIs matching these interests.
 
-## Food & Drink Rules
+## Food & Drink
 
-Apply when selecting restaurants, cafés, and stops:
+Rules for restaurant/food recommendations (in priority order):
 
-1. Prioritize **Cafés mit selbstgebackenem Kuchen** (homemade cake)
-2. Regional/local cuisine over international chains
-3. Markets and food halls over tourist restaurants
-4. Wine tastings and craft coffee over generic options
-5. **Never** recommend fast food or chain restaurants
+1. **Bodenständig und authentisch** — Traditionsküche, Familienrestaurants, Gasthäuser. No fine dining unless explicitly requested.
+2. Regional/local over international chains.
+3. Markets and food halls over tourist restaurants.
+4. **Never** recommend fast food or chain restaurants.
+5. Rating threshold: ≥4.0 on TripAdvisor (min. 50 reviews). Always include rating when available. Mention Michelin/Bib Gourmand if applicable.
+6. Cross-check high-end picks via Google Maps or TheFork/ElTenedor.
 
-## Accommodation Rules
+## Accommodation
 
-Apply when suggesting overnight stays:
+Rules for lodging recommendations:
 
-- Small/familial hotels, B&Bs, pensiones over large chains
-- Breakfast included (Frühstück) preferred
-- Booking via booking.com (preferred)
-- Central location, walkable to sights
-- Price range: ~80–150 €/night for 2 persons
-- Sauna/wellness is a plus — mention when available
+- Small/familial hotels, B&Bs, pensiones — no large chains.
+- Breakfast included preferred.
+- Booking platform: **booking.com**.
+- Location: central, walkable to sights.
+- Budget: ~80–150 €/night for 2 persons.
+- Mention sauna/wellness when available.
+- Rating threshold: ≥8.5 on booking.com (min. 50 reviews). Always show rating + review count. Discard options rated <7.5 or with <20 reviews unless no alternative exists.
+- Cross-check: when <50 reviews or unusual rating, verify via TripAdvisor or Trivago. Note discrepancies.
 
-## Content Integrity Rules
+## Content Integrity
 
-These rules govern all output across the project:
+These rules are non-negotiable for all generated content:
 
-- **No fabrication**: Never invent POI names, opening hours, prices, or travel times. Only present data verified via API results or web search. If data is unavailable, state that explicitly.
-- **Emoji consistency**: Always use the emoji from the interest table above when listing POIs. Use 🍺 for beer gardens/restaurants/cafés in tour documents (Overpass `einkehr` preset).
-- **Deduplication**: When multiple sources return the same POI, keep only one entry — prefer the version with more detail. Remove duplicates within 200 m of each other.
-- **Seasonal awareness**: Flag seasonal closures, limited opening hours, or weather-dependent availability. Warn about off-season risks.
-- **Source attribution**: When information comes from web search, note the check date: `ℹ️ Zuletzt geprüft: {date}`.
-- **Links**: Add hyperlinks to official websites for major POIs (museums, national parks, tourism boards, notable restaurants). Prefer stable URLs (official sites, regional tourism portals like reiseland-brandenburg.de, visitberlin.de). Do **not** link to Google Maps, TripAdvisor reviews, or temporary pages.
-- **Unverifiable data**: If an API is unavailable or data cannot be confirmed, add `ℹ️ Nicht verifiziert.` rather than omitting the section or guessing.
+| Rule               | Requirement                                                                                  |
+| ------------------ | -------------------------------------------------------------------------------------------- |
+| No fabrication     | Only present data from API results or web search. If unavailable, state explicitly.          |
+| Emoji consistency  | Use interest-table emoji for POIs. Use 🍺 for beer gardens/restaurants (Overpass `einkehr`). |
+| Deduplication      | One entry per POI; remove duplicates within 200 m radius.                                    |
+| Seasonal awareness | Flag closures, limited hours, off-season risks.                                              |
+| Source attribution | Append `ℹ️ Zuletzt geprüft: {date}` for web-sourced data.                                    |
+| Links              | Official websites for major POIs only. No Google Maps, TripAdvisor, or temporary URLs.       |
+| Unverifiable data  | Mark with `ℹ️ Nicht verifiziert.` — never guess or invent details.                           |
 
 ## Route Discovery & Reviews
 
-When the user asks for route recommendations, inspiration, or reviews for hiking/cycling routes:
+### Waymarked Trails (official marked routes)
 
-### Discovery via Waymarked Trails
+Use these MCP tools in sequence for route research:
 
-Use `mcp_waymarkedtrails_*` tools to find officially marked routes:
+1. `search_routes(query, activity)` — find routes by name, region, or keyword.
+2. `get_route_details(route_id, activity)` — retrieve length, markings, operator.
+3. `get_route_segments(route_id, activity)` — get stages and towns along the route.
 
-1. `search_routes(query, activity)` — search by name, region, or keyword
-2. `get_route_details(route_id, activity)` — length, markings, operator, website
-3. `get_route_segments(route_id, activity)` — stages and towns along the way
+### Review Lookup (web search)
 
-These are curated, officially marked routes maintained by tourism organizations — quality is inherent in the selection.
+**Always look up ratings when suggesting hiking routes.** Apply these thresholds:
 
-### Review Lookup via Web Search
+- Prefer: ≥4.0 stars with ≥30 reviews.
+- Discard: <3.5 stars or <10 reviews (unless no alternative).
 
-No free API provides user ratings for routes. **Always look up ratings when suggesting hiking routes.** Prefer routes with ≥4.0 stars. Discard routes with <3.5 stars unless no alternative exists.
+Procedure:
 
-1. Search: `"{route name}" Komoot Bewertung Erfahrung`
-2. Search: `"{route name}" AllTrails review`
-3. Search: `"{route name}" Outdooractive Bewertung`
-4. Summarize: star rating (if visible), common praise/complaints, difficulty feedback, surface quality
-5. Always mark: `ℹ️ Bewertungen aus Web-Recherche ({date}), nicht per API verifiziert.`
+1. Search: `"{route name}" AllTrails review`
+2. Search: `"{route name}" Komoot Bewertung`
+3. Summarize: rating, praise/complaints, difficulty, surface quality.
+4. Mark output: `ℹ️ Bewertungen aus Web-Recherche ({date}), nicht per API verifiziert.`
 
-### When to Use Which
+### Tool Selection Guide
 
-| User intent                        | Tool                                              |
-| ---------------------------------- | ------------------------------------------------- |
-| "Welche Wanderwege gibt es in X?"  | Waymarked Trails search                           |
-| "Empfiehl mir eine Radtour"        | Waymarked Trails search + details                 |
-| "Wie ist der Weg X bewertet?"      | Web search for reviews                            |
-| "Plane mir eine Tour durch X"      | BRouter (cycling) / ORS (roadtrip) — custom route |
-| "Gibt es Erfahrungsberichte zu X?" | Web search on Komoot/AllTrails/Outdooractive      |
+| Intent                 | Tool                                                   |
+| ---------------------- | ------------------------------------------------------ |
+| Routes in a region     | Waymarked Trails `search_routes`                       |
+| Route recommendation   | Waymarked Trails `search_routes` + `get_route_details` |
+| Route rating/review    | Web search (AllTrails/Komoot)                          |
+| Custom cycling tour    | BRouter `calculate_route`                              |
+| Custom car/hiking tour | OpenRouteService `calculate_route`                     |
+| Experience reports     | Web search (Komoot/AllTrails/Outdooractive)            |

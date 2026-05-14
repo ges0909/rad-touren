@@ -46,9 +46,7 @@ All interests, emoji mappings, food/drink rules, and accommodation rules are def
 
 - 🎨 Moderne Kunst — **always highlight**
 - 🌿 Botanische Gärten — **always include when nearby**
-- ☕ Kaffeeröstereien — **always mention when found**
 - 🍇 Weingüter — **always include in wine regions**
-- 🪖 Kalter Krieg — **always highlight**
 
 Use `remote_web_search` to find POIs matching these interests at each stop. Prioritize by the interest priority order in `user-preferences.md`.
 
@@ -306,6 +304,7 @@ Rules:
 | **Tempolimit**     | Innerorts {X}, Landstraße {Y}, Autobahn {Z} km/h |
 | **Besonderheiten** | {Maut, Lichtpflicht, etc.}                       |
 | **Reisehinweise**  | {Status} ([Auswärtiges Amt](...))                |
+| **Notruf**         | {Notrufnummern inkl. Bergrettung, falls vorhanden} |
 ```
 
 ### 8. Erweiterungsideen (optional)
