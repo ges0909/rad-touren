@@ -300,7 +300,7 @@ Rules:
 **Packliste:** {trip-specific}
 **Lokale Bräuche:** {customs}
 
-|                    |                                                  |
+| Thema              | Info                                             |
 | ------------------ | ------------------------------------------------ |
 | **Preisniveau**    | {vs. Deutschland}                                |
 | **Tempolimit**     | Innerorts {X}, Landstraße {Y}, Autobahn {Z} km/h |

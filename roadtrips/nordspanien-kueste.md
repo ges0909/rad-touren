@@ -228,7 +228,7 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 - Txakoli: Aus Höhe eingeschenkt
 - Sprache: Baskisch (Euskara) + Spanisch im Baskenland, Asturisch (Bable) in Asturien
 
-|                    |                                                                                                  |
+| Thema              | Info                                                                                             |
 | ------------------ | ------------------------------------------------------------------------------------------------ |
 | **Preisniveau**    | Ähnlich wie Deutschland (Baskenland etwas teurer, Asturien günstiger)                            |
 | **Tempolimit**     | Innerorts 50 (30 Wohngebiete), Landstraße 90, Autobahn 120 km/h                                  |
