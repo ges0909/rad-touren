@@ -106,8 +106,9 @@ Procedure:
 
 1. Search: `"{route name}" AllTrails review`
 2. Search: `"{route name}" Komoot Bewertung`
-3. Summarize: rating, praise/complaints, difficulty, surface quality.
-4. Mark output: `ℹ️ Bewertungen aus Web-Recherche ({date}), nicht per API verifiziert.`
+3. Search: `"{route name}" Wikiloc rating` (especially Spain/Portugal)
+4. Summarize: rating, praise/complaints, difficulty, surface quality.
+5. Mark output: `ℹ️ Bewertungen aus Web-Recherche ({date}), nicht per API verifiziert.`
 
 ### Tool Selection Guide
 
