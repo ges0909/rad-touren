@@ -8,7 +8,7 @@ KI-gestützte Tourenplanung mit [Kiro](https://kiro.dev) und eigenen MCP-Servern
 | 🥾 Hiking    | Tageswanderungen in Berlin/Brandenburg             | Geplant |
 | 🚗 Roadtrips | Mehrtägige Mietwagen-Trips durch Europa            | Aktiv   |
 
-**→ [Radtouren](cycling/README.md)** · **→ [Roadtrips](roadtrips/README.md)**
+**→ [Radtouren](planning/bike/README.md)** · **→ [Roadtrips](planning/road/README.md)**
 
 ---
 
@@ -42,12 +42,12 @@ Dafür sorgen drei Bausteine:
 
 Steering-Dateien machen Kiro zum domänenspezifischen Tourenplaner:
 
-| Datei                      | Scope          | Funktion                                           |
-| -------------------------- | -------------- | -------------------------------------------------- |
-| `user-preferences.md`      | Immer          | Interessen, Essens-/Unterkunftsregeln, Reisegruppe |
-| `cycling-tour-planning.md` | `cycling/**`   | Rad-Workflow, BRouter-Routing, VBB-Tarife          |
-| `roadtrip-planning.md`     | `roadtrips/**` | Roadtrip-Workflow, ORS-Routing, Pufferregel        |
-| `commit-messages.md`       | Immer          | Conventional Commits                               |
+| Datei                      | Scope              | Funktion                                           |
+| -------------------------- | ------------------ | -------------------------------------------------- |
+| `user-preferences.md`      | Immer              | Interessen, Essens-/Unterkunftsregeln, Reisegruppe |
+| `cycling-tour-planning.md` | `planning/bike/**` | Rad-Workflow, BRouter-Routing, VBB-Tarife          |
+| `roadtrip-planning.md`     | `planning/road/**` | Roadtrip-Workflow, ORS-Routing, Pufferregel        |
+| `commit-messages.md`       | Immer              | Conventional Commits                               |
 
 ### MCP Server
 
@@ -68,19 +68,20 @@ Zusätzlich wird `remote_web_search` genutzt für Flüge, Hotels, Mietwagen und 
 
 ### Hooks
 
-| Hook                  | Trigger                                         | Aktion                                                   |
-| --------------------- | ----------------------------------------------- | -------------------------------------------------------- |
-| GPX Consistency Check | GPX-Datei in `cycling/` oder `hiking/` geändert | Karte + Höhenprofil neu rendern, Distanzen aktualisieren |
+| Hook                  | Trigger                                                      | Aktion                                                   |
+| --------------------- | ------------------------------------------------------------ | -------------------------------------------------------- |
+| GPX Consistency Check | GPX-Datei in `planning/bike/` oder `planning/hike/` geändert | Karte + Höhenprofil neu rendern, Distanzen aktualisieren |
 
 ---
 
 ## Projektstruktur
 
 ```
-cycling/                     Radtouren: Markdown, GPX, Karten
-hiking/                      Wandertouren (geplant)
-roadtrips/                   Mehrtägige Auto-Trips
-├── mcp/
+planning/
+├── bike/                    Radtouren: Markdown, GPX, Karten
+├── hike/                    Wandertouren (geplant)
+└── road/                    Mehrtägige Auto-Trips
+mcp/
 ├── brouter/                 Rad-/Wanderrouting + Karten
 ├── ors/                     Auto-Routing (OpenRouteService)
 ├── osrm/                    Auto-Routing + GPX-Export (OSRM)
