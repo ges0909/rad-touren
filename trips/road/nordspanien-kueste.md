@@ -52,26 +52,26 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 **Unterkunft:** Pensión Bellas Artes oder Hotel Parma — Altstadt-Nähe (~100–140 €/Nacht)
 
 - 🥾 **Monte Urgull** — 3 km, 1,5 Std., leicht. Festung, 360°-Panorama.
-- 🥾 **Monte Igueldo → Paseo Nuevo** — 8 km, 3 Std., moderat. Küstenwanderung.
+- 🥾 **Monte Igueldo → Paseo Nuevo** — 8 km, 3 Std., moderat. ⭐ 4,5 (58 Reviews). Küstenwanderung.
 - 🥾 **Camino del Norte (Pasaia → San Sebastián)** — 12 km, 4 Std., moderat. Jakobsweg-Küstenabschnitt. [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=1116809)
 - 🏊 **Playa de la Concha** — Muschelförmige Bucht, ruhiges Wasser.
 - 🏊 **Playa de la Zurriola** — Surfer-Strand, Stadtteil Gros.
 - 🎨 **[San Telmo Museoa](https://www.santelmomuseoa.eus/en/)** — Baskische Kultur + zeitgenössische Kunst.
-- 🎨 **Tabakalera** — Zeitgenössische Kultur in ehemaliger Tabakfabrik.
+- 🎨 **[Tabakalera](https://www.tabakalera.eus/en)** — Zeitgenössische Kultur in ehemaliger Tabakfabrik.
 - 🎨 **[Chillida-Leku](https://www.museochillidaleku.com/en/)** — Skulpturenpark, monumentale Stahlskulpturen. **Pflichtbesuch.**
 - 🏛️ **Peine del Viento** — Chillida-Skulpturen in den Klippen.
 - 🍷 **Parte Vieja Pintxos** — Bar Nestor (Tortilla), La Cuchara de San Telmo, Gandarias, Bar Zeruko.
-- ☕ **Sakona Coffee Roasters** — Specialty Coffee, Altstadt.
+- ☕ **[Sakona Coffee Roasters](https://sakonacoffee.com)** — Specialty Coffee, Altstadt.
 
 ### Küstenstraße Bilbao → San Sebastián (Tag 2)
 
-- 🏛️ **San Juan de Gaztelugatxe** — Felsinsel, 241 Stufen, GoT „Dragonstone". Morgens früh (Parkplatz!).
+- 🏛️ **[San Juan de Gaztelugatxe](https://www.visitbiscay.eus/en/san-juan-gaztelugatxe)** — Felsinsel, 241 Stufen, GoT „Dragonstone". Morgens früh (Parkplatz!).
 - 🏛️ **Bermeo** — Fischerhafen, Ercilla-Turm (15. Jh.), UNESCO-Biosphärenreservat Urdaibai.
 - 🌿 **Urdaibai** — Feuchtgebiete, Aussichtspunkt Mundaka (Surfer-Welle).
 - 🏛️ **Lekeitio** — Fischerdorf, Basilika Santa María, Insel San Nicolás (bei Ebbe zu Fuß).
 - 🏛️ **Zumaia Flysch** — UNESCO Geopark, 60 Mio. Jahre Erdgeschichte. [geoparkea.eus](https://geoparkea.eus/en)
 - 🎨 **[Cristóbal Balenciaga Museoa](https://www.cristobalbalenciagamuseoa.com/en/)** — Getaria. Haute Couture als Kunstform.
-- 🍇 **Txakoli-Verkostung** — Getaria, z.B. Bodega Txomin Etxaniz.
+- �� **[Txakoli-Verkostung](https://www.txominetxaniz.com)** — Getaria, z.B. Bodega Txomin Etxaniz.
 - 🍷 **Getaria Hafen** — Gegrillter Fisch auf Holzkohle.
 
 ### Santander (2 Nächte)
@@ -96,7 +96,7 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 - 🏛️ **Torre del Infantado** — Wehrturm (15. Jh.), Ausstellungsraum.
 - 🏛️ **Monasterio de Santo Toribio** (3 km) — Kloster 6. Jh., Pilgerort.
 - 🏛️ **Santillana del Mar** (Anfahrt) — Mittelalterliches Dorf, Stiftskirche.
-- 🏛️ **Altamira-Höhle** (bei Santillana) — UNESCO, prähistorische Malereien (Replik).
+- 🏛️ **[Altamira-Höhle](https://www.culturaydeporte.gob.es/mnaltamira/en/home.html)** (bei Santillana) — UNESCO, prähistorische Malereien (Replik).
 - 🏛️ **Comillas** (Anfahrt) — Gaudís El Capricho.
 - 🏛️ **Desfiladero de la Hermida** (Anfahrt) — 21 km Schlucht, 600 m Felswände.
 - 🍷 **Cocido Lebaniego** — Kichererbsen-Eintopf, Spezialität des Tals.
@@ -106,8 +106,8 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 
 **Unterkunft:** Hotel Posada del Valle oder Casa Rural — ~80–120 €/Nacht
 
-- 🥾 **Ruta del Cares** [PR-PNPE 3] — 21 km, 6–7 Std., moderat. Schlucht-Wanderung, Pfad in Felswände gehauen. **Highlight.** [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=2687934)
-- 🥾 **Lagos de Covadonga** [PR-PNPE 2] — 6,4 km, 2,5 Std., leicht. Gletscherseen auf 1.000 m. [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=4664408)
+- 🥾 **Ruta del Cares** [PR-PNPE 3] — 21 km, 6–7 Std., moderat. ⭐ 4,5 (1.880 Reviews). Schlucht-Wanderung, Pfad in Felswände gehauen. **Highlight.** [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=2687934)
+- 🥾 **Lagos de Covadonga** [PR-PNPE 2] — 6,4 km, 2,5 Std., leicht. ⭐ 4,2 (520 Reviews). Gletscherseen auf 1.000 m. [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=4664408)
 - 🥾 **Mirador del Naranjo de Bulnes** (ab Sotres) — 10 km, 4 Std., moderat.
 - 🏊 **Río Sella** (Arriondas) — Flussbaden, kristallklar.
 - 🏊 **Playa de Gulpiyuri** — Inland-Strand (Meerwasser durch Höhlen).
@@ -122,13 +122,13 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 **Unterkunft:** Hotel Casona de Jovellanos (Gijón) oder Hotel de la Reconquista (Oviedo) — ~90–130 €/Nacht
 
 - 🥾 **Senda del Cervigón** (Gijón) — 8 km, 2,5 Std., leicht. Küstenpfad mit Skulpturen.
-- 🥾 **Senda del Oso** (30 Min. ab Oviedo) — 12 km, 3 Std., leicht. Ehem. Bergbau-Pfad. [Vía Verde](https://www.viasverdes.com/itinerarios/itinerario.asp?id=27)
+- 🥾 **Senda del Oso** (30 Min. ab Oviedo) — 12 km, 3 Std., leicht. ⭐ 4,5 (54 Reviews). Ehem. Bergbau-Pfad. [Vía Verde](https://www.viasverdes.com/itinerarios/itinerario.asp?id=27)
 - 🏊 **Playa de San Lorenzo** (Gijón) — 1,5 km Stadtstrand.
 - 🏊 **Playa del Silencio** (40 Min. westlich) — Versteckte Bucht, Klippen.
 - 🎨 **[LABoral Centro de Arte](https://www.laboralcentrodearte.org/en)** — Zeitgenössische Kunst + Technologie. Gijón.
-- 🎨 **Museo de Bellas Artes** (Oviedo) — El Greco bis Dalí.
+- 🎨 **[Museo de Bellas Artes](https://www.museobbaa.com)** (Oviedo) — El Greco bis Dalí.
 - 🏛️ **Präromanische Kirchen** (UNESCO) — Santa María del Naranco, San Miguel de Lillo. 9. Jh.
-- 🌿 **Jardín Botánico Atlántico** (Gijón) — 25 ha, atlantische Flora.
+- 🌿 **[Jardín Botánico Atlántico](https://www.botanicoatlantico.com)** (Gijón) — 25 ha, atlantische Flora.
 - 🍷 **Sidrería Tierra Astur** (Gijón) — Sidra + asturische Küche.
 - 🍷 **Mercado del Fontán** (Oviedo) — Historische Markthalle.
 - 🍷 **Casa Fermín** (Oviedo) — Michelin-empfohlen.
@@ -141,7 +141,7 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 - 🥾 **Salinas de Añana Salzweg** — 8 km, 3 Std., leicht. Oder nur geführte Salinen-Tour (1,5 Std.).
 - 🎨 **[Artium Museoa](https://www.artium.eus)** — Zeitgenössische Kunst, 2.700+ Werke, 1950er bis heute. **Pflichtbesuch.**
 - 🎨 **Itinerario Muralístico (IMVG)** — Europas größte Freiluft-Mural-Galerie. Rundgang ~1,5 Std.
-- 🏛️ **Catedral de Santa María** — Gotisch, „offene Baustelle" (Ken Follett-Inspiration).
+- 🏛️ **[Catedral de Santa María](https://www.catedralvitoria.eus/en)** — Gotisch, „offene Baustelle" (Ken Follett-Inspiration).
 - 🏛️ **[Salinas de Añana](https://www.vallesalado.com)** — Älteste Saline der Welt (6.500 Jahre).
 - 🍇 **[Bodegas Ysios](https://www.ysios.com)** (Laguardia) — Calatrava-Bau, Premium-Verkostung. **Architektur-Highlight.**
 - 🍇 **[Marqués de Riscal](https://www.marquesderiscal.com)** (Elciego) — Gehry-Hotel, Weingut seit 1858.
@@ -155,13 +155,13 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 
 - 🥾 **Artxanda Funicular + Rundweg** — 5 km, 2 Std., leicht. Panorama.
 - 🎨 **[Guggenheim Bilbao](https://www.guggenheim-bilbao.eus/en)** — Gehry-Ikone, zeitgenössische Kunst. **Pflichtbesuch.**
-- 🎨 **Museo de Bellas Artes** — Goya bis Chillida.
+- 🎨 **[Museo de Bellas Artes](https://bilbaomuseoa.eus)** — Goya bis Chillida.
 - 🏛️ **Casco Viejo** — Siete Calles, mittelalterliche Altstadt.
-- 🏛️ **Puente Bizkaia** — UNESCO-Schwebefähre (1893), 15 Min. Fahrt.
+- 🏛️ **[Puente Bizkaia](https://puente-colgante.com/en)** — UNESCO-Schwebefähre (1893), 15 Min. Fahrt.
 - 🍷 **Plaza Nueva Pintxos** — Gilda, Txuleta, Bacalao al Pil-Pil.
 - 🍷 **Mercado de la Ribera** — Europas größte Markthalle, Tapas-Bars.
 - 🍷 **Restaurante Mina** — Michelin-Stern, baskische Avantgarde.
-- ☕ **Café Iruña** — Maurisch dekoriert, seit 1903.
+- ☕ **[Café Iruña](https://www.cafeirunabilbao.net)** — Maurisch dekoriert, seit 1903.
 - 🍇 **Patxaran** — Schlehenlikör, baskischer Digestif.
 
 ---
@@ -272,3 +272,5 @@ Routen-Inspiration (recherchiert Mai 2026):
 Reiseführer (Wikivoyage, CC BY-SA 3.0): [San Sebastián](https://de.wikivoyage.org/wiki/Donostia-San_Sebastián) · [Bilbao](https://de.wikivoyage.org/wiki/Bilbao) · [Costa Vasca](https://de.wikivoyage.org/wiki/Costa_Vasca)
 
 > ℹ️ Kein Direktflug Santiago de Compostela (SCQ) → Berlin (BER). Daher Rundreise ab/bis Bilbao.
+
+> ℹ️ Wanderrouten-Bewertungen aus Web-Recherche (Mai 2026), Quelle: AllTrails. Nicht per API verifiziert.

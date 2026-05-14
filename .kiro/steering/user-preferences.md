@@ -38,7 +38,7 @@ When planning any tour, actively search for these interests using available tool
 | Priority | Emoji | Interest                  | Behavior                                                                                   |
 | -------- | ----- | ------------------------- | ------------------------------------------------------------------------------------------ |
 | 1        | 🎨    | Moderne Kunst             | **Always highlight.** Galleries, sculpture parks, installations, contemporary art museums. |
-| 2        | 🥾    | Wandern                   | Day hikes, nature trails, coastal paths. Moderate difficulty, 3–5 hours.                   |
+| 2        | 🥾    | Wandern                   | Day hikes, nature trails, coastal paths. Moderate difficulty, 3–5 hours. **Prefer routes with ≥4.0 stars on AllTrails/Komoot.** Always include rating when available. |
 | 3        | 🏊    | Baden                     | Lakes, beaches, thermal baths, natural swimming spots.                                     |
 | 4        | 🍷    | Regionale Küche           | Local restaurants, markets, food specialties. Authentic over fancy.                        |
 | 5        | 🌿    | Botanische Gärten & Parks | **Always include when available nearby.** Botanical gardens, arboretums, landscape parks.  |
@@ -102,7 +102,7 @@ These are curated, officially marked routes maintained by tourism organizations 
 
 ### Review Lookup via Web Search
 
-No free API provides user ratings for routes. When the user wants reviews or ratings:
+No free API provides user ratings for routes. **Always look up ratings when suggesting hiking routes.** Prefer routes with ≥4.0 stars. Discard routes with <3.5 stars unless no alternative exists.
 
 1. Search: `"{route name}" Komoot Bewertung Erfahrung`
 2. Search: `"{route name}" AllTrails review`
