@@ -18,7 +18,7 @@ Voraussetzungen: [Kiro](https://kiro.dev) + [uv](https://docs.astral.sh/uv/getti
 
 ```bash
 # Alle MCP-Server installieren
-for dir in mcp/brouter mcp/ors mcp/open-meteo mcp/vbb mcp/overpass mcp/waymarkedtrails mcp/wikivoyage; do
+for dir in mcp/brouter mcp/ors mcp/osrm mcp/open-meteo mcp/vbb mcp/overpass mcp/waymarkedtrails mcp/wikivoyage; do
   uv sync --directory "$dir"
 done
 ```
@@ -57,6 +57,7 @@ Sieben eigene Python-Server (FastMCP + httpx), kein Node.js:
 | ----------------------------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------- |
 | [`brouter`](mcp/brouter/)                 | Rad-/Wanderrouting, Geocoding, Kartenrendering | [BRouter](https://brouter.de) + [Nominatim](https://nominatim.openstreetmap.org) |
 | [`ors`](mcp/ors/)                         | Auto-/Rad-/Fußrouting, Isochrone, Matrix       | [OpenRouteService](https://openrouteservice.org/)                                |
+| [`osrm`](mcp/osrm/)                       | Auto-Routing mit GPX-Export (Straßengeometrie) | [OSRM](https://project-osrm.org/) (public, kein Key)                             |
 | [`open-meteo`](mcp/open-meteo/)           | Wettervorhersage + Geocoding                   | [Open-Meteo](https://open-meteo.com/)                                            |
 | [`vbb`](mcp/vbb/)                         | Haltestellensuche, Abfahrten, Verbindungen     | [VBB REST](https://v6.vbb.transport.rest/)                                       |
 | [`overpass`](mcp/overpass/)               | POI-Suche entlang von Routen                   | [Overpass API](https://overpass-api.de/)                                         |
@@ -82,6 +83,7 @@ roadtrips/                   Mehrtägige Auto-Trips
 ├── mcp/
 ├── brouter/                 Rad-/Wanderrouting + Karten
 ├── ors/                     Auto-Routing (OpenRouteService)
+├── osrm/                    Auto-Routing + GPX-Export (OSRM)
 ├── open-meteo/              Wetter
 ├── overpass/                POI-Suche (OpenStreetMap)
 ├── vbb/                     ÖPNV Berlin/Brandenburg
@@ -112,6 +114,7 @@ uv run --directory mcp/wikivoyage pytest -v
 | [OpenStreetMap](https://www.openstreetmap.org/copyright) | ODbL         |
 | [BRouter](https://brouter.de)                            | MIT          |
 | [OpenRouteService](https://openrouteservice.org/)        | MIT          |
+| [OSRM](https://project-osrm.org/)                        | BSD-2        |
 | [Nominatim](https://nominatim.openstreetmap.org)         | ODbL         |
 | [Wikivoyage](https://www.wikivoyage.org/)                | CC BY-SA 3.0 |
 | [Waymarked Trails](https://waymarkedtrails.org/)         | ODbL         |

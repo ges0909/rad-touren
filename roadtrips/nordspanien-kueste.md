@@ -7,293 +7,179 @@
 **Dauer:** 16 Tage / 15 Nächte
 **Stationen:** 7 Stopps
 **Gesamtstrecke:** ~1.086 km
-**Flug:** BER → Bilbao BIO (Direktflug Eurowings, Ankunft abends) / Bilbao BIO → BER (Direktflug Eurowings, Abflug nachmittags)
+**Flug:** BER → Bilbao BIO (Direktflug Eurowings) / Bilbao BIO → BER (Direktflug Eurowings)
 **Mietwagen:** Übernahme/Abgabe Bilbao Flughafen
 
 > 🌊 **Tipp:** Die spanische Nordküste ist das Gegenteil vom Mittelmeer-Klischee — grüne Berge, wilde Atlantikküste, Pintxos-Bars, Sidra-Häuser und die Picos de Europa direkt hinter dem Strand. Anfang September: warm, wenig Touristen, perfekte Wanderbedingungen.
 
 ---
 
-## Routenübersicht
-
-Bilbao (Ankunft) → San Sebastián → Santander → Potes/Liébana → Picos de Europa → Gijón/Oviedo → Vitoria-Gasteiz/Rioja Alavesa → Bilbao (Puffer + Abreise)
-
-| #   | Station                          | Nächte | Fahrzeit ab vorheriger                                    |
-| --- | -------------------------------- | ------ | --------------------------------------------------------- |
-| 0   | Bilbao (Ankunft abends)          | 1      | — (Flughafen)                                             |
-| 1   | San Sebastián                    | 2      | ~3 Std. Küstenstraße (139 km) / ~1 Std. Autobahn (102 km) |
-| 2   | Santander                        | 2      | ~2,5 Std. (198 km)                                        |
-| 3   | Potes / Liébana-Tal              | 1      | ~1,5 Std. (106 km)                                        |
-| 4   | Picos de Europa / Cangas de Onís | 3      | ~1,5 Std. (109 km)                                        |
-| 5   | Gijón / Oviedo                   | 2      | ~1 Std. (87 km)                                           |
-| 6   | Vitoria-Gasteiz / Rioja Alavesa  | 2      | ~3,5 Std. (326 km)                                        |
-| 7   | Bilbao (Puffer + Abreise)        | 2      | ~1 Std. (66 km)                                           |
-
-> ⚠️ **Längste Etappe:** Gijón → Vitoria-Gasteiz (326 km, ~3,5 Std.). Pause in Bilbao oder an der Küste bei Castro Urdiales möglich.
-
-> 🌊 **Küstenstraße Bilbao → San Sebastián:** Die Fahrt über Bermeo, Lekeitio, Zumaia und Getaria (139 km, ~3 Std. reine Fahrzeit) ist eine der schönsten Küstenstraßen Nordspaniens. Mit Stopps einen halben Tag einplanen — ideal als erster voller Reisetag nach der Ankunftsnacht.
-
-> 💡 **Puffer-Regel:** Bilbao am Ende mit 2 Nächten — genug Zeit für Guggenheim, Pintxos und Puffer für den Rückflug am Nachmittag. Erste Nacht in Bilbao nur Ankunft (Abendessen in der Altstadt, kein Programm).
-
 [![Routenkarte](img/nordspanien-kueste.png)](img/nordspanien-kueste.png)
+
+## Routenplanung
+
+Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón/Oviedo → Vitoria-Gasteiz/Rioja Alavesa → Bilbao
+| Tag | Datum | Station | Programm |
+|-----|-------|---------|----------|
+| 1 | Do 4. Sep | **Bilbao** (Ankunft) | Abendflug BER→BIO. Mietwagen übernehmen, Fahrt ins Zentrum (~15 Min.). Abendessen Casco Viejo. |
+| 2 | Fr 5. Sep | 🚗 → **San Sebastián** · 139 km, ~3 Std. + Stopps | Küstenstraße: Gaztelugatxe (morgens früh, 241 Stufen), Bermeo Kaffee am Hafen, Urdaibai Aussichtspunkt, Lekeitio Mittagessen (Fisch), Zumaia Flysch-Küste (30 Min. Spaziergang), 🎨 Balenciaga Museum Getaria, 🍇 Txakoli-Verkostung. Ankunft abends. Pintxos Parte Vieja. |
+| 3 | Sa 6. Sep | San Sebastián | 🥾 Monte Igueldo Küstenwanderung (8 km, 3 Std.). 🏊 Playa de la Concha. 🎨 Chillida-Leku Skulpturenpark. Abend: Pintxos-Crawl (Zeruko, La Cuchara de San Telmo). |
+| 4 | So 7. Sep | 🚗 → **Santander** · 198 km, ~2,5 Std. | Stopp Castro Urdiales (Kaffee, gotische Kirche). Ankunft Mittag. 🎨 Centro Botín (Renzo Piano). 🏛️ Palacio de la Magdalena. 🏊 Playa del Sardinero. Abend: Mercado de la Esperanza. |
+| 5 | Mo 8. Sep | Santander | 🥾 Cabo Mayor → Mataleñas Klippenpfad (6 km, 2 Std.). 🏊 Playa de la Arnía. Abend: Bodega del Riojano. |
+| 6 | Di 9. Sep | 🚗 → **Potes** · 106 km, ~1,5 Std. + Stopps | 🏛️ Santillana del Mar (mittelalterliches Dorf) + Altamira-Museum. Optional: Comillas (Gaudís El Capricho). 🏛️ Desfiladero de la Hermida (21 km Schlucht, 175 Kurven). 🥾 Mirador de Santa Catalina (4 km, 1,5 Std.). Abend: Cocido Lebaniego + 🍇 Orujo-Verkostung. |
+| 7 | Mi 10. Sep | 🚗 → **Cangas de Onís** · 109 km, ~1,5 Std. | Fahrt über Desfiladero de los Beyos. 🏛️ Puente Romano, Basílica de Covadonga. Abend: Sidrería — Sidra escanciar lernen. |
+| 8 | Do 11. Sep | Picos de Europa | 🥾 **Ruta del Cares** (21 km, 6–7 Std.) — Ganztageswanderung, früh starten. Abend: Quesu Cabrales in Arenas de Cabrales. |
+| 9 | Fr 12. Sep | Picos de Europa | 🚗🥾 Lagos de Covadonga (Rundweg 6,4 km, 2,5 Std., morgens früh). 🏊 Río Sella Flussbaden oder Playa de Gulpiyuri (Inland-Strand). Abend: Fabada Asturiana im El Molín de la Pedrera. |
+| 10 | Sa 13. Sep | 🚗 → **Gijón** · 87 km, ~1 Std. | 🥾 Senda del Cervigón Küstenpfad (8 km, 2,5 Std.). 🏊 Playa de San Lorenzo. 🌿 Jardín Botánico Atlántico. Abend: Sidrería Tierra Astur. |
+| 11 | So 14. Sep | Oviedo (Tagesausflug, 30 Min.) | 🏛️ Präromanische Kirchen (UNESCO). 🎨 Museo de Bellas Artes. Mercado del Fontán. ☕ Cafetería Rialto. Rückweg: 🎨 LABoral Centro de Arte (Gijón). |
+| 12 | Mo 15. Sep | 🚗 → **Vitoria-Gasteiz** · 326 km, ~3,5 Std. | Pause Castro Urdiales (~2 Std. Fahrt). Ankunft Nachmittag. 🎨 Itinerario Muralístico Rundgang (1,5 Std.). Abend: Pintxos Casco Viejo (Calle Cuchillería). |
+| 13 | Di 16. Sep | Rioja Alavesa (Tagesausflug, 30 Min.) | 🍇 Bodegas Ysios (Calatrava-Bau, Verkostung). Mittag: Lamm al sarmiento. 🍇 Marqués de Riscal (Gehry-Hotel). 🏛️ Laguardia Altstadt + unterirdische Keller. 🏛️ Salinas de Añana (Rückweg, geführte Tour). |
+| 14 | Mi 17. Sep | 🚗 → **Bilbao** · 66 km, ~1 Std. | 🎨 Artium Museoa (2 Std.). 🏛️ Catedral de Santa María. Fahrt Bilbao. Mietwagen Flughafen abgeben, Metro Zentrum. Abend: Mercado de la Ribera. |
+| 15 | Do 18. Sep | Bilbao | 🎨 **Guggenheim** (3 Std.). Restaurante Mina. 🏛️ Casco Viejo + Puente Bizkaia (UNESCO). 🥾 Artxanda Funicular (Sonnenuntergang). Abend: Plaza Nueva Pintxos-Crawl. |
+| 16 | Fr 19. Sep | Bilbao (Abreise) | ☕ Café Iruña. Bummel Altstadt. Metro Flughafen. Rückflug BIO→BER nachmittags. |
+
+> ⚠️ **Längste Etappe:** Tag 12, Gijón → Vitoria (326 km, ~3,5 Std.). Pause in Castro Urdiales empfohlen.
+
+> 💡 **Flexibilität:** Bei Regen Museumstage vorziehen (Guggenheim, Artium, Centro Botín). Bei Hitze: Strandtage priorisieren. Ruta del Cares nur bei trockenem Wetter.
 
 ---
 
-## 1. San Sebastián / Donostia (2 Nächte)
+## Stationen & POIs
 
-Gastronomie-Hauptstadt Europas — mehr Michelin-Sterne pro Kopf als irgendwo sonst. Drei perfekte Stadtstrände, baskische Kultur und die beste Pintxos-Szene der Welt.
+### San Sebastián / Donostia (2 Nächte)
 
 **Unterkunft:** Pensión Bellas Artes oder Hotel Parma — Altstadt-Nähe (~100–140 €/Nacht)
 
-### Wandern
+- 🥾 **Monte Urgull** — 3 km, 1,5 Std., leicht. Festung, 360°-Panorama.
+- 🥾 **Monte Igueldo → Paseo Nuevo** — 8 km, 3 Std., moderat. Küstenwanderung.
+- 🥾 **Camino del Norte (Pasaia → San Sebastián)** — 12 km, 4 Std., moderat. Jakobsweg-Küstenabschnitt. [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=1116809)
+- 🏊 **Playa de la Concha** — Muschelförmige Bucht, ruhiges Wasser.
+- 🏊 **Playa de la Zurriola** — Surfer-Strand, Stadtteil Gros.
+- 🎨 **[San Telmo Museoa](https://www.santelmomuseoa.eus/en/)** — Baskische Kultur + zeitgenössische Kunst.
+- 🎨 **Tabakalera** — Zeitgenössische Kultur in ehemaliger Tabakfabrik.
+- 🎨 **[Chillida-Leku](https://www.museochillidaleku.com/en/)** — Skulpturenpark, monumentale Stahlskulpturen. **Pflichtbesuch.**
+- 🏛️ **Peine del Viento** — Chillida-Skulpturen in den Klippen.
+- 🍷 **Parte Vieja Pintxos** — Bar Nestor (Tortilla), La Cuchara de San Telmo, Gandarias, Bar Zeruko.
+- ☕ **Sakona Coffee Roasters** — Specialty Coffee, Altstadt.
 
-- 🥾 **Monte Urgull** — 3 km, 1,5 Std., leicht. Festung über der Altstadt mit 360°-Panorama über die Bucht.
-- 🥾 **Monte Igueldo → Paseo Nuevo** — 8 km, 3 Std., moderat. Küstenwanderung mit Blick auf die Concha-Bucht.
-- 🥾 **Camino del Norte (Etappe Pasaia → San Sebastián)** — 12 km, 4 Std., moderat. Küstenabschnitt des Jakobswegs. Markierter Fernwanderweg (gelbe Muschel auf blau). [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=1116809) · [OSM](https://www.openstreetmap.org/relation/1116809)
+### Küstenstraße Bilbao → San Sebastián (Tag 2)
 
-### Baden
+- 🏛️ **San Juan de Gaztelugatxe** — Felsinsel, 241 Stufen, GoT „Dragonstone". Morgens früh (Parkplatz!).
+- 🏛️ **Bermeo** — Fischerhafen, Ercilla-Turm (15. Jh.), UNESCO-Biosphärenreservat Urdaibai.
+- 🌿 **Urdaibai** — Feuchtgebiete, Aussichtspunkt Mundaka (Surfer-Welle).
+- 🏛️ **Lekeitio** — Fischerdorf, Basilika Santa María, Insel San Nicolás (bei Ebbe zu Fuß).
+- 🏛️ **Zumaia Flysch** — UNESCO Geopark, 60 Mio. Jahre Erdgeschichte. [geoparkea.eus](https://geoparkea.eus/en)
+- 🎨 **[Cristóbal Balenciaga Museoa](https://www.cristobalbalenciagamuseoa.com/en/)** — Getaria. Haute Couture als Kunstform.
+- 🍇 **Txakoli-Verkostung** — Getaria, z.B. Bodega Txomin Etxaniz.
+- 🍷 **Getaria Hafen** — Gegrillter Fisch auf Holzkohle.
 
-- 🏊 **Playa de la Concha** — Einer der schönsten Stadtstrände Europas. Muschelförmige Bucht, ruhiges Wasser.
-- 🏊 **Playa de la Zurriola** — Surfer-Strand im Stadtteil Gros.
-
-### Essen & Trinken
-
-- 🍷 **Parte Vieja (Altstadt) Pintxos-Crawl** — Bar Nestor (Tortilla), La Cuchara de San Telmo (heiße Pintxos), Gandarias (Txuleta). Pintxos (baskisch: Pintxo) sind Häppchen auf Brotscheiben mit Holzspieß — man bedient sich an der Theke und gibt beim Zahlen die Anzahl an.
-- 🍷 **Bar Zeruko** — Avantgarde-Pintxos, molekulare Küche auf dem Tresen.
-- 🍇 **Txakoli-Weingut Getaria** (20 Min. Fahrt) — Baskischer Weißwein direkt am Meer, Verkostung. Txakoli wird traditionell aus Höhe ins Glas geschenkt. (→ Tipp: auf der Küstenstraße am Anreisetag einplanen, siehe „Unterwegs")
-- ☕ **Sakona Coffee Roasters** — Specialty Coffee in der Altstadt.
-
-### Kultur
-
-- 🎨 **[San Telmo Museoa](https://www.santelmomuseoa.eus/en/)** — Baskische Kultur + zeitgenössische Kunst in ehemaligem Kloster.
-- 🎨 **Tabakalera** — Internationales Zentrum für zeitgenössische Kultur in ehemaliger Tabakfabrik.
-- 🎨 **[Chillida-Leku](https://www.museochillidaleku.com/en/)** — Skulpturenpark von Eduardo Chillida (15 Min. Fahrt). Monumentale Stahlskulpturen in baskischer Landschaft. **Pflichtbesuch.**
-- 🏛️ **Peine del Viento** — Chillida-Skulpturen in den Klippen am Meer.
-
-### Unterwegs (Bilbao → San Sebastián über die Küstenstraße)
-
-> 💡 **Empfehlung:** Statt der Autobahn AP-8 (~1 Std.) die Küstenstraße über Bermeo, Lekeitio, Zumaia und Getaria nehmen. Reine Fahrzeit ~3 Std. (139 km), aber mit Stopps ein ganzer Halbtag. Lohnt sich als erster Reisetag nach der Ankunftsnacht in Bilbao.
-
-**Route:** Bilbao → Bermeo (37 Min.) → Lekeitio (52 Min.) → Zumaia (51 Min.) → Getaria (11 Min.) → San Sebastián (31 Min.)
-
-- 🏛️ **San Juan de Gaztelugatxe** (bei Bermeo) — Dramatische Felsinsel mit Kapelle, verbunden über 241 Stufen. Game of Thrones „Dragonstone"-Drehort. Morgens früh starten (Parkplatz füllt sich schnell). ~20 Min. ab Bilbao, direkt an der Küstenstraße.
-- 🏛️ **Bermeo** — Historischer Fischerhafen im UNESCO-Biosphärenreservat Urdaibai. Altstadt mit mittelalterlichem Kern, Ercilla-Turm (15. Jh.), Fischereimuseum. Guter Stopp für Kaffee am Hafen.
-- 🌿 **Urdaibai Biosphärenreservat** — Mündung des Río Oka mit Feuchtgebieten, Klippen und Stränden. Aussichtspunkt bei Mundaka (Surfer-Hotspot mit weltberühmter Linkswelle).
-- 🏛️ **Lekeitio** — Malerisches Fischerdorf in geschützter Bucht. Gotische Basilika Santa María, Strand Isuntza mit vorgelagerter Insel San Nicolás (bei Ebbe zu Fuß erreichbar). Perfekter Mittagsstopp: frischer Fisch am Hafen.
-- 🏛️ **Zumaia — Flysch-Küste** (UNESCO Global Geopark) — Spektakuläre Felsformationen am Strand Itzurun: senkrecht aufgestellte Gesteinsschichten, die 60 Mio. Jahre Erdgeschichte zeigen (inkl. Kreide-Paläogen-Grenze = Dinosaurier-Aussterben). Kurzer Küstenspaziergang ab Parkplatz (~30 Min.). [Geopark-Info](https://geoparkea.eus/en)
-- 🎨 **[Cristóbal Balenciaga Museoa](https://www.cristobalbalenciagamuseoa.com/en/)** (Getaria) — Museum des legendären Modeschöpfers in seinem Geburtsort. Haute Couture als Kunstform — architektonisch moderner Bau mit wechselnden Ausstellungen.
-- 🍇 **Txakoli-Verkostung** (Getaria) — Baskischer Weißwein direkt an der Küste. Mehrere Weingüter mit Verkostung (z.B. Bodega Txomin Etxaniz). Getaria ist das Zentrum der Txakoli-Produktion.
-- 🍷 **Getaria Hafen** — Gegrillter Fisch (Rodaballo, Besugo) in den Restaurants am Hafen. Fangfrisch, auf Holzkohle gegrillt — baskische Küche in Reinform.
-
----
-
-## 2. Santander (2 Nächte)
-
-Elegante Hafenstadt an der kantabrischen Küste — Strände, Surfen, Markthalle und der Zugang zu den Picos de Europa.
+### Santander (2 Nächte)
 
 **Unterkunft:** Hotel Bahía oder Jardín Secreto — Zentrum/Sardinero (~90–130 €/Nacht)
 
-### Wandern
+- 🥾 **Cabo Mayor → Mataleñas** — 6 km, 2 Std., leicht. Klippenpfad, Leuchtturm.
+- 🏊 **Playa del Sardinero** — Stadtstrand, Belle-Époque.
+- 🏊 **Playa de la Arnía** — Wilde Felsbucht, 15 Min. Fahrt.
+- 🎨 **[Centro Botín](https://www.centrobotin.org/en/)** — Renzo Piano, zeitgenössische Kunst. **Highlight.**
+- 🏛️ **Palacio de la Magdalena** — Königlicher Sommerpalast.
+- 🌿 **Jardines de Piquío** — Art-Deco-Gärten.
+- 🍷 **Mercado de la Esperanza** — Markthalle, Fisch, Tapas-Bars.
+- 🍷 **Cañadío** — Moderne Küche, Meeresfrüchte.
+- 🍷 **Bodega del Riojano** — Kantabrische Küche seit 1908.
 
-- 🥾 **Cabo Mayor → Playa de Mataleñas** — 6 km, 2 Std., leicht. Klippenpfad mit Leuchtturm und versteckten Buchten.
-- 🥾 **Parque de la Naturaleza de Cabárceno** — Weitläufiger Naturpark (kein Zoo), 20 Min. Fahrt.
+### Potes / Liébana-Tal (1 Nacht)
 
-### Baden
+**Unterkunft:** Posada San Pelayo oder Casa Rural — ~80–110 €/Nacht
 
-- 🏊 **Playa del Sardinero** — Eleganter Stadtstrand mit Belle-Époque-Architektur.
-- 🏊 **Playa de la Arnía** — Wilde Felsbucht, spektakuläre Erosionsformen. 15 Min. Fahrt.
+- 🥾 **Mirador de Santa Catalina** — 4 km, 1,5 Std., leicht. Picos-Panorama.
+- 🏛️ **Torre del Infantado** — Wehrturm (15. Jh.), Ausstellungsraum.
+- 🏛️ **Monasterio de Santo Toribio** (3 km) — Kloster 6. Jh., Pilgerort.
+- 🏛️ **Santillana del Mar** (Anfahrt) — Mittelalterliches Dorf, Stiftskirche.
+- 🏛️ **Altamira-Höhle** (bei Santillana) — UNESCO, prähistorische Malereien (Replik).
+- 🏛️ **Comillas** (Anfahrt) — Gaudís El Capricho.
+- 🏛️ **Desfiladero de la Hermida** (Anfahrt) — 21 km Schlucht, 600 m Felswände.
+- 🍷 **Cocido Lebaniego** — Kichererbsen-Eintopf, Spezialität des Tals.
+- 🍇 **Orujo-Destillerien** — Tresterbrand, geschützte Herkunft. Verkostung in Potes.
 
-### Essen & Trinken
+### Picos de Europa / Cangas de Onís (3 Nächte)
 
-- 🍷 **Mercado de la Esperanza** — Markthalle mit Fisch, Käse und Tapas-Bars im Obergeschoss.
-- 🍷 **Bodega del Riojano** — Traditionelle kantabrische Küche seit 1908.
-- 🍷 **Cañadío** — Moderne Küche, exzellente Meeresfrüchte.
+**Unterkunft:** Hotel Posada del Valle oder Casa Rural — ~80–120 €/Nacht
 
-### Kultur
+- 🥾 **Ruta del Cares** [PR-PNPE 3] — 21 km, 6–7 Std., moderat. Schlucht-Wanderung, Pfad in Felswände gehauen. **Highlight.** [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=2687934)
+- 🥾 **Lagos de Covadonga** [PR-PNPE 2] — 6,4 km, 2,5 Std., leicht. Gletscherseen auf 1.000 m. [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=4664408)
+- 🥾 **Mirador del Naranjo de Bulnes** (ab Sotres) — 10 km, 4 Std., moderat.
+- 🏊 **Río Sella** (Arriondas) — Flussbaden, kristallklar.
+- 🏊 **Playa de Gulpiyuri** — Inland-Strand (Meerwasser durch Höhlen).
+- 🏛️ **Basílica de Covadonga** — Reconquista-Stätte (722 n.Chr.), Felshöhle.
+- 🏛️ **Puente Romano** (Cangas) — Römische Brücke, Wahrzeichen Asturiens.
+- 🍷 **Sidrería** — Sidra escanciar (aus Höhe einschenken).
+- 🍷 **Quesu Cabrales** — Blauschimmelkäse, in Höhlen gereift.
+- 🍷 **El Molín de la Pedrera** — Fabada Asturiana.
 
-- 🎨 **[Centro Botín](https://www.centrobotin.org/en/)** — Renzo Piano-Bau am Hafen. Zeitgenössische Kunst + Ausstellungen. **Highlight.**
-- 🏛️ **Palacio de la Magdalena** — Königlicher Sommerpalast auf Halbinsel.
-- 🌿 **Jardines de Piquío** — Art-Deco-Gärten zwischen den Stränden.
-
-### Unterwegs (San Sebastián → Santander)
-
-- 🏛️ **Castro Urdiales** — Hübscher Fischerort auf halber Strecke, gotische Kirche am Hafen. Guter Stopp für Kaffee und Pintxos.
-
----
-
-## 3. Potes / Liébana-Tal (1 Nacht)
-
-Südtor der Picos de Europa — mittelalterliches Bergstädtchen im Talkessel, umgeben von 2.000-m-Gipfeln. Zufahrt durch die spektakuläre Schlucht Desfiladero de la Hermida (21 km, 600 m hohe Felswände). Orujo-Destillerien, Bergkäse und der Startpunkt für die Südseite der Picos.
-
-**Unterkunft:** Posada San Pelayo oder Casa Rural in Potes — ~80–110 €/Nacht
-
-### Wandern
-
-- 🥾 **Mirador de Santa Catalina** — 4 km, 1,5 Std., leicht. Aussichtspunkt über Potes und das Liébana-Tal mit Picos-Panorama. Ideal für den Nachmittag nach Ankunft.
-
-### Essen & Trinken
-
-- 🍷 **Cocido Lebaniego** — Deftiger Eintopf aus Kichererbsen, Kohl und Schweinefleisch. Spezialität des Tals, in fast jedem Restaurant.
-- 🍷 **Quesucos de Liébana** — Kleine Bergkäse (Kuh/Ziege/Schaf-Mischung), geräuchert. Auf dem Montagsmarkt in Potes probieren.
-- 🍇 **Orujo-Destillerien** — Tresterbrand, baskisch-kantabrische Tradition. Verkostung in Potes (verschiedene Aromen: Honig, Kräuter, Tee). Orujo de Liébana hat geschützte Herkunftsbezeichnung.
-
-### Kultur
-
-- 🏛️ **Torre del Infantado** — Wehrturm (15. Jh.) im Zentrum von Potes, heute Ausstellungsraum.
-- 🏛️ **Monasterio de Santo Toribio de Liébana** (3 km) — Kloster aus dem 6. Jh., beherbergt angeblich das größte Fragment des Kreuzes Christi. Pilgerort (Año Jubilar Lebaniego).
-
-### Unterwegs (Santander → Potes)
-
-- 🏛️ **Desfiladero de la Hermida** — 21 km lange Schlucht mit bis zu 600 m hohen Kalksteinwänden. Die Straße N-621 windet sich durch 175 Kurven — spektakulär, aber Vorsicht bei Reisekrankheit. Thermalbad Balneario de la Hermida am Eingang der Schlucht (60°C Quellwasser).
-- 🏛️ **Comillas** (Abstecher ab Küstenstraße, 20 Min.) — Gaudís El Capricho (verspielter Jugendstil-Palast), Universität (neogotisch), Strand.
-
----
-
-## 4. Picos de Europa / Cangas de Onís (3 Nächte)
-
-Spaniens spektakulärster Nationalpark — 2.600 m hohe Kalksteingipfel, tiefe Schluchten, Gletscherseen und asturische Bergdörfer. Drei Nächte für die besten Wanderungen und einen Ruhetag.
-
-**Unterkunft:** Hotel Posada del Valle oder Casa Rural bei Cangas de Onís — ~80–120 €/Nacht
-
-### Wandern
-
-- 🥾 **Ruta del Cares** [PR-PNPE 3] — 21 km (hin+zurück), 6–7 Std., moderat. Spektakulärste Schlucht-Wanderung Spaniens — Pfad in Felswände gehauen, 200 m über dem Fluss. 160 m Aufstieg, 899 m Abstieg (one-way). **Highlight der Reise.** [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=2687934) · [OSM](https://www.openstreetmap.org/relation/2687934)
-- 🥾 **Lagos de Covadonga Rundweg** [PR-PNPE 2] — 6,4 km, 2,5 Std., leicht. Zwei Gletscherseen auf 1.000 m, umgeben von Gipfeln. Betreiber: Parque Nacional de los Picos de Europa. Morgens früh starten (Zufahrt im Sommer limitiert). [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=4664408) · [Offizielle Info](https://parquesnacionales.cnig.es/web/cnig/picos-de-europa#rutas_6_28)
-- 🥾 **Mirador del Naranjo de Bulnes** (ab Sotres) — 10 km, 4 Std., moderat. Blick auf den ikonischen Felszahn der Picos.
-- 🥾 **El Anillo de Picos (3 Macizos)** [AP-3M] — 110 km Rundweg, 9.350 m Aufstieg, mehrtägig. Für Ambitionierte: die große Picos-Umrundung. [elanillodepicos.com](http://www.elanillodepicos.com) · [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=8359856)
-
-### Baden
-
-- 🏊 **Río Sella** (bei Arriondas) — Flussbaden in kristallklarem Gebirgswasser.
-- 🏊 **Playa de Gulpiyuri** — Inland-Strand! Meerwasser fließt durch unterirdische Höhlen zu einem Strand 100 m von der Küste entfernt. Einzigartig.
-
-### Essen & Trinken
-
-- 🍷 **Sidrería (Sidra-Haus)** — Asturischer Apfelwein, traditionell „escanciar" (aus Höhe eingeschenkt). Überall in Cangas de Onís.
-- 🍷 **Restaurante El Molín de la Pedrera** (Cangas) — Regionale Küche, Fabada Asturiana.
-- 🍷 **Quesu Cabrales** — Blauschimmelkäse aus den Picos, in Höhlen gereift. Probieren in Arenas de Cabrales.
-
-### Kultur
-
-- 🏛️ **Basílica de Covadonga** — Heilige Stätte der Reconquista (722 n.Chr.), in Felshöhle gebaut.
-- 🏛️ **Puente Romano** (Cangas de Onís) — Römische Brücke mit hängendem Kreuz, Wahrzeichen Asturiens.
-
-### Unterwegs (Potes → Cangas de Onís)
-
-- 🏛️ **Desfiladero de los Beyos** — Alternative Zufahrt über die Schlucht des Río Sella. Weniger bekannt als La Hermida, aber ebenso dramatisch.
-
----
-
-## 5. Gijón / Oviedo (2 Nächte)
-
-Zwei Städte, ein Aufenthalt — Gijón (Hafen, Strand, Sidra) und Oviedo (Präromanik, Kunst, Eleganz). 30 Min. auseinander. Zwei Nächte für je einen vollen Tag pro Stadt.
+### Gijón / Oviedo (2 Nächte)
 
 **Unterkunft:** Hotel Casona de Jovellanos (Gijón) oder Hotel de la Reconquista (Oviedo) — ~90–130 €/Nacht
 
-### Wandern
+- 🥾 **Senda del Cervigón** (Gijón) — 8 km, 2,5 Std., leicht. Küstenpfad mit Skulpturen.
+- 🥾 **Senda del Oso** (30 Min. ab Oviedo) — 12 km, 3 Std., leicht. Ehem. Bergbau-Pfad. [Vía Verde](https://www.viasverdes.com/itinerarios/itinerario.asp?id=27)
+- 🏊 **Playa de San Lorenzo** (Gijón) — 1,5 km Stadtstrand.
+- 🏊 **Playa del Silencio** (40 Min. westlich) — Versteckte Bucht, Klippen.
+- 🎨 **[LABoral Centro de Arte](https://www.laboralcentrodearte.org/en)** — Zeitgenössische Kunst + Technologie. Gijón.
+- 🎨 **Museo de Bellas Artes** (Oviedo) — El Greco bis Dalí.
+- 🏛️ **Präromanische Kirchen** (UNESCO) — Santa María del Naranco, San Miguel de Lillo. 9. Jh.
+- 🌿 **Jardín Botánico Atlántico** (Gijón) — 25 ha, atlantische Flora.
+- 🍷 **Sidrería Tierra Astur** (Gijón) — Sidra + asturische Küche.
+- 🍷 **Mercado del Fontán** (Oviedo) — Historische Markthalle.
+- 🍷 **Casa Fermín** (Oviedo) — Michelin-empfohlen.
+- ☕ **Cafetería Rialto** (Oviedo) — Historisches Jugendstil-Café.
 
-- 🥾 **Senda del Cervigón** (Gijón) — 8 km, 2,5 Std., leicht. Küstenpfad mit Skulpturen entlang der Klippen.
-- 🥾 **Senda del Oso** (30 Min. ab Oviedo) — 12 km, 3 Std., leicht. Ehemaliger Bergbau-Pfad durch Schluchten, Bären-Schutzgebiet. [Vía Verde Info](https://www.viasverdes.com/itinerarios/itinerario.asp?id=27)
+### Vitoria-Gasteiz / Rioja Alavesa (2 Nächte)
 
-### Baden
+**Unterkunft:** Hospedería de los Parajes (Laguardia) — Boutique, Weinkeller, Spa (~110–150 €/Nacht). Oder Hotel Silken Ciudad de Vitoria (~90–120 €/Nacht).
 
-- 🏊 **Playa de San Lorenzo** (Gijón) — 1,5 km Stadtstrand, Surfen möglich.
-- 🏊 **Playa del Silencio** (40 Min. westlich) — Versteckte Bucht zwischen Klippen, einer der schönsten Strände Asturiens.
+- 🥾 **Salinas de Añana Salzweg** — 8 km, 3 Std., leicht. Oder nur geführte Salinen-Tour (1,5 Std.).
+- 🎨 **[Artium Museoa](https://www.artium.eus)** — Zeitgenössische Kunst, 2.700+ Werke, 1950er bis heute. **Pflichtbesuch.**
+- 🎨 **Itinerario Muralístico (IMVG)** — Europas größte Freiluft-Mural-Galerie. Rundgang ~1,5 Std.
+- 🏛️ **Catedral de Santa María** — Gotisch, „offene Baustelle" (Ken Follett-Inspiration).
+- 🏛️ **[Salinas de Añana](https://www.vallesalado.com)** — Älteste Saline der Welt (6.500 Jahre).
+- 🍇 **[Bodegas Ysios](https://www.ysios.com)** (Laguardia) — Calatrava-Bau, Premium-Verkostung. **Architektur-Highlight.**
+- 🍇 **[Marqués de Riscal](https://www.marquesderiscal.com)** (Elciego) — Gehry-Hotel, Weingut seit 1858.
+- 🍇 **Laguardia** — Mittelalterliches Weindorf, unterirdische Keller.
+- 🍷 **Casco Viejo Pintxos** (Vitoria) — Calle Cuchillería. Pintxo de Foie, Txuleta.
+- 🍷 **Lamm al sarmiento** — Auf Rebholz gegrillt, Rioja-Spezialität.
 
-### Essen & Trinken
-
-- 🍷 **Sidrería Tierra Astur** (Gijón) — Authentische Sidra + asturische Küche.
-- 🍷 **Mercado del Fontán** (Oviedo) — Historische Markthalle unter Arkaden.
-- 🍷 **Casa Fermín** (Oviedo) — Gehobene asturische Küche, Michelin-empfohlen.
-- ☕ **Cafetería Rialto** (Oviedo) — Historisches Café, Jugendstil.
-
-### Kultur
-
-- 🎨 **[LABoral Centro de Arte](https://www.laboralcentrodearte.org/en)** — Zeitgenössische Kunst + Technologie in monumentalem Franco-Bau. Gijón.
-- 🎨 **Museo de Bellas Artes de Asturias** (Oviedo) — Spanische Kunst von El Greco bis Dalí.
-- 🏛️ **Präromanische Kirchen** (UNESCO) — Santa María del Naranco, San Miguel de Lillo. 9. Jahrhundert, einzigartig in Europa.
-- 🌿 **Jardín Botánico Atlántico** (Gijón) — Atlantischer Botanischer Garten, 25 ha.
-
----
-
-## 6. Vitoria-Gasteiz / Rioja Alavesa (2 Nächte)
-
-Baskische Hauptstadt und Europas Grüne Hauptstadt 2012 — überraschend unentdeckt. Mittelalterliche Altstadt mit Europas größter Street-Art-Freiluftgalerie, zeitgenössische Kunst im Artium, und 30 Min. südlich: die Rioja Alavesa mit Stararchitektur-Weingütern vor der Kulisse der Sierra de Cantabria.
-
-**Unterkunft:** Hospedería de los Parajes (Laguardia) — historisches Boutique-Hotel mit Weinkeller und Spa, ~110–150 €/Nacht. Oder Hotel Silken Ciudad de Vitoria — zentral, modern, ~90–120 €/Nacht.
-
-### Wandern
-
-- 🥾 **Salinas de Añana → Vitoria (Salzweg)** — 8 km, 3 Std., leicht. Wanderung durch das Salztal mit Blick auf die terrassierten Salinen. Alternativ: nur Besichtigung der Salinen (geführte Tour, 1,5 Std.).
-
-### Essen & Trinken
-
-- 🍷 **Casco Viejo Pintxos-Route** (Vitoria) — Weniger überlaufen als San Sebastián, gleiche Qualität. Calle Cuchillería und Calle Pintorería. Spezialität: Pintxo de Foie, Txuleta.
-- 🍷 **Weingut-Mittagessen** (Rioja Alavesa) — Viele Bodegas bieten Verkostung + regionale Küche. Lamm al sarmiento (auf Rebholz gegrillt) ist die Spezialität der Region.
-- ☕ **Café-Kultur Vitoria** — Die Altstadt hat eine lebendige Café-Szene. Vitoria ist kompakt und fußgängerfreundlich.
-
-### Kultur
-
-- 🎨 **[Artium Museoa](https://www.artium.eus)** — Baskisches Zentrum für zeitgenössische Kunst. Sammlung von 2.700+ Werken, Schwerpunkt 1950er bis heute. Spanische + baskische Avantgarde (Oteiza, Chillida, Tàpies, Barceló). **Pflichtbesuch.**
-- 🎨 **Itinerario Muralístico (IMVG)** — Europas größte Freiluft-Mural-Galerie. Seit 2007 entstehen jährlich großformatige Wandbilder in der Altstadt. Selbstgeführter Rundgang (~1,5 Std., kostenlos).
-- 🏛️ **Catedral de Santa María** — Gotische Kathedrale, seit 2000 „offene Baustelle" — Besichtigung der laufenden Restaurierung (Ken Follett ließ sich hier für „Die Säulen der Erde" inspirieren).
-- 🏛️ **[Salinas de Añana](https://www.vallesalado.com)** (30 Min. westlich) — Älteste Saline der Welt (6.500 Jahre). Terrassierte Salzpfannen aus Holz, geführte Besichtigung. Salz aus einem 200 Mio. Jahre alten unterirdischen Meer.
-
-### Weingüter Rioja Alavesa (Tagesausflug ab Laguardia)
-
-- 🍇 **[Bodegas Ysios](https://www.ysios.com)** (Laguardia) — Santiago Calatrava-Bau: wellenförmiges Dach vor der Sierra de Cantabria. Premium-Verkostung, Weinberge bis 100 Jahre alt. **Architektur-Highlight.**
-- 🍇 **[Marqués de Riscal](https://www.marquesderiscal.com)** (Elciego, 15 Min.) — Frank Gehry-Hotel (titanverkleidet, wie ein Mini-Guggenheim). Weingut seit 1858, Verkostung + Restaurant. Reservierung empfohlen.
-- 🍇 **Laguardia** — Mittelalterliches Weindorf auf einem Hügel, komplett von Mauern umgeben. Unterirdische Weinkeller (Bodegas unter jedem Haus). Aussichtspunkt mit Blick über die Weinberge bis zur Sierra.
-
-### Unterwegs (Gijón → Vitoria-Gasteiz)
-
-- 🏛️ **Castro Urdiales** (Küste, auf halber Strecke) — Gotische Kirche am Hafen, römische Brücke. Guter Kaffeestopp nach ~2 Std. Fahrt.
-
----
-
-## 7. Bilbao — Puffer & Abreise (2 Nächte)
-
-Zurück in Bilbao für Guggenheim, Pintxos und Puffer. Mietwagen am Flughafen abgeben, dann per Metro in die Stadt. Rückflug am Nachmittag des 19. September — morgens noch Zeit für einen letzten Pintxos-Bummel.
+### Bilbao — Puffer & Abreise (2 Nächte)
 
 **Unterkunft:** Hotel Miró oder Gran Hotel Domine (Guggenheim-Blick) — ~100–150 €/Nacht
 
-### Wandern
-
-- 🥾 **Artxanda Funicular + Rundweg** — 5 km, 2 Std., leicht. Standseilbahn auf den Hausberg, Panorama über die Stadt.
-
-### Essen & Trinken
-
-- 🍷 **Plaza Nueva Pintxos-Crawl** — Gilda (Sardelle+Olive+Peperoni), Txuleta, Bacalao al Pil-Pil (Klippfisch in Olivenöl-Knoblauch-Sauce).
-- 🍷 **Mercado de la Ribera** — Europas größte überdachte Markthalle, Tapas-Bars im Obergeschoss.
-- 🍷 **Restaurante Mina** — Michelin-Stern, baskische Avantgarde-Küche am Fluss.
-- 🍷 Typisch baskisch: Txipirones en su Tinta (Tintenfisch in eigener Tinte), Marmitako (Thunfisch-Kartoffel-Eintopf), Pimientos de Gernika.
-- ☕ **Café Iruña** — Maurisch dekoriertes Café von 1903, Institution.
-- 🍇 Als Digestif: **Patxaran** — Likör aus wilden Schlehenbeeren, baskische Spezialität.
-
-### Kultur
-
-- 🎨 **[Guggenheim Bilbao](https://www.guggenheim-bilbao.eus/en)** — Frank Gehry-Ikone. Zeitgenössische Kunst, wechselnde Ausstellungen. **Pflichtbesuch.** Außen: Jeff Koons' „Puppy", Louise Bourgeois' „Maman".
-- 🎨 **Museo de Bellas Artes** — Spanische + baskische Kunst, von Goya bis Chillida.
-- 🏛️ **Casco Viejo** — Mittelalterliche Altstadt, Siete Calles (7 Gassen).
-- 🏛️ **Puente Bizkaia** — UNESCO-Welterbe Schwebefähre (1893), 15 Min. Fahrt.
+- 🥾 **Artxanda Funicular + Rundweg** — 5 km, 2 Std., leicht. Panorama.
+- 🎨 **[Guggenheim Bilbao](https://www.guggenheim-bilbao.eus/en)** — Gehry-Ikone, zeitgenössische Kunst. **Pflichtbesuch.**
+- 🎨 **Museo de Bellas Artes** — Goya bis Chillida.
+- 🏛️ **Casco Viejo** — Siete Calles, mittelalterliche Altstadt.
+- 🏛️ **Puente Bizkaia** — UNESCO-Schwebefähre (1893), 15 Min. Fahrt.
+- 🍷 **Plaza Nueva Pintxos** — Gilda, Txuleta, Bacalao al Pil-Pil.
+- 🍷 **Mercado de la Ribera** — Europas größte Markthalle, Tapas-Bars.
+- 🍷 **Restaurante Mina** — Michelin-Stern, baskische Avantgarde.
+- ☕ **Café Iruña** — Maurisch dekoriert, seit 1903.
+- 🍇 **Patxaran** — Schlehenlikör, baskischer Digestif.
 
 ---
 
 ## Wetter
 
-> ℹ️ _Anfang September an der spanischen Nordküste: Spätsommer, noch warm aber Atlantik bringt gelegentlich Regen. Richtwerte — aktuelle Vorhersage vor Reiseantritt prüfen._
+> ℹ️ _Anfang September: Spätsommer, noch warm aber Atlantik bringt gelegentlich Regen. Aktuelle Vorhersage vor Reiseantritt prüfen._
 
-| Station         | Temperatur | Regen | Besonderheiten                       |
-| --------------- | ---------- | ----- | ------------------------------------ |
-| San Sebastián   | 15–24°C    | 30%   | Milde Küste, abends frisch           |
-| Santander       | 15–23°C    | 30%   | Ähnlich, etwas windiger              |
-| Potes / Liébana | 12–26°C    | 25%   | Geschütztes Tal, wärmer als Küste    |
-| Picos de Europa | 8–20°C     | 35%   | Berge! Morgens kühl, Nachmittag warm |
-| Gijón/Oviedo    | 14–22°C    | 35%   | Küste mild, Inland etwas wärmer      |
-| Vitoria / Rioja | 12–27°C    | 20%   | Inland, trockener, warm tagsüber     |
-| Bilbao          | 15–25°C    | 30%   | Geschützte Lage, wärmste Station     |
+| Station         | Temperatur | Regen | Besonderheiten             |
+| --------------- | ---------- | ----- | -------------------------- |
+| San Sebastián   | 15–24°C    | 30%   | Milde Küste, abends frisch |
+| Santander       | 15–23°C    | 30%   | Etwas windiger             |
+| Potes / Liébana | 12–26°C    | 25%   | Geschütztes Tal, wärmer    |
+| Picos de Europa | 8–20°C     | 35%   | Berge! Morgens kühl        |
+| Gijón/Oviedo    | 14–22°C    | 35%   | Küste mild                 |
+| Vitoria / Rioja | 12–27°C    | 20%   | Inland, trockener          |
+| Bilbao          | 15–25°C    | 30%   | Geschützte Lage            |
 
-> ☀️ **September ist ideal** — Hochsaison vorbei, Meer noch 19–21°C, milde Temperaturen. Regenjacke einpacken (Nordküste!), aber viele Sonnentage.
+> ☀️ September ist ideal — Hochsaison vorbei, Meer 19–21°C. Regenjacke einpacken (Nordküste!).
 
 ---
 
@@ -301,27 +187,24 @@ Zurück in Bilbao für Guggenheim, Pintxos und Puffer. Mietwagen am Flughafen ab
 
 **Hinflug:** BER → Bilbao (BIO), Direktflug Eurowings, ~2,5 Std.
 
-- Empfehlung: **Do 4. September, Ankunft Bilbao abends**
+- Empfehlung: Do 4. September, Ankunft abends
 - Geschätzte Kosten: ~80–150 € pro Person (one-way)
-- Erste Nacht in Bilbao: Mietwagen am Flughafen übernehmen, Fahrt ins Zentrum (~15 Min.), Abendessen in der Altstadt
 
 **Rückflug:** Bilbao (BIO) → BER, Direktflug Eurowings, ~2,5 Std.
 
-- Empfehlung: **Fr 19. September, Abflug nachmittags**
-- Morgens auschecken, letzter Bummel durch Bilbao, dann zum Flughafen (~30 Min. vor Abflug einplanen)
+- Empfehlung: Fr 19. September, Abflug nachmittags
 
 **Mietwagen:**
 
-- Übernahme: Bilbao Flughafen, 4. September abends
-- Abgabe: Bilbao Flughafen, 19. September mittags (vor Rückflug)
-- Empfehlung: Kompaktwagen
-- Geschätzte Kosten: ~450–700 € für 16 Tage (Vollkasko inkl.)
+- Übernahme: Bilbao Flughafen, 4. Sep abends
+- Abgabe: Bilbao Flughafen, 19. Sep mittags
+- Kompaktwagen, ~450–700 € für 16 Tage (Vollkasko inkl.)
 
-> 💡 Mietwagen frühzeitig buchen. Vergleichsportale: CHECK24, billiger-mietwagen.de
+> 💡 Frühzeitig buchen. Vergleich: CHECK24, billiger-mietwagen.de
 
 ---
 
-## Kostenübersicht (Schätzung, 2 Personen)
+## Kostenübersicht (2 Personen)
 
 | Posten                  | Geschätzt          |
 | ----------------------- | ------------------ |
@@ -334,44 +217,54 @@ Zurück in Bilbao für Guggenheim, Pintxos und Puffer. Mietwagen am Flughafen ab
 
 ---
 
-## Packliste & Tipps
+## Tipps & Länderinfo
 
-- **Regenjacke**: Nordküste = Atlantikklima. Kurze Schauer auch im September.
-- **Wanderschuhe**: Picos de Europa erfordert festes Schuhwerk (Ruta del Cares!).
-- **Badesachen**: Meer noch 19–21°C, Flüsse kälter.
-- **Reservierungen**: Ruta del Cares braucht keine, aber Lagos de Covadonga Zufahrt im Sommer limitiert (Bus ab Cangas). Im September meist frei.
-- **Pintxos-Etikette**: Bestellen am Tresen, Zahlen am Ende (Zahnstocher zählen). Txakoli wird aus Höhe eingeschenkt.
-- **Sidra**: Wird „escanciar" — aus 1 m Höhe ins Glas gegossen. Sofort trinken (Kohlensäure verfliegt).
-- **Sprache**: Baskisch (Euskara) + Spanisch im Baskenland. Asturisch (Bable) in Asturien. Spanisch überall verstanden.
+**Packliste:** Regenjacke (Atlantikklima!), Wanderschuhe (Ruta del Cares), Badesachen (Meer 19–21°C).
 
----
+**Lokale Bräuche:**
 
-## Länderinfo
+- Pintxos: Am Tresen bestellen, Zahnstocher zählen beim Zahlen
+- Sidra: „Escanciar" — aus 1 m Höhe ins Glas, sofort trinken
+- Txakoli: Aus Höhe eingeschenkt
+- Sprache: Baskisch (Euskara) + Spanisch im Baskenland, Asturisch (Bable) in Asturien
 
-|                           |                                                                                                         |
-| ------------------------- | ------------------------------------------------------------------------------------------------------- |
-| **Preisniveau**           | Ähnlich wie Deutschland (Baskenland etwas teurer, Asturien günstiger)                                   |
-| **Tempolimit Landstraße** | 90 km/h                                                                                                 |
-| **Tempolimit Autobahn**   | 120 km/h                                                                                                |
-| **Tempolimit innerorts**  | 50 km/h (30 in Wohngebieten)                                                                            |
-| **Besonderheiten**        | Autovías (Autobahnen) meist mautfrei. Einige Autopistas kostenpflichtig. Lichtpflicht bei Regen/Tunnel. |
-| **Reisehinweise**         | Keine Einschränkungen ([Auswärtiges Amt](https://www.auswaertiges-amt.de/de/ReiseUndSicherheit))        |
+|                    |                                                                                                  |
+| ------------------ | ------------------------------------------------------------------------------------------------ |
+| **Preisniveau**    | Ähnlich wie Deutschland (Baskenland etwas teurer, Asturien günstiger)                            |
+| **Tempolimit**     | Innerorts 50 (30 Wohngebiete), Landstraße 90, Autobahn 120 km/h                                  |
+| **Besonderheiten** | Autovías meist mautfrei. Lichtpflicht bei Regen/Tunnel.                                          |
+| **Reisehinweise**  | Keine Einschränkungen ([Auswärtiges Amt](https://www.auswaertiges-amt.de/de/ReiseUndSicherheit)) |
 
 ---
 
-## Quellen & Wanderrouten
+## Erweiterungsideen
 
-Markierte Wanderwege auf dieser Route (via [Waymarked Trails](https://waymarkedtrails.org), OSM-Daten):
+**A: Verlängerung bis Galizien (+4–5 Tage)** — Gijón → Lugo (röm. Stadtmauer) → A Coruña (Herkulesturm) → Santiago de Compostela. Kein Direktflug SCQ→BER, daher One-Way-Mietwagen zurück nach Bilbao (~6 Std.) oder Umsteigeflug.
 
-| Route                            | Ref       | Länge  | Typ     | Link                                                                        |
-| -------------------------------- | --------- | ------ | ------- | --------------------------------------------------------------------------- |
-| Ruta del Cares                   | PR-PNPE 3 | 21 km  | Strecke | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=2687934) |
-| Lagos de Covadonga               | PR-PNPE 2 | 6,4 km | Strecke | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=4664408) |
-| El Anillo de Picos (3 Macizos)   | AP-3M     | 110 km | Rundweg | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=8359856) |
-| Camino del Norte (Euskal Herria) | CdN       | 228 km | Strecke | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=1116809) |
+**B: Pamplona als Startpunkt (+1–2 Tage)** — Navarra: Stadtmauern, Stierlauf-Route, Kathedrale, Weinregion.
 
-Reiseführer-Quellen (Wikivoyage, CC BY-SA 3.0):
+**C: Französisches Baskenland (+1–2 Tage)** — Biarritz/Saint-Jean-de-Luz ab San Sebastián (20–40 Min.). Art Deco, Surfen, französisch-baskische Küche.
 
-- [Donostia-San Sebastián](https://de.wikivoyage.org/wiki/Donostia-San_Sebastián)
-- [Bilbao](https://de.wikivoyage.org/wiki/Bilbao)
-- [Costa Vasca](https://de.wikivoyage.org/wiki/Costa_Vasca)
+---
+
+## Quellen
+
+Markierte Wanderwege ([Waymarked Trails](https://waymarkedtrails.org), OSM-Daten):
+
+| Route                            | Länge  | Link                                                                        |
+| -------------------------------- | ------ | --------------------------------------------------------------------------- |
+| Ruta del Cares                   | 21 km  | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=2687934) |
+| Lagos de Covadonga               | 6,4 km | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=4664408) |
+| Camino del Norte (Euskal Herria) | 228 km | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=1116809) |
+
+Routen-Inspiration (recherchiert Mai 2026):
+
+- [The Gap Decaders — 7–10 Days](https://thegapdecaders.com/north-spain-road-trip/) — Pamplona → Santiago
+- [kimkim — 13 Days](https://www.kimkim.com/c/north-of-spain-ultimate-roadtrip-13-days) — Bilbao → Santiago (linear)
+- [Along Dusty Roads — 10 Days](https://www.alongdustyroads.com/posts/northern-spain-road-trip-itinerary) — Baskenland → Galizien
+- [Journaway — 10 Tage](https://rundreisen.urlaubsguru.de/de/angebote/nordspanien-roadtrip-50321) — Madrid → Bilbao → Madrid (Rundreise)
+- [Andrew Harper — 14 Days](https://andrewharper.com/itinerary/spain-road-trip-galicia/) — Santiago → Rioja → Baskenland
+
+Reiseführer (Wikivoyage, CC BY-SA 3.0): [San Sebastián](https://de.wikivoyage.org/wiki/Donostia-San_Sebastián) · [Bilbao](https://de.wikivoyage.org/wiki/Bilbao) · [Costa Vasca](https://de.wikivoyage.org/wiki/Costa_Vasca)
+
+> ℹ️ Kein Direktflug Santiago de Compostela (SCQ) → Berlin (BER). Daher Rundreise ab/bis Bilbao.

@@ -16,16 +16,18 @@ Plan, generate, and present multi-day car rental road trips across Europe.
 
 - Destinations: Anywhere in Europe reachable by direct or one-stop flight from BER
 - Origin: Berlin Brandenburg Airport (BER)
-- All trips form a loop returning to the departure airport city
+- All trips form a loop returning to the departure airport city unless a direct return flight from the endpoint is confirmed
 
 ## Critical Conventions (Never Violate)
 
-1. **No fabrication**: Never invent restaurants, hotels, hike names, travel times, or prices. Only present information from web search or API results.
-2. **Coordinate order**: All MCP tool calls use **[longitude, latitude]** — longitude first.
-3. **Verify distances**: Always calculate driving times between **every pair of consecutive stops** via `driving_time` or `distance_matrix` before writing the route table. Never estimate from map distance or straight-line distance — coastal and mountain roads can be 1.5–2× longer than the Luftlinie. Flag if a single segment exceeds 4 hours.
-4. **Seasonal awareness**: Check weather and seasonal closures (mountain passes, ferry schedules, swimming season).
+1. **No fabrication**: Never invent restaurants, hotels, hike names, travel times, or prices. Only present information from web search or API results. If data is unavailable, state that explicitly.
+2. **Coordinate order**: All MCP tool calls use **[longitude, latitude]** — longitude first. Swapping produces routes in the wrong location.
+3. **Verify distances**: Calculate driving times between **every pair of consecutive stops** via `driving_time` or `distance_matrix` before writing the route table. Never estimate from map distance — coastal and mountain roads can be 1.5–2× longer than straight-line distance. Flag any segment exceeding 4 hours.
+4. **Seasonal awareness**: Check weather and seasonal closures (mountain passes, ferry schedules, swimming season). Flag off-season risks.
 5. **Overpass rate limit**: Query POI presets **sequentially** (one at a time). Never parallelize Overpass requests.
-6. **Buffer rule**: When the trip starts and ends in the same city, place the **longer stay (2+ nights) at the end** as a buffer for the return flight. First night(s) at the departure city: 1 night max (arrival/jet lag only).
+6. **Buffer rule**: When the trip starts and ends in the same city, place the **longer stay (2+ nights) at the end** as a buffer for the return flight. First night at the departure city: 1 night max (arrival only).
+7. **Source attribution**: When information comes from web search, note the check date: `ℹ️ Zuletzt geprüft: {date}`.
+8. **Map–table sync**: The route map and the day-by-day table MUST always be in sync. Station labels on the map show the day numbers from the table (e.g., `T2-3 San Sebastián` = days 2–3 in the table). When the table changes (days added/removed, stations reordered), re-render the map with updated labels. Use `scripts/render_roadtrip_map.py` with `--stations` matching the table and `--pois` for key highlights.
 
 ## Trip Profile
 
@@ -36,50 +38,92 @@ Plan, generate, and present multi-day car rental road trips across Europe.
 - **Max single drive**: 4 hours. If exceeded, suggest a break stop or split the segment.
 - **Train segments**: Allowed as alternative between stops where scenic or practical
 - **Cycling day trips**: Can replace hiking if bike rental is available. Search for rental options and suggest routes.
-- **Detours between stops**: When driving from one station to the next, suggest brief detours (max 30–60 min extra) to notable sights, viewpoints, or villages along the way. Present as optional "Unterwegs" tips.
-- **Interests**: See `user-preferences.md` for full priority list. Key "always" items:
-  - 🎨 Moderne Kunst — **always highlight**
-  - 🌿 Botanische Gärten — **always include when nearby**
-  - ☕ Kaffeeröstereien — **always mention when found**
-  - 🍇 Weingüter — **always include in wine regions**
-  - 🪖 Kalter Krieg — **always highlight**
+- **Detours between stops**: Suggest brief detours (max 30–60 min extra) to notable sights, viewpoints, or villages along the way. Present as optional "Unterwegs" tips.
+
+## Interests & POI Rules
+
+All interests, emoji mappings, food/drink rules, and accommodation rules are defined in `user-preferences.md`. Key "always" items for roadtrips:
+
+- 🎨 Moderne Kunst — **always highlight**
+- 🌿 Botanische Gärten — **always include when nearby**
+- ☕ Kaffeeröstereien — **always mention when found**
+- 🍇 Weingüter — **always include in wine regions**
+- 🪖 Kalter Krieg — **always highlight**
+
+Use `remote_web_search` to find POIs matching these interests at each stop. Prioritize by the interest priority order in `user-preferences.md`.
 
 ## Allowed MCP Servers
 
-Use **only** these MCP servers for roadtrip planning. Do **not** use VBB (Berlin-only transit).
+Use **only** these MCP servers for roadtrip planning. Do **not** use VBB (Berlin-only transit) or BRouter (cycling-specific).
 
-| Server          | Prefix                   | Purpose                                         |
-| --------------- | ------------------------ | ----------------------------------------------- |
-| ors             | `mcp_openrouteservice_*` | Car/bike/foot routing, geocoding, driving times |
-| overpass        | `mcp_overpass_*`         | POI search along routes or near stops           |
-| open-meteo      | `mcp_open_meteo_*`       | Weather forecast for destinations               |
-| wikivoyage      | `mcp_wikivoyage_*`       | Travel guide content for destinations           |
-| waymarkedtrails | `mcp_waymarkedtrails_*`  | Discover marked hiking/cycling routes           |
+| Server          | Prefix                   | Purpose                                               |
+| --------------- | ------------------------ | ----------------------------------------------------- |
+| ors             | `mcp_openrouteservice_*` | Geocoding, driving times, isochrones, distance matrix |
+| osrm            | `mcp_osrm_*`             | Car routing with GPX export (full street geometry)    |
+| overpass        | `mcp_overpass_*`         | POI search along routes (requires GPX file)           |
+| open-meteo      | `mcp_open_meteo_*`       | Weather forecast for destinations                     |
+| wikivoyage      | `mcp_wikivoyage_*`       | Travel guide content for destinations                 |
+| waymarkedtrails | `mcp_waymarkedtrails_*`  | Discover marked hiking/cycling routes                 |
+
+**Tool selection for routing:**
+
+- **Driving times** (quick check): `mcp_openrouteservice_driving_time`
+- **Geocoding** (place → coordinates): `mcp_openrouteservice_geocode`
+- **GPX with street geometry** (for maps): `mcp_osrm_route_to_gpx`
+- **Route summary** (distance + duration): `mcp_osrm_calculate_car_route`
 
 Flights, rental cars, and hotels: use `remote_web_search`.
 
-### MCP Tool Reference
+## MCP Tool Reference
 
-#### Routing & Geocoding (`mcp_openrouteservice_*`)
+### Routing & Geocoding (`mcp_openrouteservice_*`)
 
-| Tool              | Key Parameters & Notes                                                                                                           |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `geocode`         | Place name → coordinates. Optional `country` filter (ISO 3166-1 alpha-2). Returns `[lon, lat]`.                                  |
-| `calculate_route` | `coordinates`: list of `[lon, lat]` pairs (min 2, max 50). `profile`: `driving-car` (default), `foot-hiking`, `cycling-regular`. |
-| `driving_time`    | Quick point-to-point: `from_coords` and `to_coords` as `[lon, lat]`. Returns distance (km) and duration.                         |
+| Tool              | Key Parameters & Notes                                                                          |
+| ----------------- | ----------------------------------------------------------------------------------------------- |
+| `geocode`         | Place name → coordinates. Optional `country` filter (ISO 3166-1 alpha-2). Returns `[lon, lat]`. |
+| `driving_time`    | Quick point-to-point: `from_coords` and `to_coords` as `[lon, lat]`. Returns km and duration.   |
+| `distance_matrix` | N×N matrix for multiple locations. Compare route order options.                                 |
+| `isochrone`       | Reachability areas from a point. Validate "what's within X minutes" of a stop.                  |
 
-#### POIs (`mcp_overpass_*`)
+### Car Routing & GPX Export (`mcp_osrm_*`)
+
+| Tool                  | Key Parameters & Notes                                                                                            |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `calculate_car_route` | `waypoints`: list of `[lon, lat]` pairs. Returns distance, duration, per-leg breakdown. No API key needed.        |
+| `route_to_gpx`        | `waypoints` + `output_path` + optional `station_names`. Saves full street geometry as GPX. Use for map rendering. |
+
+### POIs (`mcp_overpass_*`)
 
 | Tool                      | Key Parameters & Notes                                                                                                                           |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `search_pois_along_route` | Requires **absolute GPX path**. Presets: `einkehr`, `badestellen`, `sehenswuerdigkeiten`, `kunst`, `radservice`, `rast`. Query **sequentially**. |
 
-#### Weather (`mcp_open_meteo_*`)
+Use only when a GPX track exists for a segment. For general stop-based POI discovery, prefer `remote_web_search`.
+
+### Weather (`mcp_open_meteo_*`)
 
 | Tool               | Key Parameters & Notes                                                                       |
 | ------------------ | -------------------------------------------------------------------------------------------- |
 | `weather_forecast` | `latitude`, `longitude`. Use `daily` for temperature/precipitation. Specify `forecast_days`. |
 | `geocoding`        | Resolve place names to coordinates for weather queries.                                      |
+
+### Travel Guides (`mcp_wikivoyage_*`)
+
+| Tool                   | Key Parameters & Notes                                                                                        |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `search_destinations`  | Find articles by destination name. Use `lang="de"` for German content.                                        |
+| `get_article_sections` | List available sections before fetching. Avoids fetching irrelevant content.                                  |
+| `get_section`          | Fetch specific sections: `Küche`, `Sehenswürdigkeiten`, `Aktivitäten`, `Anreise`. Targeted over full article. |
+| `search_nearby`        | Find destinations near coordinates. Useful for discovering lesser-known stops along the route.                |
+
+### Hiking & Cycling Routes (`mcp_waymarkedtrails_*`)
+
+| Tool                      | Key Parameters & Notes                                                                  |
+| ------------------------- | --------------------------------------------------------------------------------------- |
+| `search_routes`           | Search by region/keyword. Set `activity="hiking"` or `"cycling"`.                       |
+| `search_routes_in_region` | Search by region name. Good for discovering routes near a stop.                         |
+| `get_route_details`       | Length, markings, operator, website. Use route_id from search results.                  |
+| `get_route_segments`      | Stages and towns along the way. Helps describe multi-day routes or select day sections. |
 
 ## Workflow
 
@@ -87,28 +131,32 @@ Execute in order when the user requests a new roadtrip:
 
 ### Phase 1: Route Design
 
-1. **Check travel advisories**: Search `remote_web_search` for `"Auswärtiges Amt Reisehinweise {country}"`. If warnings exist (partial travel warning, travel warning), note them prominently at the top of the trip document. If a full travel warning is active, inform the user and ask whether to proceed.
-2. **Determine airports**: Search for flights from BER to destination region via `remote_web_search`. Identify arrival/departure airport.
-3. **Design itinerary**: Plan 4–8 stops forming a logical loop back to the departure airport.
-4. **Geocode stops**: Resolve all stop names to coordinates via `geocode` (with `country` filter).
-5. **Calculate driving times**: Use `driving_time` for each segment. Flag segments > 4 hours.
-6. **Validate**: Ensure total trip fits requested duration. Apply buffer rule for same-city start/end.
+1. **Check travel advisories**: Search `remote_web_search` for `"Auswärtiges Amt Reisehinweise {country}"`. If a full travel warning is active, inform the user and ask whether to proceed. If partial warning, note prominently in the trip document.
+2. **Determine airports**: Search for flights from BER to destination region via `remote_web_search`. Identify arrival/departure airport. Apply flight preferences from `user-preferences.md` (direct flights preferred, time windows, day preferences).
+3. **Research established itineraries**: Search `remote_web_search` for packaged round trips (e.g., `"Rundreise {region}" Reiseveranstalter`, `"{region} road trip itinerary"`). Extract route patterns from 3–5 sources as inspiration.
+4. **Validate route geometry**: If researched routes suggest a linear (A→B) trip, check whether a direct return flight exists from the endpoint to BER. If **no direct flight** exists, **prefer a circular route** returning to the departure airport city.
+5. **Design itinerary**: Plan 4–8 stops forming a logical loop. Incorporate interesting stops from step 3 where they fit the trip profile and interests.
+6. **Geocode stops**: Resolve all stop names to coordinates via `geocode` (with `country` filter).
+7. **Calculate driving times**: Use `driving_time` for **each consecutive segment**. Flag segments > 4 hours and suggest break stops.
+8. **Validate**: Ensure total trip fits requested duration. Apply buffer rule for same-city start/end.
 
 ### Phase 2: Enrichment (per stop)
 
-6. **Accommodation**: Search via `remote_web_search`. Apply rules from `user-preferences.md` (small/boutique, central, 80–150 €/night).
-7. **Hiking**: Search `mcp_waymarkedtrails_*` for marked routes near each stop (`search_routes` with region/area name). Get details for promising routes. Supplement with `remote_web_search` for unmarked local trails.
-8. **Swimming**: Search for beaches, lakes, or thermal baths.
-9. **Food & Drink**: Search for regional restaurants, markets, local specialties. Apply food rules from `user-preferences.md`.
-10. **Culture & Art**: Search for galleries, museums, historic sites. Prioritize modern/contemporary art.
-11. **Travel guide context**: Query `mcp_wikivoyage_*` for destination articles — use `get_section` for Küche, Sehenswürdigkeiten, Aktivitäten to enrich local knowledge.
-12. **Weather**: Query `weather_forecast` for each stop's coordinates and travel dates.
+For each stop, gather information in this order:
+
+9. **Travel guide context**: Query `mcp_wikivoyage_*` — use `get_article_sections` first, then `get_section` for relevant sections (Küche, Sehenswürdigkeiten, Aktivitäten). This provides baseline knowledge for the stop.
+10. **Accommodation**: Search via `remote_web_search`. Apply accommodation rules from `user-preferences.md` (small/boutique, central, 80–150 €/night).
+11. **Hiking**: Search `mcp_waymarkedtrails_*` for marked routes near each stop (`search_routes` or `search_routes_in_region`). Get details for promising routes. Supplement with `remote_web_search` for unmarked local trails.
+12. **Swimming**: Search for beaches, lakes, or thermal baths via `remote_web_search`.
+13. **Food & Drink**: Search for regional restaurants, markets, local specialties. Apply food rules from `user-preferences.md`.
+14. **Culture & Art**: Search for galleries, museums, historic sites. Prioritize modern/contemporary art (highest interest priority).
+15. **Weather**: Query `weather_forecast` for each stop's coordinates and travel dates.
 
 ### Phase 3: Output
 
-12. **Write trip markdown** to `roadtrips/{name}.md` following the template below.
-13. **Update index** — append row to `roadtrips/README.md`. Do not rewrite the file.
-14. **Present summary** to user in German.
+16. **Write trip markdown** to `roadtrips/{name}.md` following the template below.
+17. **Update index** — append a row to `roadtrips/README.md`. Do **not** rewrite the file.
+18. **Present summary** to user in German.
 
 ## File Structure
 
@@ -120,204 +168,194 @@ roadtrips/
 └── img/{trip-name}/       # Route maps, photos (optional)
 ```
 
-- Naming: descriptive kebab-case. Example: `sardinien-ostkueste.md`, `provence-lavendel.md`
-- Use ASCII-safe characters in file names (no umlauts: ü→ue, ö→oe, ä→ae)
+- Naming: descriptive kebab-case, ASCII-safe (no umlauts: ü→ue, ö→oe, ä→ae, ß→ss)
+- Examples: `sardinien-ostkueste.md`, `provence-lavendel.md`
 
 ## Trip Markdown Template
 
-Every trip file MUST start with empty YAML front matter (`---\n---\n`) and contain these sections in order, separated by `---` horizontal rules.
+Every trip file MUST start with empty YAML front matter (`---\n---\n`). Sections separated by `---` horizontal rules.
 
-### 1. Title
+### 1. Title + Metadata + Map
 
 ```markdown
 # {Destination} Roadtrip ({N} Tage)
-```
 
-### 2. Metadata Block
-
-```markdown
 **Reisezeitraum:** {Datum von} – {Datum bis}
 **Dauer:** {N} Tage / {N-1} Nächte
 **Stationen:** {N} Stopps
 **Gesamtstrecke:** ~{X} km
 **Flug:** BER → {Airport} (Hin) / {Airport} → BER (Rück)
 **Mietwagen:** Übernahme/Abgabe {Airport}
+
+> {emoji} **Tipp:** {one-line highlight}
+
+[![Routenkarte](img/{name}.png)](img/{name}.png)
 ```
 
-Followed by a tip box:
+Map directly after metadata for immediate visual overview. Rendered via `scripts/render_roadtrip_map.py` with `--stations` (day labels) and `--pois` (Twemoji icons + legend overlay).
+
+### 2. Routenplanung (combined day-by-day table)
+
+The **primary structure** — a single table combining route, days, and activities.
 
 ```markdown
-> {emoji} **Tipp:** {one-line highlight of the trip}
+## Routenplanung
+
+{Stadt 1} → {Stopp 2} → … → {Stadt 1}
+
+| Tag | Datum             | Station                            | Programm                  |
+| --- | ----------------- | ---------------------------------- | ------------------------- |
+| 1   | {Wochentag Datum} | **{Ort}** (Ankunft)                | {Kurzbeschreibung}        |
+| 2   | {Wochentag Datum} | 🚗 → **{Ort}** · {X} km, ~{Y} Std. | {Stopps + Aktivitäten}    |
+| 3   | {Wochentag Datum} | {Ort}                              | {🥾 🏊 🎨 🍷 Aktivitäten} |
 ```
 
-Emoji by theme: 🏛️ culture, 🌿 nature, 🌸 seasonal, 🌊 water/coast, 🌲 forest, 🍂 autumn, ☀️ summer.
+Table rules:
 
-### 3. Routenübersicht
+- **Driving days**: `🚗 → **destination** · distance, duration`
+- **Stay days**: station name only (no 🚗)
+- **Day trips**: `{destination} (Tagesausflug, {X} Min.)`
+- **No night counts** — implicit from consecutive days at same station
+- Use emoji from interest table in Programm column
+- Bold the **key highlight** of each day
+
+Below the table:
 
 ```markdown
-## Routenübersicht
-
-{Airport/Stadt 1} → {Stopp 2} → {Stopp 3} → … → {Airport/Stadt 1}
-
-| #   | Station | Nächte | Fahrzeit ab vorheriger |
-| --- | ------- | ------ | ---------------------- |
-| 1   | {Ort}   | {N}    | — (Ankunft)            |
-| 2   | {Ort}   | {N}    | ~{X} Std. ({Y} km)     |
-| …   | …       | …      | …                      |
+> ⚠️ **Längste Etappe:** Tag {N}, {A} → {B} ({X} km, ~{Y} Std.).
+> 💡 **Flexibilität:** {weather alternatives}
 ```
 
-Add warnings below the table for notable conditions:
+### 3. Stationen & POIs (compact reference)
 
-- `> ⚠️ **Längste Etappe:** {A} → {B} ({X} km, ~{Y} Std.). Pause in {C} empfohlen.`
-- `> 💡 **Puffer-Regel:** {explanation}`
-
-### 4. Stationen (one H2 per stop)
+One H3 per station. **No prose, no subsection headers.** Flat POI list with emoji + one-line description.
 
 ```markdown
-## {N}. {Ortsname} ({N} Nächte)
+## Stationen & POIs
 
-{Kurzbeschreibung des Ortes und warum er auf der Route liegt.}
+### {Ortsname} ({N} Nächte)
 
-**Unterkunft:** {Name} — {kurze Beschreibung, Preisniveau}
+**Unterkunft:** {Name} — {Preis}
+
+- 🎨 **[{Museum}]({URL})** — {Kurz.}
+- 🥾 **{Wanderung}** — {Distanz}, {Dauer}, {Schwierigkeit}.
+- 🏊 **{Badestelle}** — {Kurz.}
+- 🏛️ **{Sehenswürdigkeit}** — {Kurz.}
+- 🍷 **{Restaurant}** — {Spezialität.}
+- 🍇 **[{Weingut}]({URL})** — {Kurz.}
+- ☕ **{Café}** — {Kurz.}
 ```
 
-Each stop includes relevant subsections (omit if no data found):
+Rules:
 
-```markdown
-### Wandern
+- Prioritize by interest order (art first, then hiking, swimming, food)
+- Hyperlinks for major POIs
+- Deduplicate within 200 m
+- "Unterwegs" POIs listed at the station you arrive at
 
-- 🥾 **{Name}** — {Distanz}, {Dauer}, {Schwierigkeit}. {Kurzbeschreibung.}
-
-### Baden
-
-- 🏊 **{Name}** — {Beschreibung}
-
-### Essen & Trinken
-
-- 🍷 **{Restaurant/Markt}** — {Spezialität, Preisniveau}
-- ☕ **{Rösterei/Café}** — {Beschreibung}
-
-### Kultur
-
-- 🎨 **{Galerie/Museum}** — {Kurzbeschreibung}
-- 🏛️ **{Historische Stätte}** — {Kurzbeschreibung}
-- 🪖 **{Cold War Site}** — {Kurzbeschreibung}
-```
-
-POI subsection rules:
-
-- Only include subsections with actual verified data
-- Use emoji from `user-preferences.md` interest table consistently
-- Deduplicate POIs that appear in multiple sources
-- Prioritize by interest priority order (art first, then hiking, swimming, food, etc.)
-
-### 5. Wetter
+### 4. Wetter
 
 ```markdown
 ## Wetter
 
-> ℹ️ _Zuletzt geprüft: {date}. Vor der Reise aktuelles Wetter prüfen._
+> ℹ️ _{Seasonal context. Aktuelle Vorhersage prüfen._
 
-| Station | Temperatur    | Regen | Besonderheiten |
-| ------- | ------------- | ----- | -------------- |
-| {Ort}   | {min}–{max}°C | {X}%  | {ggf. Hinweis} |
+| Station | Temperatur | Regen | Besonderheiten |
+| ------- | ---------- | ----- | -------------- |
 ```
 
-Add packing/weather warnings below the table when relevant (heat, rain, storms, cold nights).
-
-### 6. Anreise & Mietwagen
+### 5. Anreise & Mietwagen
 
 ```markdown
 ## Anreise & Mietwagen
 
-**Hinflug:** BER → {Airport}, ~{X} Std. {Airlines mit Direktflügen.}
+**Hinflug:** BER → {Airport}, ~{X} Std. {Airline.}
 **Rückflug:** {Airport} → BER, ~{X} Std.
 
-- Geschätzte Flugkosten: ~{X}–{Y} € pro Person (Roundtrip)
-- Frühbucher-Tipp: 2–3 Monate vorher buchen
+**Mietwagen:** Kompaktwagen, ~{X}–{Y} € für {N} Tage (Vollkasko inkl.)
 
-**Mietwagen:**
-
-- Übernahme: {Airport}, {Datum}
-- Abgabe: {Airport}, {Datum}
-- Empfehlung: Kompaktwagen (reicht für 2 Personen + Gepäck)
-- Geschätzte Kosten: ~{X}–{Y} € für {N} Tage (Vollkasko inkl.)
-
-> 💡 Mietwagen frühzeitig buchen. Vergleichsportale: CHECK24, billiger-mietwagen.de
+> 💡 Frühzeitig buchen. CHECK24, billiger-mietwagen.de
 ```
 
-### 7. Kostenübersicht
+### 6. Kostenübersicht
 
 ```markdown
-## Kostenübersicht (Schätzung, 2 Personen)
+## Kostenübersicht (2 Personen)
 
-| Posten                   | Geschätzt      |
-| ------------------------ | -------------- |
-| Flüge (2×)               | ~{X}–{Y} €     |
-| Mietwagen ({N} Tage)     | ~{X}–{Y} €     |
-| Unterkünfte ({N} Nächte) | ~{X}–{Y} €     |
-| Benzin (~{X} km)         | ~{X}–{Y} €     |
-| Essen & Aktivitäten      | ~{X}–{Y} €     |
-| **Gesamt**               | **~{X}–{Y} €** |
+| Posten              | Geschätzt      |
+| ------------------- | -------------- |
+| Flüge (2×)          | ~{X}–{Y} €     |
+| Mietwagen           | ~{X}–{Y} €     |
+| Unterkünfte         | ~{X}–{Y} €     |
+| Benzin              | ~{X}–{Y} €     |
+| Essen & Aktivitäten | ~{X}–{Y} €     |
+| **Gesamt**          | **~{X}–{Y} €** |
 ```
 
-Use ranges (min–max) rather than single values for cost estimates.
-
-### 8. Packliste & Tipps
-
-Optional section with trip-specific packing tips, driving notes, or local customs. Include when the destination has notable differences from Germany.
-
-### 9. Länderinfo
-
-Every roadtrip MUST include this section:
+### 7. Tipps & Länderinfo (combined)
 
 ```markdown
-## Länderinfo
+## Tipps & Länderinfo
 
-|                           |                                                                                                                                      |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| **Preisniveau**           | {günstiger / ähnlich / teurer} als Deutschland                                                                                       |
-| **Tempolimit Landstraße** | {X} km/h                                                                                                                             |
-| **Tempolimit Autobahn**   | {X} km/h                                                                                                                             |
-| **Tempolimit innerorts**  | {X} km/h                                                                                                                             |
-| **Besonderheiten**        | {Maut, Lichtpflicht, Winterreifen, etc.}                                                                                             |
-| **Reisehinweise**         | {Keine Einschränkungen / Teilreisewarnung / Reisewarnung} ([Auswärtiges Amt](https://www.auswaertiges-amt.de/de/ReiseUndSicherheit)) |
+**Packliste:** {trip-specific}
+**Lokale Bräuche:** {customs}
+
+|                    |                                                  |
+| ------------------ | ------------------------------------------------ |
+| **Preisniveau**    | {vs. Deutschland}                                |
+| **Tempolimit**     | Innerorts {X}, Landstraße {Y}, Autobahn {Z} km/h |
+| **Besonderheiten** | {Maut, Lichtpflicht, etc.}                       |
+| **Reisehinweise**  | {Status} ([Auswärtiges Amt](...))                |
 ```
 
-If a travel advisory exists, add a warning box above the table:
+### 8. Erweiterungsideen (optional)
 
-```markdown
-> ⚠️ **Reisehinweis Auswärtiges Amt:** {Zusammenfassung der Warnung}. Aktuelle Infos: [auswaertiges-amt.de](https://www.auswaertiges-amt.de/de/ReiseUndSicherheit/{country-path})
+Brief notes on route extensions with best season.
+
+### 9. Quellen
+
+Waymarked Trails links, Wikivoyage sources, tour operator inspiration.
+
+## Map Rendering
+
+Generate route maps via:
+
+```bash
+# 1. Create GPX with street geometry
+mcp_osrm_route_to_gpx(waypoints=[...], output_path="roadtrips/gpx/{name}.gpx", station_names=[...])
+
+# 2. Render map with stations + POIs
+python scripts/render_roadtrip_map.py roadtrips/gpx/{name}.gpx roadtrips/img/{name}.png \
+  --stations 'T{days} {Name}:{lon},{lat}' ... \
+  --pois '{category}:{name}:{lon},{lat}' ...
 ```
 
-### 10. Erweiterungsideen (optional)
-
-If the destination region has natural extensions (e.g., a northern/southern variant, a longer version), add a brief note with route sketch and best season.
+POI categories for `--pois`: `art`, `hike`, `swim`, `food`, `wine`, `sight`, `nature`, `coffee`.
+Icons: Twemoji PNGs in `scripts/icons/`. Legend rendered as overlay (bottom-left).
 
 ## Trip Catalog Index (`roadtrips/README.md`)
 
 Table with columns: Trip (linked), Dauer, Region, Schwerpunkt.
-
-When adding a trip, **append** a row to the existing table. Do not rewrite the file.
+When adding a trip, **append** a row. Do **not** rewrite the file.
 
 ## Error Handling
 
-| Failure                 | Action                                                                                               |
-| ----------------------- | ---------------------------------------------------------------------------------------------------- |
-| No flight info found    | Note approximate flight time, suggest checking Skyscanner/Google Flights                             |
-| No hiking trails found  | Search with alternative terms (Wanderweg, sentiero, randonnée, polku). If still empty, note absence. |
-| Weather API unavailable | Add `ℹ️ Wetterdaten nicht verfügbar.`                                                                |
-| Driving time unclear    | Estimate: ~80 km/h rural roads, ~120 km/h highways. Mark as estimate.                                |
-| Hotel search empty      | Suggest booking platforms (booking.com, Airbnb) with search criteria                                 |
+| Failure                 | Action                                                              |
+| ----------------------- | ------------------------------------------------------------------- |
+| No flight info found    | Note flight time, suggest Skyscanner. Mark: `ℹ️ Nicht verifiziert.` |
+| No hiking trails found  | Search alternative terms. If empty, note absence.                   |
+| Weather API unavailable | `ℹ️ Wetterdaten nicht verfügbar.`                                   |
+| Driving time unclear    | Estimate ~80 km/h rural, ~120 km/h highway. Mark: `ℹ️ Geschätzt.`   |
+| Hotel search empty      | Suggest booking.com/Airbnb with criteria.                           |
+| Geocode fails           | Retry with country filter. If still failing, ask user.              |
+| Wikivoyage no article   | Use `remote_web_search` instead.                                    |
 
-## Trip Lifecycle (Refreshing Existing Trips)
+## Trip Lifecycle (Refreshing)
 
-Trips are inspiration templates. Date-dependent sections need refreshing:
+| Section     | Tool                | Reason                 |
+| ----------- | ------------------- | ---------------------- |
+| Wetter      | `weather_forecast`  | Forecasts change daily |
+| Flüge       | `remote_web_search` | Prices change          |
+| Unterkünfte | `remote_web_search` | Availability changes   |
 
-| Section     | Tool                | Reason                         |
-| ----------- | ------------------- | ------------------------------ |
-| Wetter      | `weather_forecast`  | Forecasts change daily         |
-| Flüge       | `remote_web_search` | Prices and availability change |
-| Unterkünfte | `remote_web_search` | Availability changes           |
-
-When refreshing, update the `ℹ️ Zuletzt geprüft: {date}` timestamp. If unverifiable: `ℹ️ Nicht verifiziert.`
+Update `ℹ️ Zuletzt geprüft: {date}` timestamp when refreshing.
