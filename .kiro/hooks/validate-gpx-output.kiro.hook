@@ -1,7 +1,7 @@
 {
   "enabled": true,
   "name": "GPX Round Trip Validation",
-  "description": "Validates newly created cycling/hiking GPX files: checks trk/trkseg/trkpt format, verifies start ≈ end (round trip), and reports trackpoint count.",
+  "description": "Validates newly created bike/hike GPX files: checks trk/trkseg/trkpt format, verifies start ≈ end (round trip), and reports trackpoint count.",
   "version": "1",
   "when": {
     "type": "fileCreated",

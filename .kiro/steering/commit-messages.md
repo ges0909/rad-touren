@@ -15,7 +15,7 @@ Use [Conventional Commits](https://www.conventionalcommits.org/) format. Languag
 ## Format
 
 ```
-<type>(<optional scope>): <short summary>
+<type>: <short summary>
 
 <optional body>
 ```
@@ -24,7 +24,7 @@ Use [Conventional Commits](https://www.conventionalcommits.org/) format. Languag
 
 - **Subject line**: imperative mood, lowercase, no period, max 70 chars
 - **Types**: `feat`, `fix`, `docs`, `refactor`, `chore`, `style`, `test`, `ci`
-- **Scope**: optional, e.g. `feat(routing):`, `docs(readme):`
+- **No scope**: do not use parenthesized scopes — keep it `type: summary`
 - **Body**: bullet list of changes, each line starting with `-`
 - Keep body lines under 80 chars
 - Reference tour names or file names when relevant
