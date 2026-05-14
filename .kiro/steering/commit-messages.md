@@ -28,3 +28,4 @@ Use [Conventional Commits](https://www.conventionalcommits.org/) format. Languag
 - **Body**: bullet list of changes, each line starting with `-`
 - Keep body lines under 80 chars
 - Reference tour names or file names when relevant
+- **Never commit autonomously** — always ask the user before committing
