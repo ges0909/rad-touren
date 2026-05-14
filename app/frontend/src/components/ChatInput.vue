@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
 
 const props = defineProps<{ isLoading: boolean; hasResult: boolean }>();
 const emit = defineEmits<{ send: [message: string]; reset: [] }>();
@@ -45,11 +45,41 @@ function selectFromHistory(entry: string) {
   showHistory.value = false;
 }
 
+function clearHistory() {
+  history.value = [];
+  localStorage.removeItem("chat-history");
+  showHistory.value = false;
+}
+
+function handleFocusOut(e: FocusEvent) {
+  // Close history if focus moves outside the component
+  const target = e.relatedTarget as HTMLElement | null;
+  const container = e.currentTarget as HTMLElement;
+  if (!target || !container.contains(target)) {
+    showHistory.value = false;
+  }
+}
+
+const componentRef = ref<HTMLElement | null>(null);
+
+function handleClickOutside(e: MouseEvent) {
+  if (
+    showHistory.value &&
+    componentRef.value &&
+    !componentRef.value.contains(e.target as Node)
+  ) {
+    showHistory.value = false;
+  }
+}
+
+onMounted(() => document.addEventListener("click", handleClickOutside));
+onUnmounted(() => document.removeEventListener("click", handleClickOutside));
+
 const hasHistory = computed(() => history.value.length > 0);
 </script>
 
 <template>
-  <div class="relative">
+  <div ref="componentRef" class="relative" @focusout="handleFocusOut">
     <form @submit.prevent="handleSubmit">
       <div class="relative">
         <textarea
@@ -95,16 +125,23 @@ const hasHistory = computed(() => history.value.length > 0);
     <!-- History Dropdown -->
     <div
       v-if="showHistory && hasHistory"
-      class="absolute z-10 mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-y-auto"
+      class="absolute z-10 mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-y-auto list-none"
     >
       <button
-        v-for="(entry, i) in history"
-        :key="i"
+        v-for="entry in history"
+        :key="entry"
         type="button"
         @click="selectFromHistory(entry)"
         class="w-full text-left px-4 py-1.5 text-sm text-gray-700 hover:bg-gray-100 border-b border-gray-50 last:border-b-0 truncate"
       >
         {{ entry }}
+      </button>
+      <button
+        type="button"
+        @click="clearHistory"
+        class="w-full text-left px-4 py-1.5 text-xs text-red-500 hover:bg-red-50 border-t border-gray-200"
+      >
+        Verlauf löschen
       </button>
     </div>
   </div>
