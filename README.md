@@ -14,7 +14,7 @@ AI-powered tour planning with [Kiro](https://kiro.dev) and custom MCP servers fo
 
 ## Quickstart
 
-Prerequisites: [Kiro](https://kiro.dev) + [uv](https://docs.astral.sh/uv/getting-started/installation/)
+Prerequisites: [Kiro](https://kiro.dev) + [uv](https://docs.astral.sh/uv/getting-started/installation/) + Node.js 20+ + npm
 
 ```bash
 # Install all MCP servers
@@ -24,11 +24,35 @@ done
 ```
 
 ```bash
-# API key for OpenRouteService (.env is gitignored)
-echo "ORS_API_KEY=your-key-here" > .env
+# API keys (.env in project root, gitignored)
+echo "ORS_API_KEY=your-key-here" >> .env
+echo "GEMINI_API_KEY=your-key-here" >> .env
 ```
 
-Get a free key at [openrouteservice.org](https://openrouteservice.org/dev/#/signup). All other servers use free APIs without a key.
+- OpenRouteService key (free): [openrouteservice.org](https://openrouteservice.org/dev/#/signup)
+- Gemini API key (free): [Google AI Studio](https://aistudio.google.com)
+
+All other MCP servers use free APIs without a key.
+
+### Web App
+
+The project includes a web-based trip planner (FastAPI + Vue 3 + Leaflet):
+
+```bash
+# Backend
+cd app/backend
+uv sync
+uv run uvicorn main:app --reload
+
+# Frontend (separate terminal)
+cd app/frontend
+npm install
+npm run dev
+```
+
+Open http://localhost:5173 — the Vite dev server proxies API requests to the backend.
+
+See [app/README.md](app/README.md) for Docker deployment and architecture details.
 
 ---
 
@@ -77,6 +101,9 @@ Additionally, `remote_web_search` is used for flights, hotels, car rentals, and 
 ## Project Structure
 
 ```
+app/
+├── backend/                 FastAPI + Gemini agent (Python)
+└── frontend/                Vue 3 + Leaflet + Tailwind (TypeScript)
 trips/
 ├── bike/                    Cycling tours: Markdown, GPX, maps
 ├── hike/                    Hiking tours (planned)
