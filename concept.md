@@ -84,6 +84,7 @@ Workflow: Develop steering in Kiro → push → auto-deploy → web app uses upd
 ## Frontend
 
 - **Framework**: Vue 3 + Vite + TypeScript + Tailwind CSS
+- **Tooling**: ESLint + Prettier, strict TypeScript, npm
 - **Layout**: Single page — chat input at top, tour result below
 - **Responsive Web Design**: CSS media queries for mobile (stacked), tablet (chat + map side-by-side), desktop (three columns possible)
 - **Map** (vue-leaflet → MapLibre GL for production):
