@@ -56,21 +56,21 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 - 🥾 **Camino del Norte (Pasaia → San Sebastián)** — 12 km, 4 Std., moderat. Jakobsweg-Küstenabschnitt. [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=1116809)
 - 🏊 **Playa de la Concha** — Muschelförmige Bucht, ruhiges Wasser.
 - 🏊 **Playa de la Zurriola** — Surfer-Strand, Stadtteil Gros.
+- 🍷 **Parte Vieja Pintxos** — Bar Nestor (Tortilla), La Cuchara de San Telmo, Gandarias, Bar Zeruko.
 - 🎨 **[San Telmo Museoa](https://www.santelmomuseoa.eus/en/)** — Baskische Kultur + zeitgenössische Kunst.
 - 🎨 **[Tabakalera](https://www.tabakalera.eus/en)** — Zeitgenössische Kultur in ehemaliger Tabakfabrik.
 - 🎨 **[Chillida-Leku](https://www.museochillidaleku.com/en/)** — Skulpturenpark, monumentale Stahlskulpturen. **Pflichtbesuch.**
 - 🏛️ **Peine del Viento** — Chillida-Skulpturen in den Klippen.
-- 🍷 **Parte Vieja Pintxos** — Bar Nestor (Tortilla), La Cuchara de San Telmo, Gandarias, Bar Zeruko.
 - ☕ **[Sakona Coffee Roasters](https://sakonacoffee.com)** — Specialty Coffee, Altstadt.
 
 ### Küstenstraße Bilbao → San Sebastián (Tag 2)
 
+- 🌿 **Urdaibai** — Feuchtgebiete, Aussichtspunkt Mundaka (Surfer-Welle).
+- 🎨 **[Cristóbal Balenciaga Museoa](https://www.cristobalbalenciagamuseoa.com/en/)** — Getaria. Haute Couture als Kunstform.
 - 🏛️ **[San Juan de Gaztelugatxe](https://www.visitbiscay.eus/en/san-juan-gaztelugatxe)** — Felsinsel, 241 Stufen, GoT „Dragonstone". Morgens früh (Parkplatz!).
 - 🏛️ **Bermeo** — Fischerhafen, Ercilla-Turm (15. Jh.), UNESCO-Biosphärenreservat Urdaibai.
-- 🌿 **Urdaibai** — Feuchtgebiete, Aussichtspunkt Mundaka (Surfer-Welle).
 - 🏛️ **Lekeitio** — Fischerdorf, Basilika Santa María, Insel San Nicolás (bei Ebbe zu Fuß).
 - 🏛️ **Zumaia Flysch** — UNESCO Geopark, 60 Mio. Jahre Erdgeschichte. [geoparkea.eus](https://geoparkea.eus/en)
-- 🎨 **[Cristóbal Balenciaga Museoa](https://www.cristobalbalenciagamuseoa.com/en/)** — Getaria. Haute Couture als Kunstform.
 - �� **[Txakoli-Verkostung](https://www.txominetxaniz.com)** — Getaria, z.B. Bodega Txomin Etxaniz.
 - 🍷 **Getaria Hafen** — Gegrillter Fisch auf Holzkohle.
 
@@ -81,25 +81,25 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 - 🥾 **Cabo Mayor → Mataleñas** — 6 km, 2 Std., leicht. Klippenpfad, Leuchtturm.
 - 🏊 **Playa del Sardinero** — Stadtstrand, Belle-Époque.
 - 🏊 **Playa de la Arnía** — Wilde Felsbucht, 15 Min. Fahrt.
-- 🎨 **[Centro Botín](https://www.centrobotin.org/en/)** — Renzo Piano, zeitgenössische Kunst. **Highlight.**
-- 🏛️ **Palacio de la Magdalena** — Königlicher Sommerpalast.
-- 🌿 **Jardines de Piquío** — Art-Deco-Gärten.
 - 🍷 **Mercado de la Esperanza** — Markthalle, Fisch, Tapas-Bars.
 - 🍷 **Cañadío** — Moderne Küche, Meeresfrüchte.
 - 🍷 **Bodega del Riojano** — Kantabrische Küche seit 1908.
+- 🌿 **Jardines de Piquío** — Art-Deco-Gärten.
+- 🎨 **[Centro Botín](https://www.centrobotin.org/en/)** — Renzo Piano, zeitgenössische Kunst. **Highlight.**
+- 🏛️ **Palacio de la Magdalena** — Königlicher Sommerpalast.
 
 ### Potes / Liébana-Tal (1 Nacht)
 
 **Unterkunft:** Posada San Pelayo (9,7, ~540 Reviews) — familiär, Pool, Picos-Blick, Frühstück inkl. (~80–110 €/Nacht, booking.com)
 
 - 🥾 **Mirador de Santa Catalina** — 4 km, 1,5 Std., leicht. Picos-Panorama.
+- 🍷 **Cocido Lebaniego** — Kichererbsen-Eintopf, Spezialität des Tals.
 - 🏛️ **Torre del Infantado** — Wehrturm (15. Jh.), Ausstellungsraum.
 - 🏛️ **Monasterio de Santo Toribio** (3 km) — Kloster 6. Jh., Pilgerort.
 - 🏛️ **Santillana del Mar** (Anfahrt) — Mittelalterliches Dorf, Stiftskirche.
 - 🏛️ **[Altamira-Höhle](https://www.culturaydeporte.gob.es/mnaltamira/en/home.html)** (bei Santillana) — UNESCO, prähistorische Malereien (Replik).
 - 🏛️ **Comillas** (Anfahrt) — Gaudís El Capricho.
 - 🏛️ **Desfiladero de la Hermida** (Anfahrt) — 21 km Schlucht, 600 m Felswände.
-- 🍷 **Cocido Lebaniego** — Kichererbsen-Eintopf, Spezialität des Tals.
 - 🍇 **Orujo-Destillerien** — Tresterbrand, geschützte Herkunft. Verkostung in Potes.
 
 ### Picos de Europa / Cangas de Onís (3 Nächte)
@@ -111,11 +111,11 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 - 🥾 **Mirador del Naranjo de Bulnes** (ab Sotres) — 10 km, 4 Std., moderat.
 - 🏊 **Río Sella** (Arriondas) — Flussbaden, kristallklar.
 - 🏊 **Playa de Gulpiyuri** — Inland-Strand (Meerwasser durch Höhlen).
-- 🏛️ **Basílica de Covadonga** — Reconquista-Stätte (722 n.Chr.), Felshöhle.
-- 🏛️ **Puente Romano** (Cangas) — Römische Brücke, Wahrzeichen Asturiens.
 - 🍷 **Sidrería** — Sidra escanciar (aus Höhe einschenken).
 - 🍷 **Quesu Cabrales** — Blauschimmelkäse, in Höhlen gereift.
 - 🍷 **El Molín de la Pedrera** — Fabada Asturiana.
+- 🏛️ **Basílica de Covadonga** — Reconquista-Stätte (722 n.Chr.), Felshöhle.
+- 🏛️ **Puente Romano** (Cangas) — Römische Brücke, Wahrzeichen Asturiens.
 
 ### Gijón / Oviedo (2 Nächte)
 
@@ -125,13 +125,13 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 - 🥾 **Senda del Oso** (30 Min. ab Oviedo) — 12 km, 3 Std., leicht. ⭐ 4,5 (54 Reviews). Ehem. Bergbau-Pfad. [Vía Verde](https://www.viasverdes.com/itinerarios/itinerario.asp?id=27)
 - 🏊 **Playa de San Lorenzo** (Gijón) — 1,5 km Stadtstrand.
 - 🏊 **Playa del Silencio** (40 Min. westlich) — Versteckte Bucht, Klippen.
-- 🎨 **[LABoral Centro de Arte](https://www.laboralcentrodearte.org/en)** — Zeitgenössische Kunst + Technologie. Gijón.
-- 🎨 **[Museo de Bellas Artes](https://www.museobbaa.com)** (Oviedo) — El Greco bis Dalí.
-- 🏛️ **Präromanische Kirchen** (UNESCO) — Santa María del Naranco, San Miguel de Lillo. 9. Jh.
-- 🌿 **[Jardín Botánico Atlántico](https://www.botanicoatlantico.com)** (Gijón) — 25 ha, atlantische Flora.
 - 🍷 **Sidrería Tierra Astur** (Gijón) — Sidra + asturische Küche.
 - 🍷 **Mercado del Fontán** (Oviedo) — Historische Markthalle.
 - 🍷 **Casa Fermín** (Oviedo) — Michelin-empfohlen.
+- 🌿 **[Jardín Botánico Atlántico](https://www.botanicoatlantico.com)** (Gijón) — 25 ha, atlantische Flora.
+- 🎨 **[LABoral Centro de Arte](https://www.laboralcentrodearte.org/en)** — Zeitgenössische Kunst + Technologie. Gijón.
+- 🎨 **[Museo de Bellas Artes](https://www.museobbaa.com)** (Oviedo) — El Greco bis Dalí.
+- 🏛️ **Präromanische Kirchen** (UNESCO) — Santa María del Naranco, San Miguel de Lillo. 9. Jh.
 - ☕ **Cafetería Rialto** (Oviedo) — Historisches Jugendstil-Café.
 
 ### Vitoria-Gasteiz / Rioja Alavesa (2 Nächte)
@@ -139,6 +139,8 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 **Unterkunft:** Hospedería de los Parajes (9,1, ~670 Reviews) — Laguardia, Boutique, Weinkeller, Spa, Frühstück inkl. (~110–150 €/Nacht, booking.com)
 
 - 🥾 **Salinas de Añana Salzweg** — 8 km, 3 Std., leicht. Oder nur geführte Salinen-Tour (1,5 Std.).
+- 🍷 **Casco Viejo Pintxos** (Vitoria) — Calle Cuchillería. Pintxo de Foie, Txuleta.
+- 🍷 **Lamm al sarmiento** — Auf Rebholz gegrillt, Rioja-Spezialität.
 - 🎨 **[Artium Museoa](https://www.artium.eus)** — Zeitgenössische Kunst, 2.700+ Werke, 1950er bis heute. **Pflichtbesuch.**
 - 🎨 **Itinerario Muralístico (IMVG)** — Europas größte Freiluft-Mural-Galerie. Rundgang ~1,5 Std.
 - 🏛️ **[Catedral de Santa María](https://www.catedralvitoria.eus/en)** — Gotisch, „offene Baustelle" (Ken Follett-Inspiration).
@@ -146,23 +148,21 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 - 🍇 **[Bodegas Ysios](https://www.ysios.com)** (Laguardia) — Calatrava-Bau, Premium-Verkostung. **Architektur-Highlight.**
 - 🍇 **[Marqués de Riscal](https://www.marquesderiscal.com)** (Elciego) — Gehry-Hotel, Weingut seit 1858.
 - 🍇 **Laguardia** — Mittelalterliches Weindorf, unterirdische Keller.
-- 🍷 **Casco Viejo Pintxos** (Vitoria) — Calle Cuchillería. Pintxo de Foie, Txuleta.
-- 🍷 **Lamm al sarmiento** — Auf Rebholz gegrillt, Rioja-Spezialität.
 
 ### Bilbao — Puffer & Abreise (2 Nächte)
 
 **Unterkunft:** Hotel Miró (8,8, ~370 Reviews) — Guggenheim-Nähe, Design, Frühstück inkl. (~100–150 €/Nacht, booking.com)
 
 - 🥾 **Artxanda Funicular + Rundweg** — 5 km, 2 Std., leicht. Panorama.
+- 🍷 **Plaza Nueva Pintxos** — Gilda, Txuleta, Bacalao al Pil-Pil.
+- 🍷 **Mercado de la Ribera** — Europas größte Markthalle, Tapas-Bars.
+- 🍷 **Restaurante Mina** — Michelin-Stern, baskische Avantgarde.
 - 🎨 **[Guggenheim Bilbao](https://www.guggenheim-bilbao.eus/en)** — Gehry-Ikone, zeitgenössische Kunst. **Pflichtbesuch.**
 - 🎨 **[Museo de Bellas Artes](https://bilbaomuseoa.eus)** — Goya bis Chillida.
 - 🏛️ **Casco Viejo** — Siete Calles, mittelalterliche Altstadt.
 - 🏛️ **[Puente Bizkaia](https://puente-colgante.com/en)** — UNESCO-Schwebefähre (1893), 15 Min. Fahrt.
-- 🍷 **Plaza Nueva Pintxos** — Gilda, Txuleta, Bacalao al Pil-Pil.
-- 🍷 **Mercado de la Ribera** — Europas größte Markthalle, Tapas-Bars.
-- 🍷 **Restaurante Mina** — Michelin-Stern, baskische Avantgarde.
-- ☕ **[Café Iruña](https://www.cafeirunabilbao.net)** — Maurisch dekoriert, seit 1903.
 - 🍇 **Patxaran** — Schlehenlikör, baskischer Digestif.
+- ☕ **[Café Iruña](https://www.cafeirunabilbao.net)** — Maurisch dekoriert, seit 1903.
 
 ---
 
