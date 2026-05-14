@@ -8,12 +8,26 @@ const messages = ref<Array<{ role: string; content: string }>>([]);
 const tourMarkdown = ref("");
 const isLoading = ref(false);
 const errorMessage = ref("");
+const mapData = ref<{
+  waypoints: [number, number][];
+  route: [number, number][];
+}>({
+  waypoints: [],
+  route: [],
+});
+
+function handleReset() {
+  tourMarkdown.value = "";
+  errorMessage.value = "";
+  mapData.value = { waypoints: [], route: [] };
+}
 
 async function handleSend(message: string) {
   messages.value.push({ role: "user", content: message });
   isLoading.value = true;
   tourMarkdown.value = "";
   errorMessage.value = "";
+  mapData.value = { waypoints: [], route: [] };
 
   try {
     const response = await fetch("/api/chat", {
@@ -56,6 +70,10 @@ async function handleSend(message: string) {
               errorMessage.value = parsed.error;
             } else if (parsed.markdown) {
               tourMarkdown.value = parsed.markdown;
+            } else if (parsed.waypoints) {
+              mapData.value.waypoints.push(...parsed.waypoints);
+            } else if (parsed.route) {
+              mapData.value.route = parsed.route;
             } else if (parsed.message) {
               messages.value.push({
                 role: "assistant",
@@ -94,7 +112,12 @@ async function handleSend(message: string) {
     </header>
 
     <!-- Chat Input -->
-    <ChatInput :is-loading="isLoading" @send="handleSend" />
+    <ChatInput
+      :is-loading="isLoading"
+      :has-result="!!tourMarkdown"
+      @send="handleSend"
+      @reset="handleReset"
+    />
 
     <!-- Error Display -->
     <div
@@ -116,7 +139,7 @@ async function handleSend(message: string) {
     <!-- Tour Result -->
     <div v-if="tourMarkdown" class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
       <TourContent :markdown="tourMarkdown" />
-      <TourMap />
+      <TourMap :waypoints="mapData.waypoints" :route="mapData.route" />
     </div>
   </div>
 </template>

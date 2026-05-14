@@ -60,7 +60,7 @@ async def run_agent(
     for iteration in range(max_iterations):
         try:
             response = client.models.generate_content(
-                model="gemini-2.0-flash",
+                model="gemini-2.5-flash",
                 contents=contents,
                 config=config,
             )
@@ -123,6 +123,33 @@ async def run_agent(
                 try:
                     result = await tool_fn(**tool_args)
                     result_str = json.dumps(result, ensure_ascii=False, default=str)
+
+                    # Emit map data events for geo tools
+                    if tool_name == "geocode" and isinstance(result, dict):
+                        results = result.get("results", [])
+                        if results:
+                            # geocode returns [lon, lat], map needs [lat, lon]
+                            coords = results[0].get("coordinates", [])
+                            if len(coords) == 2:
+                                yield {
+                                    "event": "map",
+                                    "data": {"waypoints": [[coords[1], coords[0]]]},
+                                }
+                    elif tool_name == "calculate_car_route" and isinstance(result, dict):
+                        geometry = result.get("geometry")
+                        if geometry:
+                            # geometry is already [(lat, lon), ...]
+                            yield {
+                                "event": "map",
+                                "data": {"route": [[lat, lon] for lat, lon in geometry]},
+                            }
+                        wps = result.get("waypoints")
+                        if wps:
+                            yield {
+                                "event": "map",
+                                "data": {"waypoints": wps},
+                            }
+
                 except Exception as e:
                     result_str = json.dumps({"error": str(e)})
             else:

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 
-defineProps<{ isLoading: boolean }>();
-const emit = defineEmits<{ send: [message: string] }>();
+const props = defineProps<{ isLoading: boolean; hasResult: boolean }>();
+const emit = defineEmits<{ send: [message: string]; reset: [] }>();
 
 const input = ref("");
 const history = ref<string[]>(loadHistory());
@@ -21,6 +21,10 @@ function saveHistory() {
 }
 
 function handleSubmit() {
+  if (props.hasResult) {
+    emit("reset");
+    return;
+  }
   const message = input.value.trim();
   if (!message) return;
   emit("send", message);
@@ -78,10 +82,11 @@ const hasHistory = computed(() => history.value.length > 0);
         </button>
         <button
           type="submit"
-          :disabled="isLoading || !input.trim()"
+          :disabled="isLoading || (!hasResult && !input.trim())"
           class="absolute right-3 bottom-3 px-3 py-1.5 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
         >
           <span v-if="isLoading">⏳</span>
+          <span v-else-if="hasResult">Neu</span>
           <span v-else>Los</span>
         </button>
       </div>
@@ -97,7 +102,7 @@ const hasHistory = computed(() => history.value.length > 0);
         :key="i"
         type="button"
         @click="selectFromHistory(entry)"
-        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 border-b border-gray-50 last:border-b-0 truncate"
+        class="w-full text-left px-4 py-1.5 text-sm text-gray-700 hover:bg-gray-100 border-b border-gray-50 last:border-b-0 truncate"
       >
         {{ entry }}
       </button>

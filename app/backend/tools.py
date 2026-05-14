@@ -16,8 +16,36 @@ for server_dir in MCP_DIR.iterdir():
 async def geocode(query: str, country: str | None = None) -> dict:
     """Geocode a place name to coordinates."""
     sys.path.insert(0, str(MCP_DIR / "ors"))
-    from server import geocode as ors_geocode
-    return await ors_geocode(query=query, country=country)
+    from server import _api_get, API_KEY
+
+    params = {
+        "api_key": API_KEY,
+        "text": query,
+        "size": 5,
+    }
+    if country:
+        params["boundary.country"] = country.upper()
+
+    data = await _api_get("/geocode/search", params)
+    if isinstance(data, str):
+        return {"error": data}
+
+    features = data.get("features", [])
+    if not features:
+        return {"error": f"No results found for '{query}'"}
+
+    results = []
+    for f in features:
+        props = f.get("properties", {})
+        coords = f.get("geometry", {}).get("coordinates", [0, 0])
+        results.append({
+            "name": props.get("name", "?"),
+            "label": props.get("label", "?"),
+            "coordinates": coords,  # [lon, lat]
+            "confidence": props.get("confidence", 0),
+        })
+
+    return {"results": results}
 
 
 async def driving_time(
@@ -49,10 +77,41 @@ async def search_routes(query: str, activity: str = "hiking") -> dict:
 
 
 async def calculate_car_route(waypoints: list[list[float]]) -> dict:
-    """Calculate a car route between waypoints."""
+    """Calculate a car route between waypoints. Returns distance, duration, and geometry."""
     sys.path.insert(0, str(MCP_DIR / "osrm"))
-    from server import calculate_car_route as osrm_route
-    return await osrm_route(waypoints=waypoints)
+    from server import _osrm_request, _decode_polyline
+
+    if len(waypoints) < 2:
+        return {"error": "At least 2 waypoints required."}
+
+    coords_str = ";".join(f"{lon},{lat}" for lon, lat in waypoints)
+
+    data = await _osrm_request(
+        coords_str,
+        overview="full",
+        geometries="polyline",
+        steps="false",
+    )
+
+    if isinstance(data, str):
+        return {"error": data}
+
+    if data.get("code") != "Ok":
+        return {"error": data.get("message", "Unknown error")}
+
+    route = data["routes"][0]
+    distance_km = route["distance"] / 1000
+    duration_min = route["duration"] / 60
+
+    # Decode polyline to [lat, lon] pairs
+    geometry = _decode_polyline(route["geometry"])
+
+    return {
+        "distance_km": round(distance_km, 1),
+        "duration_min": round(duration_min),
+        "waypoints": [[lat, lon] for lat, lon in [(wp[1], wp[0]) for wp in waypoints]],
+        "geometry": geometry,  # list of (lat, lon) tuples
+    }
 
 
 # --- Gemini Function Declarations ---
