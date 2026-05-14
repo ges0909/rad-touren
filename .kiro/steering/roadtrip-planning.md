@@ -1,6 +1,6 @@
 ---
 inclusion: fileMatch
-fileMatchPattern: "planning/road/**"
+fileMatchPattern: "trips/road/**"
 ---
 
 # Roadtrip Planning — Europe
@@ -154,14 +154,14 @@ For each stop, gather information in this order:
 
 ### Phase 3: Output
 
-16. **Write trip markdown** to `planning/road/{name}.md` following the template below.
-17. **Update index** — append a row to `planning/road/README.md`. Do **not** rewrite the file.
+16. **Write trip markdown** to `trips/road/{name}.md` following the template below.
+17. **Update index** — append a row to `trips/road/README.md`. Do **not** rewrite the file.
 18. **Present summary** to user in German.
 
 ## File Structure
 
 ```
-planning/road/
+trips/road/
 ├── README.md              # Trip catalog index
 ├── {trip-name}.md         # Trip description
 ├── gpx/{trip-name}/       # GPX tracks for hikes (optional)
@@ -322,10 +322,10 @@ Generate route maps via:
 
 ```bash
 # 1. Create GPX with street geometry
-mcp_osrm_route_to_gpx(waypoints=[...], output_path="planning/road/gpx/{name}.gpx", station_names=[...])
+mcp_osrm_route_to_gpx(waypoints=[...], output_path="trips/road/gpx/{name}.gpx", station_names=[...])
 
 # 2. Render map with stations + POIs
-python scripts/render_roadtrip_map.py planning/road/gpx/{name}.gpx planning/road/img/{name}.png \
+python scripts/render_roadtrip_map.py trips/road/gpx/{name}.gpx trips/road/img/{name}.png \
   --stations 'T{days} {Name}:{lon},{lat}' ... \
   --pois '{category}:{name}:{lon},{lat}' ...
 ```
@@ -333,7 +333,7 @@ python scripts/render_roadtrip_map.py planning/road/gpx/{name}.gpx planning/road
 POI categories for `--pois`: `art`, `hike`, `swim`, `food`, `wine`, `sight`, `nature`, `coffee`.
 Icons: Twemoji PNGs in `scripts/icons/`. Legend rendered as overlay (bottom-left).
 
-## Trip Catalog Index (`planning/road/README.md`)
+## Trip Catalog Index (`trips/road/README.md`)
 
 Table with columns: Trip (linked), Dauer, Region, Schwerpunkt.
 When adding a trip, **append** a row. Do **not** rewrite the file.

@@ -6,8 +6,8 @@
   "when": {
     "type": "fileCreated",
     "patterns": [
-      "planning/bike/gpx/*.gpx",
-      "planning/hike/gpx/*.gpx"
+      "trips/bike/gpx/*.gpx",
+      "trips/hike/gpx/*.gpx"
     ]
   },
   "then": {

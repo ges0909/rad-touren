@@ -6,7 +6,7 @@
   "when": {
     "type": "fileEdited",
     "patterns": [
-      "planning/road/*.md"
+      "trips/road/*.md"
     ]
   },
   "then": {

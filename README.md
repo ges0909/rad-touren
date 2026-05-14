@@ -8,7 +8,7 @@ KI-gestützte Tourenplanung mit [Kiro](https://kiro.dev) und eigenen MCP-Servern
 | 🥾 Hiking    | Tageswanderungen in Berlin/Brandenburg             | Geplant |
 | 🚗 Roadtrips | Mehrtägige Mietwagen-Trips durch Europa            | Aktiv   |
 
-**→ [Radtouren](planning/bike/README.md)** · **→ [Roadtrips](planning/road/README.md)**
+**→ [Radtouren](trips/bike/README.md)** · **→ [Roadtrips](trips/road/README.md)**
 
 ---
 
@@ -45,8 +45,8 @@ Steering-Dateien machen Kiro zum domänenspezifischen Tourenplaner:
 | Datei                      | Scope              | Funktion                                           |
 | -------------------------- | ------------------ | -------------------------------------------------- |
 | `user-preferences.md`      | Immer              | Interessen, Essens-/Unterkunftsregeln, Reisegruppe |
-| `cycling-tour-planning.md` | `planning/bike/**` | Rad-Workflow, BRouter-Routing, VBB-Tarife          |
-| `roadtrip-planning.md`     | `planning/road/**` | Roadtrip-Workflow, ORS-Routing, Pufferregel        |
+| `cycling-tour-planning.md` | `trips/bike/**` | Rad-Workflow, BRouter-Routing, VBB-Tarife          |
+| `roadtrip-planning.md`     | `trips/road/**` | Roadtrip-Workflow, ORS-Routing, Pufferregel        |
 | `commit-messages.md`       | Immer              | Conventional Commits                               |
 
 ### MCP Server
@@ -70,14 +70,14 @@ Zusätzlich wird `remote_web_search` genutzt für Flüge, Hotels, Mietwagen und 
 
 | Hook                  | Trigger                                                      | Aktion                                                   |
 | --------------------- | ------------------------------------------------------------ | -------------------------------------------------------- |
-| GPX Consistency Check | GPX-Datei in `planning/bike/` oder `planning/hike/` geändert | Karte + Höhenprofil neu rendern, Distanzen aktualisieren |
+| GPX Consistency Check | GPX-Datei in `trips/bike/` oder `trips/hike/` geändert | Karte + Höhenprofil neu rendern, Distanzen aktualisieren |
 
 ---
 
 ## Projektstruktur
 
 ```
-planning/
+trips/
 ├── bike/                    Radtouren: Markdown, GPX, Karten
 ├── hike/                    Wandertouren (geplant)
 └── road/                    Mehrtägige Auto-Trips

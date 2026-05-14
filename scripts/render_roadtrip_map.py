@@ -8,8 +8,8 @@ Usage:
 
 Example:
     python scripts/render_roadtrip_map.py \
-        planning/road/gpx/nordspanien-kueste.gpx \
-        planning/road/img/nordspanien-kueste.png \
+        trips/road/gpx/nordspanien-kueste.gpx \
+        trips/road/img/nordspanien-kueste.png \
         --stations 'T1 Bilbao:-2.9253,43.2627' 'T2-3 San Sebastián:-1.9812,43.3183' \
         --pois 'art:Guggenheim:-2.9340,43.2687' 'wine:Bodegas Ysios:-2.5950,42.5680'
 """
