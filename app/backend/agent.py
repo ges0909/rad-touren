@@ -43,7 +43,7 @@ async def _call_gemini_with_retry(
     contents: list[types.Content],
     config: types.GenerateContentConfig,
     max_retries: int = 3,
-    timeout: float = 120.0,
+    timeout: float = 180.0,
 ) -> Any:
     """Call Gemini with exponential backoff on 503/429 errors and a timeout."""
     for attempt in range(max_retries):
