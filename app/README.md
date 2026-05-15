@@ -30,7 +30,9 @@ Run in separate terminals:
 ```bash
 # Backend (port 8000)
 cd app/backend && uv run uvicorn main:app --reload
+```
 
+```bash
 # Frontend (port 5173, proxies /api → backend)
 cd app/frontend && npm run dev
 ```
