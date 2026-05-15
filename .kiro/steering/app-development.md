@@ -5,11 +5,17 @@ fileMatchPattern: "app/**"
 
 # App Development Guidelines
 
-Rules for working on the Trip Planner web application (`app/` directory).
+Rules for the Trip Planner web application (`app/` directory).
 
-## Architecture Overview
+## Code Philosophy
 
-The app is a chat-based AI trip planner. The user types a travel request, the backend runs a Gemini agent loop with tool calling, and streams results back via SSE. The frontend renders the tour as Markdown and displays routes on a Leaflet map.
+- Simplicity and readability over complexity. No clever abstractions, premature optimization, or over-engineering.
+- Short functions, clear names, minimal nesting. Fewer files and less indirection is better.
+- Comments explain _why_, not _what_. If code needs a "what" comment, rewrite it.
+
+## Architecture
+
+Chat-based AI trip planner: user sends a travel request → backend runs a Gemini agent loop with tool calling → streams results via SSE → frontend renders Markdown + Leaflet map.
 
 ```
 app/
@@ -18,11 +24,13 @@ app/
 │   ├── agent.py       # Gemini agent loop (tool calling, streaming SSE events)
 │   ├── tools.py       # Tool wrappers + Gemini function declarations (TOOL_REGISTRY)
 │   ├── steering.py    # Loads .kiro/steering/ files → assembles system prompt
+│   ├── i18n.py        # Bilingual error messages (de/en), key-based lookup
 │   └── pyproject.toml # Dependencies managed with uv
 ├── frontend/          # Vue 3 + TypeScript (Vite)
 │   ├── src/
 │   │   ├── App.vue          # Root: SSE parsing, state, split-pane layout
 │   │   ├── main.ts          # Vue app entry point
+│   │   ├── i18n.ts          # Frontend translations (de/en), key-based lookup
 │   │   ├── style.css        # Tailwind directives only
 │   │   └── components/
 │   │       ├── ChatInput.vue    # Textarea + localStorage history dropdown
@@ -56,7 +64,7 @@ cd app/backend && uv run uvicorn main:app --reload --port 8000
 cd app/frontend && npm run dev   # Vite on :5173, proxies /api → :8000
 
 # Build check
-cd app/frontend && npm run build  # runs vue-tsc --noEmit + vite build
+cd app/frontend && npm run build  # vue-tsc --noEmit + vite build
 
 # Tests
 cd app/backend && uv run pytest
@@ -64,27 +72,26 @@ cd app/backend && uv run pytest
 
 ## Frontend Conventions
 
-- Always use `<script setup lang="ts">` — no Options API.
+- Always `<script setup lang="ts">`. No Options API.
 - Type props with `defineProps<{...}>()`, emits with `defineEmits<{...}>()`.
 - State lives in `App.vue` via `ref()` / `reactive()`. No Pinia or Vuex.
-- Tailwind utility classes only. No `<style>` blocks or custom CSS unless truly unavoidable.
-- Components are single-file (template + script in one `.vue` file). No separate `.ts` logic files per component.
+- Tailwind utility classes only. No `<style>` blocks unless truly unavoidable.
+- Components are single-file `.vue`. No separate `.ts` logic files per component.
 - Use `computed()` for derived state, `watch()` / `watchEffect()` for side effects.
-- SSE parsing happens in `App.vue` using `fetch` + `ReadableStream` — not EventSource.
-- Leaflet is used directly (no vue-leaflet wrapper). Map lifecycle managed via `onMounted` + `watch`.
-- Prefer latest stable versions. Use `^` (caret) ranges in `package.json`.
+- SSE parsing in `App.vue` using `fetch` + `ReadableStream` — not EventSource.
+- Leaflet used directly (no vue-leaflet wrapper). Map lifecycle via `onMounted` + `watch`.
+- Use `^` (caret) ranges in `package.json`.
 
 ## Backend Conventions
 
-- Type annotations on all functions and variables (PEP 484 / PEP 695 style).
+- Type annotations on all functions and parameters (PEP 484 / PEP 695 `type` statements).
 - Use `dict[str, Any]` not bare `dict`. Prefer `TypedDict` for known shapes.
 - All I/O is `async`. Tool functions are async coroutines.
 - Never let exceptions escape the SSE generator — catch and yield an `error` event.
 - Tool wrappers in `tools.py` return structured dicts, never formatted strings.
-- New tools: add an async function, a Gemini `FunctionDeclaration` dict in `TOOL_DECLARATIONS`, and register in `TOOL_REGISTRY`.
 - The agent loop in `agent.py` has a hard cap of 15 iterations.
-- System prompt is assembled at runtime in `steering.py` from `.kiro/steering/` markdown files (YAML front matter is stripped).
-- Prefer latest stable versions of dependencies. Use `>=` version constraints in `pyproject.toml`, not pinned versions.
+- System prompt assembled at runtime in `steering.py` from `.kiro/steering/` markdown files (YAML front matter stripped).
+- Use `>=` version constraints in `pyproject.toml`, not pinned versions.
 
 ## SSE Event Protocol
 
@@ -98,15 +105,24 @@ Events streamed from `POST /api/chat`:
 | `error`  | `{"error": string}`                                              | Any failure (user-facing text) |
 | `done`   | `{"iterations": number}`                                         | Agent loop completed           |
 
-Frontend parses these in `App.vue` by reading the SSE stream line-by-line (lines starting with `data:`).
+Frontend parses by reading the stream line-by-line (lines starting with `data:`).
 
 ## Adding a New Tool
 
-1. Write an `async def tool_name(...)` in `tools.py` that returns `dict[str, Any]`.
-2. Add a Gemini function declaration dict to `TOOL_DECLARATIONS`.
+1. Write `async def tool_name(...)` in `tools.py` returning `dict[str, Any]`.
+2. Add a Gemini `FunctionDeclaration` dict to `TOOL_DECLARATIONS` list.
 3. Register in `TOOL_REGISTRY: dict[str, ToolFn]`.
-4. If the tool returns geo data, emit `map` events in `agent.py` (see `calculate_car_route` pattern).
-5. MCP server code lives in `mcp/<server-name>/server.py` — import helpers from there.
+4. If the tool returns geo data, emit `map` events in `agent.py` (follow `calculate_car_route` pattern).
+5. MCP server code lives in `mcp/<server-name>/server.py` — import helpers from there via `sys.path` insertion.
+
+## i18n Pattern
+
+Both frontend and backend use the same pattern: a flat dict of message keys → `{de: ..., en: ...}` translations with `{placeholder}` interpolation.
+
+- Backend: `i18n.py` exports `msg(key, lang, **kwargs)`. Add new keys to `MESSAGES` dict.
+- Frontend: `i18n.ts` exports `t(key, lang, params?)`. Add new keys to `messages` object.
+- Language is passed from the frontend via the `language` field in the `/api/chat` request body.
+- All user-facing error messages must go through i18n — never hardcode strings.
 
 ## Logging
 
@@ -122,17 +138,18 @@ Frontend parses these in `App.vue` by reading the SSE stream line-by-line (lines
 - Frontend utilities: `camelCase.ts`
 - GPX/map assets: `kebab-case`
 
-## Error Handling Pattern
+## Error Handling
 
-- Backend: wrap tool calls in try/except, return `{"error": "..."}` dict on failure. In the agent loop, catch `ClientError`/`ServerError` from Gemini and yield user-facing error events.
+- Backend: wrap tool calls in try/except, return `{"error": "..."}` dict on failure. In the agent loop, catch `ClientError`/`ServerError` from Gemini and yield localized error events via `i18n.msg()`.
 - Frontend: display `errorMessage` ref in a dismissible banner. Reset on new request.
 
 ## Testing
 
 - Backend: `pytest` via `uv run pytest`. Use `httpx.AsyncClient` for endpoint tests.
-- Frontend: no test framework configured. Manual testing via dev server.
+- Frontend: no test framework. Manual testing via dev server.
 
 ## Environment
 
 - `.env` at project root contains `GEMINI_API_KEY`. Loaded via `python-dotenv` in `main.py`.
-- Never commit `.env`. It is in `.gitignore`.
+- Never commit `.env` (listed in `.gitignore`).
+- The Gemini client is a lazy singleton initialized on first request in `main.py`.
