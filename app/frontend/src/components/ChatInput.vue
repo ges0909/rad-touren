@@ -26,10 +26,6 @@ function saveHistory() {
 }
 
 function handleSubmit() {
-  if (props.hasResult) {
-    emit("reset");
-    return;
-  }
   const message = input.value.trim();
   if (!message) return;
   emit("send", message);
@@ -117,12 +113,19 @@ const hasHistory = computed(() => history.value.length > 0);
         </button>
         <button
           type="submit"
-          :disabled="isLoading || (!hasResult && !input.trim())"
+          :disabled="isLoading || !input.trim()"
           class="absolute right-3 bottom-3 px-3 py-1.5 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
         >
           <span v-if="isLoading">⏳</span>
-          <span v-else-if="hasResult">{{ t("btnNew", props.language) }}</span>
           <span v-else>{{ t("btnSend", props.language) }}</span>
+        </button>
+        <button
+          v-if="hasResult && !isLoading"
+          type="button"
+          @click="emit('reset')"
+          class="absolute left-3 bottom-3 px-2 py-1 text-xs text-gray-500 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 rounded transition"
+        >
+          {{ t("btnNew", props.language) }}
         </button>
       </div>
     </form>

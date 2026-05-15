@@ -71,6 +71,7 @@ async def chat(request: Request) -> EventSourceResponse:
             }
             return
 
+        assistant_response: str = ""
         try:
             async for event in run_agent(
                 client=client,
@@ -78,6 +79,9 @@ async def chat(request: Request) -> EventSourceResponse:
                 chat_history=chat_history,
                 language=lang,
             ):
+                # Capture assistant response for history
+                if event["event"] == "tour" and "markdown" in event["data"]:
+                    assistant_response = event["data"]["markdown"]
                 yield {
                     "event": event["event"],
                     "data": json.dumps(event["data"], ensure_ascii=False),
@@ -92,8 +96,10 @@ async def chat(request: Request) -> EventSourceResponse:
             }
             return
 
-        # Save to history after completion
+        # Save both user message and assistant response to history
         chat_history.append({"role": "user", "content": message})
+        if assistant_response:
+            chat_history.append({"role": "model", "content": assistant_response})
 
     return EventSourceResponse(event_generator())
 
