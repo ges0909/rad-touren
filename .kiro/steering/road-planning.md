@@ -22,7 +22,7 @@ Plan, generate, and present multi-day car rental road trips across Europe.
 
 1. **No fabrication**: Never invent restaurants, hotels, hike names, travel times, or prices. Only present information from web search or API results. If data is unavailable, state that explicitly.
 2. **Coordinate order**: All MCP tool calls use **[longitude, latitude]** — longitude first. Swapping produces routes in the wrong location.
-3. **Verify distances**: Calculate driving times between **every pair of consecutive stops** via `driving_time` or `distance_matrix` before writing the route table. Never estimate from map distance — coastal and mountain roads can be 1.5–2× longer than straight-line distance. Flag any segment exceeding 4 hours.
+3. **Verify distances**: Calculate the full route via `mcp_osrm_calculate_car_route` with all waypoints in order. This gives accurate driving times for coastal and mountain roads (which can be 1.5–2× longer than straight-line distance). Flag any segment exceeding 4 hours.
    - **Scenic routes with intermediate stops**: When a driving day includes planned detours or waypoints (e.g., coastal road via villages), calculate the **total distance through all waypoints**, not just start → end. Sum the individual legs. The table must show the scenic-route distance, not the direct highway distance.
 4. **Seasonal awareness**: Check weather and seasonal closures (mountain passes, ferry schedules, swimming season). Flag off-season risks.
 5. **Overpass rate limit**: Query POI presets **sequentially** (one at a time). Never parallelize Overpass requests.
@@ -66,12 +66,11 @@ Use **only** these MCP servers for roadtrip planning. Do **not** use VBB (Berlin
 
 **Tool selection for routing:**
 
-- **Driving times** (quick check): `mcp_openrouteservice_driving_time`
+- **Route with map display** (ALWAYS use for the final route): `mcp_osrm_calculate_car_route` — pass ALL waypoints in order. This is the ONLY tool that shows the route on the map.
 - **Geocoding** (place → coordinates): `mcp_openrouteservice_geocode`
-- **GPX with street geometry** (for maps): `mcp_osrm_route_to_gpx`
-- **Route summary** (distance + duration): `mcp_osrm_calculate_car_route`
+- **GPX export** (for file download): `mcp_osrm_route_to_gpx`
 
-Flights, rental cars, and hotels: use `remote_web_search`.
+Do NOT use `mcp_openrouteservice_driving_time` — use `mcp_osrm_calculate_car_route` instead, which provides both distance/duration AND map display.
 
 ## MCP Tool Reference
 
