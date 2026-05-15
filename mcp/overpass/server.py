@@ -4,14 +4,10 @@ Uses lib.overpass for query building and API calls. GPX parsing stays here
 as it's MCP-specific (file system access).
 """
 
-import sys
 from pathlib import Path
 
 import gpxpy
 from fastmcp import FastMCP
-
-# Add lib/ to path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 from lib.overpass import build_query, search_pois, POI_CATEGORIES, PRESETS
 

@@ -5,13 +5,8 @@ and formats structured results into human-readable strings.
 """
 
 import re
-import sys
-from pathlib import Path
 
 from fastmcp import FastMCP
-
-# Add lib/ to path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 from lib.wikivoyage import (
     search_destinations as _search,

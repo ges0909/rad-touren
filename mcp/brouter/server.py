@@ -5,9 +5,7 @@ Uses lib.brouter for route calculation and geocoding. GPX rendering
 """
 
 import os
-import sys
 import xml.etree.ElementTree as ET
-from pathlib import Path
 
 import gpxpy
 import matplotlib
@@ -15,9 +13,6 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from fastmcp import FastMCP
 from staticmap import StaticMap, IconMarker, Line
-
-# Add lib/ to path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 from lib.brouter import calculate_route as _lib_calculate_route, search_location as _lib_search_location
 

@@ -5,15 +5,11 @@ Uses lib.geocoding for geocode. Routing, isochrone, and matrix use ORS directly
 """
 
 import os
-import sys
 from pathlib import Path
 
 import httpx
 from dotenv import load_dotenv
 from fastmcp import FastMCP
-
-# Add lib/ to path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 from lib.geocoding import geocode as _geocode
 

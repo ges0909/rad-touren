@@ -4,9 +4,13 @@ version = "1.0.0"
 description = "MCP server wrapping VBB REST API for Berlin/Brandenburg public transport"
 requires-python = ">=3.11"
 dependencies = [
+    "trip-planner-lib",
     "fastmcp",
     "httpx",
 ]
+
+[tool.uv.sources]
+trip-planner-lib = { workspace = true }
 
 [dependency-groups]
 dev = [

@@ -4,13 +4,7 @@ Uses lib.weather for all API logic. This file provides MCP tool declarations
 and formats raw JSON results into human-readable strings.
 """
 
-import sys
-from pathlib import Path
-
 from fastmcp import FastMCP
-
-# Add lib/ to path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 from lib.weather import weather_forecast as _forecast, geocoding as _geocoding
 

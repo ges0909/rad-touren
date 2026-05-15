@@ -3,13 +3,7 @@
 All API logic lives in lib/ — this file only wires tools to Gemini declarations.
 """
 
-import sys
-from pathlib import Path
 from typing import Any
-
-# Add lib/ to path for shared imports
-LIB_DIR = Path(__file__).parent.parent.parent / "lib"
-sys.path.insert(0, str(LIB_DIR.parent))
 
 from lib.geocoding import geocode
 from lib.routing import calculate_car_route, driving_time

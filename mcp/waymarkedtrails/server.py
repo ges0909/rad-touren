@@ -4,13 +4,7 @@ Uses lib.routes for all API logic. This file provides MCP tool declarations
 and formats structured results into human-readable strings.
 """
 
-import sys
-from pathlib import Path
-
 from fastmcp import FastMCP
-
-# Add lib/ to path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 from lib.routes import search_routes as _search, get_route_details as _details, get_route_segments as _segments
 

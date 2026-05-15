@@ -7,13 +7,7 @@ Usage:
     fastmcp run server.py
 """
 
-import sys
-from pathlib import Path
-
 from fastmcp import FastMCP
-
-# Add lib/ to path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 from lib.routing import calculate_car_route as _calculate, route_to_gpx as _route_to_gpx
 

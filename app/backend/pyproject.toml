@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "AI-powered tour planner backend"
 requires-python = ">=3.12"
 dependencies = [
+    "trip-planner-lib",
     "fastapi>=0.115.0",
     "uvicorn[standard]>=0.30.0",
     "google-genai>=1.0.0",
@@ -11,6 +12,9 @@ dependencies = [
     "python-dotenv>=1.0.1",
     "httpx>=0.28.1",
 ]
+
+[tool.uv.sources]
+trip-planner-lib = { workspace = true }
 
 [project.scripts]
 serve = "uvicorn main:app --host 0.0.0.0 --port 8000"

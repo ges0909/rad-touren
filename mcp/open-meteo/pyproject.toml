@@ -4,9 +4,13 @@ version = "1.0.0"
 description = "MCP server wrapping Open-Meteo weather API for cycling tour planning"
 requires-python = ">=3.11"
 dependencies = [
+    "trip-planner-lib",
     "fastmcp",
     "httpx",
 ]
+
+[tool.uv.sources]
+trip-planner-lib = { workspace = true }
 
 [dependency-groups]
 dev = [
