@@ -65,12 +65,13 @@ def build_server_configs() -> list[ServerConfig]:
     ]
     configs: list[ServerConfig] = []
     for name, directory in servers:
+        server_dir = PROJECT_ROOT / directory
         configs.append(
             ServerConfig(
                 name=name,
                 prefix=SERVER_PREFIX_MAP[name],
-                command=["uv", "run", "--directory", str(PROJECT_ROOT / directory), "python", "server.py"],
-                cwd=PROJECT_ROOT / directory,
+                command=["uv", "run", "--directory", str(server_dir), "python", "server.py"],
+                cwd=server_dir,
             )
         )
     return configs
@@ -86,9 +87,8 @@ class MCPManager:
         self._declarations: list[dict[str, Any]] = []
 
     async def discover_all_tools(self) -> None:
-        """Pre-discover tools from all configured servers (optional startup warmup)."""
-        for server_name in self._configs:
-            await self._ensure_server(server_name)
+        """Pre-discover tools from all configured servers in parallel."""
+        await asyncio.gather(*(self._ensure_server(name) for name in self._configs))
         # Build declarations cache
         self._declarations = []
         for instance in self._instances.values():
