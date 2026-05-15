@@ -1,11 +1,20 @@
-import re
+"""MCP server for BRouter cycling routing with GPX map and elevation rendering.
+
+Uses lib.brouter for route calculation and geocoding. GPX rendering
+(map + elevation profile) is handled here due to file system and image dependencies.
+"""
+
+import os
 import sys
 import xml.etree.ElementTree as ET
-from dataclasses import dataclass, field
 from pathlib import Path
 
-import httpx
+import gpxpy
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 from fastmcp import FastMCP
+from staticmap import StaticMap, IconMarker, Line
 
 # Add lib/ to path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
@@ -13,10 +22,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 from lib.brouter import calculate_route as _lib_calculate_route, search_location as _lib_search_location
 
 mcp = FastMCP("BRouter Cycling Router")
-
-# ---------------------------------------------------------------------------
-# Data models
-# ---------------------------------------------------------------------------
 
 VALID_PROFILES = {
     "trekking",
@@ -28,37 +33,6 @@ VALID_PROFILES = {
     "trekking-noferries",
     "trekking-nosteps",
 }
-
-
-@dataclass
-class NoGoArea:
-    lon: float
-    lat: float
-    radius: float = 20.0
-
-
-@dataclass
-class RouteRequest:
-    waypoints: list[list[float]]
-    profile: str = "trekking"
-    format: str = "gpx"
-    alternativeidx: int = 0
-    nogos: list[NoGoArea] | None = None
-    track_name: str | None = None
-
-
-@dataclass
-class RouteMetadata:
-    distance_m: float
-    elevation_gain_m: float
-    estimated_duration: str
-
-
-@dataclass
-class GeocodingResult:
-    name: str
-    coordinates: list[float] = field(default_factory=list)  # [lon, lat]
-    display_address: str = ""
 
 
 # ---------------------------------------------------------------------------
@@ -106,56 +80,6 @@ def validate_alternativeidx(idx: int) -> str | None:
 # ---------------------------------------------------------------------------
 # GPX helpers
 # ---------------------------------------------------------------------------
-
-# Patterns for metadata embedded in the GPX creator attribute or comment
-_TRACK_LENGTH_RE = re.compile(r'track-length\s*=\s*"?(\d+(?:\.\d+)?)"?')
-_FILTERED_ASCEND_RE = re.compile(r'filtered ascend\s*=\s*"?(\d+(?:\.\d+)?)"?')
-
-# Average speeds per profile (km/h) for duration estimation
-_PROFILE_SPEEDS: dict[str, float] = {
-    "trekking": 15.0,
-    "fastbike": 20.0,
-}
-_DEFAULT_SPEED = 12.0  # km/h for all other profiles
-
-
-def parse_gpx_metadata(gpx_content: str) -> RouteMetadata:
-    """Extract track-length and filtered ascend from GPX content.
-
-    BRouter embeds metadata in the GPX ``creator`` attribute or a comment
-    header, e.g.::
-
-        track-length = "42350" filtered ascend = "312"
-
-    Returns a :class:`RouteMetadata` with distance, elevation gain, and a
-    placeholder duration (call :func:`calculate_duration` separately).
-    """
-    length_match = _TRACK_LENGTH_RE.search(gpx_content)
-    ascend_match = _FILTERED_ASCEND_RE.search(gpx_content)
-
-    distance_m = float(length_match.group(1)) if length_match else 0.0
-    elevation_gain_m = float(ascend_match.group(1)) if ascend_match else 0.0
-
-    return RouteMetadata(
-        distance_m=distance_m,
-        elevation_gain_m=elevation_gain_m,
-        estimated_duration="",  # filled in by calculate_duration
-    )
-
-
-def calculate_duration(distance_m: float, profile: str) -> str:
-    """Estimate cycling duration based on profile average speed.
-
-    Returns a string formatted as ``"Xh Ym"``.
-    """
-    speed_kmh = _PROFILE_SPEEDS.get(profile, _DEFAULT_SPEED)
-    distance_km = distance_m / 1000.0
-    hours = distance_km / speed_kmh
-    total_minutes = round(hours * 60)
-    h = total_minutes // 60
-    m = total_minutes % 60
-    return f"{h}h {m}m"
-
 
 # GPX namespace used by BRouter
 _GPX_NS = "http://www.topografix.com/GPX/1/1"
@@ -246,7 +170,6 @@ async def calculate_route(
         format=format,
         alternativeidx=alternativeidx,
         nogos=nogos,
-        track_name=track_name,
     )
 
     if "error" in result:
@@ -258,24 +181,19 @@ async def calculate_route(
     if format == "geojson":
         return f"## Route (GeoJSON)\n\n```json\n{content}\n```"
 
-    # Handle GPX — extract metadata
+    # Handle GPX
     if "<trk>" not in content and "<trk " not in content:
         return "Error: BRouter returned an invalid GPX response."
-
-    metadata = parse_gpx_metadata(content)
-    metadata.estimated_duration = calculate_duration(metadata.distance_m, profile)
 
     gpx_content = content
     if track_name:
         gpx_content = insert_track_name(gpx_content, track_name)
 
-    distance_km = metadata.distance_m / 1000.0
-
     return (
         f"## Route Summary\n"
-        f"- Distance: {distance_km:.1f} km\n"
-        f"- Elevation gain: {metadata.elevation_gain_m:.0f} m\n"
-        f"- Estimated duration: {metadata.estimated_duration}\n"
+        f"- Distance: {result['distance_km']:.1f} km\n"
+        f"- Elevation gain: {result['elevation_gain_m']:.0f} m\n"
+        f"- Estimated duration: {result['duration_min']} min\n"
         f"- Profile: {profile}\n"
         f"- Format: gpx\n\n"
         f"## GPX Data\n{gpx_content}"
@@ -318,12 +236,6 @@ async def search_location(
 # ---------------------------------------------------------------------------
 # MCP Tool: render_gpx_map
 # ---------------------------------------------------------------------------
-
-import os
-from pathlib import Path
-
-import gpxpy
-from staticmap import StaticMap, IconMarker, Line
 
 # Directory containing Twemoji-based marker icons (CC-BY 4.0)
 _ICONS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "icons")
@@ -534,10 +446,6 @@ async def render_gpx_map(
 # ---------------------------------------------------------------------------
 # MCP Tool: render_elevation_profile
 # ---------------------------------------------------------------------------
-
-import matplotlib
-matplotlib.use("Agg")  # Non-interactive backend for server use
-import matplotlib.pyplot as plt
 
 
 @mcp.tool()

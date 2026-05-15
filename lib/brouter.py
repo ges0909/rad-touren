@@ -22,7 +22,6 @@ async def calculate_route(
     format: str = "gpx",
     alternativeidx: int = 0,
     nogos: list[dict[str, Any]] | None = None,
-    track_name: str | None = None,
 ) -> dict[str, Any]:
     """Calculate a cycling/hiking route via BRouter.
 
@@ -32,7 +31,6 @@ async def calculate_route(
         format: Output format — "gpx" or "geojson".
         alternativeidx: Alternative route index (0-3).
         nogos: Optional no-go areas [{lon, lat, radius}, ...].
-        track_name: Optional name to insert into GPX track.
 
     Returns:
         Dict with gpx/geojson content, distance_km, duration_min.
@@ -80,12 +78,12 @@ async def calculate_route(
     duration_min = round((distance_km / speed_kmh) * 60)
 
     return {
+        "content": content,
         "distance_km": round(distance_km, 1),
         "elevation_gain_m": round(elevation_m),
         "duration_min": duration_min,
         "profile": profile,
         "format": format,
-        "gpx_length": len(content) if format == "gpx" else 0,
     }
 
 

@@ -15,12 +15,19 @@ from lib.geocoding import geocode
 from lib.routing import calculate_car_route, driving_time
 from lib.weather import weather_forecast
 from lib.routes import search_routes
-from lib.brouter import calculate_route as calculate_bike_route, search_location
+from lib.brouter import calculate_route as _calculate_bike_route, search_location
 from lib.transit import search_stops, get_departures, get_journeys
 from lib.wikivoyage import search_destinations, get_article, search_nearby
 
 # Type alias
 type ToolFn = Any
+
+
+async def calculate_bike_route(waypoints: list[list[float]], profile: str = "trekking") -> dict[str, Any]:
+    """Wrapper that strips GPX content to keep Gemini context small."""
+    result = await _calculate_bike_route(waypoints=waypoints, profile=profile)
+    result.pop("content", None)  # Remove large GPX body
+    return result
 
 # ---------------------------------------------------------------------------
 # Gemini Function Declarations

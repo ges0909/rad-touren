@@ -46,26 +46,6 @@ VALID_PROFILES = {
 # ---------------------------------------------------------------------------
 
 
-async def _api_get(path: str, params: dict) -> dict | str:
-    """Make authenticated GET request to ORS API."""
-    if not API_KEY:
-        return "Error: ORS_API_KEY environment variable not set. Register at https://openrouteservice.org/dev/#/signup"
-
-    async with httpx.AsyncClient(timeout=30) as client:
-        try:
-            resp = await client.get(
-                f"{BASE_URL}{path}",
-                params=params,
-                headers={"Authorization": API_KEY},
-            )
-            resp.raise_for_status()
-            return resp.json()
-        except httpx.HTTPStatusError as e:
-            return f"ORS API error {e.response.status_code}: {e.response.text[:300]}"
-        except httpx.RequestError as e:
-            return f"Request error: {e}"
-
-
 async def _api_post(path: str, body: dict) -> dict | str:
     """Make authenticated POST request to ORS API."""
     if not API_KEY:

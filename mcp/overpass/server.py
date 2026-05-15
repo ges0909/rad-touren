@@ -8,7 +8,6 @@ import sys
 from pathlib import Path
 
 import gpxpy
-import httpx
 from fastmcp import FastMCP
 
 # Add lib/ to path

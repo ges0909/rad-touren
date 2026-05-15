@@ -4,6 +4,7 @@ Uses lib.wikivoyage for all API logic. This file provides MCP tool declarations
 and formats structured results into human-readable strings.
 """
 
+import re
 import sys
 from pathlib import Path
 
@@ -106,7 +107,6 @@ async def get_section(title: str, section: str, lang: str = "de") -> str:
     content = result["content"]
 
     # Find section by heading
-    import re
     pattern = re.compile(rf"^## {re.escape(section)}\s*$", re.MULTILINE)
     match = pattern.search(content)
     if not match:
