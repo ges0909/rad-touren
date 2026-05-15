@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import ChatInput from "./components/ChatInput.vue";
 import TourContent from "./components/TourContent.vue";
 import TourMap from "./components/TourMap.vue";
@@ -19,6 +19,10 @@ const mapData = ref<{
 });
 const splitPercent = ref(50);
 const followUp = ref("");
+
+const hasMapData = computed(
+  () => mapData.value.waypoints.length > 0 || mapData.value.route.length > 0,
+);
 
 function startResize(e: MouseEvent) {
   e.preventDefault();
@@ -217,27 +221,29 @@ async function handleSend(message: string) {
       </button>
     </div>
 
-    <!-- Tour Result -->
+    <!-- Tour Result + Map -->
     <div
-      v-if="tourMarkdown"
+      v-if="tourMarkdown || hasMapData"
       data-split-container
       class="mt-6 flex flex-col lg:flex-row"
       style="height: 80vh"
     >
       <div
+        v-if="tourMarkdown"
         :style="{ width: splitPercent + '%' }"
         class="overflow-hidden min-w-0"
       >
         <TourContent :markdown="tourMarkdown" />
       </div>
       <div
+        v-if="tourMarkdown && hasMapData"
         class="hidden lg:flex items-center justify-center w-3 cursor-col-resize bg-gray-100 hover:bg-blue-200 active:bg-blue-300 transition-colors shrink-0 select-none"
         @mousedown="startResize"
       >
         <div class="w-0.5 h-8 bg-gray-400 rounded"></div>
       </div>
       <div
-        :style="{ width: 100 - splitPercent + '%' }"
+        :style="{ width: tourMarkdown ? 100 - splitPercent + '%' : '100%' }"
         class="overflow-hidden min-w-0"
       >
         <TourMap :waypoints="mapData.waypoints" :route="mapData.route" />
