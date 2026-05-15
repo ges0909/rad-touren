@@ -164,6 +164,7 @@ async def run_agent(
                             }
 
                 except Exception as e:
+                    logger.error("Tool %s failed: %s", tool_name, e)
                     result_str = json.dumps({"error": str(e)})
             else:
                 result_str = json.dumps({"error": f"Unknown tool: {tool_name}"})

@@ -1,126 +1,27 @@
-"""Register MCP server functions as Gemini tool declarations."""
+"""Tool declarations and registry for the Gemini agent.
+
+All API logic lives in lib/ — this file only wires tools to Gemini declarations.
+"""
 
 import sys
-from collections.abc import Callable, Coroutine
 from pathlib import Path
 from typing import Any
 
-# Add MCP server directories to path for direct import
-MCP_DIR: Path = Path(__file__).parent.parent.parent / "mcp"
-for server_dir in MCP_DIR.iterdir():
-    if server_dir.is_dir() and (server_dir / "server.py").exists():
-        sys.path.insert(0, str(server_dir))
+# Add lib/ to path for shared imports
+LIB_DIR = Path(__file__).parent.parent.parent / "lib"
+sys.path.insert(0, str(LIB_DIR.parent))
 
+from lib.geocoding import geocode
+from lib.routing import calculate_car_route, driving_time
+from lib.weather import weather_forecast
+from lib.routes import search_routes
 
-# Type alias for async tool functions
-type ToolFn = Callable[..., Coroutine[Any, Any, dict[str, Any]]]
+# Type alias
+type ToolFn = Any
 
-
-# --- Tool function implementations (thin wrappers around MCP servers) ---
-
-
-async def geocode(query: str, country: str | None = None) -> dict[str, Any]:
-    """Geocode a place name to coordinates."""
-    sys.path.insert(0, str(MCP_DIR / "ors"))
-    from server import _api_get, API_KEY
-
-    params: dict[str, str | int] = {
-        "api_key": API_KEY,
-        "text": query,
-        "size": 5,
-    }
-    if country:
-        params["boundary.country"] = country.upper()
-
-    data: dict[str, Any] | str = await _api_get("/geocode/search", params)
-    if isinstance(data, str):
-        return {"error": data}
-
-    features: list[dict[str, Any]] = data.get("features", [])
-    if not features:
-        return {"error": f"No results found for '{query}'"}
-
-    results: list[dict[str, Any]] = []
-    for f in features:
-        props: dict[str, Any] = f.get("properties", {})
-        coords: list[float] = f.get("geometry", {}).get("coordinates", [0, 0])
-        results.append({
-            "name": props.get("name", "?"),
-            "label": props.get("label", "?"),
-            "coordinates": coords,  # [lon, lat]
-            "confidence": props.get("confidence", 0),
-        })
-
-    return {"results": results}
-
-
-async def driving_time(
-    from_coords: list[float], to_coords: list[float]
-) -> dict[str, Any]:
-    """Get driving time and distance between two points."""
-    sys.path.insert(0, str(MCP_DIR / "ors"))
-    from server import driving_time as ors_driving_time
-    return await ors_driving_time(from_coords=from_coords, to_coords=to_coords)
-
-
-async def weather_forecast(
-    latitude: float, longitude: float, forecast_days: int = 7
-) -> dict[str, Any]:
-    """Get weather forecast for coordinates."""
-    sys.path.insert(0, str(MCP_DIR / "open-meteo"))
-    from server import weather_forecast as meteo_forecast
-    return await meteo_forecast(
-        latitude=latitude, longitude=longitude, forecast_days=forecast_days,
-        daily=["temperature_2m_max", "temperature_2m_min", "precipitation_sum"],
-    )
-
-
-async def search_routes(query: str, activity: str = "hiking") -> dict[str, Any]:
-    """Search for marked hiking or cycling routes."""
-    sys.path.insert(0, str(MCP_DIR / "waymarkedtrails"))
-    from server import search_routes as wmt_search
-    return await wmt_search(query=query, activity=activity)
-
-
-async def calculate_car_route(waypoints: list[list[float]]) -> dict[str, Any]:
-    """Calculate a car route between waypoints. Returns distance, duration, and geometry."""
-    sys.path.insert(0, str(MCP_DIR / "osrm"))
-    from server import _osrm_request, _decode_polyline
-
-    if len(waypoints) < 2:
-        return {"error": "At least 2 waypoints required."}
-
-    coords_str: str = ";".join(f"{lon},{lat}" for lon, lat in waypoints)
-
-    data: dict[str, Any] | str = await _osrm_request(
-        coords_str,
-        overview="full",
-        geometries="polyline",
-        steps="false",
-    )
-
-    if isinstance(data, str):
-        return {"error": data}
-
-    if data.get("code") != "Ok":
-        return {"error": data.get("message", "Unknown error")}
-
-    route: dict[str, Any] = data["routes"][0]
-    distance_km: float = route["distance"] / 1000
-    duration_min: float = route["duration"] / 60
-
-    # Decode polyline to [lat, lon] pairs
-    geometry: list[tuple[float, float]] = _decode_polyline(route["geometry"])
-
-    return {
-        "distance_km": round(distance_km, 1),
-        "duration_min": round(duration_min),
-        "waypoints": [[lat, lon] for lat, lon in [(wp[1], wp[0]) for wp in waypoints]],
-        "geometry": geometry,
-    }
-
-
-# --- Gemini Function Declarations ---
+# ---------------------------------------------------------------------------
+# Gemini Function Declarations
+# ---------------------------------------------------------------------------
 
 TOOL_DECLARATIONS: list[dict[str, Any]] = [
     {
@@ -174,7 +75,7 @@ TOOL_DECLARATIONS: list[dict[str, Any]] = [
     },
     {
         "name": "calculate_car_route",
-        "description": "Calculate a car route between waypoints. Returns distance and duration.",
+        "description": "Calculate a car route between waypoints. Returns distance, duration, and geometry.",
         "parameters": {
             "type": "object",
             "properties": {

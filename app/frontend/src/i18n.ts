@@ -27,6 +27,10 @@ const messages = {
     de: "Server-Fehler ({status}). Bitte prüfe das Backend-Log.",
     en: "Server error ({status}). Please check the backend log.",
   },
+  followUpPlaceholder: {
+    de: "Antwort oder Änderungswunsch eingeben...",
+    en: "Type a reply or change request...",
+  },
 } as const;
 
 type MessageKey = keyof typeof messages;
