@@ -48,6 +48,7 @@ SERVER_PREFIX_MAP: dict[str, str] = {
     "osrm": "osrm",
     "wikivoyage": "wikivoyage",
     "waymarkedtrails": "waymarkedtrails",
+    "tavily": "tavily",
 }
 
 
@@ -62,6 +63,7 @@ def build_server_configs() -> list[ServerConfig]:
         ("osrm", "mcp/osrm"),
         ("wikivoyage", "mcp/wikivoyage"),
         ("waymarkedtrails", "mcp/waymarkedtrails"),
+        ("tavily", "mcp/tavily"),
     ]
     configs: list[ServerConfig] = []
     for name, directory in servers:

@@ -99,17 +99,18 @@ class TestMCPServerConfigs:
         "osrm",
         "wikivoyage",
         "waymarkedtrails",
+        "tavily",
     ]
 
-    def test_build_server_configs_returns_8_configs(self) -> None:
-        """Import build_server_configs and verify it returns 8 configs."""
+    def test_build_server_configs_returns_9_configs(self) -> None:
+        """Import build_server_configs and verify it returns 9 configs."""
         from mcp_manager import build_server_configs
 
         configs = build_server_configs()
-        assert len(configs) == 8, f"Expected 8 server configs, got {len(configs)}"
+        assert len(configs) == 9, f"Expected 9 server configs, got {len(configs)}"
 
     def test_build_server_configs_has_correct_names(self) -> None:
-        """Verify all 8 expected server names are present."""
+        """Verify all 9 expected server names are present."""
         from mcp_manager import build_server_configs
 
         configs = build_server_configs()
@@ -133,14 +134,14 @@ class TestMCPManagerInitializes:
     """Verify MCPManager initializes correctly with all configs."""
 
     def test_mcp_manager_accepts_all_configs(self) -> None:
-        """Create an MCPManager with build_server_configs() and verify it has 8 configs."""
+        """Create an MCPManager with build_server_configs() and verify it has 9 configs."""
         from mcp_manager import MCPManager, build_server_configs
 
         configs = build_server_configs()
         manager = MCPManager(configs)
 
-        assert len(manager._configs) == 8, (
-            f"MCPManager has {len(manager._configs)} configs, expected 8"
+        assert len(manager._configs) == 9, (
+            f"MCPManager has {len(manager._configs)} configs, expected 9"
         )
 
     def test_mcp_manager_has_empty_instances_on_init(self) -> None:

@@ -1,0 +1,22 @@
+[project]
+name = "tavily-mcp"
+version = "1.0.0"
+description = "MCP server wrapping the Tavily Search API for web search"
+requires-python = ">=3.11"
+dependencies = [
+    "fastmcp",
+    "httpx",
+    "python-dotenv",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "respx",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+asyncio_mode = "auto"
