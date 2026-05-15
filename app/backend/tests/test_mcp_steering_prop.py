@@ -16,16 +16,18 @@ from steering import build_system_prompt
 # --- Strategies ---
 
 # Generate valid MCP server prefixes (lowercase, no hyphens in final form)
-_server_prefixes = st.sampled_from([
-    "brouter",
-    "open_meteo",
-    "vbb",
-    "overpass",
-    "openrouteservice",
-    "osrm",
-    "wikivoyage",
-    "waymarkedtrails",
-])
+_server_prefixes = st.sampled_from(
+    [
+        "brouter",
+        "open_meteo",
+        "vbb",
+        "overpass",
+        "openrouteservice",
+        "osrm",
+        "wikivoyage",
+        "waymarkedtrails",
+    ]
+)
 
 # Generate valid tool name suffixes (lowercase + underscores)
 _tool_suffixes = st.text(
@@ -46,9 +48,7 @@ def mcp_tool_name(draw: st.DrawFn) -> str:
 @st.composite
 def mcp_tool_names_list(draw: st.DrawFn) -> list[str]:
     """Generate a list of 1-10 unique mcp_ prefixed tool names."""
-    names = draw(
-        st.lists(mcp_tool_name(), min_size=1, max_size=10, unique=True)
-    )
+    names = draw(st.lists(mcp_tool_name(), min_size=1, max_size=10, unique=True))
     return names
 
 

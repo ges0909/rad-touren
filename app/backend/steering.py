@@ -100,7 +100,7 @@ Follow the chosen template structure strictly.
             if content.startswith("---"):
                 end: int = content.find("---", 3)
                 if end != -1:
-                    content = content[end + 3:].strip()
+                    content = content[end + 3 :].strip()
             parts.append(content)
             loaded_count += 1
         else:

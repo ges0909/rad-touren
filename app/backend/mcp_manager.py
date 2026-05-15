@@ -85,7 +85,9 @@ class MCPManager:
     def __init__(self, configs: list[ServerConfig]) -> None:
         self._configs: dict[str, ServerConfig] = {c.name: c for c in configs}
         self._instances: dict[str, ServerInstance] = {}
-        self._tool_map: dict[str, tuple[str, str]] = {}  # prefixed_name → (server_name, original_name)
+        self._tool_map: dict[
+            str, tuple[str, str]
+        ] = {}  # prefixed_name → (server_name, original_name)
         self._declarations: list[dict[str, Any]] = []
 
     async def discover_all_tools(self) -> None:
@@ -127,10 +129,14 @@ class MCPManager:
             return {"error": f"Server {server_name} unavailable: {e}"}
 
         try:
-            result = await self._send_request(instance, "tools/call", {
-                "name": original_name,
-                "arguments": arguments,
-            })
+            result = await self._send_request(
+                instance,
+                "tools/call",
+                {
+                    "name": original_name,
+                    "arguments": arguments,
+                },
+            )
         except asyncio.TimeoutError:
             logger.error("Tool %s timed out (60s)", prefixed_name)
             return {"error": f"Tool {prefixed_name} timed out after 60 seconds"}
@@ -265,11 +271,15 @@ class MCPManager:
         instance = ServerInstance(config=config, process=process)
 
         # MCP initialize handshake
-        await self._send_request(instance, "initialize", {
-            "protocolVersion": "2024-11-05",
-            "capabilities": {},
-            "clientInfo": {"name": "trip-planner-backend", "version": "0.1.0"},
-        })
+        await self._send_request(
+            instance,
+            "initialize",
+            {
+                "protocolVersion": "2024-11-05",
+                "capabilities": {},
+                "clientInfo": {"name": "trip-planner-backend", "version": "0.1.0"},
+            },
+        )
 
         # Send initialized notification
         await self._send_notification(instance, "notifications/initialized", {})
@@ -287,7 +297,9 @@ class MCPManager:
         logger.info("Server %s ready: %d tools", config.name, len(instance.tools))
         return instance
 
-    async def _send_request(self, instance: ServerInstance, method: str, params: dict[str, Any]) -> Any:
+    async def _send_request(
+        self, instance: ServerInstance, method: str, params: dict[str, Any]
+    ) -> Any:
         """Send JSON-RPC 2.0 request over stdin, read response from stdout."""
         request_id = await instance.next_id()
         request = {
@@ -312,7 +324,9 @@ class MCPManager:
             return {"error": response["error"].get("message", "Unknown MCP error")}
         return response.get("result", {})
 
-    async def _send_notification(self, instance: ServerInstance, method: str, params: dict[str, Any]) -> None:
+    async def _send_notification(
+        self, instance: ServerInstance, method: str, params: dict[str, Any]
+    ) -> None:
         """Send a JSON-RPC notification (no response expected)."""
         notification = {
             "jsonrpc": "2.0",

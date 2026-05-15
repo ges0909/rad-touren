@@ -66,13 +66,14 @@ def _make_mock_process() -> MagicMock:
     process.stdout = MagicMock()
     # Return a valid MCP tools/call response
     process.stdout.readline = AsyncMock(
-        return_value=json.dumps({
-            "jsonrpc": "2.0",
-            "id": 1,
-            "result": {
-                "content": [{"type": "text", "text": '{"ok": true}'}]
-            },
-        }).encode() + b"\n"
+        return_value=json.dumps(
+            {
+                "jsonrpc": "2.0",
+                "id": 1,
+                "result": {"content": [{"type": "text", "text": '{"ok": true}'}]},
+            }
+        ).encode()
+        + b"\n"
     )
     return process
 
@@ -141,8 +142,7 @@ async def test_tool_routing_correctness(
 
     # 3. params.arguments must match input arguments exactly
     assert request["params"]["arguments"] == arguments, (
-        f"Arguments mismatch: sent {arguments}, "
-        f"got {request['params']['arguments']}"
+        f"Arguments mismatch: sent {arguments}, got {request['params']['arguments']}"
     )
 
     # 4. Verify it was sent to the correct server instance

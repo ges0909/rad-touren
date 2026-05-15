@@ -82,9 +82,7 @@ async def calculate_car_route(
     }
 
 
-async def driving_time(
-    from_coords: list[float], to_coords: list[float]
-) -> dict[str, Any]:
+async def driving_time(from_coords: list[float], to_coords: list[float]) -> dict[str, Any]:
     """Get driving time and distance between two points via OSRM.
 
     Args:
@@ -138,7 +136,7 @@ def coords_to_gpx(
     if waypoints:
         for wp in waypoints:
             lines.append(f'  <wpt lat="{wp["lat"]:.6f}" lon="{wp["lon"]:.6f}">')
-            lines.append(f'    <name>{wp["name"]}</name>')
+            lines.append(f"    <name>{wp['name']}</name>")
             lines.append("  </wpt>")
 
     lines.append("  <trk>")

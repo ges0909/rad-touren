@@ -89,7 +89,9 @@ def parse_poi(poi_str: str) -> tuple[str, str, float, float]:
     parts = poi_str.split(":", 2)
     category = parts[0].strip()
     rest = parts[1] if len(parts) > 1 else ""
-    name, coords = rest.rsplit(":", 1) if ":" in rest else (rest, parts[2] if len(parts) > 2 else "")
+    name, coords = (
+        rest.rsplit(":", 1) if ":" in rest else (rest, parts[2] if len(parts) > 2 else "")
+    )
     # Re-parse: category:name:lon,lat
     pieces = poi_str.split(":")
     category = pieces[0].strip()
@@ -110,11 +112,7 @@ def _lon_to_x(lon: float, zoom: int) -> float:
 
 def _lat_to_y(lat: float, zoom: int) -> float:
     lat_rad = math.radians(lat)
-    return (
-        (1.0 - math.log(math.tan(lat_rad) + 1.0 / math.cos(lat_rad)) / math.pi)
-        / 2.0
-        * (2**zoom)
-    )
+    return (1.0 - math.log(math.tan(lat_rad) + 1.0 / math.cos(lat_rad)) / math.pi) / 2.0 * (2**zoom)
 
 
 def geo_to_pixel(lon: float, lat: float, m: StaticMap) -> tuple[int, int]:
@@ -171,15 +169,9 @@ def render_map(
 
     # Load fonts
     try:
-        font = ImageFont.truetype(
-            "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 11
-        )
-        font_bold = ImageFont.truetype(
-            "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 11
-        )
-        font_small = ImageFont.truetype(
-            "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 10
-        )
+        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 11)
+        font_bold = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 11)
+        font_small = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 10)
     except (OSError, IOError):
         font = ImageFont.load_default()
         font_bold = font
@@ -236,9 +228,9 @@ def render_map(
         # Semi-transparent background
         overlay = Image.new("RGBA", (legend_w, legend_h), (255, 255, 255, 220))
         image.paste(
-            Image.alpha_composite(
-                Image.new("RGBA", overlay.size, (0, 0, 0, 0)), overlay
-            ).convert("RGB"),
+            Image.alpha_composite(Image.new("RGBA", overlay.size, (0, 0, 0, 0)), overlay).convert(
+                "RGB"
+            ),
             (lx, ly),
             mask=overlay.split()[3],
         )
@@ -262,7 +254,9 @@ def render_map(
                 image.paste(icon, (cx, cy + 1), mask=icon)
             else:
                 draw.ellipse([cx + 1, cy + 3, cx + 9, cy + 11], fill=info["color"])
-            draw.text((cx + LEGEND_ICON_SIZE + 6, cy), info["label"], fill="#333333", font=font_small)
+            draw.text(
+                (cx + LEGEND_ICON_SIZE + 6, cy), info["label"], fill="#333333", font=font_small
+            )
             cy += line_height
 
     # Save
@@ -285,11 +279,15 @@ def main():
     parser.add_argument("gpx_file", help="Path to GPX file")
     parser.add_argument("output_png", help="Output PNG path")
     parser.add_argument(
-        "--stations", nargs="*", default=[],
+        "--stations",
+        nargs="*",
+        default=[],
         help="Station markers as 'Name:lon,lat'",
     )
     parser.add_argument(
-        "--pois", nargs="*", default=[],
+        "--pois",
+        nargs="*",
+        default=[],
         help="POI markers as 'category:name:lon,lat' (categories: art, hike, swim, food, wine, sight, nature, coffee)",
     )
     parser.add_argument("--width", type=int, default=900)

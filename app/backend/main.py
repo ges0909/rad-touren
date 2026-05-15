@@ -43,7 +43,10 @@ async def lifespan(app: FastAPI):
     _mcp_manager = MCPManager(configs)
     # Pre-discover tools from all servers
     await _mcp_manager.discover_all_tools()
-    logger.info("MCP manager initialized with %d tool declarations", len(await _mcp_manager.get_tool_declarations()))
+    logger.info(
+        "MCP manager initialized with %d tool declarations",
+        len(await _mcp_manager.get_tool_declarations()),
+    )
     yield
     await _mcp_manager.shutdown()
     _mcp_manager = None

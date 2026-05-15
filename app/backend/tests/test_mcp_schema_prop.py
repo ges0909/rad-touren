@@ -128,6 +128,4 @@ def test_schema_conversion_correctness(
             )
 
     # (5) No hyphens in the result name
-    assert "-" not in result["name"], (
-        f"Result name '{result['name']}' contains hyphens"
-    )
+    assert "-" not in result["name"], f"Result name '{result['name']}' contains hyphens"

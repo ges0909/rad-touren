@@ -52,8 +52,7 @@ class TestNoSanitizeSteering:
         import steering
 
         assert not hasattr(steering, "_SECTIONS_TO_STRIP"), (
-            "steering module still has _SECTIONS_TO_STRIP — "
-            "sanitization config should be removed"
+            "steering module still has _SECTIONS_TO_STRIP — sanitization config should be removed"
         )
 
 
@@ -64,8 +63,7 @@ class TestNoToolRegistry:
         """Verify the file app/backend/tools.py does not exist."""
         tools_path = BACKEND_DIR / "tools.py"
         assert not tools_path.exists(), (
-            f"tools.py still exists at {tools_path} — "
-            "static tool registry should be removed"
+            f"tools.py still exists at {tools_path} — static tool registry should be removed"
         )
 
     def test_no_module_exports_tool_registry(self) -> None:
@@ -82,8 +80,7 @@ class TestNoToolRegistry:
                 pass  # Module doesn't exist, that's fine
 
         assert violations == [], (
-            f"TOOL_REGISTRY found in modules: {violations} — "
-            "static tool registry should be removed"
+            f"TOOL_REGISTRY found in modules: {violations} — static tool registry should be removed"
         )
 
 

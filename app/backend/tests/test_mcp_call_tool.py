@@ -81,9 +81,7 @@ class TestToolDispatchRouting:
         mcp_response = {
             "jsonrpc": "2.0",
             "id": 1,
-            "result": {
-                "content": [{"type": "text", "text": '{"distance": 42.5}'}]
-            },
+            "result": {"content": [{"type": "text", "text": '{"distance": 42.5}'}]},
         }
         mock_process.stdout.readline.return_value = (json.dumps(mcp_response) + "\n").encode()
 
@@ -123,9 +121,7 @@ class TestToolDispatchRouting:
         mcp_response = {
             "jsonrpc": "2.0",
             "id": 1,
-            "result": {
-                "content": [{"type": "text", "text": "Route calculated successfully"}]
-            },
+            "result": {"content": [{"type": "text", "text": "Route calculated successfully"}]},
         }
         mock_process.stdout.readline.return_value = (json.dumps(mcp_response) + "\n").encode()
 
@@ -185,9 +181,7 @@ class TestErrorHandling:
     @pytest.mark.asyncio
     async def test_server_spawn_failure_returns_error(self) -> None:
         """Verify server spawn failure returns error dict."""
-        config = ServerConfig(
-            name="broken", prefix="broken", command=["false"], cwd=Path("/tmp")
-        )
+        config = ServerConfig(name="broken", prefix="broken", command=["false"], cwd=Path("/tmp"))
         manager = MCPManager(configs=[config])
         manager._tool_map["mcp_broken_tool"] = ("broken", "tool")
 

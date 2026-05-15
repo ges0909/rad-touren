@@ -36,9 +36,9 @@ def _contains_geo_pattern(name: str) -> bool:
 
 
 # Strategy for names guaranteed to NOT contain geo patterns
-non_geo_name_strategy = st.from_regex(
-    r"[a-z][a-z0-9_]{0,20}", fullmatch=True
-).filter(lambda n: not _contains_geo_pattern(n))
+non_geo_name_strategy = st.from_regex(r"[a-z][a-z0-9_]{0,20}", fullmatch=True).filter(
+    lambda n: not _contains_geo_pattern(n)
+)
 
 
 # --- Property Tests ---

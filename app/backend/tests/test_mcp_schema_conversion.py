@@ -172,6 +172,12 @@ class TestParametersConversion:
         result = manager._mcp_schema_to_gemini(tool, "open_meteo")
 
         params = result["parameters"]
-        assert params["properties"]["latitude"] == {"type": "number", "description": "Latitude (-90 to 90)"}
-        assert params["properties"]["longitude"] == {"type": "number", "description": "Longitude (-180 to 180)"}
+        assert params["properties"]["latitude"] == {
+            "type": "number",
+            "description": "Latitude (-90 to 90)",
+        }
+        assert params["properties"]["longitude"] == {
+            "type": "number",
+            "description": "Longitude (-180 to 180)",
+        }
         assert params["required"] == ["latitude", "longitude"]

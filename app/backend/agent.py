@@ -234,9 +234,16 @@ async def run_agent(
                 return
 
             # MALFORMED_FUNCTION_CALL: nudge the model to respond with text instead
-            if finish_reason and "MALFORMED" in str(finish_reason) and recovery_count < max_recoveries:
+            if (
+                finish_reason
+                and "MALFORMED" in str(finish_reason)
+                and recovery_count < max_recoveries
+            ):
                 recovery_count += 1
-                logger.info("Recovering from MALFORMED_FUNCTION_CALL, nudging model (recovery %d)", recovery_count)
+                logger.info(
+                    "Recovering from MALFORMED_FUNCTION_CALL, nudging model (recovery %d)",
+                    recovery_count,
+                )
                 contents.append(
                     types.Content(
                         role="user",
@@ -251,9 +258,17 @@ async def run_agent(
                 continue
 
             # STOP with empty content: model got confused. Nudge it to produce output.
-            if finish_reason and "STOP" in str(finish_reason) and iteration > 0 and recovery_count < max_recoveries:
+            if (
+                finish_reason
+                and "STOP" in str(finish_reason)
+                and iteration > 0
+                and recovery_count < max_recoveries
+            ):
                 recovery_count += 1
-                logger.info("Recovering from empty STOP response, nudging model (recovery %d)", recovery_count)
+                logger.info(
+                    "Recovering from empty STOP response, nudging model (recovery %d)",
+                    recovery_count,
+                )
                 contents.append(
                     types.Content(
                         role="user",

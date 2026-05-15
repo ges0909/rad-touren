@@ -21,13 +21,11 @@ from mcp_manager import MCPManager, ServerConfig, ServerInstance
 # --- Strategies ---
 
 # Generate unique server names and prefixes
-_server_names = st.text(
-    alphabet="abcdefghijklmnopqrstuvwxyz", min_size=3, max_size=8
-)
+_server_names = st.text(alphabet="abcdefghijklmnopqrstuvwxyz", min_size=3, max_size=8)
 
-_tool_names = st.text(
-    alphabet="abcdefghijklmnopqrstuvwxyz_", min_size=2, max_size=12
-).filter(lambda s: not s.startswith("_") and not s.endswith("_") and "__" not in s)
+_tool_names = st.text(alphabet="abcdefghijklmnopqrstuvwxyz_", min_size=2, max_size=12).filter(
+    lambda s: not s.startswith("_") and not s.endswith("_") and "__" not in s
+)
 
 
 @st.composite
@@ -36,9 +34,7 @@ def server_with_tools(draw: st.DrawFn) -> tuple[ServerConfig, list[dict]]:
     name = draw(_server_names)
     prefix = draw(_server_names)
     num_tools = draw(st.integers(min_value=1, max_value=8))
-    tool_names = draw(
-        st.lists(_tool_names, min_size=num_tools, max_size=num_tools, unique=True)
-    )
+    tool_names = draw(st.lists(_tool_names, min_size=num_tools, max_size=num_tools, unique=True))
 
     config = ServerConfig(
         name=name,
@@ -69,9 +65,7 @@ def multiple_servers_with_tools(
     """Generate 1-5 servers with unique names/prefixes and unique tools."""
     num_servers = draw(st.integers(min_value=1, max_value=5))
     # Generate unique names and prefixes for all servers
-    names = draw(
-        st.lists(_server_names, min_size=num_servers, max_size=num_servers, unique=True)
-    )
+    names = draw(st.lists(_server_names, min_size=num_servers, max_size=num_servers, unique=True))
     prefixes = draw(
         st.lists(_server_names, min_size=num_servers, max_size=num_servers, unique=True)
     )
@@ -166,12 +160,9 @@ async def test_combined_declarations_count_and_uniqueness(
     # Property assertion 2: All declaration names are unique
     names = [d["name"] for d in declarations]
     assert len(names) == len(set(names)), (
-        f"Duplicate declaration names found: "
-        f"{[n for n in names if names.count(n) > 1]}"
+        f"Duplicate declaration names found: {[n for n in names if names.count(n) > 1]}"
     )
 
     # Property assertion 3: Each declaration name starts with "mcp_"
     for name in names:
-        assert name.startswith("mcp_"), (
-            f"Declaration name '{name}' does not start with 'mcp_'"
-        )
+        assert name.startswith("mcp_"), f"Declaration name '{name}' does not start with 'mcp_'"

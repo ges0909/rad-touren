@@ -1,6 +1,5 @@
 """Tests for overpass-mcp server."""
 
-
 import httpx
 import pytest
 import respx

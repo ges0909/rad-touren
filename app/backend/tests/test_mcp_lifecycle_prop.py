@@ -75,6 +75,4 @@ async def test_lazy_spawn_and_reuse(num_calls: int) -> None:
         # All returned instances are the same object (reuse)
         first_instance = instances[0]
         for i, inst in enumerate(instances[1:], start=1):
-            assert inst is first_instance, (
-                f"Call {i} returned a different instance than call 0"
-            )
+            assert inst is first_instance, f"Call {i} returned a different instance than call 0"

@@ -81,9 +81,7 @@ async def test_error_response_propagation(error_code: int, error_message: str) -
             "message": error_message,
         },
     }
-    mock_process.stdout.readline.return_value = (
-        json.dumps(jsonrpc_error_response) + "\n"
-    ).encode()
+    mock_process.stdout.readline.return_value = (json.dumps(jsonrpc_error_response) + "\n").encode()
 
     # Call the tool
     result = await manager.call_tool("mcp_test_some_tool", {"arg": "value"})
