@@ -24,6 +24,36 @@ def create_client(api_key: str) -> genai.Client:
     return genai.Client(api_key=api_key)
 
 
+async def _call_gemini_with_retry(
+    client: genai.Client,
+    contents: list[types.Content],
+    config: types.GenerateContentConfig,
+    max_retries: int = 3,
+) -> Any:
+    """Call Gemini with exponential backoff on 503/429 errors."""
+    for attempt in range(max_retries):
+        try:
+            return client.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=contents,
+                config=config,
+            )
+        except ServerError as e:
+            if attempt < max_retries - 1 and e.code in (503, 500):
+                wait = 2 ** (attempt + 1)  # 2s, 4s, 8s
+                logger.warning("Gemini %d, retrying in %ds (attempt %d/%d)", e.code, wait, attempt + 1, max_retries)
+                await asyncio.sleep(wait)
+            else:
+                raise
+        except ClientError as e:
+            if attempt < max_retries - 1 and e.code == 429:
+                wait = min(2 ** (attempt + 2), 30)  # 4s, 8s, 16s
+                logger.warning("Gemini 429, retrying in %ds (attempt %d/%d)", wait, attempt + 1, max_retries)
+                await asyncio.sleep(wait)
+            else:
+                raise
+
+
 async def run_agent(
     client: genai.Client,
     user_message: str,
@@ -76,11 +106,7 @@ async def run_agent(
 
         logger.info("Iteration %d: calling Gemini", iteration + 1)
         try:
-            response = client.models.generate_content(
-                model="gemini-2.5-flash",
-                contents=contents,
-                config=config,
-            )
+            response = await _call_gemini_with_retry(client, contents, config)
         except ClientError as e:
             logger.error("Gemini ClientError %d: %s", e.code, e.message)
             if e.code == 429:
