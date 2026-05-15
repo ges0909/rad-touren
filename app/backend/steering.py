@@ -67,6 +67,15 @@ def build_system_prompt(
 - Respond ONLY in {lang_name}.
 - To display a route on the map, call `calculate_car_route` or `calculate_bike_route` with waypoint coordinates. Without this call, no map will be shown.
 
+## Tool Efficiency Rules — CRITICAL
+
+- ALWAYS batch multiple independent tool calls in a SINGLE response. For example, geocode ALL waypoints at once, not one per turn.
+- You have a HARD LIMIT of 25 tool-calling turns. Plan efficiently.
+- Use `mcp_tavily_web_search` SPARINGLY — max 2-3 searches total per request. Prefer your training knowledge for general travel info.
+- Do NOT search for hotels, restaurants, beaches, museums separately per city. Use ONE broad search or your own knowledge.
+- For a multi-stop road trip: geocode all stops → calculate all driving times → get 1-2 wikivoyage articles → produce the final answer. That's 4-5 turns, not 25.
+- NEVER call the same tool with the same arguments twice.
+
 ## Available Tools
 {tool_list_str}
 
