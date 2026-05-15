@@ -2,8 +2,8 @@ export type Lang = "de" | "en";
 
 const messages = {
   subtitle: {
-    de: "Plane Radtouren, Wanderungen und Roadtrips mit KI. Beschreibe einfach, was du dir vorstellst.",
-    en: "Plan cycling tours, hikes, and road trips with AI. Just describe what you have in mind.",
+    de: "Roadtrips in Europa · Radtouren in Berlin/Brandenburg · Wanderungen (bald)",
+    en: "Road trips across Europe · Cycling tours in Berlin/Brandenburg · Hiking (coming soon)",
   },
   placeholder: {
     de: "z.B. Plane einen 2-Wochen Roadtrip an der spanischen Nordküste...",
