@@ -73,9 +73,6 @@ async def run_agent(
     # Agent loop: call LLM, execute tools, feed results back
     max_iterations: int = 15
     for iteration in range(max_iterations):
-        # Rate limit: 5 RPM on free tier → wait between iterations
-        if iteration > 0:
-            await asyncio.sleep(13)
 
         logger.info("Iteration %d: calling Gemini", iteration + 1)
         try:
