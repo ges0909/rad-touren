@@ -5,10 +5,10 @@ import TourContent from "./components/TourContent.vue";
 import TourMap from "./components/TourMap.vue";
 import { t, type Lang } from "./i18n";
 
-const messages = ref<Array<{ role: string; content: string }>>([]);
 const tourMarkdown = ref("");
 const isLoading = ref(false);
 const errorMessage = ref("");
+const statusMessages = ref<string[]>([]);
 const language = ref<Lang>("de");
 const mapData = ref<{
   waypoints: [number, number][];
@@ -53,13 +53,6 @@ function startResize(e: MouseEvent) {
   document.addEventListener("mouseup", onUp);
 }
 
-function handleReset() {
-  tourMarkdown.value = "";
-  errorMessage.value = "";
-  mapData.value = { waypoints: [], route: [] };
-  followUp.value = "";
-}
-
 function sendFollowUp() {
   const msg = followUp.value.trim();
   if (!msg) return;
@@ -68,10 +61,10 @@ function sendFollowUp() {
 }
 
 async function handleSend(message: string) {
-  messages.value.push({ role: "user", content: message });
   isLoading.value = true;
   tourMarkdown.value = "";
   errorMessage.value = "";
+  statusMessages.value = [];
   mapData.value = { waypoints: [], route: [] };
 
   try {
@@ -129,10 +122,7 @@ async function handleSend(message: string) {
                 mapData.value.route = parsed.route;
               }
             } else if (currentEvent === "status" && parsed.message) {
-              messages.value.push({
-                role: "assistant",
-                content: parsed.message,
-              });
+              statusMessages.value.push(parsed.message);
             }
           } catch {
             // ignore parse errors
@@ -192,11 +182,23 @@ async function handleSend(message: string) {
     <!-- Chat Input -->
     <ChatInput
       :is-loading="isLoading"
-      :has-result="!!tourMarkdown"
       :language="language"
       @send="handleSend"
-      @reset="handleReset"
     />
+
+    <!-- Status Feed (live tool calls) -->
+    <div
+      v-if="isLoading && statusMessages.length > 0"
+      class="mt-3 px-4 py-2 bg-blue-50 border border-blue-100 rounded-lg"
+    >
+      <p
+        v-for="(msg, i) in statusMessages"
+        :key="i"
+        class="text-xs text-blue-700 font-mono truncate"
+      >
+        {{ msg }}
+      </p>
+    </div>
 
     <!-- Error Display -->
     <div

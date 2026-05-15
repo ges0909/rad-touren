@@ -4,10 +4,9 @@ import { t, type Lang } from "../i18n";
 
 const props = defineProps<{
   isLoading: boolean;
-  hasResult: boolean;
   language: Lang;
 }>();
-const emit = defineEmits<{ send: [message: string]; reset: [] }>();
+const emit = defineEmits<{ send: [message: string] }>();
 
 const input = ref("");
 const history = ref<string[]>(loadHistory());

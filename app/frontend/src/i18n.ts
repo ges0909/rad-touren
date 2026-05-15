@@ -10,7 +10,6 @@ const messages = {
     en: "e.g. Plan a 2-week road trip along the Spanish north coast...",
   },
   btnSend: { de: "Los", en: "Go" },
-  btnNew: { de: "Neu", en: "New" },
   btnMarkdown: { de: "Markdown", en: "Markdown" },
   btnPdf: { de: "PDF", en: "PDF" },
   historyTitle: { de: "Letzte Anfragen", en: "Recent queries" },
