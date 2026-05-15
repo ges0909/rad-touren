@@ -180,15 +180,61 @@ class MCPManager:
 
         input_schema = tool.get("inputSchema", {})
         if input_schema:
+            properties = input_schema.get("properties", {})
+            cleaned_props = {k: self._clean_property(v) for k, v in properties.items()}
             declaration["parameters"] = {
                 "type": input_schema.get("type", "object"),
-                "properties": input_schema.get("properties", {}),
+                "properties": cleaned_props,
             }
             required = input_schema.get("required")
             if required:
                 declaration["parameters"]["required"] = required
 
         return declaration
+
+    def _clean_property(self, prop: dict[str, Any]) -> dict[str, Any]:
+        """Recursively strip JSON Schema fields unsupported by Gemini.
+
+        Gemini supports: type, description, enum, items, properties, required.
+        It does NOT support: additionalProperties, anyOf, allOf, oneOf, default, $ref, etc.
+        """
+        # Handle anyOf/oneOf: pick the first non-null type
+        for union_key in ("anyOf", "oneOf"):
+            if union_key in prop:
+                variants = prop[union_key]
+                non_null = [v for v in variants if v.get("type") != "null"]
+                if non_null:
+                    # Use the first non-null variant as the base, merge description
+                    resolved = dict(non_null[0])
+                    if "description" in prop:
+                        resolved["description"] = prop["description"]
+                    # Mark as nullable by keeping description hint
+                    return self._clean_property(resolved)
+                # All variants are null — treat as string
+                result: dict[str, Any] = {"type": "string"}
+                if "description" in prop:
+                    result["description"] = prop["description"]
+                return result
+
+        # Allowed keys for Gemini
+        allowed = {"type", "description", "enum", "items", "properties", "required"}
+        cleaned: dict[str, Any] = {}
+
+        for key, value in prop.items():
+            if key not in allowed:
+                continue
+            if key == "items" and isinstance(value, dict):
+                cleaned["items"] = self._clean_property(value)
+            elif key == "properties" and isinstance(value, dict):
+                cleaned["properties"] = {k: self._clean_property(v) for k, v in value.items()}
+            else:
+                cleaned[key] = value
+
+        # Ensure type is present
+        if "type" not in cleaned:
+            cleaned["type"] = "string"
+
+        return cleaned
 
     async def _ensure_server(self, server_name: str) -> ServerInstance:
         """Ensure server is running. Spawn if not started or if process died."""
