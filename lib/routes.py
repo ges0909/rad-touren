@@ -88,3 +88,38 @@ async def get_route_details(route_id: int, activity: str = "hiking") -> dict[str
             for sr in (data.get("subroutes") or {}).values()
         ],
     }
+
+
+async def get_route_segments(route_id: int, activity: str = "hiking") -> dict[str, Any]:
+    """Get route structure including sub-routes/stages.
+
+    Args:
+        route_id: OSM relation ID.
+        activity: "hiking" or "cycling".
+    """
+    if activity not in BASE_URLS:
+        return {"error": f"activity must be 'hiking' or 'cycling'"}
+
+    base_url = BASE_URLS[activity]
+
+    async with httpx.AsyncClient(timeout=TIMEOUT, headers=HEADERS) as client:
+        resp = await client.get(f"{base_url}/details/relation/{route_id}")
+        resp.raise_for_status()
+        data = resp.json()
+
+    route_info = data.get("route", {})
+    length_m = route_info.get("length", 0) if isinstance(route_info, dict) else 0
+
+    subroutes = [
+        {"id": sr.get("id"), "name": sr.get("name", "?"), "ref": sr.get("ref", "")}
+        for sr in (data.get("subroutes") or {}).values()
+    ]
+
+    return {
+        "id": data.get("id"),
+        "name": data.get("name", "?"),
+        "length_km": round(length_m / 1000, 1),
+        "type": "loop" if data.get("linear") == "no" else "linear",
+        "subroutes": subroutes,
+        "itinerary": data.get("itinerary", []),
+    }

@@ -1,13 +1,23 @@
-"""MCP server wrapping OpenRouteService for car, bike, and foot routing."""
+"""MCP server wrapping OpenRouteService for car, bike, and foot routing.
+
+Uses lib.geocoding for geocode. Routing, isochrone, and matrix use ORS directly
+(not yet in shared lib due to multi-profile POST API differences).
+"""
 
 import os
+import sys
 from pathlib import Path
 
 import httpx
 from dotenv import load_dotenv
 from fastmcp import FastMCP
 
-# Load .env from project root (two levels up from mcp/ors/)
+# Add lib/ to path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+
+from lib.geocoding import geocode as _geocode
+
+# Load .env from project root
 _env_path = Path(__file__).resolve().parent.parent.parent / ".env"
 load_dotenv(_env_path)
 
@@ -166,32 +176,17 @@ async def geocode(query: str, country: str | None = None) -> str:
     if not query or len(query) < 2:
         return "Error: query must be at least 2 characters"
 
-    params = {
-        "api_key": API_KEY,
-        "text": query,
-        "size": 5,
-    }
-    if country:
-        params["boundary.country"] = country.upper()
+    result = await _geocode(query, country)
 
-    data = await _api_get("/geocode/search", params)
-    if isinstance(data, str):
-        return data
+    if "error" in result:
+        return result["error"]
 
-    features = data.get("features", [])
-    if not features:
-        return f"No results found for '{query}'"
-
-    lines = [f"Found {len(features)} result(s):\n"]
-    for f in features:
-        props = f.get("properties", {})
-        coords = f.get("geometry", {}).get("coordinates", [0, 0])
-        name = props.get("name", "?")
-        label = props.get("label", "?")
-        confidence = props.get("confidence", 0)
+    results = result["results"]
+    lines = [f"Found {len(results)} result(s):\n"]
+    for r in results:
         lines.append(
-            f"- **{name}** — {label}\n"
-            f"  Coordinates: [{coords[0]:.6f}, {coords[1]:.6f}] (confidence: {confidence})"
+            f"- **{r['name']}** — {r['label']}\n"
+            f"  Coordinates: [{r['coordinates'][0]:.6f}, {r['coordinates'][1]:.6f}] (confidence: {r['confidence']})"
         )
 
     return "\n".join(lines)

@@ -107,3 +107,91 @@ async def driving_time(
         "distance_km": round(route["distance"] / 1000, 1),
         "duration_min": round(route["duration"] / 60),
     }
+
+
+def coords_to_gpx(
+    coords: list[tuple[float, float]],
+    name: str = "route",
+    waypoints: list[dict[str, Any]] | None = None,
+) -> str:
+    """Convert coordinate list to GPX XML string.
+
+    Args:
+        coords: List of (lat, lon) tuples.
+        name: Track name.
+        waypoints: Optional list of {"name": str, "lat": float, "lon": float}.
+    """
+    from datetime import datetime, timezone
+
+    timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<gpx version="1.1" creator="trip-planner"',
+        '     xmlns="http://www.topografix.com/GPX/1/1">',
+        "  <metadata>",
+        f"    <name>{name}</name>",
+        f"    <time>{timestamp}</time>",
+        "  </metadata>",
+    ]
+
+    if waypoints:
+        for wp in waypoints:
+            lines.append(f'  <wpt lat="{wp["lat"]:.6f}" lon="{wp["lon"]:.6f}">')
+            lines.append(f'    <name>{wp["name"]}</name>')
+            lines.append("  </wpt>")
+
+    lines.append("  <trk>")
+    lines.append(f"    <name>{name}</name>")
+    lines.append("    <trkseg>")
+    for lat, lon in coords:
+        lines.append(f'      <trkpt lat="{lat:.6f}" lon="{lon:.6f}"/>')
+    lines.append("    </trkseg>")
+    lines.append("  </trk>")
+    lines.append("</gpx>")
+
+    return "\n".join(lines)
+
+
+async def route_to_gpx(
+    waypoints: list[list[float]],
+    output_path: str,
+    track_name: str = "route",
+    station_names: list[str] | None = None,
+) -> dict[str, Any]:
+    """Calculate a car route and save as GPX file.
+
+    Args:
+        waypoints: List of [longitude, latitude] pairs.
+        output_path: Path where GPX file will be saved.
+        track_name: Name for the GPX track.
+        station_names: Optional station names (same length as waypoints).
+    """
+    from pathlib import Path
+
+    result = await calculate_car_route(waypoints, overview="full")
+    if "error" in result:
+        return result
+
+    geometry = result["geometry"]
+
+    gpx_waypoints = None
+    if station_names and len(station_names) == len(waypoints):
+        gpx_waypoints = [
+            {"name": name, "lon": wp[0], "lat": wp[1]}
+            for name, wp in zip(station_names, waypoints)
+        ]
+
+    gpx_content = coords_to_gpx(geometry, name=track_name, waypoints=gpx_waypoints)
+
+    out = Path(output_path)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(gpx_content, encoding="utf-8")
+
+    return {
+        "path": output_path,
+        "track_points": len(geometry),
+        "distance_km": result["distance_km"],
+        "duration_min": result["duration_min"],
+        "waypoint_count": len(gpx_waypoints) if gpx_waypoints else 0,
+    }
