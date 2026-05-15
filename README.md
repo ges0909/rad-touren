@@ -17,10 +17,8 @@ AI-powered tour planning with [Kiro](https://kiro.dev) and custom MCP servers fo
 Prerequisites: [Kiro](https://kiro.dev) + [uv](https://docs.astral.sh/uv/getting-started/installation/) + Node.js 20+ + npm
 
 ```bash
-# Install all MCP servers
-for dir in mcp/brouter mcp/ors mcp/osrm mcp/open-meteo mcp/vbb mcp/overpass mcp/waymarkedtrails mcp/wikivoyage; do
-  uv sync --directory "$dir"
-done
+# Install all workspace packages (single command from project root)
+uv sync --all-packages
 ```
 
 ```bash
@@ -40,14 +38,12 @@ The project includes a web-based trip planner (FastAPI + Vue 3 + Leaflet):
 
 ```bash
 # Backend
-cd app/backend
-uv sync
-uv run uvicorn main:app --reload
+cd app/backend && uv run uvicorn main:app --reload
+```
 
+```bash
 # Frontend (separate terminal)
-cd app/frontend
-npm install
-npm run dev
+cd app/frontend && npm install && npm run dev
 ```
 
 Open http://localhost:5173 — the Vite dev server proxies API requests to the backend.
@@ -104,6 +100,8 @@ Additionally, `remote_web_search` is used for flights, hotels, car rentals, and 
 app/
 ├── backend/                 FastAPI + Gemini agent (Python)
 └── frontend/                Vue 3 + Leaflet + Tailwind (TypeScript)
+lib/
+└── src/lib/                 Shared API client library (uv workspace package)
 trips/
 ├── bike/                    Cycling tours: Markdown, GPX, maps
 ├── hike/                    Hiking tours (planned)
@@ -121,18 +119,30 @@ mcp/
 ├── settings/mcp.json        Server configuration
 ├── hooks/                   Agent hooks
 └── steering/                Steering rules
+pyproject.toml               uv workspace root + ruff config
 .env                         API keys (gitignored)
 ```
 
 ## Tests
 
 ```bash
-uv run --directory mcp/brouter pytest -v
-uv run --directory mcp/open-meteo pytest -v
-uv run --directory mcp/vbb pytest -v
-uv run --directory mcp/overpass pytest -v
-uv run --directory mcp/waymarkedtrails pytest -v
-uv run --directory mcp/wikivoyage pytest -v
+# Run from project root (uv workspace resolves all dependencies)
+uv run pytest mcp/brouter/tests/ -v
+uv run pytest mcp/open-meteo/tests/ -v
+uv run pytest mcp/vbb/tests/ -v
+uv run pytest mcp/overpass/tests/ -v
+```
+
+## Code Quality
+
+```bash
+# Format + lint all Python
+uvx ruff format lib/ app/backend/ mcp/
+uvx ruff check lib/ app/backend/ mcp/ --fix
+
+# Vulnerability check
+uvx pip-audit
+cd app/frontend && npm audit
 ```
 
 ## Licenses & Data Sources

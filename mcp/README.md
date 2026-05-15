@@ -8,11 +8,17 @@ Custom [Model Context Protocol](https://modelcontextprotocol.io/) servers for th
 - **Environment variables / tokens**: `.env` (project root, not committed)
 - **Python**: ≥ 3.11, managed via [uv](https://docs.astral.sh/uv/)
 
-Each server has its own `pyproject.toml` and `.venv`. Setup:
+Each server has its own `pyproject.toml` and depends on `trip-planner-lib` (shared API client library) via uv workspace. Setup from project root:
 
 ```bash
-cd mcp/<server-name>
-uv sync
+# Install everything (single command)
+uv sync --all-packages
+```
+
+Or individually:
+
+```bash
+uv run --package brouter-mcp python -c "import lib.brouter; print('OK')"
 ```
 
 ---
@@ -72,8 +78,8 @@ Set `"disabled": true/false` per server in `.kiro/settings/mcp.json`. The corpor
 ## Adding a New Server
 
 1. Create directory: `mcp/<name>/`
-2. Add `pyproject.toml` with `fastmcp` + `httpx` as dependencies
-3. Write `server.py` with `FastMCP("<Name>")` and `@mcp.tool()` functions
-4. Run `uv sync` in the directory
+2. Add `pyproject.toml` with `trip-planner-lib`, `fastmcp`, `httpx` as dependencies + `[tool.uv.sources] trip-planner-lib = { workspace = true }`
+3. Write `server.py` with `FastMCP("<Name>")` and `@mcp.tool()` functions — import shared logic from `lib.*`
+4. Run `uv sync --all-packages` from project root
 5. Add entry to `.kiro/settings/mcp.json`
 6. Optional: add `README.md` in the server directory

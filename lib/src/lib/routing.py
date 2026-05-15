@@ -1,6 +1,5 @@
 """OSRM routing client — car route calculation and polyline decoding."""
 
-from datetime import UTC
 from typing import Any
 
 import httpx
@@ -83,7 +82,9 @@ async def calculate_car_route(
     }
 
 
-async def driving_time(from_coords: list[float], to_coords: list[float]) -> dict[str, Any]:
+async def driving_time(
+    from_coords: list[float], to_coords: list[float]
+) -> dict[str, Any]:
     """Get driving time and distance between two points via OSRM.
 
     Args:
@@ -120,9 +121,9 @@ def coords_to_gpx(
         name: Track name.
         waypoints: Optional list of {"name": str, "lat": float, "lon": float}.
     """
-    from datetime import datetime
+    from datetime import datetime, timezone
 
-    timestamp = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
+    timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
@@ -137,7 +138,7 @@ def coords_to_gpx(
     if waypoints:
         for wp in waypoints:
             lines.append(f'  <wpt lat="{wp["lat"]:.6f}" lon="{wp["lon"]:.6f}">')
-            lines.append(f"    <name>{wp['name']}</name>")
+            lines.append(f'    <name>{wp["name"]}</name>')
             lines.append("  </wpt>")
 
     lines.append("  <trk>")

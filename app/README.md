@@ -57,8 +57,8 @@ cd app/backend && uv run uvicorn main:app --host 0.0.0.0 --port 8000
 app/
 ├── backend/
 │   ├── main.py          # FastAPI app, SSE endpoint, static serving
-│   ├── agent.py         # Gemini agent loop (tool calling, streaming)
-│   ├── tools.py         # Tool registry (13 tools from lib/)
+│   ├── agent.py         # Gemini agent loop (tool calling, retry, streaming)
+│   ├── tools.py         # Tool registry (12 tools from lib/)
 │   ├── steering.py      # Tour-type detection + system prompt assembly
 │   ├── i18n.py          # Bilingual error messages (de/en)
 │   └── pyproject.toml
@@ -81,7 +81,7 @@ app/
 
 ## Architecture
 
-Gemini 2.5 Flash acts as LLM orchestrator with 13 registered tools (geocoding, routing, weather, transit, route search, travel guides). The agent loop iterates: prompt → tool calls → results → final markdown response, streamed via SSE. Rate-limited to stay within free tier (5 RPM).
+Gemini 2.5 Flash acts as LLM orchestrator with 12 registered tools (geocoding, routing, weather, transit, route search, travel guides). The agent loop iterates: prompt → tool calls → results → final markdown response, streamed via SSE. Includes retry with exponential backoff for 429/503 errors.
 
 Steering files from `.kiro/steering/` are loaded based on detected tour type:
 
@@ -89,9 +89,9 @@ Steering files from `.kiro/steering/` are loaded based on detected tour type:
 - **Road** keywords → `user-preferences.md` + `road-planning.md` + `road-template.md`
 - **Other** → `user-preferences.md` only
 
-All API logic lives in the shared `lib/` directory (used by both the app and MCP servers).
+All API logic lives in the shared `lib/` package (uv workspace dependency, used by both the app and MCP servers).
 
-The frontend renders Markdown to HTML using [`marked`](https://github.com/markedjs/marked) with Tailwind Typography (`prose` classes). Routes and waypoints are displayed on a Leaflet map. UI language (DE/EN) is selectable via toggle.
+The frontend renders Markdown to HTML using [`marked`](https://github.com/markedjs/marked) + [DOMPurify](https://github.com/cure53/DOMPurify) with Tailwind Typography (`prose` classes). Routes and waypoints are displayed on a Leaflet map in real-time as tool calls complete. UI language (DE/EN) is selectable via toggle.
 
 ## Tools
 
@@ -101,7 +101,6 @@ The frontend renders Markdown to HTML using [`marked`](https://github.com/marked
 | `search_location`      | lib/brouter    | Nominatim        |
 | `calculate_car_route`  | lib/routing    | OSRM             |
 | `calculate_bike_route` | lib/brouter    | BRouter          |
-| `driving_time`         | lib/routing    | OSRM             |
 | `weather_forecast`     | lib/weather    | Open-Meteo       |
 | `search_routes`        | lib/routes     | Waymarked Trails |
 | `search_stops`         | lib/transit    | VBB REST         |
