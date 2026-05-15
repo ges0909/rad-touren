@@ -18,9 +18,21 @@ type ToolFn = Any
 
 
 async def calculate_bike_route(waypoints: list[list[float]], profile: str = "trekking") -> dict[str, Any]:
-    """Wrapper that strips GPX content to keep Gemini context small."""
+    """Wrapper that extracts geometry from GPX and strips raw content."""
     result = await _calculate_bike_route(waypoints=waypoints, profile=profile)
-    result.pop("content", None)  # Remove large GPX body
+    if "error" in result:
+        return result
+
+    # Extract (lat, lon) geometry from GPX content for map display
+    content = result.pop("content", "")
+    geometry: list[tuple[float, float]] = []
+    if content:
+        import re
+        for match in re.finditer(r'<trkpt\s+lat="([^"]+)"\s+lon="([^"]+)"', content):
+            geometry.append((float(match.group(1)), float(match.group(2))))
+
+    result["geometry"] = geometry
+    result["waypoints"] = [[wp[1], wp[0]] for wp in waypoints]  # [lat, lon]
     return result
 
 # ---------------------------------------------------------------------------
@@ -42,7 +54,7 @@ TOOL_DECLARATIONS: list[dict[str, Any]] = [
     },
     {
         "name": "driving_time",
-        "description": "Get driving time and distance between two points. Coordinates as [longitude, latitude].",
+        "description": "Get driving time and distance between two points. Coordinates as [longitude, latitude]. NOTE: Does NOT generate a map route — use calculate_car_route instead if you need the route displayed on the map.",
         "parameters": {
             "type": "object",
             "properties": {
@@ -79,7 +91,7 @@ TOOL_DECLARATIONS: list[dict[str, Any]] = [
     },
     {
         "name": "calculate_car_route",
-        "description": "Calculate a car route between waypoints. Returns distance, duration, and geometry.",
+        "description": "Calculate a car route between waypoints. Returns distance, duration, and full route geometry for map display. ALWAYS use this when planning a road trip to show the route on the map.",
         "parameters": {
             "type": "object",
             "properties": {
@@ -94,7 +106,7 @@ TOOL_DECLARATIONS: list[dict[str, Any]] = [
     },
     {
         "name": "calculate_bike_route",
-        "description": "Calculate a cycling route between waypoints via BRouter. Returns GPX content.",
+        "description": "Calculate a cycling route between waypoints via BRouter. Returns distance, elevation, and route geometry for map display. ALWAYS use this when planning a bike tour to show the route on the map.",
         "parameters": {
             "type": "object",
             "properties": {

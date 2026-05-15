@@ -194,8 +194,6 @@ async def run_agent(
             if tool_fn:
                 try:
                     result: Any = await tool_fn(**tool_args)
-                    result_str = json.dumps(result, ensure_ascii=False, default=str)
-                    logger.debug("Tool %s result: %s", tool_name, result_str[:200])
 
                     # Emit map data events for geo tools
                     if tool_name == "geocode" and isinstance(result, dict):
@@ -220,6 +218,11 @@ async def run_agent(
                                 "event": "map",
                                 "data": {"waypoints": wps},
                             }
+                        # Strip large geometry from result before sending to LLM
+                        result.pop("geometry", None)
+
+                    result_str = json.dumps(result, ensure_ascii=False, default=str)
+                    logger.debug("Tool %s result: %s", tool_name, result_str[:200])
 
                 except Exception as e:
                     logger.error("Tool %s failed: %s", tool_name, e)
