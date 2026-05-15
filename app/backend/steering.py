@@ -1,6 +1,9 @@
 """Load steering files and assemble system prompt for the LLM."""
 
+import logging
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
 
 STEERING_DIR: Path = Path(__file__).parent.parent.parent / ".kiro" / "steering"
 
@@ -18,7 +21,7 @@ def build_system_prompt(tour_type: str = "road", language: str = "de") -> str:
     Returns:
         Combined steering content as a single string.
     """
-    # Base instructions for agent behavior (in target language) (in target language)
+    # Base instructions for agent behavior (in target language)
     if language == "en":
         base_prompt: str = """You are a travel planning assistant. You help plan cycling tours, hikes, and road trips.
 
@@ -76,6 +79,7 @@ Halte dich strikt an die Struktur des gewählten Templates.
     ]
 
     parts: list[str] = []
+    loaded_count = 0
     for filename in files:
         path: Path = STEERING_DIR / filename
         if path.exists():
@@ -86,5 +90,10 @@ Halte dich strikt an die Struktur des gewählten Templates.
                 if end != -1:
                     content = content[end + 3:].strip()
             parts.append(content)
+            loaded_count += 1
+        else:
+            logger.debug("Steering file not found: %s", filename)
 
-    return base_prompt + "\n\n---\n\n".join(parts)
+    prompt = base_prompt + "\n\n---\n\n".join(parts)
+    logger.info("System prompt built: %d files loaded, %d chars total", loaded_count, len(prompt))
+    return prompt

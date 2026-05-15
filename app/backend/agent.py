@@ -39,6 +39,9 @@ async def run_agent(
     # Use provided language for error messages
     lang: Lang = language if language in ("de", "en") else "de"
 
+    logger.info("Agent started: lang=%s, history=%d messages", lang, len(chat_history))
+    logger.debug("System prompt length: %d chars", len(system_prompt))
+
     # Build conversation contents
     contents: list[types.Content] = []
     for msg in chat_history:
@@ -69,6 +72,7 @@ async def run_agent(
     # Agent loop: call LLM, execute tools, feed results back
     max_iterations: int = 15
     for iteration in range(max_iterations):
+        logger.info("Iteration %d: calling Gemini", iteration + 1)
         try:
             response = client.models.generate_content(
                 model="gemini-2.5-flash",
@@ -113,11 +117,13 @@ async def run_agent(
             # No more tool calls — this is the final response
             text_parts: list[str] = [p.text for p in parts if p.text]
             final_text: str = "\n".join(text_parts)
+            logger.info("Agent done: %d iterations, response %d chars", iteration + 1, len(final_text))
             yield {"event": "tour", "data": {"markdown": final_text}}
             yield {"event": "done", "data": {"iterations": iteration + 1}}
             return
 
         # Execute tool calls
+        logger.info("Iteration %d: %d tool call(s)", iteration + 1, len(function_calls))
         contents.append(candidate.content)
         tool_results: list[types.Part] = []
 
@@ -125,6 +131,8 @@ async def run_agent(
             fc = part.function_call
             tool_name: str = fc.name
             tool_args: dict[str, Any] = dict(fc.args) if fc.args else {}
+
+            logger.info("Tool call: %s(%s)", tool_name, json.dumps(tool_args, ensure_ascii=False)[:150])
 
             yield {
                 "event": "status",
@@ -138,6 +146,7 @@ async def run_agent(
                 try:
                     result: Any = await tool_fn(**tool_args)
                     result_str = json.dumps(result, ensure_ascii=False, default=str)
+                    logger.debug("Tool %s result: %s", tool_name, result_str[:200])
 
                     # Emit map data events for geo tools
                     if tool_name == "geocode" and isinstance(result, dict):
@@ -167,6 +176,7 @@ async def run_agent(
                     logger.error("Tool %s failed: %s", tool_name, e)
                     result_str = json.dumps({"error": str(e)})
             else:
+                logger.warning("Unknown tool requested: %s", tool_name)
                 result_str = json.dumps({"error": f"Unknown tool: {tool_name}"})
 
             tool_results.append(
@@ -182,4 +192,5 @@ async def run_agent(
         )
 
     # Max iterations reached
+    logger.warning("Max iterations (%d) reached", max_iterations)
     yield {"event": "error", "data": {"error": i18n_msg("max_iterations", lang)}}

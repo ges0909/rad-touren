@@ -18,6 +18,7 @@ from i18n import msg
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Load environment variables
 load_dotenv(Path(__file__).parent.parent.parent / ".env")
@@ -36,6 +37,7 @@ def get_client() -> genai.Client:
         if not api_key:
             raise RuntimeError("GEMINI_API_KEY not set")
         _client = create_client(api_key)
+        logger.info("Gemini client initialized")
     return _client
 
 
@@ -54,9 +56,12 @@ async def chat(request: Request) -> EventSourceResponse:
     if not message:
         return {"error": "No message provided"}  # type: ignore[return-value]
 
+    logger.info("Chat request: session=%s, lang=%s, message=%s", session_id, language, message[:80])
+
     # Get or create session history
     if session_id not in sessions:
         sessions[session_id] = []
+        logger.debug("New session created: %s", session_id)
 
     chat_history: list[dict[str, str]] = sessions[session_id]
 
@@ -65,6 +70,7 @@ async def chat(request: Request) -> EventSourceResponse:
         try:
             client = get_client()
         except RuntimeError:
+            logger.error("GEMINI_API_KEY not set")
             yield {
                 "event": "error",
                 "data": json.dumps({"error": msg("no_api_key", lang)}, ensure_ascii=False),
@@ -87,6 +93,7 @@ async def chat(request: Request) -> EventSourceResponse:
                     "data": json.dumps(event["data"], ensure_ascii=False),
                 }
         except Exception as e:
+            logger.exception("Unhandled exception in event generator")
             yield {
                 "event": "error",
                 "data": json.dumps(
@@ -100,6 +107,7 @@ async def chat(request: Request) -> EventSourceResponse:
         chat_history.append({"role": "user", "content": message})
         if assistant_response:
             chat_history.append({"role": "model", "content": assistant_response})
+            logger.info("Session %s: history now %d messages", session_id, len(chat_history))
 
     return EventSourceResponse(event_generator())
 
@@ -114,3 +122,4 @@ async def health() -> dict[str, Any]:
 FRONTEND_DIST: Path = Path(__file__).parent.parent / "frontend" / "dist"
 if FRONTEND_DIST.exists():
     app.mount("/", StaticFiles(directory=str(FRONTEND_DIST), html=True), name="frontend")
+    logger.info("Serving frontend from %s", FRONTEND_DIST)
