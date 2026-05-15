@@ -28,26 +28,18 @@ async def calculate_car_route(
         waypoints: List of [longitude, latitude] coordinate pairs (min 2, max 100).
         overview: Geometry detail — "full" (default), "simplified", or "false".
     """
+    import json
+
     if len(waypoints) > 100:
-        return "Error: Maximum 100 waypoints supported."
+        return json.dumps({"error": "Maximum 100 waypoints supported."})
 
     result = await _calculate(waypoints, overview=overview)
 
     if "error" in result:
-        return f"Error: {result['error']}"
+        return json.dumps({"error": result["error"]})
 
-    hours = int(result["duration_min"] // 60)
-    minutes = int(result["duration_min"] % 60)
-
-    lines = [
-        "## Route Summary (car)",
-        "",
-        f"- **Total distance:** {result['distance_km']:.1f} km",
-        f"- **Total duration:** {hours}h {minutes:02d}min",
-        f"- **Waypoints:** {len(waypoints)}",
-    ]
-
-    return "\n".join(lines)
+    # Return as JSON so the backend can extract geometry for map display
+    return json.dumps(result)
 
 
 @mcp.tool()

@@ -65,7 +65,7 @@ def build_system_prompt(
 - If route search fails, suggest a route based on your knowledge of the region.
 - Structure results clearly with Markdown.
 - Respond ONLY in {lang_name}.
-- To display a route on the map, call `calculate_car_route` or `calculate_bike_route` with waypoint coordinates. Without this call, no map will be shown.
+- To display a route on the map, call `mcp_osrm_calculate_car_route` with waypoint coordinates. Without this call, no map will be shown. Do NOT use `mcp_openrouteservice_driving_time` for route display — it only returns distance/duration without geometry.
 
 ## Tool Efficiency Rules — CRITICAL
 
