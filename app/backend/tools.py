@@ -3,6 +3,7 @@
 All API logic lives in lib/ — this file only wires tools to Gemini declarations.
 """
 
+import re
 from typing import Any
 
 from lib.geocoding import geocode
@@ -28,7 +29,6 @@ async def calculate_bike_route(waypoints: list[list[float]], profile: str = "tre
     content = result.pop("content", "")
     geometry: list[tuple[float, float]] = []
     if content:
-        import re
         for match in re.finditer(r'<trkpt\s+lon="([^"]+)"\s+lat="([^"]+)"', content):
             geometry.append((float(match.group(2)), float(match.group(1))))  # (lat, lon)
 
