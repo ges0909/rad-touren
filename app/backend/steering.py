@@ -50,6 +50,7 @@ def build_system_prompt(tour_type: str = "road", language: str = "de", user_mess
 - Structure results clearly with Markdown.
 - Respond ONLY in {lang_name}.
 - You do NOT have access to web search. Use only the tools listed below and your own knowledge.
+- To display a route on the map, call `calculate_car_route` or `calculate_bike_route` with waypoint coordinates. Without this call, no map will be shown.
 
 ## Template Selection
 

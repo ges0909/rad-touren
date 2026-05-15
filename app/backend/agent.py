@@ -207,14 +207,14 @@ async def run_agent(
                                     "event": "map",
                                     "data": {"waypoints": [[coords[1], coords[0]]]},
                                 }
-                    elif tool_name == "calculate_car_route" and isinstance(result, dict):
-                        geometry: list[tuple[float, float]] | None = result.get("geometry")
+                    elif tool_name in ("calculate_car_route", "calculate_bike_route") and isinstance(result, dict):
+                        geometry = result.get("geometry")
                         if geometry:
                             yield {
                                 "event": "map",
                                 "data": {"route": [[lat, lon] for lat, lon in geometry]},
                             }
-                        wps: list[list[float]] | None = result.get("waypoints")
+                        wps = result.get("waypoints")
                         if wps:
                             yield {
                                 "event": "map",
