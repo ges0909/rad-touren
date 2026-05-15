@@ -1,6 +1,6 @@
 """MCP server wrapping OpenRouteService for car, bike, and foot routing.
 
-Uses lib.geocoding for geocode. Routing, isochrone, and matrix use ORS directly
+Uses geocoding module for geocode. Routing, isochrone, and matrix use ORS directly
 (not yet in shared lib due to multi-profile POST API differences).
 """
 
@@ -10,7 +10,7 @@ from pathlib import Path
 import httpx
 from dotenv import load_dotenv
 from fastmcp import FastMCP
-from lib.geocoding import geocode as _geocode
+from geocoding import geocode as _geocode
 
 # Load .env from project root
 _env_path = Path(__file__).resolve().parent.parent.parent / ".env"

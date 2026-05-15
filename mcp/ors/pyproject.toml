@@ -4,14 +4,10 @@ version = "1.0.0"
 description = "MCP server wrapping OpenRouteService for car/bike/foot routing"
 requires-python = ">=3.11"
 dependencies = [
-    "trip-planner-lib",
     "fastmcp",
     "httpx",
     "python-dotenv",
 ]
-
-[tool.uv.sources]
-trip-planner-lib = { workspace = true }
 
 [dependency-groups]
 dev = [

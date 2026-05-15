@@ -1,12 +1,12 @@
 """MCP server wrapping the Open-Meteo API for weather forecasts and geocoding.
 
-Uses lib.weather for all API logic. This file provides MCP tool declarations
+Uses weather module for all API logic. This file provides MCP tool declarations
 and formats raw JSON results into human-readable strings.
 """
 
 from fastmcp import FastMCP
-from lib.weather import geocoding as _geocoding
-from lib.weather import weather_forecast as _forecast
+from weather import geocoding as _geocoding
+from weather import weather_forecast as _forecast
 
 mcp = FastMCP("Open-Meteo Weather")
 

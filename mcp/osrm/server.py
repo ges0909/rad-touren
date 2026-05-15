@@ -1,6 +1,6 @@
 """MCP server wrapping the public OSRM API for car routing with GPX export.
 
-Uses lib.routing for all API logic. This file only provides MCP tool
+Uses routing module for all API logic. This file only provides MCP tool
 declarations and formats structured results into human-readable strings.
 
 Usage:
@@ -8,8 +8,8 @@ Usage:
 """
 
 from fastmcp import FastMCP
-from lib.routing import calculate_car_route as _calculate
-from lib.routing import route_to_gpx as _route_to_gpx
+from routing import calculate_car_route as _calculate
+from routing import route_to_gpx as _route_to_gpx
 
 mcp = FastMCP("OSRM Car Routing")
 

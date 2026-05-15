@@ -1,17 +1,17 @@
 """MCP server wrapping the Waymarked Trails API for hiking and cycling route discovery.
 
-Uses lib.routes for all API logic. This file provides MCP tool declarations
+Uses routes module for all API logic. This file provides MCP tool declarations
 and formats structured results into human-readable strings.
 """
 
 from fastmcp import FastMCP
-from lib.routes import (
+from routes import (
     get_route_details as _details,
 )
-from lib.routes import (
+from routes import (
     get_route_segments as _segments,
 )
-from lib.routes import (
+from routes import (
     search_routes as _search,
 )
 

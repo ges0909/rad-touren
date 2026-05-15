@@ -15,7 +15,6 @@ members = [
     "rad-touren",
     "sonarqube-mcp",
     "trip-planner-backend",
-    "trip-planner-lib",
     "vbb-mcp",
     "waymarkedtrails-mcp",
     "wikivoyage-mcp",
@@ -105,7 +104,6 @@ dependencies = [
     { name = "httpx" },
     { name = "matplotlib" },
     { name = "staticmap" },
-    { name = "trip-planner-lib" },
 ]
 
 [package.dev-dependencies]
@@ -122,7 +120,6 @@ requires-dist = [
     { name = "httpx" },
     { name = "matplotlib" },
     { name = "staticmap" },
-    { name = "trip-planner-lib", editable = "lib" },
 ]
 
 [package.metadata.requires-dev]
@@ -1284,7 +1281,6 @@ source = { virtual = "mcp/open-meteo" }
 dependencies = [
     { name = "fastmcp" },
     { name = "httpx" },
-    { name = "trip-planner-lib" },
 ]
 
 [package.dev-dependencies]
@@ -1298,7 +1294,6 @@ dev = [
 requires-dist = [
     { name = "fastmcp" },
     { name = "httpx" },
-    { name = "trip-planner-lib", editable = "lib" },
 ]
 
 [package.metadata.requires-dev]
@@ -1341,7 +1336,6 @@ dependencies = [
     { name = "fastmcp" },
     { name = "httpx" },
     { name = "python-dotenv" },
-    { name = "trip-planner-lib" },
 ]
 
 [package.dev-dependencies]
@@ -1355,7 +1349,6 @@ requires-dist = [
     { name = "fastmcp" },
     { name = "httpx" },
     { name = "python-dotenv" },
-    { name = "trip-planner-lib", editable = "lib" },
 ]
 
 [package.metadata.requires-dev]
@@ -1371,7 +1364,6 @@ source = { virtual = "mcp/osrm" }
 dependencies = [
     { name = "fastmcp" },
     { name = "httpx" },
-    { name = "trip-planner-lib" },
 ]
 
 [package.dev-dependencies]
@@ -1385,7 +1377,6 @@ dev = [
 requires-dist = [
     { name = "fastmcp" },
     { name = "httpx" },
-    { name = "trip-planner-lib", editable = "lib" },
 ]
 
 [package.metadata.requires-dev]
@@ -1403,7 +1394,6 @@ dependencies = [
     { name = "fastmcp" },
     { name = "gpxpy" },
     { name = "httpx" },
-    { name = "trip-planner-lib" },
 ]
 
 [package.dev-dependencies]
@@ -1418,7 +1408,6 @@ requires-dist = [
     { name = "fastmcp" },
     { name = "gpxpy" },
     { name = "httpx" },
-    { name = "trip-planner-lib", editable = "lib" },
 ]
 
 [package.metadata.requires-dev]
@@ -2146,14 +2135,15 @@ dependencies = [
     { name = "httpx" },
     { name = "python-dotenv" },
     { name = "sse-starlette" },
-    { name = "trip-planner-lib" },
     { name = "uvicorn", extra = ["standard"] },
 ]
 
 [package.dev-dependencies]
 dev = [
     { name = "httpx" },
+    { name = "hypothesis" },
     { name = "pytest" },
+    { name = "pytest-asyncio" },
 ]
 
 [package.metadata]
@@ -2163,26 +2153,16 @@ requires-dist = [
     { name = "httpx", specifier = ">=0.28.1" },
     { name = "python-dotenv", specifier = ">=1.0.1" },
     { name = "sse-starlette", specifier = ">=2.1.0" },
-    { name = "trip-planner-lib", editable = "lib" },
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.30.0" },
 ]
 
 [package.metadata.requires-dev]
 dev = [
     { name = "httpx", specifier = ">=0.27.0" },
+    { name = "hypothesis", specifier = ">=6.100.0" },
     { name = "pytest", specifier = ">=8.0.0" },
+    { name = "pytest-asyncio", specifier = ">=0.23.0" },
 ]
-
-[[package]]
-name = "trip-planner-lib"
-version = "0.1.0"
-source = { editable = "lib" }
-dependencies = [
-    { name = "httpx" },
-]
-
-[package.metadata]
-requires-dist = [{ name = "httpx", specifier = ">=0.27.0" }]
 
 [[package]]
 name = "typing-extensions"
@@ -2286,7 +2266,6 @@ source = { virtual = "mcp/vbb" }
 dependencies = [
     { name = "fastmcp" },
     { name = "httpx" },
-    { name = "trip-planner-lib" },
 ]
 
 [package.dev-dependencies]
@@ -2300,7 +2279,6 @@ dev = [
 requires-dist = [
     { name = "fastmcp" },
     { name = "httpx" },
-    { name = "trip-planner-lib", editable = "lib" },
 ]
 
 [package.metadata.requires-dev]
@@ -2387,7 +2365,6 @@ source = { virtual = "mcp/waymarkedtrails" }
 dependencies = [
     { name = "fastmcp" },
     { name = "httpx" },
-    { name = "trip-planner-lib" },
 ]
 
 [package.dev-dependencies]
@@ -2401,7 +2378,6 @@ dev = [
 requires-dist = [
     { name = "fastmcp" },
     { name = "httpx" },
-    { name = "trip-planner-lib", editable = "lib" },
 ]
 
 [package.metadata.requires-dev]
@@ -2463,7 +2439,6 @@ source = { virtual = "mcp/wikivoyage" }
 dependencies = [
     { name = "fastmcp" },
     { name = "httpx" },
-    { name = "trip-planner-lib" },
 ]
 
 [package.dev-dependencies]
@@ -2477,7 +2452,6 @@ dev = [
 requires-dist = [
     { name = "fastmcp" },
     { name = "httpx" },
-    { name = "trip-planner-lib", editable = "lib" },
 ]
 
 [package.metadata.requires-dev]

@@ -1,6 +1,6 @@
 """MCP server for BRouter cycling routing with GPX map and elevation rendering.
 
-Uses lib.brouter for route calculation and geocoding. GPX rendering
+Uses brouter module for route calculation and geocoding. GPX rendering
 (map + elevation profile) is handled here due to file system and image dependencies.
 """
 
@@ -13,10 +13,10 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from fastmcp import FastMCP
-from lib.brouter import (
+from brouter import (
     calculate_route as _lib_calculate_route,
 )
-from lib.brouter import (
+from brouter import (
     search_location as _lib_search_location,
 )
 from staticmap import IconMarker, Line, StaticMap

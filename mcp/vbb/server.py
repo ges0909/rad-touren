@@ -1,17 +1,17 @@
 """MCP server wrapping the VBB REST API for Berlin/Brandenburg public transport.
 
-Uses lib.transit for all API logic. This file provides MCP tool declarations
+Uses transit module for all API logic. This file provides MCP tool declarations
 and formats structured results into human-readable strings.
 """
 
 from fastmcp import FastMCP
-from lib.transit import (
+from transit import (
     get_departures as _get_departures,
 )
-from lib.transit import (
+from transit import (
     get_journeys as _get_journeys,
 )
-from lib.transit import (
+from transit import (
     search_stops as _search_stops,
 )
 

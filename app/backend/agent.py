@@ -11,12 +11,26 @@ from google.genai import types
 from google.genai.errors import ClientError, ServerError
 from i18n import Lang
 from i18n import msg as i18n_msg
+from mcp_manager import MCPManager
 from steering import build_system_prompt
-from tools import TOOL_DECLARATIONS, TOOL_REGISTRY
 
 logger = logging.getLogger(__name__)
 
 type SSEEvent = dict[str, Any]
+
+# Geo-relevant tool detection by name pattern
+GEO_ROUTE_PATTERNS = ("route", "calculate_car", "calculate_bike")
+GEO_POINT_PATTERNS = ("geocode", "search_location")
+
+
+def _is_route_tool(name: str) -> bool:
+    """Check if a tool name indicates route geometry in the response."""
+    return any(p in name for p in GEO_ROUTE_PATTERNS)
+
+
+def _is_geocode_tool(name: str) -> bool:
+    """Check if a tool name indicates geocoding results."""
+    return any(p in name for p in GEO_POINT_PATTERNS)
 
 
 def create_client(api_key: str) -> genai.Client:
@@ -88,15 +102,17 @@ async def run_agent(
     client: genai.Client,
     user_message: str,
     chat_history: list[dict[str, str]],
-    tour_type: str = "road",
+    mcp: MCPManager,
     language: str = "de",
 ) -> AsyncGenerator[SSEEvent, None]:
     """Run the agent loop, yielding SSE events.
 
     Yields dicts with keys: {"event": str, "data": dict}
     """
+    mcp_declarations = await mcp.get_tool_declarations()
+    tool_names = [d["name"] for d in mcp_declarations]
     system_prompt: str = build_system_prompt(
-        tour_type, language=language, user_message=user_message
+        tool_names, language=language, user_message=user_message
     )
 
     # Use provided language for error messages
@@ -121,9 +137,9 @@ async def run_agent(
         )
     )
 
-    # Configure tools
+    # Configure tools — all declarations come from MCP servers
     tools = types.Tool(
-        function_declarations=[types.FunctionDeclaration(**decl) for decl in TOOL_DECLARATIONS]
+        function_declarations=[types.FunctionDeclaration(**decl) for decl in mcp_declarations]
     )
 
     config = types.GenerateContentConfig(
@@ -290,63 +306,43 @@ async def run_agent(
                 },
             }
 
-            # Execute the tool
+            # Execute the tool via MCP
             result_str: str
-            tool_fn = TOOL_REGISTRY.get(tool_name)
-            if tool_fn:
-                try:
-                    result: Any = await tool_fn(**tool_args)
+            try:
+                result: Any = await mcp.call_tool(tool_name, tool_args)
 
-                    # Emit map data events for geo tools
-                    if tool_name == "geocode" and isinstance(result, dict):
-                        results: list[dict[str, Any]] = result.get("results", [])
-                        if results:
-                            coords: list[float] = results[0].get("coordinates", [])
-                            if len(coords) == 2:
-                                yield {
-                                    "event": "map",
-                                    "data": {"waypoints": [[coords[1], coords[0]]]},
-                                }
-                    elif tool_name in (
-                        "calculate_car_route",
-                        "calculate_bike_route",
-                    ) and isinstance(result, dict):
+                # Emit geo events based on name patterns
+                if isinstance(result, dict):
+                    if _is_route_tool(tool_name):
                         geometry = result.get("geometry")
                         if geometry:
                             yield {
                                 "event": "map",
                                 "data": {"route": [[lat, lon] for lat, lon in geometry]},
                             }
-                        wps = result.get("waypoints")
-                        if wps:
-                            yield {
-                                "event": "map",
-                                "data": {"waypoints": wps},
-                            }
-                        # Strip large geometry from result before sending to LLM
+                        # Strip geometry before sending to LLM (context savings)
                         result.pop("geometry", None)
+                    elif _is_geocode_tool(tool_name):
+                        results_list: list[dict[str, Any]] = result.get("results", [])
+                        if results_list:
+                            coords = results_list[0].get("coordinates", [])
+                            if len(coords) == 2:
+                                yield {
+                                    "event": "map",
+                                    "data": {"waypoints": [[coords[1], coords[0]]]},
+                                }
 
-                    result_str = json.dumps(result, ensure_ascii=False, default=str)
-                    # Truncate very large results to prevent context bloat
-                    if len(result_str) > 8000:
-                        logger.info(
-                            "Truncating %s result from %d to 8000 chars", tool_name, len(result_str)
-                        )
-                        result_str = result_str[:8000] + '..."}'
-                    logger.debug("Tool %s result: %s", tool_name, result_str[:200])
-
-                except Exception as e:
-                    logger.error("Tool %s failed: %s", tool_name, e)
-                    result_str = json.dumps({"error": str(e)})
-            else:
-                logger.warning("Unknown tool requested: %s", tool_name)
-                result_str = json.dumps(
-                    {
-                        "error": f"Tool '{tool_name}' does not exist. "
-                        "Use ONLY these tools: "
-                        + ", ".join(TOOL_REGISTRY.keys())
-                    }
-                )
+                result_str = json.dumps(result, ensure_ascii=False, default=str)
+                # Truncate very large results to prevent context bloat
+                if len(result_str) > 8000:
+                    logger.info(
+                        "Truncating %s result from %d to 8000 chars", tool_name, len(result_str)
+                    )
+                    result_str = result_str[:8000] + '..."}'
+                logger.debug("Tool %s result: %s", tool_name, result_str[:200])
+            except Exception as e:
+                logger.error("Tool %s failed: %s", tool_name, e)
+                result_str = json.dumps({"error": str(e)})
 
             tool_results.append(
                 types.Part.from_function_response(

@@ -4,13 +4,9 @@ version = "1.0.0"
 description = "MCP server wrapping the Waymarked Trails API for hiking and cycling route recommendations"
 requires-python = ">=3.11"
 dependencies = [
-    "trip-planner-lib",
     "fastmcp",
     "httpx",
 ]
-
-[tool.uv.sources]
-trip-planner-lib = { workspace = true }
 
 [dependency-groups]
 dev = [

@@ -1,6 +1,6 @@
 """MCP server for POI search along cycling routes via Overpass API (OpenStreetMap).
 
-Uses lib.overpass for query building and API calls. GPX parsing stays here
+Uses overpass module for query building and API calls. GPX parsing stays here
 as it's MCP-specific (file system access).
 """
 
@@ -8,7 +8,7 @@ from pathlib import Path
 
 import gpxpy
 from fastmcp import FastMCP
-from lib.overpass import POI_CATEGORIES, PRESETS, build_query, search_pois
+from overpass import POI_CATEGORIES, PRESETS, build_query, search_pois
 
 mcp = FastMCP("Overpass POI Search")
 

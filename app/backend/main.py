@@ -4,6 +4,7 @@ import json
 import logging
 import os
 from collections.abc import AsyncGenerator
+from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Any
 
@@ -13,6 +14,7 @@ from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from google import genai
 from i18n import msg
+from mcp_manager import MCPManager, build_server_configs
 from sse_starlette.sse import EventSourceResponse
 
 # Configure logging
@@ -22,7 +24,33 @@ logger = logging.getLogger(__name__)
 # Load environment variables
 load_dotenv(Path(__file__).parent.parent.parent / ".env")
 
-app = FastAPI(title="Trip Planner API")
+# Module-level MCP manager instance, accessible to endpoints
+_mcp_manager: MCPManager | None = None
+
+
+def get_mcp_manager() -> MCPManager:
+    """Get the MCP manager instance. Raises if not initialized."""
+    if _mcp_manager is None:
+        raise RuntimeError("MCPManager not initialized")
+    return _mcp_manager
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Application lifespan: initialize and shutdown MCP manager."""
+    global _mcp_manager
+    configs = build_server_configs()
+    _mcp_manager = MCPManager(configs)
+    # Pre-discover tools from all servers
+    await _mcp_manager.discover_all_tools()
+    logger.info("MCP manager initialized with %d tool declarations", len(await _mcp_manager.get_tool_declarations()))
+    yield
+    await _mcp_manager.shutdown()
+    _mcp_manager = None
+    logger.info("MCP manager shut down")
+
+
+app = FastAPI(title="Trip Planner API", lifespan=lifespan)
 
 # Gemini client (initialized on first request)
 _client: genai.Client | None = None
@@ -85,6 +113,7 @@ async def chat(request: Request) -> EventSourceResponse:
                 client=client,
                 user_message=message,
                 chat_history=chat_history,
+                mcp=get_mcp_manager(),
                 language=lang,
             ):
                 # Capture assistant response for history

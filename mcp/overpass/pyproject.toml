@@ -4,14 +4,10 @@ version = "1.0.0"
 description = "MCP server for POI search along cycling routes via Overpass API (OpenStreetMap)"
 requires-python = ">=3.11"
 dependencies = [
-    "trip-planner-lib",
     "fastmcp",
     "httpx",
     "gpxpy",
 ]
-
-[tool.uv.sources]
-trip-planner-lib = { workspace = true }
 
 [dependency-groups]
 dev = [

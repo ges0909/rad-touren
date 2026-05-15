@@ -1,22 +1,22 @@
 """MCP server wrapping the Wikivoyage API for travel guide content.
 
-Uses lib.wikivoyage for all API logic. This file provides MCP tool declarations
+Uses wikivoyage module for all API logic. This file provides MCP tool declarations
 and formats structured results into human-readable strings.
 """
 
 import re
 
 from fastmcp import FastMCP
-from lib.wikivoyage import (
+from wikivoyage import (
     get_article as _get_article,
 )
-from lib.wikivoyage import (
+from wikivoyage import (
     get_article_sections as _get_sections,
 )
-from lib.wikivoyage import (
+from wikivoyage import (
     search_destinations as _search,
 )
-from lib.wikivoyage import (
+from wikivoyage import (
     search_nearby as _search_nearby,
 )
 
