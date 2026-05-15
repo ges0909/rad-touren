@@ -29,15 +29,37 @@ async def _call_gemini_with_retry(
     contents: list[types.Content],
     config: types.GenerateContentConfig,
     max_retries: int = 3,
+    timeout: float = 120.0,
 ) -> Any:
-    """Call Gemini with exponential backoff on 503/429 errors."""
+    """Call Gemini with exponential backoff on 503/429 errors and a timeout."""
     for attempt in range(max_retries):
         try:
-            return client.models.generate_content(
-                model="gemini-2.5-flash",
-                contents=contents,
-                config=config,
+            # generate_content is synchronous — run in thread to avoid blocking event loop
+            response = await asyncio.wait_for(
+                asyncio.to_thread(
+                    client.models.generate_content,
+                    model="gemini-2.5-flash",
+                    contents=contents,
+                    config=config,
+                ),
+                timeout=timeout,
             )
+            return response
+        except asyncio.TimeoutError:
+            if attempt < max_retries - 1:
+                wait = 2 ** (attempt + 1)
+                logger.warning(
+                    "Gemini timed out after %.0fs, retrying in %ds (attempt %d/%d)",
+                    timeout,
+                    wait,
+                    attempt + 1,
+                    max_retries,
+                )
+                await asyncio.sleep(wait)
+            else:
+                raise TimeoutError(
+                    f"Gemini did not respond within {timeout}s after {max_retries} attempts"
+                )
         except ServerError as e:
             if attempt < max_retries - 1 and e.code in (503, 500):
                 wait = 2 ** (attempt + 1)  # 2s, 4s, 8s
@@ -107,11 +129,17 @@ async def run_agent(
     config = types.GenerateContentConfig(
         system_instruction=system_prompt,
         tools=[tools],
+        tool_config=types.ToolConfig(
+            function_calling_config=types.FunctionCallingConfig(mode="AUTO")
+        ),
         temperature=0.7,
+        thinking_config=types.ThinkingConfig(thinking_budget=5000),
     )
 
     # Agent loop: call LLM, execute tools, feed results back
     max_iterations: int = 15
+    recovery_count: int = 0  # Track recovery nudges to prevent infinite loops
+    max_recoveries: int = 2
     for iteration in range(max_iterations):
         logger.info("Iteration %d: calling Gemini", iteration + 1)
         try:
@@ -140,6 +168,13 @@ async def run_agent(
                 "data": {"error": i18n_msg("server_unavailable", lang, code=str(e.code))},
             }
             return
+        except TimeoutError as e:
+            logger.error("Gemini request timed out: %s", e)
+            yield {
+                "event": "error",
+                "data": {"error": i18n_msg("server_unavailable", lang, code="timeout")},
+            }
+            return
         except Exception as e:
             logger.exception("Unexpected error in agent loop")
             yield {
@@ -163,6 +198,12 @@ async def run_agent(
                 iteration + 1,
                 finish_reason,
             )
+            # Log conversation state for debugging
+            logger.debug(
+                "Conversation has %d messages, last role: %s",
+                len(contents),
+                contents[-1].role if contents else "none",
+            )
             # If blocked by safety, inform user
             if finish_reason and "SAFETY" in str(finish_reason):
                 yield {
@@ -173,8 +214,43 @@ async def run_agent(
                         )
                     },
                 }
-            else:
-                yield {"event": "tour", "data": {"markdown": ""}}
+                yield {"event": "done", "data": {"iterations": iteration + 1}}
+                return
+
+            # MALFORMED_FUNCTION_CALL: nudge the model to respond with text instead
+            if finish_reason and "MALFORMED" in str(finish_reason) and recovery_count < max_recoveries:
+                recovery_count += 1
+                logger.info("Recovering from MALFORMED_FUNCTION_CALL, nudging model (recovery %d)", recovery_count)
+                contents.append(
+                    types.Content(
+                        role="user",
+                        parts=[
+                            types.Part.from_text(
+                                text="Your last function call was malformed. Do NOT call any more tools. "
+                                "Respond directly with your best answer using the information you already have."
+                            )
+                        ],
+                    )
+                )
+                continue
+
+            # STOP with empty content: model got confused. Nudge it to produce output.
+            if finish_reason and "STOP" in str(finish_reason) and iteration > 0 and recovery_count < max_recoveries:
+                recovery_count += 1
+                logger.info("Recovering from empty STOP response, nudging model (recovery %d)", recovery_count)
+                contents.append(
+                    types.Content(
+                        role="user",
+                        parts=[
+                            types.Part.from_text(
+                                text="Please provide your complete response now based on all the information gathered so far."
+                            )
+                        ],
+                    )
+                )
+                continue
+
+            yield {"event": "tour", "data": {"markdown": ""}}
             yield {"event": "done", "data": {"iterations": iteration + 1}}
             return
 
@@ -251,6 +327,12 @@ async def run_agent(
                         result.pop("geometry", None)
 
                     result_str = json.dumps(result, ensure_ascii=False, default=str)
+                    # Truncate very large results to prevent context bloat
+                    if len(result_str) > 8000:
+                        logger.info(
+                            "Truncating %s result from %d to 8000 chars", tool_name, len(result_str)
+                        )
+                        result_str = result_str[:8000] + '..."}'
                     logger.debug("Tool %s result: %s", tool_name, result_str[:200])
 
                 except Exception as e:
@@ -258,7 +340,13 @@ async def run_agent(
                     result_str = json.dumps({"error": str(e)})
             else:
                 logger.warning("Unknown tool requested: %s", tool_name)
-                result_str = json.dumps({"error": f"Unknown tool: {tool_name}"})
+                result_str = json.dumps(
+                    {
+                        "error": f"Tool '{tool_name}' does not exist. "
+                        "Use ONLY these tools: "
+                        + ", ".join(TOOL_REGISTRY.keys())
+                    }
+                )
 
             tool_results.append(
                 types.Part.from_function_response(

@@ -18,7 +18,6 @@ const mapData = ref<{
   route: [],
 });
 const splitPercent = ref(50);
-const followUp = ref("");
 
 const hasMapData = computed(
   () => mapData.value.waypoints.length > 0 || mapData.value.route.length > 0,
@@ -55,13 +54,6 @@ function startResize(e: MouseEvent) {
 
   document.addEventListener("mousemove", onMove);
   document.addEventListener("mouseup", onUp);
-}
-
-function sendFollowUp() {
-  const msg = followUp.value.trim();
-  if (!msg) return;
-  followUp.value = "";
-  handleSend(msg);
 }
 
 async function handleSend(message: string) {
@@ -248,24 +240,6 @@ async function handleSend(message: string) {
       >
         <TourMap :waypoints="mapData.waypoints" :route="mapData.route" />
       </div>
-    </div>
-
-    <!-- Follow-up Input -->
-    <div v-if="tourMarkdown && !isLoading" class="mt-4 flex gap-2">
-      <input
-        v-model="followUp"
-        type="text"
-        :placeholder="t('followUpPlaceholder', language)"
-        class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-        @keydown.enter.prevent="sendFollowUp"
-      />
-      <button
-        :disabled="!followUp.trim()"
-        class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
-        @click="sendFollowUp"
-      >
-        {{ t("btnSend", language) }}
-      </button>
     </div>
   </div>
 </template>
