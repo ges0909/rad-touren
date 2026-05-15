@@ -1,6 +1,6 @@
 ---
 inclusion: fileMatch
-fileMatchPattern: "trips
+fileMatchPattern: "trips/**"
 ---
 
 # User Preferences

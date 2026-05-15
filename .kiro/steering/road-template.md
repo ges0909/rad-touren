@@ -85,6 +85,11 @@ Rules:
 - Include ratings for hiking routes and accommodations
 - Deduplicate within 200 m
 - "Unterwegs" POIs listed at the station you arrive at
+- **Practical hints** — append inline where relevant:
+  - Weekly closures: `(Do–Mo, Di+Mi geschlossen)`
+  - Advance booking: `⚠️ Tickets vorab online buchen`
+  - Seasonal restrictions: `(nur Mai–Okt)` or `(Zufahrt im Sommer nur per Bus)`
+  - These hints go at the end of the POI line, after the description.
 
 ## 4. Wetter
 

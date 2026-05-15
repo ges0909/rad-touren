@@ -23,6 +23,7 @@ Plan, generate, and present multi-day car rental road trips across Europe.
 1. **No fabrication**: Never invent restaurants, hotels, hike names, travel times, or prices. Only present information from web search or API results. If data is unavailable, state that explicitly.
 2. **Coordinate order**: All MCP tool calls use **[longitude, latitude]** — longitude first. Swapping produces routes in the wrong location.
 3. **Verify distances**: Calculate driving times between **every pair of consecutive stops** via `driving_time` or `distance_matrix` before writing the route table. Never estimate from map distance — coastal and mountain roads can be 1.5–2× longer than straight-line distance. Flag any segment exceeding 4 hours.
+   - **Scenic routes with intermediate stops**: When a driving day includes planned detours or waypoints (e.g., coastal road via villages), calculate the **total distance through all waypoints**, not just start → end. Sum the individual legs. The table must show the scenic-route distance, not the direct highway distance.
 4. **Seasonal awareness**: Check weather and seasonal closures (mountain passes, ferry schedules, swimming season). Flag off-season risks.
 5. **Overpass rate limit**: Query POI presets **sequentially** (one at a time). Never parallelize Overpass requests.
 6. **Buffer rule**: When the trip starts and ends in the same city, place the **longer stay (2+ nights) at the end** as a buffer for the return flight. First night at the departure city: 1 night max (arrival only).
@@ -148,13 +149,18 @@ For each stop, gather information in this order:
 12. **Swimming**: Search for beaches, lakes, or thermal baths via `remote_web_search`.
 13. **Food & Drink**: Search for regional restaurants, markets, local specialties. Apply food rules from `user-preferences.md`.
 14. **Culture & Art**: Search for galleries, museums, historic sites. Prioritize modern/contemporary art (highest interest priority).
-15. **Weather**: Query `weather_forecast` for each stop's coordinates and travel dates.
+15. **Practical info**: For every major POI (museums, caves, gardens, guided tours), verify via `remote_web_search`:
+    - **Opening days** — note weekly closures (e.g., "Di+Mi geschlossen")
+    - **Advance booking** — flag if tickets must be purchased in advance (e.g., "⚠️ vorab buchen")
+    - **Seasonal closures** — flag if the POI is closed during the travel period
+    - Cross-check that planned activities fall on valid opening days in the day-by-day table.
+16. **Weather**: Query `weather_forecast` for each stop's coordinates and travel dates.
 
 ### Phase 3: Output
 
-16. **Write trip markdown** to `trips/road/{name}.md` following the template below.
-17. **Update index** — append a row to `trips/road/README.md`. Do **not** rewrite the file.
-18. **Present summary** to user in German.
+17. **Write trip markdown** to `trips/road/{name}.md` following the template below.
+18. **Update index** — append a row to `trips/road/README.md`. Do **not** rewrite the file.
+19. **Present summary** to user in German.
 
 ## File Structure
 
@@ -169,10 +175,10 @@ trips/road/
 - Naming: descriptive kebab-case, ASCII-safe (no umlauts: ü→ue, ö→oe, ä→ae, ß→ss)
 - Examples: `sardinien-ostkueste.md`, `provence-lavendel.md`
 
-
 ## Output Template
 
 See `road-template.md` for the full markdown template structure.
+
 ## Map Rendering
 
 Generate route maps via:

@@ -1,6 +1,3 @@
----
----
-
 # Finnland Seenplatte Roadtrip (14 Tage)
 
 **Reisezeitraum:** 1. September – 14. September 2026
