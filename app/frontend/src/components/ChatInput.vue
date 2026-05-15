@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from "vue";
+import { t, type Lang } from "../i18n";
 
-const props = defineProps<{ isLoading: boolean; hasResult: boolean }>();
+const props = defineProps<{
+  isLoading: boolean;
+  hasResult: boolean;
+  language: Lang;
+}>();
 const emit = defineEmits<{ send: [message: string]; reset: [] }>();
 
 const input = ref("");
@@ -85,7 +90,7 @@ const hasHistory = computed(() => history.value.length > 0);
         <textarea
           v-model="input"
           :disabled="isLoading"
-          placeholder="z.B. Plane einen 2-Wochen Roadtrip an der spanischen Nordküste..."
+          :placeholder="t('placeholder', props.language)"
           rows="3"
           class="w-full px-4 py-3 pr-20 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 resize-none text-base"
           @keydown.enter.exact.prevent="handleSubmit"
@@ -95,7 +100,7 @@ const hasHistory = computed(() => history.value.length > 0);
           type="button"
           @click="showHistory = !showHistory"
           class="absolute right-3 top-3 text-gray-400 hover:text-gray-600 transition"
-          title="Letzte Anfragen"
+          :title="t('historyTitle', props.language)"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -116,8 +121,8 @@ const hasHistory = computed(() => history.value.length > 0);
           class="absolute right-3 bottom-3 px-3 py-1.5 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
         >
           <span v-if="isLoading">⏳</span>
-          <span v-else-if="hasResult">Neu</span>
-          <span v-else>Los</span>
+          <span v-else-if="hasResult">{{ t("btnNew", props.language) }}</span>
+          <span v-else>{{ t("btnSend", props.language) }}</span>
         </button>
       </div>
     </form>
@@ -141,7 +146,7 @@ const hasHistory = computed(() => history.value.length > 0);
         @click="clearHistory"
         class="w-full text-left px-4 py-1.5 text-xs text-red-500 hover:bg-red-50 border-t border-gray-200"
       >
-        Verlauf löschen
+        {{ t("historyClear", props.language) }}
       </button>
     </div>
   </div>

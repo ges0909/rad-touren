@@ -14,7 +14,7 @@ from google import genai
 from sse_starlette.sse import EventSourceResponse
 
 from agent import create_client, run_agent
-from i18n import detect_language, msg
+from i18n import msg
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -49,6 +49,7 @@ async def chat(request: Request) -> EventSourceResponse:
     body: dict[str, Any] = await request.json()
     message: str = body.get("message", "")
     session_id: str = body.get("session_id", "default")
+    language: str = body.get("language", "de")
 
     if not message:
         return {"error": "No message provided"}  # type: ignore[return-value]
@@ -60,7 +61,7 @@ async def chat(request: Request) -> EventSourceResponse:
     chat_history: list[dict[str, str]] = sessions[session_id]
 
     async def event_generator() -> AsyncGenerator[dict[str, str], None]:
-        lang = detect_language(message)
+        lang = language if language in ("de", "en") else "de"
         try:
             client = get_client()
         except RuntimeError:
@@ -75,6 +76,7 @@ async def chat(request: Request) -> EventSourceResponse:
                 client=client,
                 user_message=message,
                 chat_history=chat_history,
+                language=lang,
             ):
                 yield {
                     "event": event["event"],

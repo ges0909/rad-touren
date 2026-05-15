@@ -8,7 +8,7 @@ Single source of truth for personal defaults across all tour types (cycling, hik
 
 ## Response Language
 
-- Detect the user's input language and respond in the same language for chat, tour `.md` files, POI descriptions, and section headings.
+- Output language is controlled by the UI language toggle (DE/EN). Follow the system prompt language instruction.
 - Code artifacts (file names, GPX metadata, MCP tool parameters, commit messages) are always in English using kebab-case.
 
 ## Travel Group

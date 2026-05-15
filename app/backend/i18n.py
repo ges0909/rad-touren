@@ -1,6 +1,5 @@
 """Simple i18n for user-facing error messages."""
 
-import re
 from typing import Literal
 
 type Lang = Literal["de", "en"]
@@ -35,26 +34,6 @@ MESSAGES: dict[str, dict[Lang, str]] = {
         "en": "Internal error: {detail}",
     },
 }
-
-
-def detect_language(text: str) -> Lang:
-    """Detect language from user input using simple heuristics.
-
-    Returns 'de' for German, 'en' for English (default).
-    """
-    # Common German words/patterns
-    german_indicators = re.compile(
-        r"\b(und|oder|für|mit|eine?[mnrs]?|ist|das|die|der|nicht|"
-        r"ich|wir|bitte|plane|radtour|wanderung|roadtrip|tage?|"
-        r"woche[n]?|durch|nach|von|über|küste|stadt|region)\b",
-        re.IGNORECASE,
-    )
-    matches = german_indicators.findall(text)
-    # If 2+ German words found, assume German
-    if len(matches) >= 2:
-        return "de"
-    return "en"
-
 
 def msg(key: str, lang: Lang, **kwargs: str | int) -> str:
     """Get a localized message by key, formatted with kwargs."""

@@ -11,7 +11,7 @@ from google.genai.errors import ClientError, ServerError
 
 from steering import build_system_prompt
 from tools import TOOL_DECLARATIONS, TOOL_REGISTRY
-from i18n import Lang, detect_language, msg
+from i18n import Lang, msg as i18n_msg
 
 logger = logging.getLogger(__name__)
 
@@ -28,15 +28,16 @@ async def run_agent(
     user_message: str,
     chat_history: list[dict[str, str]],
     tour_type: str = "road",
+    language: str = "de",
 ) -> AsyncGenerator[SSEEvent, None]:
     """Run the agent loop, yielding SSE events.
 
     Yields dicts with keys: {"event": str, "data": dict}
     """
-    system_prompt: str = build_system_prompt(tour_type)
+    system_prompt: str = build_system_prompt(tour_type, language=language)
 
-    # Detect user language for error messages
-    lang: Lang = detect_language(user_message)
+    # Use provided language for error messages
+    lang: Lang = language if language in ("de", "en") else "de"
 
     # Build conversation contents
     contents: list[types.Content] = []
@@ -79,26 +80,26 @@ async def run_agent(
             if e.code == 429:
                 yield {
                     "event": "error",
-                    "data": {"error": msg("quota_exhausted", lang)},
+                    "data": {"error": i18n_msg("quota_exhausted", lang)},
                 }
             else:
                 yield {
                     "event": "error",
-                    "data": {"error": msg("api_error", lang, code=str(e.code), detail=e.message or str(e))},
+                    "data": {"error": i18n_msg("api_error", lang, code=str(e.code), detail=e.message or str(e))},
                 }
             return
         except ServerError as e:
             logger.error("Gemini ServerError %d: %s", e.code, e.message)
             yield {
                 "event": "error",
-                "data": {"error": msg("server_unavailable", lang, code=str(e.code))},
+                "data": {"error": i18n_msg("server_unavailable", lang, code=str(e.code))},
             }
             return
         except Exception as e:
             logger.exception("Unexpected error in agent loop")
             yield {
                 "event": "error",
-                "data": {"error": msg("unexpected_error", lang, detail=str(e))},
+                "data": {"error": i18n_msg("unexpected_error", lang, detail=str(e))},
             }
             return
 
@@ -180,4 +181,4 @@ async def run_agent(
         )
 
     # Max iterations reached
-    yield {"event": "error", "data": {"error": msg("max_iterations", lang)}}
+    yield {"event": "error", "data": {"error": i18n_msg("max_iterations", lang)}}

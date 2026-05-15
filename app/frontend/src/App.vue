@@ -3,11 +3,13 @@ import { ref } from "vue";
 import ChatInput from "./components/ChatInput.vue";
 import TourContent from "./components/TourContent.vue";
 import TourMap from "./components/TourMap.vue";
+import { t, type Lang } from "./i18n";
 
 const messages = ref<Array<{ role: string; content: string }>>([]);
 const tourMarkdown = ref("");
 const isLoading = ref(false);
 const errorMessage = ref("");
+const language = ref<Lang>("de");
 const mapData = ref<{
   waypoints: [number, number][];
   route: [number, number][];
@@ -69,12 +71,15 @@ async function handleSend(message: string) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         message,
+        language: language.value,
         session_id: "default",
       }),
     });
 
     if (!response.ok) {
-      errorMessage.value = `Server-Fehler (${response.status}). Bitte prüfe das Backend-Log.`;
+      errorMessage.value = t("errorServer", language.value, {
+        status: response.status,
+      });
       return;
     }
 
@@ -122,12 +127,10 @@ async function handleSend(message: string) {
     }
 
     if (!receivedData && !errorMessage.value) {
-      errorMessage.value =
-        "Keine Antwort vom Server erhalten. Bitte prüfe das Backend-Log.";
+      errorMessage.value = t("errorNoResponse", language.value);
     }
   } catch (error) {
-    errorMessage.value =
-      "Verbindung zum Server fehlgeschlagen. Ist das Backend gestartet?";
+    errorMessage.value = t("errorConnection", language.value);
   } finally {
     isLoading.value = false;
   }
@@ -137,18 +140,44 @@ async function handleSend(message: string) {
 <template>
   <div class="max-w-7xl mx-auto px-4 py-6">
     <!-- Header -->
-    <header class="mb-6">
-      <h1 class="text-2xl font-bold text-gray-800">Trip Planner</h1>
-      <p class="text-gray-600 mt-1">
-        Plane Radtouren, Wanderungen und Roadtrips mit KI. Beschreibe einfach,
-        was du dir vorstellst.
-      </p>
+    <header class="mb-6 flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-gray-800">Trip Planner</h1>
+        <p class="text-gray-600 mt-1">
+          {{ t("subtitle", language) }}
+        </p>
+      </div>
+      <div class="flex items-center gap-1 bg-gray-100 rounded-md p-0.5">
+        <button
+          :class="[
+            'px-2 py-1 text-sm rounded transition',
+            language === 'de'
+              ? 'bg-white shadow text-gray-900'
+              : 'text-gray-500 hover:text-gray-700',
+          ]"
+          @click="language = 'de'"
+        >
+          DE
+        </button>
+        <button
+          :class="[
+            'px-2 py-1 text-sm rounded transition',
+            language === 'en'
+              ? 'bg-white shadow text-gray-900'
+              : 'text-gray-500 hover:text-gray-700',
+          ]"
+          @click="language = 'en'"
+        >
+          EN
+        </button>
+      </div>
     </header>
 
     <!-- Chat Input -->
     <ChatInput
       :is-loading="isLoading"
       :has-result="!!tourMarkdown"
+      :language="language"
       @send="handleSend"
       @reset="handleReset"
     />
