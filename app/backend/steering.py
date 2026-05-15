@@ -49,6 +49,7 @@ def build_system_prompt(tour_type: str = "road", language: str = "de", user_mess
 - If route search fails, suggest a route based on your knowledge of the region.
 - Structure results clearly with Markdown.
 - Respond ONLY in {lang_name}.
+- You do NOT have access to web search. Use only the tools listed below and your own knowledge.
 
 ## Template Selection
 
