@@ -6,7 +6,7 @@ All API logic lives in lib/ — this file only wires tools to Gemini declaration
 from typing import Any
 
 from lib.geocoding import geocode
-from lib.routing import calculate_car_route, driving_time
+from lib.routing import calculate_car_route
 from lib.weather import weather_forecast
 from lib.routes import search_routes
 from lib.brouter import calculate_route as _calculate_bike_route, search_location
@@ -24,12 +24,13 @@ async def calculate_bike_route(waypoints: list[list[float]], profile: str = "tre
         return result
 
     # Extract (lat, lon) geometry from GPX content for map display
+    # BRouter uses <trkpt lon="..." lat="..."> (lon first!)
     content = result.pop("content", "")
     geometry: list[tuple[float, float]] = []
     if content:
         import re
-        for match in re.finditer(r'<trkpt\s+lat="([^"]+)"\s+lon="([^"]+)"', content):
-            geometry.append((float(match.group(1)), float(match.group(2))))
+        for match in re.finditer(r'<trkpt\s+lon="([^"]+)"\s+lat="([^"]+)"', content):
+            geometry.append((float(match.group(2)), float(match.group(1))))  # (lat, lon)
 
     result["geometry"] = geometry
     result["waypoints"] = [[wp[1], wp[0]] for wp in waypoints]  # [lat, lon]
@@ -50,18 +51,6 @@ TOOL_DECLARATIONS: list[dict[str, Any]] = [
                 "country": {"type": "string", "description": "ISO 3166-1 alpha-2 country code (optional)"},
             },
             "required": ["query"],
-        },
-    },
-    {
-        "name": "driving_time",
-        "description": "Get driving time and distance between two points. Coordinates as [longitude, latitude]. NOTE: Does NOT generate a map route — use calculate_car_route instead if you need the route displayed on the map.",
-        "parameters": {
-            "type": "object",
-            "properties": {
-                "from_coords": {"type": "array", "items": {"type": "number"}, "description": "[longitude, latitude]"},
-                "to_coords": {"type": "array", "items": {"type": "number"}, "description": "[longitude, latitude]"},
-            },
-            "required": ["from_coords", "to_coords"],
         },
     },
     {
@@ -91,7 +80,7 @@ TOOL_DECLARATIONS: list[dict[str, Any]] = [
     },
     {
         "name": "calculate_car_route",
-        "description": "Calculate a car route between waypoints. Returns distance, duration, and full route geometry for map display. ALWAYS use this when planning a road trip to show the route on the map.",
+        "description": "Calculate a car route between waypoints. Returns distance (km), duration (min), and full route geometry for map display. Use this for ALL driving distance calculations — it replaces driving_time and also shows the route on the map.",
         "parameters": {
             "type": "object",
             "properties": {
@@ -217,7 +206,6 @@ TOOL_DECLARATIONS: list[dict[str, Any]] = [
 # Map tool name → async function
 TOOL_REGISTRY: dict[str, ToolFn] = {
     "geocode": geocode,
-    "driving_time": driving_time,
     "weather_forecast": weather_forecast,
     "search_routes": search_routes,
     "calculate_car_route": calculate_car_route,
