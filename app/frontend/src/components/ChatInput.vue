@@ -119,14 +119,6 @@ const hasHistory = computed(() => history.value.length > 0);
           <span v-if="isLoading">⏳</span>
           <span v-else>{{ t("btnSend", props.language) }}</span>
         </button>
-        <button
-          v-if="hasResult && !isLoading"
-          type="button"
-          @click="emit('reset')"
-          class="absolute left-3 bottom-3 px-2 py-1 text-xs text-gray-500 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 rounded transition"
-        >
-          {{ t("btnNew", props.language) }}
-        </button>
       </div>
     </form>
 
