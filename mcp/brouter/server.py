@@ -1,12 +1,16 @@
-import asyncio
 import re
-import time
+import sys
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field
-from urllib.parse import urlencode
+from pathlib import Path
 
 import httpx
 from fastmcp import FastMCP
+
+# Add lib/ to path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+
+from lib.brouter import calculate_route as _lib_calculate_route, search_location as _lib_search_location
 
 mcp = FastMCP("BRouter Cycling Router")
 
@@ -97,43 +101,6 @@ def validate_alternativeidx(idx: int) -> str | None:
     if idx < 0 or idx > 3:
         return f"Invalid alternative index {idx}. Valid range is 0 to 3."
     return None
-
-
-# ---------------------------------------------------------------------------
-# Route request builder
-# ---------------------------------------------------------------------------
-
-BROUTER_BASE_URL = "https://brouter.de/brouter"
-
-
-def build_brouter_url(
-    waypoints: list[list[float]],
-    profile: str,
-    format: str,
-    alternativeidx: int,
-    nogos: list[NoGoArea] | None = None,
-) -> str:
-    """Build a BRouter API URL from route parameters.
-
-    Waypoints are formatted as ``lon,lat|lon,lat|...`` in the ``lonlats``
-    query parameter.  No-go areas are included only when provided.
-    """
-    lonlats = "|".join(f"{lon},{lat}" for lon, lat in waypoints)
-
-    params: dict[str, str] = {
-        "lonlats": lonlats,
-        "profile": profile,
-        "format": format,
-        "alternativeidx": str(alternativeidx),
-    }
-
-    if nogos:
-        nogos_str = "|".join(
-            f"{nogo.lon},{nogo.lat},{nogo.radius}" for nogo in nogos
-        )
-        params["nogos"] = nogos_str
-
-    return f"{BROUTER_BASE_URL}?{urlencode(params)}"
 
 
 # ---------------------------------------------------------------------------
@@ -229,85 +196,6 @@ def insert_track_name(gpx_content: str, name: str) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Nominatim rate limiter
-# ---------------------------------------------------------------------------
-
-NOMINATIM_BASE_URL = "https://nominatim.openstreetmap.org/search"
-NOMINATIM_USER_AGENT = "brouter-mcp/1.0 (cycling tour planner)"
-
-
-class NominatimRateLimiter:
-    """Async rate limiter that enforces minimum 1 second between requests."""
-
-    def __init__(self) -> None:
-        self._lock = asyncio.Lock()
-        self._last_request_time: float = 0.0
-
-    async def acquire(self) -> None:
-        """Wait until at least 1 second has passed since the last request."""
-        async with self._lock:
-            now = time.monotonic()
-            elapsed = now - self._last_request_time
-            if elapsed < 1.0:
-                await asyncio.sleep(1.0 - elapsed)
-            self._last_request_time = time.monotonic()
-
-
-# Module-level rate limiter instance
-_nominatim_rate_limiter = NominatimRateLimiter()
-
-
-# ---------------------------------------------------------------------------
-# HTTP client functions
-# ---------------------------------------------------------------------------
-
-
-async def call_brouter(url: str) -> str:
-    """Send an async GET request to the BRouter API.
-
-    Returns the response text on success, or a descriptive error string
-    on failure.  Uses a 60-second timeout.
-    """
-    try:
-        async with httpx.AsyncClient(timeout=60.0) as client:
-            response = await client.get(url)
-            response.raise_for_status()
-            return response.text
-    except httpx.HTTPStatusError as exc:
-        return (
-            f"BRouter API error (HTTP {exc.response.status_code}): "
-            f"{exc.response.text}"
-        )
-    except (httpx.TimeoutException, httpx.ConnectError):
-        return "BRouter API at brouter.de is unavailable"
-
-
-async def call_nominatim(params: dict) -> list[dict] | str:
-    """Send an async GET request to the Nominatim search API.
-
-    Returns a list of result dicts on success, or a descriptive error
-    string on failure.  Uses a 10-second timeout and enforces rate
-    limiting via :class:`NominatimRateLimiter`.
-    """
-    await _nominatim_rate_limiter.acquire()
-    try:
-        async with httpx.AsyncClient(timeout=10.0) as client:
-            response = await client.get(
-                NOMINATIM_BASE_URL,
-                params=params,
-                headers={"User-Agent": NOMINATIM_USER_AGENT},
-            )
-            response.raise_for_status()
-            return response.json()
-    except httpx.HTTPStatusError as exc:
-        return (
-            f"Nominatim API error (HTTP {exc.response.status_code})"
-        )
-    except (httpx.TimeoutException, httpx.ConnectError):
-        return "Nominatim geocoding service is unavailable"
-
-
-# ---------------------------------------------------------------------------
 # MCP Tools
 # ---------------------------------------------------------------------------
 
@@ -333,70 +221,54 @@ async def calculate_route(
         nogos: Optional list of no-go areas, each a dict with keys
             "lon", "lat", and optional "radius" (meters, default 20).
         track_name: Optional name to insert into the GPX <trk><name> element.
-
-    Returns:
-        Route summary with GPX/GeoJSON data, or a descriptive error message.
     """
-    # --- Input validation ---
+    # Input validation
     err = validate_waypoints(waypoints)
     if err:
         return err
-
     for wp in waypoints:
         if len(wp) < 2:
-            return f"Invalid waypoint {wp}: each waypoint must be [longitude, latitude]."
+            return f"Invalid waypoint {wp}: each must be [longitude, latitude]."
         err = validate_coordinates(wp[0], wp[1])
         if err:
             return err
-
     err = validate_profile(profile)
     if err:
         return err
-
     err = validate_alternativeidx(alternativeidx)
     if err:
         return err
 
-    # --- Convert no-go dicts to NoGoArea dataclasses ---
-    nogo_areas: list[NoGoArea] | None = None
-    if nogos:
-        nogo_areas = []
-        for nogo in nogos:
-            lon = nogo.get("lon", 0.0)
-            lat = nogo.get("lat", 0.0)
-            radius = nogo.get("radius", 20.0)
-            err = validate_coordinates(lon, lat)
-            if err:
-                return f"Invalid no-go area coordinates: {err}"
-            nogo_areas.append(NoGoArea(lon=lon, lat=lat, radius=radius))
+    # Call lib
+    result = await _lib_calculate_route(
+        waypoints=waypoints,
+        profile=profile,
+        format=format,
+        alternativeidx=alternativeidx,
+        nogos=nogos,
+        track_name=track_name,
+    )
 
-    # --- Build URL and call BRouter ---
-    url = build_brouter_url(waypoints, profile, format, alternativeidx, nogo_areas)
-    result = await call_brouter(url)
+    if "error" in result:
+        return result["error"]
 
-    # Check for error responses from call_brouter
-    if result.startswith("BRouter API"):
-        return result
+    content = result["content"]
 
-    # --- Handle GeoJSON response ---
+    # Handle GeoJSON
     if format == "geojson":
-        return f"## Route (GeoJSON)\n\n```json\n{result}\n```"
+        return f"## Route (GeoJSON)\n\n```json\n{content}\n```"
 
-    # --- Handle GPX response ---
-    # Verify the GPX contains a <trk> element
-    if "<trk>" not in result and f"<trk " not in result and f"{{{_GPX_NS}}}trk" not in result:
-        return "Error: BRouter returned an invalid GPX response (missing <trk> element)."
+    # Handle GPX — extract metadata
+    if "<trk>" not in content and "<trk " not in content:
+        return "Error: BRouter returned an invalid GPX response."
 
-    # Extract metadata
-    metadata = parse_gpx_metadata(result)
+    metadata = parse_gpx_metadata(content)
     metadata.estimated_duration = calculate_duration(metadata.distance_m, profile)
 
-    # Optionally insert track name
-    gpx_content = result
+    gpx_content = content
     if track_name:
         gpx_content = insert_track_name(gpx_content, track_name)
 
-    # Format distance for display
     distance_km = metadata.distance_m / 1000.0
 
     return (
@@ -405,23 +277,8 @@ async def calculate_route(
         f"- Elevation gain: {metadata.elevation_gain_m:.0f} m\n"
         f"- Estimated duration: {metadata.estimated_duration}\n"
         f"- Profile: {profile}\n"
-        f"- Format: gpx\n"
-        f"\n"
-        f"## GPX Data\n"
-        f"{gpx_content}"
-    )
-
-
-def transform_nominatim_result(item: dict) -> GeocodingResult:
-    """Transform a single Nominatim JSON result into a GeocodingResult.
-
-    Converts Nominatim's ``lat``/``lon`` string fields to a
-    ``[longitude, latitude]`` coordinate pair (longitude-first).
-    """
-    return GeocodingResult(
-        name=item.get("name", item.get("display_name", "")),
-        coordinates=[float(item["lon"]), float(item["lat"])],
-        display_address=item.get("display_name", ""),
+        f"- Format: gpx\n\n"
+        f"## GPX Data\n{gpx_content}"
     )
 
 
@@ -438,38 +295,21 @@ async def search_location(
         country_code: ISO 3166-1 alpha-2 country code to restrict results
             (default: "de" for Germany).
         limit: Maximum number of results to return, 1–40 (default: 5).
-
-    Returns:
-        Structured text with numbered search results including coordinates
-        as [longitude, latitude], or a descriptive error/no-results message.
     """
-    params = {
-        "q": query,
-        "format": "jsonv2",
-        "countrycodes": country_code,
-        "limit": str(limit),
-    }
+    result = await _lib_search_location(query, country_code, limit)
 
-    result = await call_nominatim(params)
+    if "error" in result:
+        return result["error"]
 
-    # call_nominatim returns a string on error
-    if isinstance(result, str):
-        return result
-
-    if not result:
-        return (
-            f'No locations found for "{query}". '
-            "Try a different search term or check the spelling."
-        )
-
-    geocoding_results = [transform_nominatim_result(item) for item in result]
+    results = result["results"]
+    if not results:
+        return f'No locations found for "{query}".'
 
     lines = [f'## Search Results for "{query}"\n']
-    for i, gr in enumerate(geocoding_results, start=1):
+    for i, r in enumerate(results, 1):
         lines.append(
-            f"{i}. {gr.name}\n"
-            f"   Coordinates: [{gr.coordinates[0]}, {gr.coordinates[1]}]\n"
-            f"   Address: {gr.display_address}\n"
+            f"{i}. {r['name']}\n"
+            f"   Coordinates: [{r['lon']}, {r['lat']}]\n"
         )
 
     return "\n".join(lines)

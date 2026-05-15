@@ -1,100 +1,26 @@
-"""MCP server for POI search along cycling routes via Overpass API (OpenStreetMap)."""
+"""MCP server for POI search along cycling routes via Overpass API (OpenStreetMap).
 
-import math
+Uses lib.overpass for query building and API calls. GPX parsing stays here
+as it's MCP-specific (file system access).
+"""
+
+import sys
 from pathlib import Path
 
 import gpxpy
 import httpx
 from fastmcp import FastMCP
 
+# Add lib/ to path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+
+from lib.overpass import build_query, search_pois, POI_CATEGORIES, PRESETS
+
 mcp = FastMCP("Overpass POI Search")
 
-# ---------------------------------------------------------------------------
-# Constants
-# ---------------------------------------------------------------------------
-
-OVERPASS_URL = "https://overpass-api.de/api/interpreter"
-
-# POI categories mapped to Overpass tag filters.
-# Each category is a list of (key, value_regex) pairs combined with OR.
-POI_CATEGORIES: dict[str, list[tuple[str, str]]] = {
-    "beer_garden": [
-        ("amenity", "biergarten"),
-        ("beer_garden", "yes"),
-    ],
-    "cafe": [
-        ("amenity", "cafe"),
-    ],
-    "restaurant": [
-        ("amenity", "restaurant"),
-    ],
-    "swimming": [
-        ("leisure", "swimming_area"),
-        ("leisure", "bathing_place"),
-        ("sport", "swimming"),
-        ("natural", "beach"),
-    ],
-    "bicycle_repair": [
-        ("shop", "bicycle"),
-        ("amenity", "bicycle_repair_station"),
-    ],
-    "drinking_water": [
-        ("amenity", "drinking_water"),
-    ],
-    "viewpoint": [
-        ("tourism", "viewpoint"),
-    ],
-    "museum": [
-        ("tourism", "museum"),
-    ],
-    "artwork": [
-        ("tourism", "artwork"),
-    ],
-    "gallery": [
-        ("tourism", "gallery"),
-        ("shop", "art"),
-    ],
-    "castle": [
-        ("historic", "castle"),
-        ("historic", "manor"),
-    ],
-    "memorial": [
-        ("historic", "memorial"),
-        ("historic", "monument"),
-    ],
-    "ruins": [
-        ("historic", "ruins"),
-    ],
-    "church": [
-        ("amenity", "place_of_worship"),
-    ],
-    "picnic": [
-        ("tourism", "picnic_site"),
-        ("leisure", "picnic_table"),
-    ],
-}
-
-# Grouped presets matching the steering file emoji categories
-CATEGORY_PRESETS: dict[str, list[str]] = {
-    "einkehr": ["beer_garden", "cafe", "restaurant"],
-    "badestellen": ["swimming"],
-    "sehenswuerdigkeiten": ["museum", "castle", "memorial", "ruins", "church", "viewpoint"],
-    "kunst": ["artwork", "gallery"],
-    "radservice": ["bicycle_repair", "drinking_water"],
-    "rast": ["picnic", "drinking_water", "viewpoint"],
-}
-
-
-# ---------------------------------------------------------------------------
-# Helpers
-# ---------------------------------------------------------------------------
 
 def _sample_track_points(gpx_path: str, max_points: int = 80) -> list[tuple[float, float]]:
-    """Read GPX file and return sampled (lat, lon) points.
-
-    Overpass around filter has a practical limit on polyline length.
-    We sample evenly to stay within ~80 points.
-    """
+    """Read GPX file and return sampled (lat, lon) points."""
     path = Path(gpx_path)
     if not path.exists():
         raise FileNotFoundError(f"GPX file not found: {gpx_path}")
@@ -114,105 +40,12 @@ def _sample_track_points(gpx_path: str, max_points: int = 80) -> list[tuple[floa
     if len(all_points) <= max_points:
         return all_points
 
-    # Sample evenly
     step = len(all_points) / max_points
     sampled = [all_points[int(i * step)] for i in range(max_points)]
-    # Always include last point
     if sampled[-1] != all_points[-1]:
         sampled.append(all_points[-1])
     return sampled
 
-
-def _build_around_poly(points: list[tuple[float, float]]) -> str:
-    """Build Overpass around:radius,lat,lon,lat,lon,... polyline string."""
-    coords = ",".join(f"{lat},{lon}" for lat, lon in points)
-    return coords
-
-
-def _build_query(
-    categories: list[str],
-    poly_coords: str,
-    radius: int,
-) -> str:
-    """Build Overpass QL query for given categories around a polyline."""
-    filters: list[str] = []
-    for cat in categories:
-        tags = POI_CATEGORIES.get(cat, [])
-        for key, value in tags:
-            filters.append(
-                f'  nwr["{key}"="{value}"](around:{radius},{poly_coords});'
-            )
-
-    if not filters:
-        return ""
-
-    query = "[out:json][timeout:30];\n(\n"
-    query += "\n".join(filters)
-    query += "\n);\nout center tags;\n"
-    return query
-
-
-def _format_results(elements: list[dict], categories: list[str]) -> str:
-    """Format Overpass JSON elements into readable text."""
-    if not elements:
-        return "No POIs found along the route for the requested categories."
-
-    # Deduplicate by name+type
-    seen: set[str] = set()
-    pois: list[dict] = []
-    for el in elements:
-        tags = el.get("tags", {})
-        name = tags.get("name", "")
-        # Use center coordinates for ways/relations
-        lat = el.get("center", {}).get("lat", el.get("lat", 0))
-        lon = el.get("center", {}).get("lon", el.get("lon", 0))
-        key = f"{name}:{lat:.4f}:{lon:.4f}"
-        if key in seen:
-            continue
-        seen.add(key)
-        pois.append({"tags": tags, "lat": lat, "lon": lon})
-
-    lines = [f"Found {len(pois)} POI(s) along the route:\n"]
-
-    for poi in pois:
-        tags = poi["tags"]
-        name = tags.get("name", "Unnamed")
-        lat, lon = poi["lat"], poi["lon"]
-
-        # Determine type
-        poi_type = (
-            tags.get("amenity")
-            or tags.get("tourism")
-            or tags.get("leisure")
-            or tags.get("historic")
-            or tags.get("shop")
-            or tags.get("sport")
-            or tags.get("natural")
-            or "poi"
-        )
-
-        # Extra details
-        details: list[str] = []
-        if tags.get("cuisine"):
-            details.append(f"Küche: {tags['cuisine']}")
-        if tags.get("opening_hours"):
-            details.append(f"Öffnungszeiten: {tags['opening_hours']}")
-        if tags.get("website"):
-            details.append(tags["website"])
-        if tags.get("phone"):
-            details.append(tags["phone"])
-        if tags.get("description"):
-            details.append(tags["description"])
-
-        detail_str = f" — {', '.join(details)}" if details else ""
-        lines.append(f"- **{name}** ({poi_type}) [{lat:.5f}, {lon:.5f}]{detail_str}")
-
-    return "\n".join(lines)
-
-
-# ---------------------------------------------------------------------------
-# Tools
-# ---------------------------------------------------------------------------
 
 @mcp.tool()
 async def search_pois_along_route(
@@ -249,9 +82,9 @@ async def search_pois_along_route(
     # Resolve categories
     cats: list[str] = []
     if preset:
-        if preset not in CATEGORY_PRESETS:
-            return f"Error: unknown preset '{preset}'. Available: {', '.join(CATEGORY_PRESETS)}"
-        cats = CATEGORY_PRESETS[preset]
+        if preset not in PRESETS:
+            return f"Error: unknown preset '{preset}'. Available: {', '.join(PRESETS)}"
+        cats = PRESETS[preset]
     elif categories:
         invalid = [c for c in categories if c not in POI_CATEGORIES]
         if invalid:
@@ -266,28 +99,38 @@ async def search_pois_along_route(
     except (FileNotFoundError, ValueError) as e:
         return f"Error: {e}"
 
-    poly_coords = _build_around_poly(points)
-    query = _build_query(cats, poly_coords, radius)
+    # Build query and execute
+    poly_coords = ",".join(f"{lat},{lon}" for lat, lon in points)
+    query = build_query(cats, poly_coords, radius)
     if not query:
         return "Error: no valid tag filters for the given categories"
 
-    # Query Overpass API
-    async with httpx.AsyncClient(timeout=60) as client:
-        try:
-            resp = await client.post(
-                OVERPASS_URL,
-                data={"data": query},
-                headers={"User-Agent": "overpass-mcp/1.0 (cycling tour planner)"},
-            )
-            resp.raise_for_status()
-            data = resp.json()
-        except httpx.HTTPStatusError as e:
-            return f"Overpass API error {e.response.status_code}: {e.response.text[:200]}"
-        except httpx.RequestError as e:
-            return f"Request error: {e}"
+    result = await search_pois(query)
 
-    elements = data.get("elements", [])
-    return _format_results(elements, cats)
+    if "error" in result:
+        return result["error"]
+
+    pois = result["pois"]
+    if not pois:
+        return "No POIs found along the route for the requested categories."
+
+    lines = [f"Found {len(pois)} POI(s) along the route:\n"]
+    for poi in pois:
+        detail_parts: list[str] = []
+        tags = poi.get("tags", {})
+        if tags.get("cuisine"):
+            detail_parts.append(f"Küche: {tags['cuisine']}")
+        if tags.get("opening_hours"):
+            detail_parts.append(f"Öffnungszeiten: {tags['opening_hours']}")
+        if tags.get("website"):
+            detail_parts.append(tags["website"])
+
+        detail_str = f" — {', '.join(detail_parts)}" if detail_parts else ""
+        lines.append(
+            f"- **{poi['name']}** ({poi['category']}) [{poi['lat']:.5f}, {poi['lon']:.5f}]{detail_str}"
+        )
+
+    return "\n".join(lines)
 
 
 if __name__ == "__main__":

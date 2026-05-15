@@ -63,7 +63,30 @@ async def calculate_route(
         resp.raise_for_status()
         content = resp.text
 
-    return {"content": content, "format": format}
+    # Extract metadata from GPX for structured result
+    import re
+    distance_m = 0.0
+    elevation_m = 0.0
+    length_match = re.search(r'track-length\s*=\s*"?(\d+(?:\.\d+)?)"?', content)
+    ascend_match = re.search(r'filtered ascend\s*=\s*"?(\d+(?:\.\d+)?)"?', content)
+    if length_match:
+        distance_m = float(length_match.group(1))
+    if ascend_match:
+        elevation_m = float(ascend_match.group(1))
+
+    distance_km = distance_m / 1000
+    # Estimate duration based on profile
+    speed_kmh = {"trekking": 15.0, "fastbike": 20.0}.get(profile, 12.0)
+    duration_min = round((distance_km / speed_kmh) * 60)
+
+    return {
+        "distance_km": round(distance_km, 1),
+        "elevation_gain_m": round(elevation_m),
+        "duration_min": duration_min,
+        "profile": profile,
+        "format": format,
+        "gpx_length": len(content) if format == "gpx" else 0,
+    }
 
 
 async def search_location(

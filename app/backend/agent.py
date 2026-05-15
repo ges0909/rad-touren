@@ -34,7 +34,7 @@ async def run_agent(
 
     Yields dicts with keys: {"event": str, "data": dict}
     """
-    system_prompt: str = build_system_prompt(tour_type, language=language)
+    system_prompt: str = build_system_prompt(tour_type, language=language, user_message=user_message)
 
     # Use provided language for error messages
     lang: Lang = language if language in ("de", "en") else "de"
@@ -70,8 +70,13 @@ async def run_agent(
     )
 
     # Agent loop: call LLM, execute tools, feed results back
-    max_iterations: int = 15
+    max_iterations: int = 8
     for iteration in range(max_iterations):
+        # Rate limit: 5 RPM on free tier → wait between iterations
+        if iteration > 0:
+            import asyncio
+            await asyncio.sleep(13)
+
         logger.info("Iteration %d: calling Gemini", iteration + 1)
         try:
             response = client.models.generate_content(
@@ -108,7 +113,28 @@ async def run_agent(
             return
 
         # Check if response has function calls
+        if not response.candidates:
+            logger.warning("Gemini returned no candidates at iteration %d", iteration + 1)
+            yield {"event": "tour", "data": {"markdown": ""}}
+            yield {"event": "done", "data": {"iterations": iteration + 1}}
+            return
+
         candidate = response.candidates[0]
+        if not candidate.content or not candidate.content.parts:
+            finish_reason = getattr(candidate, "finish_reason", None)
+            logger.warning(
+                "Gemini returned empty content at iteration %d, finish_reason=%s",
+                iteration + 1,
+                finish_reason,
+            )
+            # If blocked by safety, inform user
+            if finish_reason and "SAFETY" in str(finish_reason):
+                yield {"event": "error", "data": {"error": i18n_msg("unexpected_error", lang, detail="Response blocked by safety filter")}}
+            else:
+                yield {"event": "tour", "data": {"markdown": ""}}
+            yield {"event": "done", "data": {"iterations": iteration + 1}}
+            return
+
         parts = candidate.content.parts
 
         function_calls = [p for p in parts if p.function_call]

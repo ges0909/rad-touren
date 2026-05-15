@@ -1,122 +1,25 @@
-"""MCP server wrapping the Wikivoyage MediaWiki API for travel information.
+"""MCP server wrapping the Wikivoyage API for travel guide content.
 
-Provides tools to search for destinations, retrieve travel guides, and extract
-structured sections (Anreise, Sehenswürdigkeiten, Küche, etc.) from Wikivoyage.
-Supports both German (de) and English (en) Wikivoyage editions.
+Uses lib.wikivoyage for all API logic. This file provides MCP tool declarations
+and formats structured results into human-readable strings.
 """
 
-import re
+import sys
+from pathlib import Path
 
-import httpx
 from fastmcp import FastMCP
 
-mcp = FastMCP("Wikivoyage Travel Guide")
+# Add lib/ to path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
-# ---------------------------------------------------------------------------
-# Constants
-# ---------------------------------------------------------------------------
+from lib.wikivoyage import (
+    search_destinations as _search,
+    get_article as _get_article,
+    get_article_sections as _get_sections,
+    search_nearby as _search_nearby,
+)
 
-SUPPORTED_LANGS = ("de", "en")
-BASE_URL_TEMPLATE = "https://{lang}.wikivoyage.org/w/api.php"
-
-# Common section names in German Wikivoyage articles
-DE_SECTIONS = {
-    "anreise": "Anreise",
-    "mobilität": "Mobilität",
-    "sehenswürdigkeiten": "Sehenswürdigkeiten",
-    "aktivitäten": "Aktivitäten",
-    "einkaufen": "Einkaufen",
-    "küche": "Küche",
-    "nachtleben": "Nachtleben",
-    "unterkunft": "Unterkunft",
-    "gesundheit": "Gesundheit",
-    "praktische hinweise": "Praktische Hinweise",
-    "ausflüge": "Ausflüge",
-    "literatur": "Literatur",
-    "weblinks": "Weblinks",
-}
-
-
-# ---------------------------------------------------------------------------
-# HTTP client
-# ---------------------------------------------------------------------------
-
-
-async def _get_json(lang: str, params: dict) -> dict | list | str:
-    """Make GET request to Wikivoyage API and return JSON or error string."""
-    if lang not in SUPPORTED_LANGS:
-        return f"Error: unsupported language '{lang}'. Use one of: {SUPPORTED_LANGS}"
-
-    url = BASE_URL_TEMPLATE.format(lang=lang)
-    params["format"] = "json"
-    params["formatversion"] = "2"
-
-    headers = {
-        "User-Agent": "WikivoyageMCP/1.0 (https://github.com/rad-touren; travel planning tool)",
-    }
-
-    async with httpx.AsyncClient(timeout=30, headers=headers) as client:
-        try:
-            resp = await client.get(url, params=params)
-            resp.raise_for_status()
-            return resp.json()
-        except httpx.HTTPStatusError as e:
-            return f"HTTP error {e.response.status_code}: {e.response.text}"
-        except httpx.RequestError as e:
-            return f"Request error: {e}"
-
-
-# ---------------------------------------------------------------------------
-# Helpers
-# ---------------------------------------------------------------------------
-
-
-def _clean_wikitext(text: str) -> str:
-    """Remove common wikitext markup for readable plain text output."""
-    # Remove HTML comments
-    text = re.sub(r"<!--.*?-->", "", text, flags=re.DOTALL)
-    # Remove templates like {{...}} (simple, non-nested)
-    text = re.sub(r"\{\{[^}]*\}\}", "", text)
-    # Convert [[Link|Display]] to Display, [[Link]] to Link
-    text = re.sub(r"\[\[[^|\]]*\|([^\]]+)\]\]", r"\1", text)
-    text = re.sub(r"\[\[([^\]]+)\]\]", r"\1", text)
-    # Convert external links [url text] to text
-    text = re.sub(r"\[https?://[^\s\]]+ ([^\]]+)\]", r"\1", text)
-    text = re.sub(r"\[https?://[^\]]+\]", "", text)
-    # Remove bold/italic markup
-    text = re.sub(r"'{2,3}", "", text)
-    # Remove <ref>...</ref>
-    text = re.sub(r"<ref[^>]*>.*?</ref>", "", text, flags=re.DOTALL)
-    text = re.sub(r"<ref[^/]*/?>", "", text)
-    # Remove remaining HTML tags
-    text = re.sub(r"<[^>]+>", "", text)
-    # Collapse multiple blank lines
-    text = re.sub(r"\n{3,}", "\n\n", text)
-    return text.strip()
-
-
-def _extract_section(wikitext: str, section_name: str) -> str | None:
-    """Extract a specific section from wikitext by heading name."""
-    # Match == Section == or === Subsection ===
-    pattern = rf"(^|\n)==\s*{re.escape(section_name)}\s*==\s*\n"
-    match = re.search(pattern, wikitext, re.IGNORECASE)
-    if not match:
-        return None
-
-    start = match.end()
-    # Find the next section at same or higher level
-    next_section = re.search(r"\n==\s*[^=]", wikitext[start:])
-    if next_section:
-        end = start + next_section.start()
-    else:
-        end = len(wikitext)
-
-    return wikitext[start:end].strip()
-
-
-# ---------------------------------------------------------------------------
-# Tools
-# ---------------------------------------------------------------------------
+mcp = FastMCP("Wikivoyage Travel Guides")
 
 
 @mcp.tool()
@@ -131,39 +34,20 @@ async def search_destinations(query: str, lang: str = "de", results: int = 10) -
     """
     if not query or len(query.strip()) < 2:
         return "Error: query must be at least 2 characters"
-    if not (1 <= results <= 20):
-        return "Error: results must be between 1 and 20"
 
-    params = {
-        "action": "query",
-        "list": "search",
-        "srsearch": query.strip(),
-        "srlimit": results,
-        "srnamespace": "0",
-        "srprop": "snippet|titlesnippet|size",
-    }
+    result = await _search(query.strip(), lang, results)
 
-    data = await _get_json(lang, params)
-    if isinstance(data, str):
-        return data
+    if "error" in result:
+        return result["error"]
 
-    search_results = data.get("query", {}).get("search", [])
-    if not search_results:
-        return f"Keine Ergebnisse für '{query}' auf {lang}.wikivoyage.org"
-
-    lines = [f"Gefunden: {len(search_results)} Ergebnis(se) auf {lang}.wikivoyage.org\n"]
-    for item in search_results:
-        title = item.get("title", "?")
-        snippet = item.get("snippet", "")
-        # Clean HTML from snippet
-        snippet = re.sub(r"<[^>]+>", "", snippet).strip()
-        size = item.get("size", 0)
-        size_kb = f"{size / 1024:.1f} KB" if size else ""
-
-        lines.append(f"- **{title}** ({size_kb})")
-        if snippet:
-            lines.append(f"  {snippet[:150]}")
-        lines.append(f"  → https://{lang}.wikivoyage.org/wiki/{title.replace(' ', '_')}")
+    destinations = result["destinations"]
+    lines = [f"Gefunden: {len(destinations)} Ergebnis(se) auf {lang}.wikivoyage.org\n"]
+    for d in destinations:
+        size_kb = f"{d['size_bytes'] / 1024:.1f} KB" if d["size_bytes"] else ""
+        lines.append(f"- **{d['title']}** ({size_kb})")
+        if d["snippet"]:
+            lines.append(f"  {d['snippet']}")
+        lines.append(f"  → https://{lang}.wikivoyage.org/wiki/{d['title'].replace(' ', '_')}")
 
     return "\n".join(lines)
 
@@ -182,46 +66,18 @@ async def get_article(title: str, lang: str = "de") -> str:
     if not title or len(title.strip()) < 2:
         return "Error: title must be at least 2 characters"
 
-    params = {
-        "action": "query",
-        "titles": title.strip(),
-        "prop": "revisions",
-        "rvprop": "content",
-        "rvslots": "main",
-    }
+    result = await _get_article(title.strip(), lang)
 
-    data = await _get_json(lang, params)
-    if isinstance(data, str):
-        return data
+    if "error" in result:
+        return result["error"]
 
-    pages = data.get("query", {}).get("pages", [])
-    if not pages:
-        return f"Artikel '{title}' nicht gefunden auf {lang}.wikivoyage.org"
-
-    page = pages[0]
-    if page.get("missing"):
-        return f"Artikel '{title}' existiert nicht auf {lang}.wikivoyage.org"
-
-    revisions = page.get("revisions", [])
-    if not revisions:
-        return f"Kein Inhalt für '{title}' verfügbar"
-
-    content = revisions[0].get("slots", {}).get("main", {}).get("content", "")
-    if not content:
-        return f"Leerer Artikel: '{title}'"
-
-    cleaned = _clean_wikitext(content)
-
-    # Truncate very long articles to stay within reasonable output
+    content = result["content"]
+    # Truncate very long articles
     max_chars = 12000
-    if len(cleaned) > max_chars:
-        cleaned = cleaned[:max_chars] + "\n\n[... Artikel gekürzt. Nutze get_section() für einzelne Abschnitte.]"
+    if len(content) > max_chars:
+        content = content[:max_chars] + "\n\n[... Artikel gekürzt. Nutze get_section() für einzelne Abschnitte.]"
 
-    header = (
-        f"# {page.get('title', title)}\n"
-        f"Quelle: https://{lang}.wikivoyage.org/wiki/{title.replace(' ', '_')}\n\n"
-    )
-    return header + cleaned
+    return f"# {result['title']}\nQuelle: https://{lang}.wikivoyage.org/wiki/{title.replace(' ', '_')}\n\n{content}"
 
 
 @mcp.tool()
@@ -238,58 +94,31 @@ async def get_section(title: str, section: str, lang: str = "de") -> str:
                  Einkaufen, Küche, Nachtleben, Unterkunft, Ausflüge
         lang: Language edition — "de" (German, default) or "en" (English)
     """
-    if not title or len(title.strip()) < 2:
-        return "Error: title must be at least 2 characters"
-    if not section or len(section.strip()) < 2:
-        return "Error: section name must be at least 2 characters"
+    if not title or not section:
+        return "Error: title and section are required"
 
-    params = {
-        "action": "query",
-        "titles": title.strip(),
-        "prop": "revisions",
-        "rvprop": "content",
-        "rvslots": "main",
-    }
+    # Get full article and extract section
+    result = await _get_article(title.strip(), lang)
 
-    data = await _get_json(lang, params)
-    if isinstance(data, str):
-        return data
+    if "error" in result:
+        return result["error"]
 
-    pages = data.get("query", {}).get("pages", [])
-    if not pages:
-        return f"Artikel '{title}' nicht gefunden"
+    content = result["content"]
 
-    page = pages[0]
-    if page.get("missing"):
-        return f"Artikel '{title}' existiert nicht auf {lang}.wikivoyage.org"
+    # Find section by heading
+    import re
+    pattern = re.compile(rf"^## {re.escape(section)}\s*$", re.MULTILINE)
+    match = pattern.search(content)
+    if not match:
+        return f"Abschnitt '{section}' nicht gefunden in '{title}'"
 
-    revisions = page.get("revisions", [])
-    if not revisions:
-        return f"Kein Inhalt für '{title}' verfügbar"
+    start = match.start()
+    # Find next section heading
+    next_heading = re.search(r"^## ", content[match.end():], re.MULTILINE)
+    end = match.end() + next_heading.start() if next_heading else len(content)
 
-    content = revisions[0].get("slots", {}).get("main", {}).get("content", "")
-    if not content:
-        return f"Leerer Artikel: '{title}'"
-
-    section_text = _extract_section(content, section.strip())
-    if not section_text:
-        # Try case-insensitive lookup in known sections
-        section_lower = section.strip().lower()
-        if section_lower in DE_SECTIONS:
-            section_text = _extract_section(content, DE_SECTIONS[section_lower])
-
-    if not section_text:
-        # List available sections as help
-        available = re.findall(r"\n==\s*([^=]+?)\s*==", content)
-        available_str = ", ".join(available[:15]) if available else "keine gefunden"
-        return (
-            f"Abschnitt '{section}' nicht gefunden in '{title}'.\n"
-            f"Verfügbare Abschnitte: {available_str}"
-        )
-
-    cleaned = _clean_wikitext(section_text)
-    header = f"## {section} — {page.get('title', title)}\n\n"
-    return header + cleaned
+    section_content = content[start:end].strip()
+    return f"# {title} — {section}\n\n{section_content}"
 
 
 @mcp.tool()
@@ -305,31 +134,19 @@ async def get_article_sections(title: str, lang: str = "de") -> str:
     if not title or len(title.strip()) < 2:
         return "Error: title must be at least 2 characters"
 
-    params = {
-        "action": "parse",
-        "page": title.strip(),
-        "prop": "sections",
-    }
+    result = await _get_sections(title.strip(), lang)
 
-    data = await _get_json(lang, params)
-    if isinstance(data, str):
-        return data
+    if "error" in result:
+        return result["error"]
 
-    if "error" in data:
-        return f"Fehler: {data['error'].get('info', 'Unbekannter Fehler')}"
-
-    sections = data.get("parse", {}).get("sections", [])
+    sections = result["sections"]
     if not sections:
         return f"Keine Abschnitte gefunden für '{title}'"
 
-    page_title = data.get("parse", {}).get("title", title)
-    lines = [f"Abschnitte in **{page_title}** ({lang}.wikivoyage.org):\n"]
-
-    for sec in sections:
-        level = int(sec.get("toclevel", 1))
-        name = sec.get("line", "?")
-        indent = "  " * (level - 1)
-        lines.append(f"{indent}- {name}")
+    lines = [f"Abschnitte in '{title}':\n"]
+    for s in sections:
+        indent = "  " * (s["level"] - 2)
+        lines.append(f"{indent}- {s['name']}")
 
     return "\n".join(lines)
 
@@ -347,45 +164,19 @@ async def search_nearby(lat: float, lon: float, radius: int = 10000, lang: str =
         lang: Language edition — "de" (German, default) or "en" (English)
         results: Maximum number of results (1-50)
     """
-    if not (-90 <= lat <= 90):
-        return "Error: latitude must be between -90 and 90"
-    if not (-180 <= lon <= 180):
-        return "Error: longitude must be between -180 and 180"
-    if not (100 <= radius <= 10000):
-        return "Error: radius must be between 100 and 10000 meters"
-    if not (1 <= results <= 50):
-        return "Error: results must be between 1 and 50"
+    result = await _search_nearby(lat, lon, radius, lang, results)
 
-    params = {
-        "action": "query",
-        "list": "geosearch",
-        "gscoord": f"{lat}|{lon}",
-        "gsradius": radius,
-        "gslimit": results,
-        "gsnamespace": "0",
-    }
+    if "error" in result:
+        return result["error"]
 
-    data = await _get_json(lang, params)
-    if isinstance(data, str):
-        return data
-
-    places = data.get("query", {}).get("geosearch", [])
+    places = result["places"]
     if not places:
-        return f"Keine Wikivoyage-Artikel im Umkreis von {radius}m um {lat}, {lon}"
+        return f"Keine Wikivoyage-Artikel in der Nähe von {lat:.4f}, {lon:.4f}"
 
-    lines = [f"Gefunden: {len(places)} Ort(e) im Umkreis von {radius}m:\n"]
-    for place in places:
-        title = place.get("title", "?")
-        dist = place.get("dist", 0)
-        plat = place.get("lat", "?")
-        plon = place.get("lon", "?")
-
-        dist_str = f"{dist:.0f}m" if dist < 1000 else f"{dist / 1000:.1f}km"
-        lines.append(
-            f"- **{title}** ({dist_str} entfernt)\n"
-            f"  Koordinaten: {plat}, {plon}\n"
-            f"  → https://{lang}.wikivoyage.org/wiki/{title.replace(' ', '_')}"
-        )
+    lines = [f"Gefunden: {len(places)} Ort(e) in der Nähe:\n"]
+    for p in places:
+        dist_str = f"{p['distance_m']:.0f}m" if p.get("distance_m") else ""
+        lines.append(f"- **{p['title']}** ({dist_str})")
 
     return "\n".join(lines)
 

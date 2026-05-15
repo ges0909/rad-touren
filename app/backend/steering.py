@@ -8,15 +8,29 @@ logger = logging.getLogger(__name__)
 STEERING_DIR: Path = Path(__file__).parent.parent.parent / ".kiro" / "steering"
 
 
-def build_system_prompt(tour_type: str = "road", language: str = "de") -> str:
-    """Assemble system prompt from all steering files.
+def _detect_tour_type(message: str) -> str:
+    """Detect tour type from user message. Returns 'bike', 'road', or 'general'."""
+    msg = message.lower()
+    bike_words = ("radtour", "fahrrad", "bike", "cycling", "radweg", "radfahren", "e-bike")
+    road_words = ("roadtrip", "road trip", "autoreise", "mietwagen", "rental car", "driving")
 
-    The agent receives all templates and selects the appropriate one
-    based on the user's request.
+    if any(w in msg for w in bike_words):
+        return "bike"
+    if any(w in msg for w in road_words):
+        return "road"
+    return "general"
+
+
+def build_system_prompt(tour_type: str = "road", language: str = "de", user_message: str = "") -> str:
+    """Assemble system prompt from relevant steering files.
+
+    Detects tour type from user_message and loads only the matching files
+    to keep the prompt compact.
 
     Args:
-        tour_type: Tour type hint (currently unused, agent auto-detects).
+        tour_type: Tour type hint (overridden by user_message detection).
         language: Output language code ("de" or "en").
+        user_message: The user's input, used to detect tour type.
 
     Returns:
         Combined steering content as a single string.
@@ -69,14 +83,15 @@ Erkenne aus der Nutzereingabe den Tour-Typ und verwende das passende Template:
 Halte dich strikt an die Struktur des gewählten Templates.
 """
 
-    # Load all steering files
-    files: list[str] = [
-        "user-preferences.md",
-        "bike-planning.md",
-        "bike-template.md",
-        "road-planning.md",
-        "road-template.md",
-    ]
+    # Select files based on detected tour type
+    detected = _detect_tour_type(user_message) if user_message else tour_type
+    files: list[str] = ["user-preferences.md"]
+
+    if detected == "bike":
+        files += ["bike-planning.md", "bike-template.md"]
+    elif detected == "road":
+        files += ["road-planning.md", "road-template.md"]
+    # "general" → only user-preferences, keep prompt small
 
     parts: list[str] = []
     loaded_count = 0
