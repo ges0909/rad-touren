@@ -153,7 +153,7 @@ async def run_agent(
     )
 
     # Agent loop: call LLM, execute tools, feed results back
-    max_iterations: int = 15
+    max_iterations: int = 25
     recovery_count: int = 0  # Track recovery nudges to prevent infinite loops
     max_recoveries: int = 2
     for iteration in range(max_iterations):
