@@ -97,7 +97,7 @@ watch(
 </script>
 
 <template>
-  <div class="bg-white rounded-lg shadow overflow-hidden">
-    <div ref="mapContainer" class="h-[60vh] lg:h-[80vh]"></div>
+  <div class="bg-white rounded-lg shadow overflow-hidden h-full">
+    <div ref="mapContainer" class="h-full"></div>
   </div>
 </template>

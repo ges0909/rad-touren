@@ -1,7 +1,9 @@
 """Gemini agent loop with tool calling and streaming."""
 
 import json
+import logging
 from collections.abc import AsyncGenerator
+from typing import Any
 
 from google import genai
 from google.genai import types
@@ -9,6 +11,11 @@ from google.genai.errors import ClientError, ServerError
 
 from steering import build_system_prompt
 from tools import TOOL_DECLARATIONS, TOOL_REGISTRY
+from i18n import Lang, detect_language, msg
+
+logger = logging.getLogger(__name__)
+
+type SSEEvent = dict[str, Any]
 
 
 def create_client(api_key: str) -> genai.Client:
@@ -19,17 +26,20 @@ def create_client(api_key: str) -> genai.Client:
 async def run_agent(
     client: genai.Client,
     user_message: str,
-    chat_history: list[dict],
+    chat_history: list[dict[str, str]],
     tour_type: str = "road",
-) -> AsyncGenerator[dict, None]:
+) -> AsyncGenerator[SSEEvent, None]:
     """Run the agent loop, yielding SSE events.
 
     Yields dicts with keys: {"event": str, "data": dict}
     """
-    system_prompt = build_system_prompt(tour_type)
+    system_prompt: str = build_system_prompt(tour_type)
+
+    # Detect user language for error messages
+    lang: Lang = detect_language(user_message)
 
     # Build conversation contents
-    contents = []
+    contents: list[types.Content] = []
     for msg in chat_history:
         contents.append(
             types.Content(
@@ -56,7 +66,7 @@ async def run_agent(
     )
 
     # Agent loop: call LLM, execute tools, feed results back
-    max_iterations = 15
+    max_iterations: int = 15
     for iteration in range(max_iterations):
         try:
             response = client.models.generate_content(
@@ -65,27 +75,30 @@ async def run_agent(
                 config=config,
             )
         except ClientError as e:
+            logger.error("Gemini ClientError %d: %s", e.code, e.message)
             if e.code == 429:
                 yield {
                     "event": "error",
-                    "data": {"error": "API-Quota erschöpft. Bitte warte einige Minuten oder prüfe dein Gemini-Kontingent."},
+                    "data": {"error": msg("quota_exhausted", lang)},
                 }
             else:
                 yield {
                     "event": "error",
-                    "data": {"error": f"Gemini API-Fehler ({e.code}): {e.message or e!s}"},
+                    "data": {"error": msg("api_error", lang, code=str(e.code), detail=e.message or str(e))},
                 }
             return
         except ServerError as e:
+            logger.error("Gemini ServerError %d: %s", e.code, e.message)
             yield {
                 "event": "error",
-                "data": {"error": f"Gemini-Server nicht erreichbar ({e.code}). Bitte später erneut versuchen."},
+                "data": {"error": msg("server_unavailable", lang, code=str(e.code))},
             }
             return
         except Exception as e:
+            logger.exception("Unexpected error in agent loop")
             yield {
                 "event": "error",
-                "data": {"error": f"Unerwarteter Fehler: {e!s}"},
+                "data": {"error": msg("unexpected_error", lang, detail=str(e))},
             }
             return
 
@@ -97,20 +110,20 @@ async def run_agent(
 
         if not function_calls:
             # No more tool calls — this is the final response
-            text_parts = [p.text for p in parts if p.text]
-            final_text = "\n".join(text_parts)
+            text_parts: list[str] = [p.text for p in parts if p.text]
+            final_text: str = "\n".join(text_parts)
             yield {"event": "tour", "data": {"markdown": final_text}}
             yield {"event": "done", "data": {"iterations": iteration + 1}}
             return
 
         # Execute tool calls
         contents.append(candidate.content)
-        tool_results = []
+        tool_results: list[types.Part] = []
 
         for part in function_calls:
             fc = part.function_call
-            tool_name = fc.name
-            tool_args = dict(fc.args) if fc.args else {}
+            tool_name: str = fc.name
+            tool_args: dict[str, Any] = dict(fc.args) if fc.args else {}
 
             yield {
                 "event": "status",
@@ -118,32 +131,31 @@ async def run_agent(
             }
 
             # Execute the tool
+            result_str: str
             tool_fn = TOOL_REGISTRY.get(tool_name)
             if tool_fn:
                 try:
-                    result = await tool_fn(**tool_args)
+                    result: Any = await tool_fn(**tool_args)
                     result_str = json.dumps(result, ensure_ascii=False, default=str)
 
                     # Emit map data events for geo tools
                     if tool_name == "geocode" and isinstance(result, dict):
-                        results = result.get("results", [])
+                        results: list[dict[str, Any]] = result.get("results", [])
                         if results:
-                            # geocode returns [lon, lat], map needs [lat, lon]
-                            coords = results[0].get("coordinates", [])
+                            coords: list[float] = results[0].get("coordinates", [])
                             if len(coords) == 2:
                                 yield {
                                     "event": "map",
                                     "data": {"waypoints": [[coords[1], coords[0]]]},
                                 }
                     elif tool_name == "calculate_car_route" and isinstance(result, dict):
-                        geometry = result.get("geometry")
+                        geometry: list[tuple[float, float]] | None = result.get("geometry")
                         if geometry:
-                            # geometry is already [(lat, lon), ...]
                             yield {
                                 "event": "map",
                                 "data": {"route": [[lat, lon] for lat, lon in geometry]},
                             }
-                        wps = result.get("waypoints")
+                        wps: list[list[float]] | None = result.get("waypoints")
                         if wps:
                             yield {
                                 "event": "map",
@@ -168,4 +180,4 @@ async def run_agent(
         )
 
     # Max iterations reached
-    yield {"event": "error", "data": {"error": "Maximale Iterationen erreicht. Bitte versuche eine kürzere Anfrage."}}
+    yield {"event": "error", "data": {"error": msg("max_iterations", lang)}}

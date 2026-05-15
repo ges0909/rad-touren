@@ -2,7 +2,7 @@
 
 from pathlib import Path
 
-STEERING_DIR = Path(__file__).parent.parent.parent / ".kiro" / "steering"
+STEERING_DIR: Path = Path(__file__).parent.parent.parent / ".kiro" / "steering"
 
 
 def build_system_prompt(tour_type: str = "road") -> str:
@@ -15,7 +15,7 @@ def build_system_prompt(tour_type: str = "road") -> str:
         Combined steering content as a single string.
     """
     # Base instructions for agent behavior
-    base_prompt = """Du bist ein Reiseplanungs-Assistent. Du hilfst bei der Planung von Radtouren, Wanderungen und Roadtrips.
+    base_prompt: str = """Du bist ein Reiseplanungs-Assistent. Du hilfst bei der Planung von Radtouren, Wanderungen und Roadtrips.
 
 ## Wichtige Verhaltensregeln
 
@@ -36,7 +36,7 @@ Halte dich strikt an die Struktur des gewählten Templates.
 """
 
     # Load all steering files
-    files = [
+    files: list[str] = [
         "user-preferences.md",
         "bike-planning.md",
         "bike-template.md",
@@ -44,14 +44,14 @@ Halte dich strikt an die Struktur des gewählten Templates.
         "road-template.md",
     ]
 
-    parts = []
+    parts: list[str] = []
     for filename in files:
-        path = STEERING_DIR / filename
+        path: Path = STEERING_DIR / filename
         if path.exists():
-            content = path.read_text(encoding="utf-8")
+            content: str = path.read_text(encoding="utf-8")
             # Strip YAML front matter
             if content.startswith("---"):
-                end = content.find("---", 3)
+                end: int = content.find("---", 3)
                 if end != -1:
                     content = content[end + 3:].strip()
             parts.append(content)

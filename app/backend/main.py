@@ -1,16 +1,23 @@
 """FastAPI backend for the Trip Planner web app."""
 
 import json
+import logging
 import os
+from collections.abc import AsyncGenerator
 from pathlib import Path
+from typing import Any
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
+from google import genai
 from sse_starlette.sse import EventSourceResponse
 
 from agent import create_client, run_agent
+from i18n import detect_language, msg
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
 
 # Load environment variables
 load_dotenv(Path(__file__).parent.parent.parent / ".env")
@@ -18,10 +25,11 @@ load_dotenv(Path(__file__).parent.parent.parent / ".env")
 app = FastAPI(title="Trip Planner API")
 
 # Gemini client (initialized on first request)
-_client = None
+_client: genai.Client | None = None
 
 
-def get_client():
+def get_client() -> genai.Client:
+    """Get or create the Gemini client singleton."""
     global _client
     if _client is None:
         api_key = os.getenv("GEMINI_API_KEY")
@@ -32,32 +40,33 @@ def get_client():
 
 
 # In-memory session storage (MVP)
-sessions: dict[str, list[dict]] = {}
+sessions: dict[str, list[dict[str, str]]] = {}
 
 
 @app.post("/api/chat")
-async def chat(request: Request):
+async def chat(request: Request) -> EventSourceResponse:
     """Handle chat messages and stream responses via SSE."""
-    body = await request.json()
-    message = body.get("message", "")
-    session_id = body.get("session_id", "default")
+    body: dict[str, Any] = await request.json()
+    message: str = body.get("message", "")
+    session_id: str = body.get("session_id", "default")
 
     if not message:
-        return {"error": "No message provided"}
+        return {"error": "No message provided"}  # type: ignore[return-value]
 
     # Get or create session history
     if session_id not in sessions:
         sessions[session_id] = []
 
-    chat_history = sessions[session_id]
+    chat_history: list[dict[str, str]] = sessions[session_id]
 
-    async def event_generator():
+    async def event_generator() -> AsyncGenerator[dict[str, str], None]:
+        lang = detect_language(message)
         try:
             client = get_client()
-        except RuntimeError as e:
+        except RuntimeError:
             yield {
                 "event": "error",
-                "data": json.dumps({"error": str(e)}, ensure_ascii=False),
+                "data": json.dumps({"error": msg("no_api_key", lang)}, ensure_ascii=False),
             }
             return
 
@@ -75,7 +84,7 @@ async def chat(request: Request):
             yield {
                 "event": "error",
                 "data": json.dumps(
-                    {"error": f"Interner Fehler: {e!s}"},
+                    {"error": msg("internal_error", lang, detail=str(e))},
                     ensure_ascii=False,
                 ),
             }
@@ -88,12 +97,12 @@ async def chat(request: Request):
 
 
 @app.get("/api/health")
-async def health():
+async def health() -> dict[str, Any]:
     """Health check endpoint."""
     return {"status": "ok", "gemini_configured": bool(os.getenv("GEMINI_API_KEY"))}
 
 
 # Serve frontend static files (production)
-FRONTEND_DIST = Path(__file__).parent.parent / "frontend" / "dist"
+FRONTEND_DIST: Path = Path(__file__).parent.parent / "frontend" / "dist"
 if FRONTEND_DIST.exists():
     app.mount("/", StaticFiles(directory=str(FRONTEND_DIST), html=True), name="frontend")

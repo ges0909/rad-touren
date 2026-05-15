@@ -15,6 +15,40 @@ const mapData = ref<{
   waypoints: [],
   route: [],
 });
+const splitPercent = ref(50);
+
+function startResize(e: MouseEvent) {
+  e.preventDefault();
+  e.stopPropagation();
+  const container = (e.target as HTMLElement).closest(
+    "[data-split-container]",
+  ) as HTMLElement;
+  if (!container) return;
+  const startX = e.clientX;
+  const startPercent = splitPercent.value;
+  const containerWidth = container.offsetWidth;
+
+  // Prevent text selection and pointer events on children during drag
+  document.body.style.userSelect = "none";
+  document.body.style.cursor = "col-resize";
+
+  function onMove(ev: MouseEvent) {
+    ev.preventDefault();
+    const delta = ev.clientX - startX;
+    const newPercent = startPercent + (delta / containerWidth) * 100;
+    splitPercent.value = Math.max(20, Math.min(80, newPercent));
+  }
+
+  function onUp() {
+    document.body.style.userSelect = "";
+    document.body.style.cursor = "";
+    document.removeEventListener("mousemove", onMove);
+    document.removeEventListener("mouseup", onUp);
+  }
+
+  document.addEventListener("mousemove", onMove);
+  document.addEventListener("mouseup", onUp);
+}
 
 function handleReset() {
   tourMarkdown.value = "";
@@ -137,9 +171,30 @@ async function handleSend(message: string) {
     </div>
 
     <!-- Tour Result -->
-    <div v-if="tourMarkdown" class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
-      <TourContent :markdown="tourMarkdown" />
-      <TourMap :waypoints="mapData.waypoints" :route="mapData.route" />
+    <div
+      v-if="tourMarkdown"
+      data-split-container
+      class="mt-6 flex flex-col lg:flex-row"
+      style="height: 80vh"
+    >
+      <div
+        :style="{ width: splitPercent + '%' }"
+        class="overflow-hidden min-w-0"
+      >
+        <TourContent :markdown="tourMarkdown" />
+      </div>
+      <div
+        class="hidden lg:flex items-center justify-center w-3 cursor-col-resize bg-gray-100 hover:bg-blue-200 active:bg-blue-300 transition-colors shrink-0 select-none"
+        @mousedown="startResize"
+      >
+        <div class="w-0.5 h-8 bg-gray-400 rounded"></div>
+      </div>
+      <div
+        :style="{ width: 100 - splitPercent + '%' }"
+        class="overflow-hidden min-w-0"
+      >
+        <TourMap :waypoints="mapData.waypoints" :route="mapData.route" />
+      </div>
     </div>
   </div>
 </template>

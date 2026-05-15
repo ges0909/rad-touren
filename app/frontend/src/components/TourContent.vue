@@ -10,7 +10,7 @@ const renderedHtml = computed(() => {
 </script>
 
 <template>
-  <div class="bg-white rounded-lg shadow p-6 overflow-y-auto max-h-[80vh]">
+  <div class="bg-white rounded-lg shadow p-6 overflow-y-auto h-full">
     <div class="prose prose-sm max-w-none" v-html="renderedHtml"></div>
 
     <!-- Download buttons -->
