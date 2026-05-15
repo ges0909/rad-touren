@@ -50,7 +50,7 @@ async def lifespan(app: FastAPI):
     logger.info("MCP manager shut down")
 
 
-app = FastAPI(title="Trip Planner API", lifespan=lifespan)
+app = FastAPI(title="Tourplaner API", lifespan=lifespan)
 
 # Gemini client (initialized on first request)
 _client: genai.Client | None = None
