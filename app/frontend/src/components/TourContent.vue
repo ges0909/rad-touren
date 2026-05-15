@@ -1,12 +1,18 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { marked } from "marked";
+import DOMPurify from "dompurify";
 
 const props = defineProps<{ markdown: string }>();
 
 const renderedHtml = computed(() => {
-  return marked(props.markdown) as string;
+  const raw = marked(props.markdown) as string;
+  return DOMPurify.sanitize(raw);
 });
+
+function printPage() {
+  window.print();
+}
 </script>
 
 <template>
@@ -26,7 +32,7 @@ const renderedHtml = computed(() => {
       </a>
       <button
         class="px-3 py-1.5 text-sm bg-gray-100 hover:bg-gray-200 rounded-md transition"
-        @click="window.print()"
+        @click="printPage"
       >
         📑 PDF
       </button>

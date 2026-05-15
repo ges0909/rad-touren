@@ -54,7 +54,8 @@ async def chat(request: Request) -> EventSourceResponse:
     language: str = body.get("language", "de")
 
     if not message:
-        return {"error": "No message provided"}  # type: ignore[return-value]
+        from fastapi.responses import JSONResponse
+        return JSONResponse({"error": "No message provided"}, status_code=400)
 
     logger.info("Chat request: session=%s, lang=%s, message=%s", session_id, language, message[:80])
 

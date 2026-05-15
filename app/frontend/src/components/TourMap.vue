@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, onMounted, nextTick } from "vue";
+import { ref, watch, onMounted, onUnmounted, nextTick } from "vue";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
@@ -12,6 +12,7 @@ const mapContainer = ref<HTMLElement | null>(null);
 let map: L.Map | null = null;
 let routeLayer: L.Polyline | null = null;
 let markerLayer: L.LayerGroup | null = null;
+let resizeObserver: ResizeObserver | null = null;
 
 function initMap() {
   if (!mapContainer.value || map) return;
@@ -22,6 +23,12 @@ function initMap() {
     maxZoom: 18,
   }).addTo(map);
   markerLayer = L.layerGroup().addTo(map);
+
+  // Invalidate map size when container resizes (split-pane drag)
+  resizeObserver = new ResizeObserver(() => {
+    map?.invalidateSize();
+  });
+  resizeObserver.observe(mapContainer.value);
 }
 
 function updateMap() {
@@ -82,6 +89,12 @@ onMounted(() => {
     initMap();
     updateMap();
   });
+});
+
+onUnmounted(() => {
+  resizeObserver?.disconnect();
+  map?.remove();
+  map = null;
 });
 
 watch(

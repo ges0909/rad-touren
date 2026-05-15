@@ -1,5 +1,6 @@
 """Gemini agent loop with tool calling and streaming."""
 
+import asyncio
 import json
 import logging
 from collections.abc import AsyncGenerator
@@ -70,11 +71,10 @@ async def run_agent(
     )
 
     # Agent loop: call LLM, execute tools, feed results back
-    max_iterations: int = 8
+    max_iterations: int = 15
     for iteration in range(max_iterations):
         # Rate limit: 5 RPM on free tier → wait between iterations
         if iteration > 0:
-            import asyncio
             await asyncio.sleep(13)
 
         logger.info("Iteration %d: calling Gemini", iteration + 1)

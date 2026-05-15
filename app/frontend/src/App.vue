@@ -107,22 +107,28 @@ async function handleSend(message: string) {
       const lines = buffer.split("\n");
       buffer = lines.pop() || "";
 
+      let currentEvent = "";
       for (const line of lines) {
-        if (line.startsWith("data:")) {
+        if (line.startsWith("event:")) {
+          currentEvent = line.slice(6).trim();
+        } else if (line.startsWith("data:")) {
           const data = line.slice(5).trim();
           if (!data) continue;
           try {
             const parsed = JSON.parse(data);
             receivedData = true;
-            if (parsed.error) {
+            if (currentEvent === "error" || parsed.error) {
               errorMessage.value = parsed.error;
-            } else if (parsed.markdown) {
+            } else if (currentEvent === "tour" || parsed.markdown) {
               tourMarkdown.value = parsed.markdown;
-            } else if (parsed.waypoints) {
-              mapData.value.waypoints.push(...parsed.waypoints);
-            } else if (parsed.route) {
-              mapData.value.route = parsed.route;
-            } else if (parsed.message) {
+            } else if (currentEvent === "map") {
+              if (parsed.waypoints) {
+                mapData.value.waypoints.push(...parsed.waypoints);
+              }
+              if (parsed.route) {
+                mapData.value.route = parsed.route;
+              }
+            } else if (currentEvent === "status" && parsed.message) {
               messages.value.push({
                 role: "assistant",
                 content: parsed.message,
@@ -131,6 +137,7 @@ async function handleSend(message: string) {
           } catch {
             // ignore parse errors
           }
+          currentEvent = "";
         }
       }
     }
