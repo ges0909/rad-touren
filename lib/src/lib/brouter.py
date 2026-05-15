@@ -1,6 +1,8 @@
 """BRouter cycling/hiking routing client + Nominatim geocoding."""
 
 import asyncio
+import re
+import time
 from typing import Any
 from urllib.parse import urlencode
 
@@ -62,7 +64,6 @@ async def calculate_route(
         content = resp.text
 
     # Extract metadata from GPX for structured result
-    import re
     distance_m = 0.0
     elevation_m = 0.0
     length_match = re.search(r'track-length\s*=\s*"?(\d+(?:\.\d+)?)"?', content)
@@ -100,8 +101,6 @@ async def search_location(
     Returns:
         Dict with "results" list of {name, lat, lon, display_name}.
     """
-    import time
-
     global _last_nominatim_call
 
     params = {
