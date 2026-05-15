@@ -149,7 +149,7 @@ async def run_agent(
             function_calling_config=types.FunctionCallingConfig(mode="AUTO")
         ),
         temperature=0.7,
-        thinking_config=types.ThinkingConfig(thinking_budget=5000),
+        thinking_config=types.ThinkingConfig(thinking_budget=2000),
     )
 
     # Agent loop: call LLM, execute tools, feed results back
