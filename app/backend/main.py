@@ -79,6 +79,7 @@ async def chat(request: Request) -> EventSourceResponse:
             return
 
         assistant_response: str = ""
+        has_error: bool = False
         try:
             async for event in run_agent(
                 client=client,
@@ -89,12 +90,15 @@ async def chat(request: Request) -> EventSourceResponse:
                 # Capture assistant response for history
                 if event["event"] == "tour" and "markdown" in event["data"]:
                     assistant_response = event["data"]["markdown"]
+                if event["event"] == "error":
+                    has_error = True
                 yield {
                     "event": event["event"],
                     "data": json.dumps(event["data"], ensure_ascii=False),
                 }
         except Exception as e:
             logger.exception("Unhandled exception in event generator")
+            has_error = True
             yield {
                 "event": "error",
                 "data": json.dumps(
@@ -104,11 +108,12 @@ async def chat(request: Request) -> EventSourceResponse:
             }
             return
 
-        # Save both user message and assistant response to history
-        chat_history.append({"role": "user", "content": message})
-        if assistant_response:
-            chat_history.append({"role": "model", "content": assistant_response})
-            logger.info("Session %s: history now %d messages", session_id, len(chat_history))
+        # Only save to history if the request succeeded
+        if not has_error:
+            chat_history.append({"role": "user", "content": message})
+            if assistant_response:
+                chat_history.append({"role": "model", "content": assistant_response})
+                logger.info("Session %s: history now %d messages", session_id, len(chat_history))
 
     return EventSourceResponse(event_generator())
 
