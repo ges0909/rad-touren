@@ -35,6 +35,7 @@ MESSAGES: dict[str, dict[Lang, str]] = {
     },
 }
 
+
 def msg(key: str, lang: Lang, **kwargs: str | int) -> str:
     """Get a localized message by key, formatted with kwargs."""
     template = MESSAGES.get(key, {}).get(lang, MESSAGES.get(key, {}).get("en", key))

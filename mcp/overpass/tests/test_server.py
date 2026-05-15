@@ -1,22 +1,18 @@
 """Tests for overpass-mcp server."""
 
-import os
-import tempfile
 
+import httpx
 import pytest
 import respx
-import httpx
-
 from server import (
-    _sample_track_points,
+    CATEGORY_PRESETS,
+    POI_CATEGORIES,
     _build_around_poly,
     _build_query,
     _format_results,
+    _sample_track_points,
     search_pois_along_route,
-    POI_CATEGORIES,
-    CATEGORY_PRESETS,
 )
-
 
 # ---------------------------------------------------------------------------
 # Fixtures
@@ -45,6 +41,7 @@ def gpx_file(tmp_path):
 # ---------------------------------------------------------------------------
 # Unit tests
 # ---------------------------------------------------------------------------
+
 
 def test_sample_track_points(gpx_file):
     """Test GPX point sampling."""
@@ -89,9 +86,9 @@ def test_build_around_poly():
 def test_build_query_single_category():
     """Test query building for a single category."""
     query = _build_query(["cafe"], "52.52,13.40,52.53,13.41", 500)
-    assert '[out:json]' in query
+    assert "[out:json]" in query
     assert '"amenity"="cafe"' in query
-    assert 'around:500' in query
+    assert "around:500" in query
 
 
 def test_build_query_multiple_categories():
@@ -178,6 +175,7 @@ def test_category_presets_valid():
 # ---------------------------------------------------------------------------
 # Integration tests (mocked HTTP)
 # ---------------------------------------------------------------------------
+
 
 @respx.mock
 @pytest.mark.asyncio

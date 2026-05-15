@@ -49,11 +49,13 @@ async def geocode(query: str, country: str | None = None) -> dict[str, Any]:
     for f in features:
         props = f.get("properties", {})
         coords = f.get("geometry", {}).get("coordinates", [0, 0])
-        results.append({
-            "name": props.get("name", "?"),
-            "label": props.get("label", "?"),
-            "coordinates": coords,  # [lon, lat]
-            "confidence": props.get("confidence", 0),
-        })
+        results.append(
+            {
+                "name": props.get("name", "?"),
+                "label": props.get("label", "?"),
+                "coordinates": coords,  # [lon, lat]
+                "confidence": props.get("confidence", 0),
+            }
+        )
 
     return {"results": results}

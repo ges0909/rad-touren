@@ -21,7 +21,9 @@ def _detect_tour_type(message: str) -> str:
     return "general"
 
 
-def build_system_prompt(tour_type: str = "road", language: str = "de", user_message: str = "") -> str:
+def build_system_prompt(
+    tour_type: str = "road", language: str = "de", user_message: str = ""
+) -> str:
     """Assemble system prompt from relevant steering files.
 
     Detects tour type from user_message and loads only the matching files
@@ -82,7 +84,7 @@ Follow the chosen template structure strictly.
             if content.startswith("---"):
                 end: int = content.find("---", 3)
                 if end != -1:
-                    content = content[end + 3:].strip()
+                    content = content[end + 3 :].strip()
             parts.append(content)
             loaded_count += 1
         else:

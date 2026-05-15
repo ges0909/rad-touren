@@ -1,11 +1,17 @@
 """Property-based and unit tests for the BRouter MCP server."""
 
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import parse_qs, urlparse
 
-from hypothesis import given, settings, assume
+from hypothesis import assume, given, settings
 from hypothesis import strategies as st
-
 from server import (
+    _DEFAULT_SPEED,
+    _GPX_NS,
+    _PROFILE_SPEEDS,
+    BROUTER_BASE_URL,
+    NOMINATIM_BASE_URL,
+    VALID_PROFILES,
+    NoGoArea,
     build_brouter_url,
     calculate_duration,
     insert_track_name,
@@ -13,17 +19,7 @@ from server import (
     transform_nominatim_result,
     validate_coordinates,
     validate_profile,
-    GeocodingResult,
-    NoGoArea,
-    VALID_PROFILES,
-    BROUTER_BASE_URL,
-    NOMINATIM_BASE_URL,
-    NOMINATIM_USER_AGENT,
-    _GPX_NS,
-    _PROFILE_SPEEDS,
-    _DEFAULT_SPEED,
 )
-
 
 # ---------------------------------------------------------------------------
 # Property 3: Coordinate validation accepts valid ranges and rejects invalid
@@ -35,9 +31,7 @@ from server import (
     lon=st.floats(allow_nan=False, allow_infinity=False),
     lat=st.floats(allow_nan=False, allow_infinity=False),
 )
-def test_coordinate_validation_accepts_valid_rejects_invalid(
-    lon: float, lat: float
-) -> None:
+def test_coordinate_validation_accepts_valid_rejects_invalid(lon: float, lat: float) -> None:
     """validate_coordinates accepts (lon, lat) iff lon ∈ [-180, 180] and lat ∈ [-90, 90]."""
     result = validate_coordinates(lon, lat)
     lon_ok = -180 <= lon <= 180
@@ -48,9 +42,7 @@ def test_coordinate_validation_accepts_valid_rejects_invalid(
             f"Expected acceptance for valid coordinates [{lon}, {lat}], got: {result}"
         )
     else:
-        assert result is not None, (
-            f"Expected rejection for invalid coordinates [{lon}, {lat}]"
-        )
+        assert result is not None, f"Expected rejection for invalid coordinates [{lon}, {lat}]"
         # Error message should mention the offending coordinates
         assert str(lon) in result or str(lat) in result
 
@@ -65,9 +57,7 @@ def test_coordinate_validation_accepts_valid_rejects_invalid(
 def test_profile_validation_accepts_valid_profiles(profile: str) -> None:
     """validate_profile accepts every profile in the valid set."""
     result = validate_profile(profile)
-    assert result is None, (
-        f"Expected acceptance for valid profile '{profile}', got: {result}"
-    )
+    assert result is None, f"Expected acceptance for valid profile '{profile}', got: {result}"
 
 
 @settings(max_examples=100)
@@ -76,14 +66,10 @@ def test_profile_validation_rejects_invalid_profiles(profile: str) -> None:
     """validate_profile rejects any string not in the valid set."""
     assume(profile not in VALID_PROFILES)
     result = validate_profile(profile)
-    assert result is not None, (
-        f"Expected rejection for invalid profile '{profile}'"
-    )
+    assert result is not None, f"Expected rejection for invalid profile '{profile}'"
     # Error message should list valid options
     for valid in VALID_PROFILES:
-        assert valid in result, (
-            f"Error message should list valid profile '{valid}', got: {result}"
-        )
+        assert valid in result, f"Error message should list valid profile '{valid}', got: {result}"
 
 
 # ---------------------------------------------------------------------------
@@ -140,9 +126,7 @@ def test_url_construction_preserves_all_route_parameters(
     url = build_brouter_url(waypoints, profile, fmt, alternativeidx, nogos)
 
     # URL starts with the correct base
-    assert url.startswith(BROUTER_BASE_URL), (
-        f"URL should start with {BROUTER_BASE_URL}, got: {url}"
-    )
+    assert url.startswith(BROUTER_BASE_URL), f"URL should start with {BROUTER_BASE_URL}, got: {url}"
 
     parsed = urlparse(url)
     params = parse_qs(parsed.query)
@@ -156,9 +140,7 @@ def test_url_construction_preserves_all_route_parameters(
     )
     for i, (pair_str, wp) in enumerate(zip(lonlat_pairs, waypoints)):
         parts = pair_str.split(",")
-        assert len(parts) == 2, (
-            f"Waypoint {i} should have 2 components, got: {pair_str}"
-        )
+        assert len(parts) == 2, f"Waypoint {i} should have 2 components, got: {pair_str}"
         parsed_lon, parsed_lat = float(parts[0]), float(parts[1])
         assert parsed_lon == wp[0], (
             f"Waypoint {i} longitude mismatch: expected {wp[0]}, got {parsed_lon}"
@@ -173,9 +155,7 @@ def test_url_construction_preserves_all_route_parameters(
     )
 
     # (c) format parameter matches
-    assert params["format"] == [fmt], (
-        f"Expected format '{fmt}', got {params.get('format')}"
-    )
+    assert params["format"] == [fmt], f"Expected format '{fmt}', got {params.get('format')}"
 
     # (d) alternativeidx parameter matches
     assert params["alternativeidx"] == [str(alternativeidx)], (
@@ -205,9 +185,7 @@ def test_url_construction_preserves_all_route_parameters(
                 f"No-go {j} radius mismatch: expected {nogo.radius}, got {components[2]}"
             )
     else:
-        assert "nogos" not in params, (
-            "URL should not contain 'nogos' when no no-go areas provided"
-        )
+        assert "nogos" not in params, "URL should not contain 'nogos' when no no-go areas provided"
 
 
 # ---------------------------------------------------------------------------
@@ -219,8 +197,10 @@ def test_url_construction_preserves_all_route_parameters(
 # typically writes whole-number strings for track-length and filtered ascend.
 _gpx_metric_int_st = st.integers(min_value=0, max_value=10_000_000)
 _gpx_metric_float_st = st.floats(
-    min_value=0, max_value=10_000_000,
-    allow_nan=False, allow_infinity=False,
+    min_value=0,
+    max_value=10_000_000,
+    allow_nan=False,
+    allow_infinity=False,
 )
 
 
@@ -332,9 +312,7 @@ def _make_gpx_with_unquoted_metadata(track_length: str, filtered_ascend: str) ->
     track_length=_gpx_metric_int_st,
     filtered_ascend=_gpx_metric_int_st,
 )
-def test_gpx_metadata_extraction_unquoted_format(
-    track_length: int, filtered_ascend: int
-) -> None:
+def test_gpx_metadata_extraction_unquoted_format(track_length: int, filtered_ascend: int) -> None:
     """parse_gpx_metadata handles BRouter 1.7.9 unquoted metadata values."""
     gpx = _make_gpx_with_unquoted_metadata(str(track_length), str(filtered_ascend))
     meta = parse_gpx_metadata(gpx)
@@ -357,9 +335,7 @@ def test_gpx_metadata_extraction_unquoted_format(
     distance_m=st.floats(min_value=0.1, max_value=1_000_000, allow_nan=False, allow_infinity=False),
     profile=st.sampled_from(sorted(VALID_PROFILES)),
 )
-def test_duration_calculation_correctness(
-    distance_m: float, profile: str
-) -> None:
+def test_duration_calculation_correctness(distance_m: float, profile: str) -> None:
     """calculate_duration returns distance/speed formatted as 'Xh Ym' with correct speed per profile."""
     result = calculate_duration(distance_m, profile)
 
@@ -381,6 +357,7 @@ def test_duration_calculation_correctness(
 
     # Verify format is always "Xh Ym"
     import re
+
     assert re.fullmatch(r"\d+h \d+m", result), (
         f"Duration should match 'Xh Ym' format, got: '{result}'"
     )
@@ -443,12 +420,8 @@ def test_track_name_insertion_into_gpx(name: str) -> None:
     name_elem = trk.find(f"{{{_GPX_NS}}}name")
     if name_elem is None:
         name_elem = trk.find("name")
-    assert name_elem is not None, (
-        "Result GPX <trk> must contain a <name> child element"
-    )
-    assert name_elem.text == name, (
-        f"Expected <name> text to be {name!r}, got {name_elem.text!r}"
-    )
+    assert name_elem is not None, "Result GPX <trk> must contain a <name> child element"
+    assert name_elem.text == name, f"Expected <name> text to be {name!r}, got {name_elem.text!r}"
 
 
 @settings(max_examples=100)
@@ -457,9 +430,7 @@ def test_track_name_insertion_replaces_existing_name(name: str) -> None:
     """insert_track_name replaces an existing <name> element rather than adding a duplicate."""
     # Start with a GPX that already has a <name> inside <trk>
     ns = "http://www.topografix.com/GPX/1/1"
-    gpx_input = _make_gpx_with_trk(
-        f'<name xmlns="{ns}">Old Name</name>'
-    )
+    gpx_input = _make_gpx_with_trk(f'<name xmlns="{ns}">Old Name</name>')
     result = insert_track_name(gpx_input, name)
 
     root = ET.fromstring(result)
@@ -470,9 +441,7 @@ def test_track_name_insertion_replaces_existing_name(name: str) -> None:
 
     # There should be exactly one <name> element (replaced, not duplicated)
     name_elems = trk.findall(f"{{{_GPX_NS}}}name") + trk.findall("name")
-    assert len(name_elems) == 1, (
-        f"Expected exactly 1 <name> element, found {len(name_elems)}"
-    )
+    assert len(name_elems) == 1, f"Expected exactly 1 <name> element, found {len(name_elems)}"
     assert name_elems[0].text == name, (
         f"Expected <name> text to be {name!r}, got {name_elems[0].text!r}"
     )
@@ -486,8 +455,7 @@ import asyncio
 
 import httpx
 import respx
-
-from server import calculate_route, BROUTER_BASE_URL
+from server import calculate_route
 
 
 def _make_brouter_gpx(
@@ -515,13 +483,13 @@ def _make_brouter_gpx(
 def test_calculate_route_default_profile_is_trekking() -> None:
     """When no profile is specified, the BRouter request uses 'trekking'."""
     gpx = _make_brouter_gpx()
-    route = respx.get(BROUTER_BASE_URL).mock(
-        return_value=httpx.Response(200, text=gpx)
-    )
+    route = respx.get(BROUTER_BASE_URL).mock(return_value=httpx.Response(200, text=gpx))
 
-    result = asyncio.run(calculate_route(
-        waypoints=[[13.4, 52.5], [13.5, 52.6]],
-    ))
+    result = asyncio.run(
+        calculate_route(
+            waypoints=[[13.4, 52.5], [13.5, 52.6]],
+        )
+    )
 
     assert route.called
     request_url = str(route.calls[0].request.url)
@@ -533,13 +501,13 @@ def test_calculate_route_default_profile_is_trekking() -> None:
 def test_calculate_route_default_format_is_gpx() -> None:
     """When no format is specified, the BRouter request uses 'gpx'."""
     gpx = _make_brouter_gpx()
-    route = respx.get(BROUTER_BASE_URL).mock(
-        return_value=httpx.Response(200, text=gpx)
-    )
+    route = respx.get(BROUTER_BASE_URL).mock(return_value=httpx.Response(200, text=gpx))
 
-    result = asyncio.run(calculate_route(
-        waypoints=[[13.4, 52.5], [13.5, 52.6]],
-    ))
+    result = asyncio.run(
+        calculate_route(
+            waypoints=[[13.4, 52.5], [13.5, 52.6]],
+        )
+    )
 
     assert route.called
     request_url = str(route.calls[0].request.url)
@@ -551,13 +519,13 @@ def test_calculate_route_default_format_is_gpx() -> None:
 def test_calculate_route_default_alternativeidx_is_zero() -> None:
     """When no alternativeidx is specified, the BRouter request uses '0'."""
     gpx = _make_brouter_gpx()
-    route = respx.get(BROUTER_BASE_URL).mock(
-        return_value=httpx.Response(200, text=gpx)
-    )
+    route = respx.get(BROUTER_BASE_URL).mock(return_value=httpx.Response(200, text=gpx))
 
-    result = asyncio.run(calculate_route(
-        waypoints=[[13.4, 52.5], [13.5, 52.6]],
-    ))
+    result = asyncio.run(
+        calculate_route(
+            waypoints=[[13.4, 52.5], [13.5, 52.6]],
+        )
+    )
 
     assert route.called
     request_url = str(route.calls[0].request.url)
@@ -568,16 +536,14 @@ def test_calculate_route_default_alternativeidx_is_zero() -> None:
 def test_calculate_route_round_trip_includes_all_waypoints() -> None:
     """A round-trip route (identical start/end) includes all intermediate waypoints."""
     gpx = _make_brouter_gpx()
-    route = respx.get(BROUTER_BASE_URL).mock(
-        return_value=httpx.Response(200, text=gpx)
-    )
+    route = respx.get(BROUTER_BASE_URL).mock(return_value=httpx.Response(200, text=gpx))
 
     # Start and end are the same; two intermediate waypoints define the loop
     waypoints = [
-        [13.4, 52.5],   # start
-        [13.5, 52.6],   # intermediate 1
+        [13.4, 52.5],  # start
+        [13.5, 52.6],  # intermediate 1
         [13.6, 52.55],  # intermediate 2
-        [13.4, 52.5],   # end == start
+        [13.4, 52.5],  # end == start
     ]
     asyncio.run(calculate_route(waypoints=waypoints))
 
@@ -589,7 +555,7 @@ def test_calculate_route_round_trip_includes_all_waypoints() -> None:
     assert "13.6%2C52.55" in request_url or "13.6,52.55" in request_url
 
     # Verify the lonlats value has exactly 4 pipe-separated pairs
-    from urllib.parse import urlparse, parse_qs
+    from urllib.parse import parse_qs, urlparse
 
     parsed = urlparse(request_url)
     params = parse_qs(parsed.query)
@@ -603,13 +569,13 @@ def test_calculate_route_round_trip_includes_all_waypoints() -> None:
 def test_calculate_route_no_nogos_omitted_from_url() -> None:
     """When no no-go areas are provided, the 'nogos' parameter is absent from the URL."""
     gpx = _make_brouter_gpx()
-    route = respx.get(BROUTER_BASE_URL).mock(
-        return_value=httpx.Response(200, text=gpx)
-    )
+    route = respx.get(BROUTER_BASE_URL).mock(return_value=httpx.Response(200, text=gpx))
 
-    asyncio.run(calculate_route(
-        waypoints=[[13.4, 52.5], [13.5, 52.6]],
-    ))
+    asyncio.run(
+        calculate_route(
+            waypoints=[[13.4, 52.5], [13.5, 52.6]],
+        )
+    )
 
     assert route.called
     request_url = str(route.calls[0].request.url)
@@ -622,18 +588,18 @@ def test_calculate_route_missing_trk_returns_error() -> None:
     bad_gpx = (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<gpx version="1.1" xmlns="http://www.topografix.com/GPX/1/1">\n'
-        "  <wpt lat=\"52.5\" lon=\"13.4\"><name>Test</name></wpt>\n"
+        '  <wpt lat="52.5" lon="13.4"><name>Test</name></wpt>\n'
         "</gpx>"
     )
 
     with respx.mock:
-        respx.get(BROUTER_BASE_URL).mock(
-            return_value=httpx.Response(200, text=bad_gpx)
-        )
+        respx.get(BROUTER_BASE_URL).mock(return_value=httpx.Response(200, text=bad_gpx))
 
-        result = asyncio.run(calculate_route(
-            waypoints=[[13.4, 52.5], [13.5, 52.6]],
-        ))
+        result = asyncio.run(
+            calculate_route(
+                waypoints=[[13.4, 52.5], [13.5, 52.6]],
+            )
+        )
 
     assert "invalid GPX response" in result.lower() or "missing <trk>" in result.lower(), (
         f"Expected error about missing <trk>, got: {result}"
@@ -649,12 +615,8 @@ from server import search_location
 
 # Strategy for Nominatim-like response dicts
 _nominatim_name_st = st.text(min_size=1, max_size=100)
-_nominatim_lon_st = st.floats(
-    min_value=-180, max_value=180, allow_nan=False, allow_infinity=False
-)
-_nominatim_lat_st = st.floats(
-    min_value=-90, max_value=90, allow_nan=False, allow_infinity=False
-)
+_nominatim_lon_st = st.floats(min_value=-180, max_value=180, allow_nan=False, allow_infinity=False)
+_nominatim_lat_st = st.floats(min_value=-90, max_value=90, allow_nan=False, allow_infinity=False)
 _nominatim_display_name_st = st.text(min_size=1, max_size=300)
 
 
@@ -683,9 +645,7 @@ def test_nominatim_result_transformation_preserves_lon_first(
         f"Expected coordinates [{lon}, {lat}], got {result.coordinates}"
     )
     # Name must match
-    assert result.name == name, (
-        f"Expected name {name!r}, got {result.name!r}"
-    )
+    assert result.name == name, f"Expected name {name!r}, got {result.name!r}"
     # Display address must match display_name
     assert result.display_address == display_name, (
         f"Expected display_address {display_name!r}, got {result.display_address!r}"
@@ -701,14 +661,17 @@ def test_nominatim_result_transformation_preserves_lon_first(
 def test_search_location_default_country_code_is_de() -> None:
     """When no country_code is specified, the Nominatim request uses 'de'."""
     nominatim_route = respx.get(NOMINATIM_BASE_URL).mock(
-        return_value=httpx.Response(200, json=[
-            {
-                "name": "Berlin Hauptbahnhof",
-                "lon": "13.3694",
-                "lat": "52.5251",
-                "display_name": "Berlin Hauptbahnhof, Berlin, Deutschland",
-            }
-        ])
+        return_value=httpx.Response(
+            200,
+            json=[
+                {
+                    "name": "Berlin Hauptbahnhof",
+                    "lon": "13.3694",
+                    "lat": "52.5251",
+                    "display_name": "Berlin Hauptbahnhof, Berlin, Deutschland",
+                }
+            ],
+        )
     )
 
     result = asyncio.run(search_location(query="Berlin Hauptbahnhof"))
@@ -721,9 +684,7 @@ def test_search_location_default_country_code_is_de() -> None:
 @respx.mock
 def test_search_location_empty_results_returns_no_locations_message() -> None:
     """When Nominatim returns zero results, the tool returns a 'no locations found' message."""
-    respx.get(NOMINATIM_BASE_URL).mock(
-        return_value=httpx.Response(200, json=[])
-    )
+    respx.get(NOMINATIM_BASE_URL).mock(return_value=httpx.Response(200, json=[]))
 
     result = asyncio.run(search_location(query="xyznonexistentplace"))
 

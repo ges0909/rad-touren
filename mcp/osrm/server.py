@@ -8,8 +8,8 @@ Usage:
 """
 
 from fastmcp import FastMCP
-
-from lib.routing import calculate_car_route as _calculate, route_to_gpx as _route_to_gpx
+from lib.routing import calculate_car_route as _calculate
+from lib.routing import route_to_gpx as _route_to_gpx
 
 mcp = FastMCP("OSRM Car Routing")
 

@@ -10,7 +10,6 @@ import time
 
 import httpx
 import respx
-
 from server import (
     BROUTER_BASE_URL,
     NOMINATIM_BASE_URL,
@@ -20,7 +19,6 @@ from server import (
     call_nominatim,
     search_location,
 )
-
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -63,9 +61,7 @@ _WAYPOINTS = [[13.4, 52.5], [13.5, 52.6]]
 def test_brouter_gpx_returns_metadata_and_content() -> None:
     """BRouter API returns GPX → tool returns route metadata + GPX content."""
     gpx = _make_brouter_gpx(track_length=42350, filtered_ascend=312)
-    respx.get(BROUTER_BASE_URL).mock(
-        return_value=httpx.Response(200, text=gpx)
-    )
+    respx.get(BROUTER_BASE_URL).mock(return_value=httpx.Response(200, text=gpx))
 
     result = asyncio.run(calculate_route(waypoints=_WAYPOINTS))
 
@@ -86,14 +82,14 @@ def test_brouter_gpx_returns_metadata_and_content() -> None:
 @respx.mock
 def test_brouter_geojson_returns_geojson_content() -> None:
     """BRouter API returns GeoJSON → tool returns GeoJSON content."""
-    respx.get(BROUTER_BASE_URL).mock(
-        return_value=httpx.Response(200, text=_SAMPLE_GEOJSON)
-    )
+    respx.get(BROUTER_BASE_URL).mock(return_value=httpx.Response(200, text=_SAMPLE_GEOJSON))
 
-    result = asyncio.run(calculate_route(
-        waypoints=_WAYPOINTS,
-        format="geojson",
-    ))
+    result = asyncio.run(
+        calculate_route(
+            waypoints=_WAYPOINTS,
+            format="geojson",
+        )
+    )
 
     assert "## Route (GeoJSON)" in result
     assert "FeatureCollection" in result
@@ -104,9 +100,7 @@ def test_brouter_geojson_returns_geojson_content() -> None:
 def test_brouter_http_500_returns_error_with_status_and_body() -> None:
     """BRouter API returns HTTP 500 → tool returns error with status code and body."""
     error_body = "Internal routing error: segment not found"
-    respx.get(BROUTER_BASE_URL).mock(
-        return_value=httpx.Response(500, text=error_body)
-    )
+    respx.get(BROUTER_BASE_URL).mock(return_value=httpx.Response(500, text=error_body))
 
     result = asyncio.run(calculate_route(waypoints=_WAYPOINTS))
 
@@ -147,9 +141,7 @@ def test_nominatim_returns_formatted_locations_with_lon_lat_order() -> None:
             "display_name": "Potsdam Pirschheide, Potsdam, Brandenburg, Deutschland",
         },
     ]
-    respx.get(NOMINATIM_BASE_URL).mock(
-        return_value=httpx.Response(200, json=nominatim_response)
-    )
+    respx.get(NOMINATIM_BASE_URL).mock(return_value=httpx.Response(200, json=nominatim_response))
 
     result = asyncio.run(search_location(query="Potsdam Hauptbahnhof"))
 
@@ -168,9 +160,7 @@ def test_nominatim_returns_formatted_locations_with_lon_lat_order() -> None:
 @respx.mock
 def test_nominatim_empty_results_returns_no_locations_found() -> None:
     """Nominatim returns empty results → tool returns 'no locations found'."""
-    respx.get(NOMINATIM_BASE_URL).mock(
-        return_value=httpx.Response(200, json=[])
-    )
+    respx.get(NOMINATIM_BASE_URL).mock(return_value=httpx.Response(200, json=[]))
 
     result = asyncio.run(search_location(query="xyznonexistent"))
 
@@ -192,17 +182,13 @@ def test_nominatim_rate_limiter_enforces_one_second_spacing() -> None:
     elapsed = asyncio.run(_run())
 
     # The second acquire() should have waited ~1 second
-    assert elapsed >= 0.95, (
-        f"Expected at least ~1s between acquires, got {elapsed:.3f}s"
-    )
+    assert elapsed >= 0.95, f"Expected at least ~1s between acquires, got {elapsed:.3f}s"
 
 
 @respx.mock
 def test_nominatim_sends_correct_user_agent_header() -> None:
     """HTTP client sends correct User-Agent header to Nominatim."""
-    route = respx.get(NOMINATIM_BASE_URL).mock(
-        return_value=httpx.Response(200, json=[])
-    )
+    route = respx.get(NOMINATIM_BASE_URL).mock(return_value=httpx.Response(200, json=[]))
 
     params = {
         "q": "Berlin",

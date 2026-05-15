@@ -1,10 +1,9 @@
 """Tests for open-meteo-mcp server."""
 
+import httpx
 import pytest
 import respx
-import httpx
-
-from server import weather_forecast, geocoding, _format_forecast, WEATHER_CODES
+from server import WEATHER_CODES, _format_forecast, geocoding, weather_forecast
 
 
 @respx.mock

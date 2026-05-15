@@ -58,7 +58,9 @@ async def weather_forecast(
 
     # Default to daily if nothing specified
     if not hourly and not daily and not current:
-        params["daily"] = "temperature_2m_max,temperature_2m_min,precipitation_sum,wind_speed_10m_max"
+        params["daily"] = (
+            "temperature_2m_max,temperature_2m_min,precipitation_sum,wind_speed_10m_max"
+        )
 
     async with httpx.AsyncClient(timeout=TIMEOUT) as client:
         resp = await client.get(f"{OPEN_METEO_URL}/forecast", params=params)
@@ -66,9 +68,7 @@ async def weather_forecast(
         return resp.json()
 
 
-async def geocoding(
-    name: str, count: int = 5, language: str = "en"
-) -> dict[str, Any]:
+async def geocoding(name: str, count: int = 5, language: str = "en") -> dict[str, Any]:
     """Search for locations by name via Open-Meteo geocoding.
 
     Args:

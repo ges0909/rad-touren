@@ -7,11 +7,16 @@ and formats structured results into human-readable strings.
 import re
 
 from fastmcp import FastMCP
-
+from lib.wikivoyage import (
+    get_article as _get_article,
+)
+from lib.wikivoyage import (
+    get_article_sections as _get_sections,
+)
 from lib.wikivoyage import (
     search_destinations as _search,
-    get_article as _get_article,
-    get_article_sections as _get_sections,
+)
+from lib.wikivoyage import (
     search_nearby as _search_nearby,
 )
 
@@ -71,7 +76,10 @@ async def get_article(title: str, lang: str = "de") -> str:
     # Truncate very long articles
     max_chars = 12000
     if len(content) > max_chars:
-        content = content[:max_chars] + "\n\n[... Artikel gekürzt. Nutze get_section() für einzelne Abschnitte.]"
+        content = (
+            content[:max_chars]
+            + "\n\n[... Artikel gekürzt. Nutze get_section() für einzelne Abschnitte.]"
+        )
 
     return f"# {result['title']}\nQuelle: https://{lang}.wikivoyage.org/wiki/{title.replace(' ', '_')}\n\n{content}"
 
@@ -109,7 +117,7 @@ async def get_section(title: str, section: str, lang: str = "de") -> str:
 
     start = match.start()
     # Find next section heading
-    next_heading = re.search(r"^## ", content[match.end():], re.MULTILINE)
+    next_heading = re.search(r"^## ", content[match.end() :], re.MULTILINE)
     end = match.end() + next_heading.start() if next_heading else len(content)
 
     section_content = content[start:end].strip()
@@ -147,7 +155,9 @@ async def get_article_sections(title: str, lang: str = "de") -> str:
 
 
 @mcp.tool()
-async def search_nearby(lat: float, lon: float, radius: int = 10000, lang: str = "de", results: int = 10) -> str:
+async def search_nearby(
+    lat: float, lon: float, radius: int = 10000, lang: str = "de", results: int = 10
+) -> str:
     """Find Wikivoyage articles about places near given coordinates.
 
     Useful for discovering destinations close to a route or point of interest.

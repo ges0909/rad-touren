@@ -9,12 +9,17 @@ import xml.etree.ElementTree as ET
 
 import gpxpy
 import matplotlib
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from fastmcp import FastMCP
-from staticmap import StaticMap, IconMarker, Line
-
-from lib.brouter import calculate_route as _lib_calculate_route, search_location as _lib_search_location
+from lib.brouter import (
+    calculate_route as _lib_calculate_route,
+)
+from lib.brouter import (
+    search_location as _lib_search_location,
+)
+from staticmap import IconMarker, Line, StaticMap
 
 mcp = FastMCP("BRouter Cycling Router")
 
@@ -45,15 +50,9 @@ def validate_waypoints(waypoints: list[list[float]]) -> str | None:
 def validate_coordinates(lon: float, lat: float) -> str | None:
     """Return an error string if coordinates are out of range, else None."""
     if not (-180 <= lon <= 180):
-        return (
-            f"Invalid coordinates: [{lon}, {lat}] — "
-            "longitude must be between -180 and 180."
-        )
+        return f"Invalid coordinates: [{lon}, {lat}] — longitude must be between -180 and 180."
     if not (-90 <= lat <= 90):
-        return (
-            f"Invalid coordinates: [{lon}, {lat}] — "
-            "latitude must be between -90 and 90."
-        )
+        return f"Invalid coordinates: [{lon}, {lat}] — latitude must be between -90 and 90."
     return None
 
 
@@ -220,10 +219,7 @@ async def search_location(
 
     lines = [f'## Search Results for "{query}"\n']
     for i, r in enumerate(results, 1):
-        lines.append(
-            f"{i}. {r['name']}\n"
-            f"   Coordinates: [{r['lon']}, {r['lat']}]\n"
-        )
+        lines.append(f"{i}. {r['name']}\n   Coordinates: [{r['lon']}, {r['lat']}]\n")
 
     return "\n".join(lines)
 
@@ -378,7 +374,7 @@ async def render_gpx_map(
         return f"Error: GPX file not found: {gpx_path}"
 
     try:
-        with open(gpx_path, "r", encoding="utf-8") as f:
+        with open(gpx_path, encoding="utf-8") as f:
             gpx = gpxpy.parse(f)
     except Exception as exc:
         return f"Error parsing GPX file: {exc}"
@@ -465,7 +461,7 @@ async def render_elevation_profile(
         return f"Error: GPX file not found: {gpx_path}"
 
     try:
-        with open(gpx_path, "r", encoding="utf-8") as f:
+        with open(gpx_path, encoding="utf-8") as f:
             gpx = gpxpy.parse(f)
     except Exception as exc:
         return f"Error parsing GPX file: {exc}"

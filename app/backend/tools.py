@@ -6,19 +6,22 @@ All API logic lives in lib/ — this file only wires tools to Gemini declaration
 import re
 from typing import Any
 
+from lib.brouter import calculate_route as _calculate_bike_route
+from lib.brouter import search_location
 from lib.geocoding import geocode
-from lib.routing import calculate_car_route
-from lib.weather import weather_forecast
 from lib.routes import search_routes
-from lib.brouter import calculate_route as _calculate_bike_route, search_location
-from lib.transit import search_stops, get_departures, get_journeys
-from lib.wikivoyage import search_destinations, get_article, search_nearby
+from lib.routing import calculate_car_route
+from lib.transit import get_departures, get_journeys, search_stops
+from lib.weather import weather_forecast
+from lib.wikivoyage import get_article, search_destinations, search_nearby
 
 # Type alias
 type ToolFn = Any
 
 
-async def calculate_bike_route(waypoints: list[list[float]], profile: str = "trekking") -> dict[str, Any]:
+async def calculate_bike_route(
+    waypoints: list[list[float]], profile: str = "trekking"
+) -> dict[str, Any]:
     """Wrapper that extracts geometry from GPX and strips raw content."""
     result = await _calculate_bike_route(waypoints=waypoints, profile=profile)
     if "error" in result:
@@ -36,6 +39,7 @@ async def calculate_bike_route(waypoints: list[list[float]], profile: str = "tre
     result["waypoints"] = [[wp[1], wp[0]] for wp in waypoints]  # [lat, lon]
     return result
 
+
 # ---------------------------------------------------------------------------
 # Gemini Function Declarations
 # ---------------------------------------------------------------------------
@@ -48,7 +52,10 @@ TOOL_DECLARATIONS: list[dict[str, Any]] = [
             "type": "object",
             "properties": {
                 "query": {"type": "string", "description": "Place name or address"},
-                "country": {"type": "string", "description": "ISO 3166-1 alpha-2 country code (optional)"},
+                "country": {
+                    "type": "string",
+                    "description": "ISO 3166-1 alpha-2 country code (optional)",
+                },
             },
             "required": ["query"],
         },
@@ -157,7 +164,10 @@ TOOL_DECLARATIONS: list[dict[str, Any]] = [
             "properties": {
                 "origin": {"type": "string", "description": "Origin stop ID"},
                 "destination": {"type": "string", "description": "Destination stop ID"},
-                "departure": {"type": "string", "description": "Departure time (ISO 8601 or natural language)"},
+                "departure": {
+                    "type": "string",
+                    "description": "Departure time (ISO 8601 or natural language)",
+                },
                 "results": {"type": "integer", "description": "Number of journey options (1-6)"},
             },
             "required": ["origin", "destination"],

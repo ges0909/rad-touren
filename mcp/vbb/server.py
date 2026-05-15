@@ -5,8 +5,15 @@ and formats structured results into human-readable strings.
 """
 
 from fastmcp import FastMCP
-
-from lib.transit import search_stops as _search_stops, get_departures as _get_departures, get_journeys as _get_journeys
+from lib.transit import (
+    get_departures as _get_departures,
+)
+from lib.transit import (
+    get_journeys as _get_journeys,
+)
+from lib.transit import (
+    search_stops as _search_stops,
+)
 
 mcp = FastMCP("VBB Public Transport")
 
@@ -65,10 +72,16 @@ async def get_departures(stop_id: str, results: int = 10, duration: int = 60) ->
     for dep in departures:
         when = dep["when"]
         time_str = when[11:16] if when and len(when) > 16 else when
-        delay_str = f" (+{dep['delay_sec'] // 60} min)" if dep.get("delay_sec") and dep["delay_sec"] > 0 else ""
+        delay_str = (
+            f" (+{dep['delay_sec'] // 60} min)"
+            if dep.get("delay_sec") and dep["delay_sec"] > 0
+            else ""
+        )
         plat_str = f" [Gl. {dep['platform']}]" if dep["platform"] else ""
         cancel_str = " ❌ FÄLLT AUS" if dep["cancelled"] else ""
-        lines.append(f"- {time_str}{delay_str} {dep['line']} → {dep['direction']}{plat_str}{cancel_str}")
+        lines.append(
+            f"- {time_str}{delay_str} {dep['line']} → {dep['direction']}{plat_str}{cancel_str}"
+        )
 
     return "\n".join(lines)
 
@@ -114,7 +127,9 @@ async def get_journeys(
         transfers = sum(1 for leg in legs if leg.get("line") and not leg.get("walking")) - 1
         transfers = max(0, transfers)
 
-        lines.append(f"### Journey {i}: {dep_str} → {arr_str} ({transfers} transfer{'s' if transfers != 1 else ''})")
+        lines.append(
+            f"### Journey {i}: {dep_str} → {arr_str} ({transfers} transfer{'s' if transfers != 1 else ''})"
+        )
 
         for leg in legs:
             if leg.get("walking"):

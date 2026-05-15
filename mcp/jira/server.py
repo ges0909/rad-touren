@@ -5,7 +5,6 @@ via personal access token (PAT) authentication.
 """
 
 import os
-from urllib.parse import urlencode
 
 import httpx
 from fastmcp import FastMCP
@@ -211,7 +210,9 @@ async def get_issue(issue_key: str) -> str:
         description = description[:1000] + "…"
 
     parent = f.get("parent", {})
-    parent_info = f"{parent['key']} — {parent.get('fields', {}).get('summary', '')}" if parent else "—"
+    parent_info = (
+        f"{parent['key']} — {parent.get('fields', {}).get('summary', '')}" if parent else "—"
+    )
 
     subtasks = f.get("subtasks", [])
     subtask_lines = ""
@@ -219,7 +220,9 @@ async def get_issue(issue_key: str) -> str:
         subtask_lines = "\n### Subtasks\n\n"
         for st in subtasks:
             st_status = st.get("fields", {}).get("status", {}).get("name", "—")
-            subtask_lines += f"- **{st['key']}** {st.get('fields', {}).get('summary', '—')} [{st_status}]\n"
+            subtask_lines += (
+                f"- **{st['key']}** {st.get('fields', {}).get('summary', '—')} [{st_status}]\n"
+            )
 
     return (
         f"## {result['key']} — {f.get('summary', '—')}\n\n"
@@ -458,9 +461,7 @@ async def get_sprint_issues(
     url = f"{JIRA_URL}/rest/agile/1.0/board/{board_id}/sprint"
     try:
         async with httpx.AsyncClient(timeout=30.0) as client:
-            resp = await client.get(
-                url, headers=_headers(), params={"state": sprint_state}
-            )
+            resp = await client.get(url, headers=_headers(), params={"state": sprint_state})
             resp.raise_for_status()
             sprints_result = resp.json()
     except httpx.HTTPStatusError as exc:
@@ -507,7 +508,9 @@ async def get_sprint_issues(
 
     lines = [f"## Sprint: {sprint['name']}\n"]
     lines.append(f"Goal: {sprint.get('goal', '—')}\n")
-    lines.append(f"Start: {sprint.get('startDate', '—')[:10]} | End: {sprint.get('endDate', '—')[:10]}\n")
+    lines.append(
+        f"Start: {sprint.get('startDate', '—')[:10]} | End: {sprint.get('endDate', '—')[:10]}\n"
+    )
 
     for status, entries in by_status.items():
         lines.append(f"\n### {status} ({len(entries)})\n")

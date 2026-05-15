@@ -7,14 +7,13 @@ from collections.abc import AsyncGenerator
 from pathlib import Path
 from typing import Any
 
+from agent import create_client, run_agent
 from dotenv import load_dotenv
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from google import genai
-from sse_starlette.sse import EventSourceResponse
-
-from agent import create_client, run_agent
 from i18n import msg
+from sse_starlette.sse import EventSourceResponse
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -55,6 +54,7 @@ async def chat(request: Request) -> EventSourceResponse:
 
     if not message:
         from fastapi.responses import JSONResponse
+
         return JSONResponse({"error": "No message provided"}, status_code=400)
 
     logger.info("Chat request: session=%s, lang=%s, message=%s", session_id, language, message[:80])

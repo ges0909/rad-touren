@@ -10,7 +10,6 @@ from pathlib import Path
 import httpx
 from dotenv import load_dotenv
 from fastmcp import FastMCP
-
 from lib.geocoding import geocode as _geocode
 
 # Load .env from project root
@@ -282,16 +281,16 @@ async def distance_matrix(
     lines.append("### Durations (minutes)\n")
 
     # Header
-    header = "|     | " + " | ".join(f"#{i+1}" for i in range(n)) + " |"
+    header = "|     | " + " | ".join(f"#{i + 1}" for i in range(n)) + " |"
     sep = "| --- | " + " | ".join("---" for _ in range(n)) + " |"
     lines.append(header)
     lines.append(sep)
 
     for i in range(n):
-        row = f"| #{i+1} |"
+        row = f"| #{i + 1} |"
         for j in range(n):
             dur = durations[i][j] if durations[i][j] is not None else 0
-            row += f" {dur/60:.0f} |"
+            row += f" {dur / 60:.0f} |"
         lines.append(row)
 
     if distances:
@@ -299,7 +298,7 @@ async def distance_matrix(
         lines.append(header)
         lines.append(sep)
         for i in range(n):
-            row = f"| #{i+1} |"
+            row = f"| #{i + 1} |"
             for j in range(n):
                 dist = distances[i][j] if distances[i][j] is not None else 0
                 row += f" {dist:.0f} |"

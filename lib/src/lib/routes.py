@@ -15,9 +15,7 @@ HEADERS = {
 }
 
 
-async def search_routes(
-    query: str, activity: str = "hiking", limit: int = 10
-) -> dict[str, Any]:
+async def search_routes(query: str, activity: str = "hiking", limit: int = 10) -> dict[str, Any]:
     """Search for marked routes by name or region.
 
     Args:
@@ -26,7 +24,7 @@ async def search_routes(
         limit: Max results (1-20).
     """
     if activity not in BASE_URLS:
-        return {"error": f"activity must be 'hiking' or 'cycling'"}
+        return {"error": "activity must be 'hiking' or 'cycling'"}
 
     base_url = BASE_URLS[activity]
 
@@ -41,13 +39,15 @@ async def search_routes(
 
     routes: list[dict[str, Any]] = []
     for r in results:
-        routes.append({
-            "id": r.get("id"),
-            "name": r.get("name", "?"),
-            "ref": r.get("ref", ""),
-            "group": r.get("group", ""),
-            "type": "loop" if r.get("linear") == "no" else "linear",
-        })
+        routes.append(
+            {
+                "id": r.get("id"),
+                "name": r.get("name", "?"),
+                "ref": r.get("ref", ""),
+                "group": r.get("group", ""),
+                "type": "loop" if r.get("linear") == "no" else "linear",
+            }
+        )
 
     return {"routes": routes}
 
@@ -60,7 +60,7 @@ async def get_route_details(route_id: int, activity: str = "hiking") -> dict[str
         activity: "hiking" or "cycling".
     """
     if activity not in BASE_URLS:
-        return {"error": f"activity must be 'hiking' or 'cycling'"}
+        return {"error": "activity must be 'hiking' or 'cycling'"}
 
     base_url = BASE_URLS[activity]
 
@@ -79,7 +79,9 @@ async def get_route_details(route_id: int, activity: str = "hiking") -> dict[str
         "group": data.get("group", ""),
         "type": "loop" if data.get("linear") == "no" else "linear",
         "length_km": round(length_m / 1000, 1),
-        "official_length_km": round(data["official_length"] / 1000, 1) if data.get("official_length") else None,
+        "official_length_km": round(data["official_length"] / 1000, 1)
+        if data.get("official_length")
+        else None,
         "operator": data.get("operator", ""),
         "description": data.get("description", ""),
         "url": data.get("url", ""),
@@ -98,7 +100,7 @@ async def get_route_segments(route_id: int, activity: str = "hiking") -> dict[st
         activity: "hiking" or "cycling".
     """
     if activity not in BASE_URLS:
-        return {"error": f"activity must be 'hiking' or 'cycling'"}
+        return {"error": "activity must be 'hiking' or 'cycling'"}
 
     base_url = BASE_URLS[activity]
 

@@ -1,11 +1,9 @@
 """Tests for vbb-mcp server."""
 
+import httpx
 import pytest
 import respx
-import httpx
-
-from server import search_stops, get_departures, get_journeys
-
+from server import get_departures, get_journeys, search_stops
 
 BASE = "https://v6.vbb.transport.rest"
 
@@ -23,9 +21,7 @@ async def test_search_stops_basic():
             "products": {"suburban": True, "subway": True, "tram": True, "bus": True},
         }
     ]
-    respx.get(f"{BASE}/locations").mock(
-        return_value=httpx.Response(200, json=mock_response)
-    )
+    respx.get(f"{BASE}/locations").mock(return_value=httpx.Response(200, json=mock_response))
 
     result = await search_stops("Alexanderplatz")
     assert "Alexanderplatz" in result
@@ -43,9 +39,7 @@ async def test_search_stops_short_query():
 @pytest.mark.asyncio
 async def test_search_stops_no_results():
     """Test empty results."""
-    respx.get(f"{BASE}/locations").mock(
-        return_value=httpx.Response(200, json=[])
-    )
+    respx.get(f"{BASE}/locations").mock(return_value=httpx.Response(200, json=[]))
     result = await search_stops("xyznonexistent")
     assert "No stops found" in result
 
@@ -105,9 +99,7 @@ async def test_get_journeys_basic():
                         "plannedArrival": "2026-05-03T10:45:00+02:00",
                         "departurePlatform": "2",
                         "arrivalPlatform": "16",
-                        "remarks": [
-                            {"type": "hint", "code": "FK", "text": "Bicycle conveyance"}
-                        ],
+                        "remarks": [{"type": "hint", "code": "FK", "text": "Bicycle conveyance"}],
                     },
                     {
                         "origin": {"name": "S+U Lichtenberg Bhf"},
@@ -118,17 +110,13 @@ async def test_get_journeys_basic():
                         "plannedArrival": "2026-05-03T11:45:00+02:00",
                         "departurePlatform": "1",
                         "arrivalPlatform": "2",
-                        "remarks": [
-                            {"type": "hint", "code": "FK", "text": "Bicycle conveyance"}
-                        ],
+                        "remarks": [{"type": "hint", "code": "FK", "text": "Bicycle conveyance"}],
                     },
                 ]
             }
         ]
     }
-    respx.get(f"{BASE}/journeys").mock(
-        return_value=httpx.Response(200, json=mock_response)
-    )
+    respx.get(f"{BASE}/journeys").mock(return_value=httpx.Response(200, json=mock_response))
 
     result = await get_journeys("900245027", "900320001")
     assert "RB24" in result
@@ -148,9 +136,7 @@ async def test_get_journeys_missing_origin():
 @pytest.mark.asyncio
 async def test_get_journeys_no_results():
     """Test no journeys found."""
-    respx.get(f"{BASE}/journeys").mock(
-        return_value=httpx.Response(200, json={"journeys": []})
-    )
+    respx.get(f"{BASE}/journeys").mock(return_value=httpx.Response(200, json={"journeys": []}))
     result = await get_journeys("900000001", "900000002")
     assert "No journeys found" in result
 
@@ -186,9 +172,7 @@ async def test_get_journeys_with_walking():
             }
         ]
     }
-    respx.get(f"{BASE}/journeys").mock(
-        return_value=httpx.Response(200, json=mock_response)
-    )
+    respx.get(f"{BASE}/journeys").mock(return_value=httpx.Response(200, json=mock_response))
 
     result = await get_journeys("900000001", "900000002")
     assert "Walk" in result
@@ -207,7 +191,11 @@ def test_extract_disruptions_warning():
     """Test extraction of warning-type remarks."""
     remarks = [
         {"type": "hint", "code": "FK", "text": "Bicycle conveyance"},
-        {"type": "warning", "code": "", "text": "S5: Zugausfall zwischen Strausberg und Strausberg Nord"},
+        {
+            "type": "warning",
+            "code": "",
+            "text": "S5: Zugausfall zwischen Strausberg und Strausberg Nord",
+        },
         {"type": "status", "code": "", "text": "Bauarbeiten bis 15.05., Busse statt Bahnen"},
     ]
     result = _extract_disruptions(remarks)
@@ -295,9 +283,7 @@ async def test_get_journeys_with_disruption():
             }
         ]
     }
-    respx.get(f"{BASE}/journeys").mock(
-        return_value=httpx.Response(200, json=mock_response)
-    )
+    respx.get(f"{BASE}/journeys").mock(return_value=httpx.Response(200, json=mock_response))
 
     result = await get_journeys("900000001", "900000002")
     assert "⚠️" in result

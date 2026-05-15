@@ -5,8 +5,15 @@ and formats structured results into human-readable strings.
 """
 
 from fastmcp import FastMCP
-
-from lib.routes import search_routes as _search, get_route_details as _details, get_route_segments as _segments
+from lib.routes import (
+    get_route_details as _details,
+)
+from lib.routes import (
+    get_route_segments as _segments,
+)
+from lib.routes import (
+    search_routes as _search,
+)
 
 mcp = FastMCP("Waymarked Trails Routes")
 
@@ -71,7 +78,11 @@ async def get_route_details(
         return result["error"]
 
     group_label = GROUP_LABELS.get(result["group"], result["group"])
-    length_str = f"{result['official_length_km']} km (offiziell)" if result["official_length_km"] else f"{result['length_km']} km"
+    length_str = (
+        f"{result['official_length_km']} km (offiziell)"
+        if result["official_length_km"]
+        else f"{result['length_km']} km"
+    )
 
     lines = [f"# {result['name']}"]
     if result["ref"]:
@@ -143,7 +154,7 @@ async def get_route_segments(
             ref_part = f" [{sr['ref']}]" if sr.get("ref") else ""
             lines.append(f"{i}. → {sr['name']}{ref_part} (ID: {sr['id']})")
     elif result["itinerary"]:
-        lines.append(f"\n## Verlauf\n")
+        lines.append("\n## Verlauf\n")
         lines.append(" → ".join(result["itinerary"]))
 
     lines.append(f"\nQuelle: https://{activity}.waymarkedtrails.org/#route?id={route_id}")

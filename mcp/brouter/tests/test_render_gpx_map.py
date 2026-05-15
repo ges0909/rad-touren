@@ -4,10 +4,7 @@ import asyncio
 import os
 import tempfile
 
-import pytest
-
 from server import render_gpx_map
-
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -17,8 +14,7 @@ from server import render_gpx_map
 def _make_gpx(trackpoints: list[tuple[float, float]]) -> str:
     """Build a minimal GPX string from (lon, lat) pairs."""
     pts = "\n".join(
-        f'    <trkpt lat="{lat}" lon="{lon}"><ele>35</ele></trkpt>'
-        for lon, lat in trackpoints
+        f'    <trkpt lat="{lat}" lon="{lon}"><ele>35</ele></trkpt>' for lon, lat in trackpoints
     )
     return (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -43,11 +39,14 @@ def _write_gpx(tmp_dir: str, content: str) -> str:
 
 def test_render_gpx_map_file_not_found() -> None:
     """Returns error when GPX file does not exist."""
-    result = asyncio.run(render_gpx_map(
-        gpx_path="/nonexistent/path.gpx",
-        output_path="/tmp/out.png",
-    ))
+    result = asyncio.run(
+        render_gpx_map(
+            gpx_path="/nonexistent/path.gpx",
+            output_path="/tmp/out.png",
+        )
+    )
     assert "not found" in result.lower()
+
 
 def test_render_gpx_map_invalid_gpx() -> None:
     """Returns error when file is not valid GPX."""
@@ -56,10 +55,12 @@ def test_render_gpx_map_invalid_gpx() -> None:
         with open(gpx_path, "w") as f:
             f.write("this is not xml")
 
-        result = asyncio.run(render_gpx_map(
-            gpx_path=gpx_path,
-            output_path=os.path.join(tmp_dir, "out.png"),
-        ))
+        result = asyncio.run(
+            render_gpx_map(
+                gpx_path=gpx_path,
+                output_path=os.path.join(tmp_dir, "out.png"),
+            )
+        )
         assert "error" in result.lower()
 
 
@@ -69,10 +70,12 @@ def test_render_gpx_map_too_few_trackpoints() -> None:
         gpx_content = _make_gpx([(13.4, 52.5)])
         gpx_path = _write_gpx(tmp_dir, gpx_content)
 
-        result = asyncio.run(render_gpx_map(
-            gpx_path=gpx_path,
-            output_path=os.path.join(tmp_dir, "out.png"),
-        ))
+        result = asyncio.run(
+            render_gpx_map(
+                gpx_path=gpx_path,
+                output_path=os.path.join(tmp_dir, "out.png"),
+            )
+        )
         assert "fewer than 2" in result.lower()
 
 
@@ -84,19 +87,23 @@ def test_render_gpx_map_too_few_trackpoints() -> None:
 def test_render_gpx_map_creates_png() -> None:
     """Successfully renders a GPX track to a PNG file."""
     with tempfile.TemporaryDirectory() as tmp_dir:
-        gpx_content = _make_gpx([
-            (13.0672, 52.3918),
-            (13.05, 52.395),
-            (13.04, 52.39),
-            (13.0672, 52.3918),
-        ])
+        gpx_content = _make_gpx(
+            [
+                (13.0672, 52.3918),
+                (13.05, 52.395),
+                (13.04, 52.39),
+                (13.0672, 52.3918),
+            ]
+        )
         gpx_path = _write_gpx(tmp_dir, gpx_content)
         output_path = os.path.join(tmp_dir, "route.png")
 
-        result = asyncio.run(render_gpx_map(
-            gpx_path=gpx_path,
-            output_path=output_path,
-        ))
+        result = asyncio.run(
+            render_gpx_map(
+                gpx_path=gpx_path,
+                output_path=output_path,
+            )
+        )
 
         assert "successfully" in result.lower()
         assert os.path.isfile(output_path)
@@ -109,17 +116,21 @@ def test_render_gpx_map_creates_png() -> None:
 def test_render_gpx_map_creates_output_directory() -> None:
     """Creates the output directory if it doesn't exist."""
     with tempfile.TemporaryDirectory() as tmp_dir:
-        gpx_content = _make_gpx([
-            (13.4, 52.52),
-            (13.45, 52.51),
-        ])
+        gpx_content = _make_gpx(
+            [
+                (13.4, 52.52),
+                (13.45, 52.51),
+            ]
+        )
         gpx_path = _write_gpx(tmp_dir, gpx_content)
         output_path = os.path.join(tmp_dir, "subdir", "nested", "route.png")
 
-        result = asyncio.run(render_gpx_map(
-            gpx_path=gpx_path,
-            output_path=output_path,
-        ))
+        result = asyncio.run(
+            render_gpx_map(
+                gpx_path=gpx_path,
+                output_path=output_path,
+            )
+        )
 
         assert "successfully" in result.lower()
         assert os.path.isfile(output_path)
@@ -128,19 +139,23 @@ def test_render_gpx_map_creates_output_directory() -> None:
 def test_render_gpx_map_custom_dimensions() -> None:
     """Respects custom width and height parameters."""
     with tempfile.TemporaryDirectory() as tmp_dir:
-        gpx_content = _make_gpx([
-            (13.4, 52.52),
-            (13.45, 52.51),
-        ])
+        gpx_content = _make_gpx(
+            [
+                (13.4, 52.52),
+                (13.45, 52.51),
+            ]
+        )
         gpx_path = _write_gpx(tmp_dir, gpx_content)
         output_path = os.path.join(tmp_dir, "route.png")
 
-        result = asyncio.run(render_gpx_map(
-            gpx_path=gpx_path,
-            output_path=output_path,
-            width=1024,
-            height=768,
-        ))
+        result = asyncio.run(
+            render_gpx_map(
+                gpx_path=gpx_path,
+                output_path=output_path,
+                width=1024,
+                height=768,
+            )
+        )
 
         assert "1024x768" in result
         assert os.path.isfile(output_path)
@@ -149,19 +164,23 @@ def test_render_gpx_map_custom_dimensions() -> None:
 def test_render_gpx_map_reports_trackpoint_count() -> None:
     """Result message includes the number of trackpoints."""
     with tempfile.TemporaryDirectory() as tmp_dir:
-        gpx_content = _make_gpx([
-            (13.0, 52.5),
-            (13.1, 52.5),
-            (13.2, 52.5),
-            (13.3, 52.5),
-            (13.4, 52.5),
-        ])
+        gpx_content = _make_gpx(
+            [
+                (13.0, 52.5),
+                (13.1, 52.5),
+                (13.2, 52.5),
+                (13.3, 52.5),
+                (13.4, 52.5),
+            ]
+        )
         gpx_path = _write_gpx(tmp_dir, gpx_content)
         output_path = os.path.join(tmp_dir, "route.png")
 
-        result = asyncio.run(render_gpx_map(
-            gpx_path=gpx_path,
-            output_path=output_path,
-        ))
+        result = asyncio.run(
+            render_gpx_map(
+                gpx_path=gpx_path,
+                output_path=output_path,
+            )
+        )
 
         assert "5 trackpoints" in result

@@ -8,8 +8,7 @@ from pathlib import Path
 
 import gpxpy
 from fastmcp import FastMCP
-
-from lib.overpass import build_query, search_pois, POI_CATEGORIES, PRESETS
+from lib.overpass import POI_CATEGORIES, PRESETS, build_query, search_pois
 
 mcp = FastMCP("Overpass POI Search")
 

@@ -42,20 +42,20 @@ async def search_stops(query: str, results: int = 10) -> dict[str, Any]:
             continue
         loc = stop.get("location", {})
         products = stop.get("products", {})
-        stops.append({
-            "id": stop.get("id", "?"),
-            "name": stop.get("name", "?"),
-            "lat": loc.get("latitude"),
-            "lon": loc.get("longitude"),
-            "products": [k for k, v in products.items() if v],
-        })
+        stops.append(
+            {
+                "id": stop.get("id", "?"),
+                "name": stop.get("name", "?"),
+                "lat": loc.get("latitude"),
+                "lon": loc.get("longitude"),
+                "products": [k for k, v in products.items() if v],
+            }
+        )
 
     return {"stops": stops}
 
 
-async def get_departures(
-    stop_id: str, results: int = 10, duration: int = 60
-) -> dict[str, Any]:
+async def get_departures(stop_id: str, results: int = 10, duration: int = 60) -> dict[str, Any]:
     """Get upcoming departures from a stop.
 
     Args:
@@ -80,14 +80,16 @@ async def get_departures(
 
     departures: list[dict[str, Any]] = []
     for dep in departures_list[:results]:
-        departures.append({
-            "line": dep.get("line", {}).get("name", "?"),
-            "direction": dep.get("direction", "?"),
-            "when": dep.get("plannedWhen", dep.get("when", "?")),
-            "delay_sec": dep.get("delay"),
-            "platform": dep.get("platform", ""),
-            "cancelled": dep.get("cancelled", False),
-        })
+        departures.append(
+            {
+                "line": dep.get("line", {}).get("name", "?"),
+                "direction": dep.get("direction", "?"),
+                "when": dep.get("plannedWhen", dep.get("when", "?")),
+                "delay_sec": dep.get("delay"),
+                "platform": dep.get("platform", ""),
+                "cancelled": dep.get("cancelled", False),
+            }
+        )
 
     return {"departures": departures}
 
@@ -120,14 +122,16 @@ async def get_journeys(
     for j in journeys_data:
         legs: list[dict[str, Any]] = []
         for leg in j.get("legs", []):
-            legs.append({
-                "origin": leg.get("origin", {}).get("name", "?"),
-                "destination": leg.get("destination", {}).get("name", "?"),
-                "line": leg.get("line", {}).get("name") if leg.get("line") else None,
-                "departure": leg.get("plannedDeparture", leg.get("departure")),
-                "arrival": leg.get("plannedArrival", leg.get("arrival")),
-                "walking": leg.get("walking", False),
-            })
+            legs.append(
+                {
+                    "origin": leg.get("origin", {}).get("name", "?"),
+                    "destination": leg.get("destination", {}).get("name", "?"),
+                    "line": leg.get("line", {}).get("name") if leg.get("line") else None,
+                    "departure": leg.get("plannedDeparture", leg.get("departure")),
+                    "arrival": leg.get("plannedArrival", leg.get("arrival")),
+                    "walking": leg.get("walking", False),
+                }
+            )
 
         # Extract ticket prices
         tickets: list[dict[str, Any]] = []

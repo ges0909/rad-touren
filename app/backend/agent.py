@@ -9,10 +9,10 @@ from typing import Any
 from google import genai
 from google.genai import types
 from google.genai.errors import ClientError, ServerError
-
+from i18n import Lang
+from i18n import msg as i18n_msg
 from steering import build_system_prompt
 from tools import TOOL_DECLARATIONS, TOOL_REGISTRY
-from i18n import Lang, msg as i18n_msg
 
 logger = logging.getLogger(__name__)
 
@@ -41,14 +41,22 @@ async def _call_gemini_with_retry(
         except ServerError as e:
             if attempt < max_retries - 1 and e.code in (503, 500):
                 wait = 2 ** (attempt + 1)  # 2s, 4s, 8s
-                logger.warning("Gemini %d, retrying in %ds (attempt %d/%d)", e.code, wait, attempt + 1, max_retries)
+                logger.warning(
+                    "Gemini %d, retrying in %ds (attempt %d/%d)",
+                    e.code,
+                    wait,
+                    attempt + 1,
+                    max_retries,
+                )
                 await asyncio.sleep(wait)
             else:
                 raise
         except ClientError as e:
             if attempt < max_retries - 1 and e.code == 429:
                 wait = min(2 ** (attempt + 2), 30)  # 4s, 8s, 16s
-                logger.warning("Gemini 429, retrying in %ds (attempt %d/%d)", wait, attempt + 1, max_retries)
+                logger.warning(
+                    "Gemini 429, retrying in %ds (attempt %d/%d)", wait, attempt + 1, max_retries
+                )
                 await asyncio.sleep(wait)
             else:
                 raise
@@ -65,7 +73,9 @@ async def run_agent(
 
     Yields dicts with keys: {"event": str, "data": dict}
     """
-    system_prompt: str = build_system_prompt(tour_type, language=language, user_message=user_message)
+    system_prompt: str = build_system_prompt(
+        tour_type, language=language, user_message=user_message
+    )
 
     # Use provided language for error messages
     lang: Lang = language if language in ("de", "en") else "de"
@@ -90,9 +100,9 @@ async def run_agent(
     )
 
     # Configure tools
-    tools = types.Tool(function_declarations=[
-        types.FunctionDeclaration(**decl) for decl in TOOL_DECLARATIONS
-    ])
+    tools = types.Tool(
+        function_declarations=[types.FunctionDeclaration(**decl) for decl in TOOL_DECLARATIONS]
+    )
 
     config = types.GenerateContentConfig(
         system_instruction=system_prompt,
@@ -103,7 +113,6 @@ async def run_agent(
     # Agent loop: call LLM, execute tools, feed results back
     max_iterations: int = 15
     for iteration in range(max_iterations):
-
         logger.info("Iteration %d: calling Gemini", iteration + 1)
         try:
             response = await _call_gemini_with_retry(client, contents, config)
@@ -117,7 +126,11 @@ async def run_agent(
             else:
                 yield {
                     "event": "error",
-                    "data": {"error": i18n_msg("api_error", lang, code=str(e.code), detail=e.message or str(e))},
+                    "data": {
+                        "error": i18n_msg(
+                            "api_error", lang, code=str(e.code), detail=e.message or str(e)
+                        )
+                    },
                 }
             return
         except ServerError as e:
@@ -152,7 +165,14 @@ async def run_agent(
             )
             # If blocked by safety, inform user
             if finish_reason and "SAFETY" in str(finish_reason):
-                yield {"event": "error", "data": {"error": i18n_msg("unexpected_error", lang, detail="Response blocked by safety filter")}}
+                yield {
+                    "event": "error",
+                    "data": {
+                        "error": i18n_msg(
+                            "unexpected_error", lang, detail="Response blocked by safety filter"
+                        )
+                    },
+                }
             else:
                 yield {"event": "tour", "data": {"markdown": ""}}
             yield {"event": "done", "data": {"iterations": iteration + 1}}
@@ -166,7 +186,9 @@ async def run_agent(
             # No more tool calls — this is the final response
             text_parts: list[str] = [p.text for p in parts if p.text]
             final_text: str = "\n".join(text_parts)
-            logger.info("Agent done: %d iterations, response %d chars", iteration + 1, len(final_text))
+            logger.info(
+                "Agent done: %d iterations, response %d chars", iteration + 1, len(final_text)
+            )
             yield {"event": "tour", "data": {"markdown": final_text}}
             yield {"event": "done", "data": {"iterations": iteration + 1}}
             return
@@ -181,11 +203,15 @@ async def run_agent(
             tool_name: str = fc.name
             tool_args: dict[str, Any] = dict(fc.args) if fc.args else {}
 
-            logger.info("Tool call: %s(%s)", tool_name, json.dumps(tool_args, ensure_ascii=False)[:150])
+            logger.info(
+                "Tool call: %s(%s)", tool_name, json.dumps(tool_args, ensure_ascii=False)[:150]
+            )
 
             yield {
                 "event": "status",
-                "data": {"message": f"🔧 {tool_name}({json.dumps(tool_args, ensure_ascii=False)[:100]})..."},
+                "data": {
+                    "message": f"🔧 {tool_name}({json.dumps(tool_args, ensure_ascii=False)[:100]})..."
+                },
             }
 
             # Execute the tool
@@ -205,7 +231,10 @@ async def run_agent(
                                     "event": "map",
                                     "data": {"waypoints": [[coords[1], coords[0]]]},
                                 }
-                    elif tool_name in ("calculate_car_route", "calculate_bike_route") and isinstance(result, dict):
+                    elif tool_name in (
+                        "calculate_car_route",
+                        "calculate_bike_route",
+                    ) and isinstance(result, dict):
                         geometry = result.get("geometry")
                         if geometry:
                             yield {
@@ -239,9 +268,7 @@ async def run_agent(
             )
 
         # Add tool results to conversation
-        contents.append(
-            types.Content(role="user", parts=tool_results)
-        )
+        contents.append(types.Content(role="user", parts=tool_results))
 
     # Max iterations reached
     logger.warning("Max iterations (%d) reached", max_iterations)

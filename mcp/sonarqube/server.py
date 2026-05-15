@@ -5,7 +5,6 @@ via personal access token authentication.
 """
 
 import os
-from urllib.parse import urlencode
 
 import httpx
 from fastmcp import FastMCP
@@ -133,11 +132,10 @@ async def list_projects(
 
     lines = [f"## SonarQube Projects ({len(components)} of {total})\n"]
     for p in components:
-        last_analysis = p.get("lastAnalysisDate", "never")[:16] if p.get("lastAnalysisDate") else "never"
-        lines.append(
-            f"- **{p['name']}**\n"
-            f"  Key: `{p['key']}` | Last analysis: {last_analysis}\n"
+        last_analysis = (
+            p.get("lastAnalysisDate", "never")[:16] if p.get("lastAnalysisDate") else "never"
         )
+        lines.append(f"- **{p['name']}**\n  Key: `{p['key']}` | Last analysis: {last_analysis}\n")
     return "\n".join(lines)
 
 
@@ -291,7 +289,9 @@ async def get_issue(issue_key: str) -> str:
     Returns:
         Detailed issue information including code context and rule description.
     """
-    result = await _get("/issues/search", {"issues": issue_key, "additionalFields": "comments,rules"})
+    result = await _get(
+        "/issues/search", {"issues": issue_key, "additionalFields": "comments,rules"}
+    )
     if isinstance(result, str):
         return result
 
@@ -309,7 +309,9 @@ async def get_issue(issue_key: str) -> str:
     rules = result.get("rules", [])
     rule_desc = ""
     if rules:
-        rule_desc = f"\n### Rule: {rules[0].get('name', '—')}\n\n{rules[0].get('htmlDesc', '—')[:500]}"
+        rule_desc = (
+            f"\n### Rule: {rules[0].get('name', '—')}\n\n{rules[0].get('htmlDesc', '—')[:500]}"
+        )
 
     # Comments
     comments = issue.get("comments", [])
@@ -526,6 +528,7 @@ async def get_source_with_issues(
         code = sl.get("code", "")
         # Strip HTML tags from SonarQube's highlighted source
         import re
+
         code_clean = re.sub(r"<[^>]+>", "", code)
         lines.append(f"{line_num:>4} | {code_clean}")
     lines.append("```")

@@ -5,7 +5,7 @@ via personal access token authentication.
 """
 
 import os
-from urllib.parse import quote_plus, urlencode
+from urllib.parse import quote_plus
 
 import httpx
 from fastmcp import FastMCP
@@ -283,9 +283,7 @@ async def get_merge_request_changes(project: str, mr_iid: int) -> str:
 
 
 @mcp.tool()
-async def create_merge_request_note(
-    project: str, mr_iid: int, body: str
-) -> str:
+async def create_merge_request_note(project: str, mr_iid: int, body: str) -> str:
     """Add a comment (note) to a merge request.
 
     Args:
@@ -471,11 +469,9 @@ async def get_file(project: str, file_path: str, ref: str = "") -> str:
         return result
 
     import base64
+
     content = base64.b64decode(result.get("content", "")).decode("utf-8", errors="replace")
-    return (
-        f"## {file_path} (ref: {result.get('ref', 'default')})\n\n"
-        f"```\n{content}\n```"
-    )
+    return f"## {file_path} (ref: {result.get('ref', 'default')})\n\n```\n{content}\n```"
 
 
 @mcp.tool()

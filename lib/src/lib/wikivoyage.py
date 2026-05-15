@@ -46,9 +46,7 @@ def _clean_wikitext(text: str) -> str:
     return text.strip()
 
 
-async def search_destinations(
-    query: str, lang: str = "de", results: int = 10
-) -> dict[str, Any]:
+async def search_destinations(query: str, lang: str = "de", results: int = 10) -> dict[str, Any]:
     """Search for travel destinations.
 
     Args:
@@ -77,11 +75,13 @@ async def search_destinations(
     destinations: list[dict[str, Any]] = []
     for item in search_results:
         snippet = re.sub(r"<[^>]+>", "", item.get("snippet", "")).strip()
-        destinations.append({
-            "title": item.get("title", "?"),
-            "snippet": snippet[:150],
-            "size_bytes": item.get("size", 0),
-        })
+        destinations.append(
+            {
+                "title": item.get("title", "?"),
+                "snippet": snippet[:150],
+                "size_bytes": item.get("size", 0),
+            }
+        )
 
     return {"destinations": destinations, "lang": lang}
 
@@ -146,11 +146,13 @@ async def get_article_sections(title: str, lang: str = "de") -> dict[str, Any]:
 
     sections: list[dict[str, Any]] = []
     for s in sections_data:
-        sections.append({
-            "name": s.get("line", "?"),
-            "level": int(s.get("level", 2)),
-            "index": s.get("index", ""),
-        })
+        sections.append(
+            {
+                "name": s.get("line", "?"),
+                "level": int(s.get("level", 2)),
+                "index": s.get("index", ""),
+            }
+        )
 
     return {"title": title, "sections": sections, "lang": lang}
 
@@ -184,11 +186,13 @@ async def search_nearby(
 
     places: list[dict[str, Any]] = []
     for r in geo_results:
-        places.append({
-            "title": r.get("title", "?"),
-            "lat": r.get("lat"),
-            "lon": r.get("lon"),
-            "distance_m": r.get("dist"),
-        })
+        places.append(
+            {
+                "title": r.get("title", "?"),
+                "lat": r.get("lat"),
+                "lon": r.get("lon"),
+                "distance_m": r.get("dist"),
+            }
+        )
 
     return {"places": places, "lang": lang}

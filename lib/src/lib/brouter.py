@@ -51,9 +51,7 @@ async def calculate_route(
     }
 
     if nogos:
-        nogos_str = "|".join(
-            f"{n['lon']},{n['lat']},{n.get('radius', 20)}" for n in nogos
-        )
+        nogos_str = "|".join(f"{n['lon']},{n['lat']},{n.get('radius', 20)}" for n in nogos)
         params["nogos"] = nogos_str
 
     url = f"{BROUTER_BASE_URL}?{urlencode(params)}"
@@ -88,9 +86,7 @@ async def calculate_route(
     }
 
 
-async def search_location(
-    query: str, country_code: str = "de", limit: int = 5
-) -> dict[str, Any]:
+async def search_location(query: str, country_code: str = "de", limit: int = 5) -> dict[str, Any]:
     """Search for locations via Nominatim geocoding.
 
     Args:
@@ -133,11 +129,13 @@ async def search_location(
 
     results: list[dict[str, Any]] = []
     for r in data:
-        results.append({
-            "name": r.get("display_name", "?"),
-            "lat": float(r.get("lat", 0)),
-            "lon": float(r.get("lon", 0)),
-            "type": r.get("type", ""),
-        })
+        results.append(
+            {
+                "name": r.get("display_name", "?"),
+                "lat": float(r.get("lat", 0)),
+                "lon": float(r.get("lon", 0)),
+                "type": r.get("type", ""),
+            }
+        )
 
     return {"results": results}

@@ -36,9 +36,7 @@ PRESETS: dict[str, list[str]] = {
 }
 
 
-def build_query(
-    categories: list[str], poly_coords: str, radius: int = 500
-) -> str:
+def build_query(categories: list[str], poly_coords: str, radius: int = 500) -> str:
     """Build Overpass QL query for categories around a polyline.
 
     Args:
@@ -100,12 +98,14 @@ async def search_pois(query: str) -> dict[str, Any]:
             if category:
                 break
 
-        pois.append({
-            "name": name or tags.get("operator", "Unnamed"),
-            "lat": lat,
-            "lon": lon,
-            "category": category,
-            "tags": tags,
-        })
+        pois.append(
+            {
+                "name": name or tags.get("operator", "Unnamed"),
+                "lat": lat,
+                "lon": lon,
+                "category": category,
+                "tags": tags,
+            }
+        )
 
     return {"pois": pois}
