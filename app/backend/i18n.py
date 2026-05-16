@@ -1,4 +1,4 @@
-"""Simple i18n for user-facing error messages."""
+"""Simple i18n for user-facing error messages and status labels."""
 
 from typing import Literal
 
@@ -32,6 +32,47 @@ MESSAGES: dict[str, dict[Lang, str]] = {
     "internal_error": {
         "de": "Interner Fehler: {detail}",
         "en": "Internal error: {detail}",
+    },
+    # Tool group status messages
+    "status_routing": {
+        "de": "🗺️ Berechne Route …",
+        "en": "🗺️ Calculating route …",
+    },
+    "status_location": {
+        "de": "📍 Suche Orte …",
+        "en": "📍 Searching locations …",
+    },
+    "status_weather": {
+        "de": "🌤️ Prüfe Wetter …",
+        "en": "🌤️ Checking weather …",
+    },
+    "status_transit": {
+        "de": "🚆 Suche Verbindungen …",
+        "en": "🚆 Searching connections …",
+    },
+    "status_pois": {
+        "de": "📌 Suche Sehenswürdigkeiten …",
+        "en": "📌 Searching points of interest …",
+    },
+    "status_trails": {
+        "de": "🥾 Suche Wander-/Radrouten …",
+        "en": "🥾 Searching hiking/cycling trails …",
+    },
+    "status_travel_info": {
+        "de": "📖 Suche Reiseinformationen …",
+        "en": "📖 Searching travel information …",
+    },
+    "status_web_search": {
+        "de": "🔍 Suche im Web …",
+        "en": "🔍 Searching the web …",
+    },
+    "status_rendering": {
+        "de": "🖼️ Erstelle Karte …",
+        "en": "🖼️ Rendering map …",
+    },
+    "status_generic": {
+        "de": "⚙️ Verarbeite …",
+        "en": "⚙️ Processing …",
     },
 }
 

@@ -118,7 +118,9 @@ async function handleSend(message: string) {
                 mapData.value.routes.push(parsed.route);
               }
             } else if (currentEvent === "status" && parsed.message) {
-              statusMessages.value.push(parsed.message);
+              if (!statusMessages.value.includes(parsed.message)) {
+                statusMessages.value.push(parsed.message);
+              }
             }
           } catch {
             // ignore parse errors

@@ -33,6 +33,60 @@ def _is_geocode_tool(name: str) -> bool:
     return any(p in name for p in GEO_POINT_PATTERNS)
 
 
+# Tool name → status message i18n key mapping
+_TOOL_STATUS_CATEGORY: dict[str, str] = {
+    # Routing
+    "mcp_brouter_calculate_route": "status_routing",
+    "mcp_osrm_calculate_car_route": "status_routing",
+    "mcp_osrm_route_to_gpx": "status_routing",
+    "mcp_openrouteservice_calculate_route": "status_routing",
+    "mcp_openrouteservice_driving_time": "status_routing",
+    "mcp_openrouteservice_isochrone": "status_routing",
+    "mcp_openrouteservice_distance_matrix": "status_routing",
+    # Location search
+    "mcp_brouter_search_location": "status_location",
+    "mcp_openrouteservice_geocode": "status_location",
+    "mcp_open_meteo_geocoding": "status_location",
+    # Weather
+    "mcp_open_meteo_weather_forecast": "status_weather",
+    # Public transport
+    "mcp_vbb_search_stops": "status_transit",
+    "mcp_vbb_get_departures": "status_transit",
+    "mcp_vbb_get_journeys": "status_transit",
+    # POIs
+    "mcp_overpass_search_pois_along_route": "status_pois",
+    # Trails
+    "mcp_waymarkedtrails_search_routes": "status_trails",
+    "mcp_waymarkedtrails_get_route_details": "status_trails",
+    "mcp_waymarkedtrails_search_routes_in_region": "status_trails",
+    "mcp_waymarkedtrails_get_route_segments": "status_trails",
+    # Travel info
+    "mcp_wikivoyage_search_destinations": "status_travel_info",
+    "mcp_wikivoyage_get_article": "status_travel_info",
+    "mcp_wikivoyage_get_section": "status_travel_info",
+    "mcp_wikivoyage_get_article_sections": "status_travel_info",
+    "mcp_wikivoyage_search_nearby": "status_travel_info",
+    # Web search
+    "mcp_tavily_web_search": "status_web_search",
+    "mcp_tavily_web_extract": "status_web_search",
+    # Rendering
+    "mcp_brouter_render_gpx_map": "status_rendering",
+    "mcp_brouter_render_elevation_profile": "status_rendering",
+}
+
+
+def _get_status_categories(tool_names: list[str]) -> list[str]:
+    """Deduplicate tool calls into unique status category keys."""
+    seen: set[str] = set()
+    categories: list[str] = []
+    for name in tool_names:
+        cat = _TOOL_STATUS_CATEGORY.get(name, "status_generic")
+        if cat not in seen:
+            seen.add(cat)
+            categories.append(cat)
+    return categories
+
+
 def create_client(api_key: str) -> genai.Client:
     """Create a Gemini client."""
     return genai.Client(api_key=api_key)
@@ -307,6 +361,14 @@ async def run_agent(
         contents.append(candidate.content)
         tool_results: list[types.Part] = []
 
+        # Emit grouped status messages (one per category, not per tool call)
+        call_names = [part.function_call.name for part in function_calls]
+        for category_key in _get_status_categories(call_names):
+            yield {
+                "event": "status",
+                "data": {"message": i18n_msg(category_key, lang)},
+            }
+
         for part in function_calls:
             fc = part.function_call
             tool_name: str = fc.name
@@ -315,13 +377,6 @@ async def run_agent(
             logger.info(
                 "Tool call: %s(%s)", tool_name, json.dumps(tool_args, ensure_ascii=False)[:150]
             )
-
-            yield {
-                "event": "status",
-                "data": {
-                    "message": f"🔧 {tool_name}({json.dumps(tool_args, ensure_ascii=False)[:100]})..."
-                },
-            }
 
             # Execute the tool via MCP
             result_str: str
