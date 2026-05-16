@@ -296,7 +296,8 @@ async def run_agent(
             logger.info(
                 "Agent done: %d iterations, response %d chars", iteration + 1, len(final_text)
             )
-            logger.info("✅ Reise komplett generiert.")
+            logger.info("✅ Tour generation complete.")
+            logger.debug("First 500 chars of response: %s", repr(final_text[:500]))
             yield {"event": "tour", "data": {"markdown": final_text}}
             yield {"event": "done", "data": {"iterations": iteration + 1}}
             return
@@ -336,8 +337,9 @@ async def run_agent(
                                 "event": "map",
                                 "data": {"route": [[lat, lon] for lat, lon in geometry]},
                             }
-                        # Strip geometry before sending to LLM (context savings)
+                        # Strip large fields before sending to LLM (context savings)
                         result.pop("geometry", None)
+                        result.pop("gpx", None)
                     elif _is_geocode_tool(tool_name):
                         results_list: list[dict[str, Any]] = result.get("results", [])
                         if results_list:

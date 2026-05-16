@@ -183,15 +183,28 @@ async def calculate_route(
     if track_name:
         gpx_content = insert_track_name(gpx_content, track_name)
 
-    return (
-        f"## Route Summary\n"
-        f"- Distance: {result['distance_km']:.1f} km\n"
-        f"- Elevation gain: {result['elevation_gain_m']:.0f} m\n"
-        f"- Estimated duration: {result['duration_min']} min\n"
-        f"- Profile: {profile}\n"
-        f"- Format: gpx\n\n"
-        f"## GPX Data\n{gpx_content}"
-    )
+    # Extract coordinates from GPX for map display
+    import json
+    geometry: list[list[float]] = []
+    try:
+        root = ET.fromstring(gpx_content)
+        ns = {"gpx": _GPX_NS}
+        for trkpt in root.findall(".//{%s}trkpt" % _GPX_NS):
+            lat = float(trkpt.get("lat", "0"))
+            lon = float(trkpt.get("lon", "0"))
+            geometry.append([lat, lon])
+    except ET.ParseError:
+        pass
+
+    # Return as JSON so the backend can extract geometry for map display
+    return json.dumps({
+        "distance_km": result["distance_km"],
+        "elevation_gain_m": result["elevation_gain_m"],
+        "duration_min": result["duration_min"],
+        "profile": profile,
+        "geometry": geometry,
+        "gpx": gpx_content,
+    })
 
 
 @mcp.tool()

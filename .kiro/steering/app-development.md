@@ -129,6 +129,7 @@ Both frontend and backend use the same pattern: a flat dict of message keys → 
 - `logging.getLogger(__name__)` per module. Never `print()`.
 - `basicConfig(level=logging.INFO)` set once in `main.py`.
 - Levels: DEBUG (tool args/results), INFO (requests, iterations), WARNING (retryable), ERROR (API failures), EXCEPTION (unexpected + stacktrace).
+- Log messages are always in **English** (code language, not user language).
 - Never log API keys or tokens.
 
 ## File Naming

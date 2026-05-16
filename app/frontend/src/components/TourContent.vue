@@ -6,7 +6,15 @@ import DOMPurify from "dompurify";
 const props = defineProps<{ markdown: string }>();
 
 const renderedHtml = computed(() => {
-  const raw = marked(props.markdown) as string;
+  let md = props.markdown;
+  // Strip YAML front matter if present (---\n...\n---)
+  if (md.startsWith("---")) {
+    const end = md.indexOf("---", 3);
+    if (end !== -1) {
+      md = md.slice(end + 3).trim();
+    }
+  }
+  const raw = marked(md) as string;
   return DOMPurify.sanitize(raw);
 });
 

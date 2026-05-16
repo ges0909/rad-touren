@@ -64,6 +64,7 @@ def build_system_prompt(
 - If geocoding fails, use well-known coordinates from your training data.
 - If route search fails, suggest a route based on your knowledge of the region.
 - Structure results clearly with Markdown.
+- CRITICAL: Your response MUST contain proper newlines between all Markdown elements (headings, table rows, list items, paragraphs). Each table row MUST be on its own line. Without newlines, the Markdown cannot be rendered correctly.
 - Respond ONLY in {lang_name}.
 - To display a route on the map, call `mcp_osrm_calculate_car_route` with waypoint coordinates. Without this call, no map will be shown. Do NOT use `mcp_openrouteservice_driving_time` for route display — it only returns distance/duration without geometry.
 
