@@ -17,8 +17,6 @@
 
 ---
 
-[![Routenkarte](img/nordspanien-kueste.png)](img/nordspanien-kueste.png)
-
 ## Routenplanung
 
 Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón/Oviedo → San Vicente de la Barquera → Vitoria-Gasteiz/Rioja Alavesa → Bilbao
@@ -31,13 +29,13 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 | 4   | Mo 7. Sep  | 🚗 → **Santander** · 198 km, ~2,5 Std.                  | Stopp Castro Urdiales (Kaffee, gotische Kirche). Ankunft Mittag. 🏛️ Palacio de la Magdalena & Halbinsel-Rundgang. 🏊 Playa del Sardinero. Abend: Mercado de la Esperanza. (Hinweis: Centro Botín montags geschlossen).                                    |
 | 5   | Di 8. Sep  | Santander                                               | 🥾 Cabo Mayor → Mataleñas Klippenpfad (6 km, 2 Std.). 🎨 **Centro Botín** (Renzo Piano). 🏊 **Playa de la Arnía** (spektakuläre Felsformationen). Abend: Bodega del Riojano.                                                                              |
 | 6   | Mi 9. Sep  | 🚗 → **Potes** · 106 km, ~1,5 Std. + Stopps             | 🏛️ Santillana del Mar + Altamira-Museum (⚠️ vorab buchen!). **Fuente Dé Seilbahn** (4 Min. auf 1.800 m), Wanderung zu **Horcados Rojos** (hochalin, 4 Std.) oder gemütlich über Puertos de Áliva zurück. Abend: Cocido Lebaniego + 🍇 Orujo-Verkostung.   |
-| 7   | Do 10. Sep | 🚗 → **Cangas de Onís** · 109 km, ~1,5 Std.             | Fahrt über Desfiladero de los Beyos. 🏛️ Puente Romano, Basílica de Covadonga. Abend: Sidrería — Sidra escanciar lernen.                                                                                                                                   |
-| 8   | Fr 11. Sep | Picos de Europa                                         | 🥾 **Ruta del Cares** (22 km, 6–8 Std.) — Die "göttliche Schlucht". Ganztageswanderung, früh starten (Poncebos). Abend: Quesu Cabrales in Arenas de Cabrales.                                                                                             |
+| 7   | Do 10. Sep | 🚗 → **Cangas de Onís** · 81 km, ~1,5 Std.              | Fahrt über Desfiladero de los Beyos. 🏛️ Puente Romano, Basílica de Covadonga. Abend: Sidrería — Sidra escanciar lernen.                                                                                                                                   |
+| 8   | Fr 11. Sep | Picos de Europa                                         | 🥾 **Ruta del Cares** (22 km, 6–8 Std.) — Die "göttliche Schlucht". Ganztageswanderung, früh starten (Poncebos). ⚠️ Steinschlagrisiko nach Waldbrand — aktuelle Lage vor Ort prüfen! Abend: Quesu Cabrales in Arenas de Cabrales.                         |
 | 9   | Sa 12. Sep | Picos de Europa                                         | 🚌 **Lagos de Covadonga** (⚠️ Zufahrt PKW gesperrt, ALSA-Bus vorab buchen!). Rundweg 6,4 km um Gletscherseen. 🏊 Río Sella Flussbaden oder Playa de Gulpiyuri. Abend: Fabada Asturiana.                                                                   |
-| 10  | So 13. Sep | 🚗 → **Gijón** · 87 km, ~1 Std.                         | 🥾 Senda del Cervigón Küstenpfad (8 km, 2,5 Std.). 🎨 Elogio del Horizonte (Chillida). 🏊 Playa de San Lorenzo. Abend: Sidrería Tierra Astur.                                                                                                             |
+| 10  | So 13. Sep | 🚗 → **Gijón** · 76 km, ~1 Std.                         | 🥾 Senda del Cervigón Küstenpfad (8 km, 2,5 Std.). 🎨 Elogio del Horizonte (Chillida). 🏊 Playa de San Lorenzo. Abend: Sidrería Tierra Astur.                                                                                                             |
 | 11  | Mo 14. Sep | Oviedo (Tagesausflug, 30 Min.)                          | 🎊 **Fiestas de San Mateo** (Stadtfest). 🏛️ Präromanische Kirchen (UNESCO). Mercado del Fontán. ☕ Cafetería Rialto. (Hinweis: Museen montags geschlossen).                                                                                               |
-| 12  | Di 15. Sep | 🚗 → **San Vicente de la Barquera** · 155 km, ~1,5 Std. | Fahrt entlang der Küste nach Kantabrien. 🏰 Castillo del Rey & Altstadt. 🏊 Playa de Oyambre oder Merón. Abend: Frischer Fisch/Meeresfrüchte am Hafen.                                                                                                    |
-| 13  | Mi 16. Sep | 🚗 → **Vitoria-Gasteiz** · 175 km, ~2 Std.              | Entspannte Weiterfahrt ins Baskenland. Ankunft Mittag. 🎨 Itinerario Muralístico Rundgang (1,5 Std.). Abend: Pintxos Casco Viejo.                                                                                                                         |
+| 12  | Di 15. Sep | 🚗 → **San Vicente de la Barquera** · 119 km, ~1,5 Std. | Fahrt entlang der Küste nach Kantabrien. 🏰 Castillo del Rey & Altstadt. 🏊 Playa de Oyambre oder Merón. Abend: Frischer Fisch/Meeresfrüchte am Hafen.                                                                                                    |
+| 13  | Mi 16. Sep | 🚗 → **Vitoria-Gasteiz** · 211 km, ~2,5 Std.            | Entspannte Weiterfahrt ins Baskenland. Ankunft Mittag. 🎨 Itinerario Muralístico Rundgang (1,5 Std.). Abend: Pintxos Casco Viejo.                                                                                                                         |
 | 14  | Do 17. Sep | Rioja Alavesa (Tagesausflug, 45 Min.)                   | 🎊 **Magialdia** (Zauberfestival Vitoria). 🍇 Bodegas Ysios. 🍇 Marqués de Riscal. 🏛️ Laguardia Altstadt + unterirdische Keller. 🏛️ Salinas de Añana (Geführte Tour).                                                                                     |
 | 15  | Fr 18. Sep | 🚗 → **Bilbao** · 66 km, ~1 Std.                        | Fahrt nach Bilbao. Mietwagen am Flughafen abgeben, mit Bus/Metro ins Zentrum. Check-in Hotel. 🎨 **Guggenheim** (3 Std., ⚠️ vorab buchen!). Abend: Mercado de la Ribera.                                                                                  |
 | 16  | Sa 19. Sep | Bilbao                                                  | 🏛️ Casco Viejo + Puente Bizkaia (UNESCO). 🥾 Artxanda Funicular (Sonnenuntergang). 🛶 Optional: Kayak auf dem Nervión. Abend: Plaza Nueva Pintxos-Crawl.                                                                                                  |
@@ -301,4 +299,4 @@ Reiseführer (Wikivoyage, CC BY-SA 3.0): [San Sebastián](https://de.wikivoyage.
 
 > ℹ️ Kein Direktflug Santiago de Compostela (SCQ) → Berlin (BER). Daher Rundreise ab/bis Bilbao.
 
-> ℹ️ Zuletzt geprüft: 15. Mai 2026. Wanderrouten-Bewertungen aus Web-Recherche (Mai 2026), Quelle: AllTrails. Nicht per API verifiziert.
+> ℹ️ Zuletzt geprüft: 16. Mai 2026. Wanderrouten-Bewertungen aus Web-Recherche (Mai 2026), Quelle: AllTrails. Nicht per API verifiziert.
