@@ -14,7 +14,12 @@ AI-powered tour planning with custom MCP servers for routing, weather, POIs, pub
 
 ## Vision
 
-A chat-based web app where prompts like _"Plan a 50 km cycling tour through the Spreewald with swimming stops"_ or _"Plan a 2-week road trip along the Sardinian coast"_ produce complete tours — interactive map, GPX download, POIs, weather, accommodations, and travel connections.
+Two ways to plan tours:
+
+1. **In Kiro** (primary) — open this project in [Kiro](https://kiro.dev), type a prompt, and the MCP servers + steering files turn Kiro into a specialized tour planner. Results land as Markdown + GPX in `trips/`.
+2. **Web App** (spin-off) — a standalone chat UI that uses the same MCP servers and steering files, accessible without Kiro via browser.
+
+A single prompt like _"Plan a 50 km cycling tour through the Spreewald with swimming stops"_ or _"Plan a 2-week road trip along the Sardinian coast"_ produces complete tours — route, map, POIs, weather, accommodations, and travel connections.
 
 ## Architecture
 
@@ -57,6 +62,10 @@ echo "TAVILY_API_KEY=your-key" >> .env
 - Tavily key (free, 1000 req/month): [tavily.com](https://tavily.com)
 
 All other MCP servers use free APIs without a key.
+
+### Use with Kiro
+
+Open this project in [Kiro](https://kiro.dev). The MCP servers in `mcp/` are auto-configured via `.kiro/settings/mcp.json`. Steering files in `.kiro/steering/` guide the planning workflow. Just type your tour request in the chat.
 
 ### Run the Web App
 
