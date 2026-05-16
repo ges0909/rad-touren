@@ -47,8 +47,8 @@ MESSAGES: dict[str, dict[Lang, str]] = {
         "en": "🌤️ Checking weather …",
     },
     "status_transit": {
-        "de": "🚆 Suche Verbindungen …",
-        "en": "🚆 Searching connections …",
+        "de": "🚆 Suche Nahverbindungen …",
+        "en": "🚆 Searching regional connections …",
     },
     "status_pois": {
         "de": "📌 Suche Sehenswürdigkeiten …",

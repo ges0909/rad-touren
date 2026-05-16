@@ -10,6 +10,7 @@ const isLoading = ref(false);
 const errorMessage = ref("");
 const statusMessages = ref<string[]>([]);
 const language = ref<Lang>("de");
+const chatInputRef = ref<InstanceType<typeof ChatInput> | null>(null);
 const mapData = ref<{
   waypoints: [number, number][];
   routes: [number, number][][];
@@ -137,6 +138,7 @@ async function handleSend(message: string) {
     errorMessage.value = t("errorConnection", language.value);
   } finally {
     isLoading.value = false;
+    chatInputRef.value?.clear();
   }
 }
 </script>
@@ -179,6 +181,7 @@ async function handleSend(message: string) {
 
     <!-- Chat Input -->
     <ChatInput
+      ref="chatInputRef"
       :is-loading="isLoading"
       :language="language"
       @send="handleSend"

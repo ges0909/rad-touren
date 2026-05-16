@@ -347,10 +347,17 @@ async def run_agent(
             # No more tool calls — this is the final response
             text_parts: list[str] = [p.text for p in parts if p.text]
             final_text: str = "\n".join(text_parts)
+
+            # Extract route name from first heading for the log
+            import re
+
+            heading_match = re.search(r"^#{1,3}\s+(.+)$", final_text, re.MULTILINE)
+            route_name = heading_match.group(1).strip() if heading_match else "unnamed"
+
             logger.info(
                 "Agent done: %d iterations, response %d chars", iteration + 1, len(final_text)
             )
-            logger.info("✅ Tour generation complete.")
+            logger.info("✅ Tour generation complete: %s", route_name)
             logger.debug("First 500 chars of response: %s", repr(final_text[:500]))
             yield {"event": "tour", "data": {"markdown": final_text}}
             yield {"event": "done", "data": {"iterations": iteration + 1}}

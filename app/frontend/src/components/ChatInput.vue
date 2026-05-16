@@ -36,9 +36,14 @@ function handleSubmit() {
   ].slice(0, 20);
   saveHistory();
 
-  input.value = "";
   showHistory.value = false;
 }
+
+function clear() {
+  input.value = "";
+}
+
+defineExpose({ clear });
 
 function selectFromHistory(entry: string) {
   input.value = entry;

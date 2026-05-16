@@ -18,6 +18,22 @@ const renderedHtml = computed(() => {
   return DOMPurify.sanitize(raw);
 });
 
+const filename = computed(() => {
+  // Extract first heading as filename basis
+  const match = props.markdown.match(/^#{1,3}\s+(.+)$/m);
+  if (!match) return "tour";
+  return match[1]
+    .trim()
+    .toLowerCase()
+    .replace(/[äÄ]/g, "ae")
+    .replace(/[öÖ]/g, "oe")
+    .replace(/[üÜ]/g, "ue")
+    .replace(/ß/g, "ss")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")
+    .slice(0, 60);
+});
+
 function printPage() {
   window.print();
 }
@@ -33,13 +49,13 @@ function printPage() {
         :href="
           'data:text/markdown;charset=utf-8,' + encodeURIComponent(markdown)
         "
-        download="tour.md"
-        class="px-3 py-1.5 text-sm bg-gray-100 hover:bg-gray-200 rounded-md transition"
+        :download="filename + '.md'"
+        class="inline-flex items-center justify-center px-3 py-1.5 text-sm bg-gray-100 hover:bg-gray-200 rounded-md transition min-w-[7rem]"
       >
         📄 Markdown
       </a>
       <button
-        class="px-3 py-1.5 text-sm bg-gray-100 hover:bg-gray-200 rounded-md transition"
+        class="inline-flex items-center justify-center px-3 py-1.5 text-sm bg-gray-100 hover:bg-gray-200 rounded-md transition min-w-[7rem]"
         @click="printPage"
       >
         📑 PDF
