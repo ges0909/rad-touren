@@ -5,12 +5,12 @@ import "leaflet/dist/leaflet.css";
 
 const props = defineProps<{
   waypoints: [number, number][];
-  route: [number, number][];
+  routes: [number, number][][];
 }>();
 
 const mapContainer = ref<HTMLElement | null>(null);
 let map: L.Map | null = null;
-let routeLayer: L.Polyline | null = null;
+let routeLayers: L.Polyline[] = [];
 let markerLayer: L.LayerGroup | null = null;
 let resizeObserver: ResizeObserver | null = null;
 
@@ -35,27 +35,28 @@ function updateMap() {
   if (!map) return;
 
   // Clear previous layers
-  if (routeLayer) {
-    map.removeLayer(routeLayer);
-    routeLayer = null;
-  }
+  routeLayers.forEach((layer) => map!.removeLayer(layer));
+  routeLayers = [];
   if (markerLayer) {
     markerLayer.clearLayers();
   }
 
   const bounds: L.LatLngExpression[] = [];
 
-  // Draw route polyline
-  if (props.route.length > 1) {
-    const latLngs = props.route.map(
-      ([lat, lng]) => [lat, lng] as L.LatLngExpression,
-    );
-    routeLayer = L.polyline(latLngs, {
-      color: "#2563eb",
-      weight: 4,
-      opacity: 0.8,
-    }).addTo(map);
-    bounds.push(...latLngs);
+  // Draw all route polylines
+  for (const route of props.routes) {
+    if (route.length > 1) {
+      const latLngs = route.map(
+        ([lat, lng]) => [lat, lng] as L.LatLngExpression,
+      );
+      const polyline = L.polyline(latLngs, {
+        color: "#2563eb",
+        weight: 4,
+        opacity: 0.8,
+      }).addTo(map);
+      routeLayers.push(polyline);
+      bounds.push(...latLngs);
+    }
   }
 
   // Add waypoint markers
@@ -98,7 +99,7 @@ onUnmounted(() => {
 });
 
 watch(
-  [() => props.waypoints, () => props.route],
+  [() => props.waypoints, () => props.routes],
   () => {
     nextTick(() => {
       if (!map) initMap();

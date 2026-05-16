@@ -12,15 +12,15 @@ const statusMessages = ref<string[]>([]);
 const language = ref<Lang>("de");
 const mapData = ref<{
   waypoints: [number, number][];
-  route: [number, number][];
+  routes: [number, number][][];
 }>({
   waypoints: [],
-  route: [],
+  routes: [],
 });
 const splitPercent = ref(50);
 
 const hasMapData = computed(
-  () => mapData.value.waypoints.length > 0 || mapData.value.route.length > 0,
+  () => mapData.value.waypoints.length > 0 || mapData.value.routes.length > 0,
 );
 
 function startResize(e: MouseEvent) {
@@ -61,7 +61,7 @@ async function handleSend(message: string) {
   tourMarkdown.value = "";
   errorMessage.value = "";
   statusMessages.value = [];
-  mapData.value = { waypoints: [], route: [] };
+  mapData.value = { waypoints: [], routes: [] };
 
   try {
     const response = await fetch("/api/chat", {
@@ -115,7 +115,7 @@ async function handleSend(message: string) {
                 mapData.value.waypoints.push(...parsed.waypoints);
               }
               if (parsed.route) {
-                mapData.value.route = parsed.route;
+                mapData.value.routes.push(parsed.route);
               }
             } else if (currentEvent === "status" && parsed.message) {
               statusMessages.value.push(parsed.message);
@@ -238,7 +238,7 @@ async function handleSend(message: string) {
         :style="{ width: tourMarkdown ? 100 - splitPercent + '%' : '100%' }"
         class="overflow-hidden min-w-0"
       >
-        <TourMap :waypoints="mapData.waypoints" :route="mapData.route" />
+        <TourMap :waypoints="mapData.waypoints" :routes="mapData.routes" />
       </div>
     </div>
   </div>
