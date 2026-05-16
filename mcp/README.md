@@ -35,6 +35,8 @@ uv run --package brouter-mcp python -c "import lib.brouter; print('OK')"
 | **OSRM**             | `mcp/osrm/`            | Car routing & GPX export (no API key required)                    | [router.project-osrm.org](https://router.project-osrm.org) |
 | **Wikivoyage**       | `mcp/wikivoyage/`      | Travel guide articles & sections (DE/EN)                          | [Wikivoyage API](https://de.wikivoyage.org)                |
 | **Waymarked Trails** | `mcp/waymarkedtrails/` | Search official hiking/cycling routes & get details               | [waymarkedtrails.org](https://waymarkedtrails.org)         |
+| **Tavily**           | `mcp/tavily/`          | Web search & content extraction                                   | [tavily.com](https://tavily.com)                           |
+| **Travel Content**   | `mcp/travel-content/`  | Blog & video search for route recommendations                     | [tavily.com](https://tavily.com)                           |
 
 ## Development Tools
 
@@ -56,16 +58,18 @@ uv run --package brouter-mcp python -c "import lib.brouter; print('OK')"
 
 Servers requiring API keys or tokens read their credentials from environment variables:
 
-| Variable          | Server           | Example                         |
-| ----------------- | ---------------- | ------------------------------- |
-| `ORS_API_KEY`     | OpenRouteService | `eyJvcm...`                     |
-| `GITLAB_URL`      | GitLab           | `https://gitlab.company.com`    |
-| `GITLAB_TOKEN`    | GitLab           | `glpat-xxxx`                    |
-| `JIRA_URL`        | Jira             | `https://company.atlassian.net` |
-| `JIRA_TOKEN`      | Jira             | PAT from Atlassian account      |
-| `JIRA_EMAIL`      | Jira             | `user@company.com`              |
-| `SONARQUBE_URL`   | SonarQube        | `https://sonar.company.com`     |
-| `SONARQUBE_TOKEN` | SonarQube        | `squ_xxxx`                      |
+| Variable           | Server                  | Example                         |
+| ------------------ | ----------------------- | ------------------------------- |
+| `ORS_API_KEY`      | OpenRouteService        | `eyJvcm...`                     |
+| `TAVILY_API_KEY`   | Tavily / Travel Content | `tvly-xxxx`                     |
+| `CONTEXT7_API_KEY` | Context7                | `ctx7sk-xxxx`                   |
+| `GITLAB_URL`       | GitLab                  | `https://gitlab.company.com`    |
+| `GITLAB_TOKEN`     | GitLab                  | `glpat-xxxx`                    |
+| `JIRA_URL`         | Jira                    | `https://company.atlassian.net` |
+| `JIRA_TOKEN`       | Jira                    | PAT from Atlassian account      |
+| `JIRA_EMAIL`       | Jira                    | `user@company.com`              |
+| `SONARQUBE_URL`    | SonarQube               | `https://sonar.company.com`     |
+| `SONARQUBE_TOKEN`  | SonarQube               | `squ_xxxx`                      |
 
 ---
 
