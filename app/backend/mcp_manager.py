@@ -266,6 +266,7 @@ class MCPManager:
             stderr=asyncio.subprocess.PIPE,
             cwd=config.cwd,
             env=None,  # inherit current process environment (os.environ)
+            limit=1024 * 1024,  # 1MB line buffer (routes can be large)
         )
 
         instance = ServerInstance(config=config, process=process)
