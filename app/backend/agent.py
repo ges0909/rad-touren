@@ -296,6 +296,7 @@ async def run_agent(
             logger.info(
                 "Agent done: %d iterations, response %d chars", iteration + 1, len(final_text)
             )
+            logger.info("✅ Reise komplett generiert.")
             yield {"event": "tour", "data": {"markdown": final_text}}
             yield {"event": "done", "data": {"iterations": iteration + 1}}
             return
