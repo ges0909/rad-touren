@@ -1,86 +1,109 @@
 # BRouter MCP Server
 
-Ein Python MCP-Server, der die [BRouter](https://brouter.de) Fahrrad-Routing-API und die [Nominatim](https://nominatim.openstreetmap.org) Geocoding-API als MCP-Tools bereitstellt. Gebaut mit [FastMCP](https://github.com/jlowin/fastmcp).
+A Python MCP server exposing the [BRouter](https://brouter.de) cycling routing API and [Nominatim](https://nominatim.openstreetmap.org) geocoding API as MCP tools. Built with [FastMCP](https://github.com/jlowin/fastmcp).
 
-BRouter ist spezialisiert auf Fahrrad-Routing: es folgt Fernradwegen, ist tolerant beim Waypoint-Snapping und berücksichtigt Höhenprofile. Kein API-Key nötig. Zusätzlich kann der Server GPX-Tracks als Kartenbilder (PNG) mit OpenStreetMap-Hintergrund rendern.
+BRouter specializes in bicycle routing: it follows long-distance cycle routes, is tolerant with waypoint snapping, and considers elevation profiles. No API key required. The server can also render GPX tracks as map images (PNG) with OpenStreetMap tiles and generate elevation profile charts.
 
 ## Tools
 
 ### `calculate_route`
 
-Berechnet eine Fahrradroute über Wegpunkte.
+Calculate a cycling route through waypoints.
 
-| Parameter        | Typ                 | Pflicht | Default      | Beschreibung                                                  |
-| ---------------- | ------------------- | ------- | ------------ | ------------------------------------------------------------- |
-| `waypoints`      | `list[list[float]]` | Ja      | —            | Koordinatenpaare als `[Längengrad, Breitengrad]` (mind. 2)    |
-| `profile`        | `str`               | Nein    | `"trekking"` | Routing-Profil (siehe unten)                                  |
-| `format`         | `str`               | Nein    | `"gpx"`      | Ausgabeformat: `"gpx"` oder `"geojson"`                       |
-| `alternativeidx` | `int`               | Nein    | `0`          | Alternativrouten-Index (0–3)                                  |
-| `nogos`          | `list[dict]`        | Nein    | `None`       | Sperrzonen: `[{"lon": float, "lat": float, "radius": float}]` |
-| `track_name`     | `str`               | Nein    | `None`       | Name für das GPX `<trk><name>`-Element                        |
+| Parameter        | Type                | Required | Default      | Description                                                    |
+| ---------------- | ------------------- | -------- | ------------ | -------------------------------------------------------------- |
+| `waypoints`      | `list[list[float]]` | Yes      | —            | Coordinate pairs as `[longitude, latitude]` (min 2)            |
+| `profile`        | `str`               | No       | `"trekking"` | Routing profile (see below)                                    |
+| `format`         | `str`               | No       | `"gpx"`      | Output format: `"gpx"` or `"geojson"`                          |
+| `alternativeidx` | `int`               | No       | `0`          | Alternative route index (0–3)                                  |
+| `nogos`          | `list[dict]`        | No       | `None`       | No-go areas: `[{"lon": float, "lat": float, "radius": float}]` |
+| `track_name`     | `str`               | No       | `None`       | Name for the GPX `<trk><name>` element                         |
 
-**Verfügbare Profile:** `trekking`, `fastbike`, `trekking-ignore-cr`, `safety`, `shortest`, `trekking-steep`, `trekking-noferries`, `trekking-nosteps`
+**Available profiles:** `trekking`, `fastbike`, `trekking-ignore-cr`, `safety`, `shortest`, `trekking-steep`, `trekking-noferries`, `trekking-nosteps`
 
-**Rückgabe:** Routenzusammenfassung (Distanz, Höhenmeter, geschätzte Dauer) + GPX- oder GeoJSON-Daten.
+**Returns:** JSON with route summary (distance, elevation gain, estimated duration, geometry) + GPX data, or GeoJSON block.
 
 ### `search_location`
 
-Sucht Orte per Name über die Nominatim-API.
+Search for locations by name via the Nominatim API.
 
-| Parameter      | Typ   | Pflicht | Default | Beschreibung                         |
-| -------------- | ----- | ------- | ------- | ------------------------------------ |
-| `query`        | `str` | Ja      | —       | Suchbegriff (Ortsname, Adresse etc.) |
-| `country_code` | `str` | Nein    | `"de"`  | ISO 3166-1 Alpha-2 Ländercode        |
-| `limit`        | `int` | Nein    | `5`     | Maximale Anzahl Ergebnisse (1–40)    |
+| Parameter      | Type  | Required | Default | Description                              |
+| -------------- | ----- | -------- | ------- | ---------------------------------------- |
+| `query`        | `str` | Yes      | —       | Search query (place name, address, etc.) |
+| `country_code` | `str` | No       | `"de"`  | ISO 3166-1 alpha-2 country code          |
+| `limit`        | `int` | No       | `5`     | Maximum number of results (1–40)         |
 
-**Rückgabe:** Nummerierte Ergebnisse mit Name, Koordinaten als `[Längengrad, Breitengrad]` und Adresse.
+**Returns:** Numbered results with name, coordinates as `[longitude, latitude]`, and address.
 
 ### `render_gpx_map`
 
-Rendert einen GPX-Track als PNG-Kartenbild mit OpenStreetMap-Kacheln.
+Render a GPX track as a PNG map image with OpenStreetMap tiles. Optionally displays POIs as colored markers on the map.
 
-| Parameter     | Typ   | Pflicht | Default     | Beschreibung                 |
-| ------------- | ----- | ------- | ----------- | ---------------------------- |
-| `gpx_path`    | `str` | Ja      | —           | Pfad zur GPX-Datei           |
-| `output_path` | `str` | Ja      | —           | Pfad für das PNG-Ausgabebild |
-| `width`       | `int` | Nein    | `800`       | Bildbreite in Pixeln         |
-| `height`      | `int` | Nein    | `600`       | Bildhöhe in Pixeln           |
-| `line_color`  | `str` | Nein    | `"#0066CC"` | Linienfarbe als Hex-String   |
-| `line_width`  | `int` | Nein    | `3`         | Linienbreite in Pixeln       |
+| Parameter     | Type         | Required | Default     | Description                   |
+| ------------- | ------------ | -------- | ----------- | ----------------------------- |
+| `gpx_path`    | `str`        | Yes      | —           | Path to the GPX file          |
+| `output_path` | `str`        | Yes      | —           | Path for the PNG output image |
+| `width`       | `int`        | No       | `800`       | Image width in pixels         |
+| `height`      | `int`        | No       | `600`       | Image height in pixels        |
+| `line_color`  | `str`        | No       | `"#0066CC"` | Line color as hex string      |
+| `line_width`  | `int`        | No       | `3`         | Line width in pixels          |
+| `pois`        | `list[dict]` | No       | `None`      | POI markers (see below)       |
 
-**Hinweis:** Pfade werden relativ zum Arbeitsverzeichnis des MCP-Servers aufgelöst. Bei Kiro-Konfiguration mit `--directory brouter-mcp` absolute Pfade verwenden.
+**POI format:** Each entry is a dict with:
 
-**Rückgabe:** Erfolgsmeldung mit Dateipfad, Bildgröße und Anzahl der Trackpoints.
+- `lat` (float, required) — latitude
+- `lon` (float, required) — longitude
+- `category` (str, optional) — category for color coding
+- `name` (str, optional) — POI name
 
-## Voraussetzungen
+**Available categories:** `museum`, `castle`, `memorial`, `ruins`, `church`, `viewpoint`, `artwork`, `gallery`, `beer_garden`, `cafe`, `restaurant`, `swimming`, `bicycle_repair`, `drinking_water`, `picnic`
+
+When POIs are present, a legend is automatically rendered (sights, art, food, swimming).
+
+**Returns:** Success message with file path, image size, trackpoint count, and POI marker count.
+
+### `render_elevation_profile`
+
+Render an elevation profile chart from a GPX track as a PNG image.
+
+| Parameter     | Type  | Required | Default | Description                   |
+| ------------- | ----- | -------- | ------- | ----------------------------- |
+| `gpx_path`    | `str` | Yes      | —       | Path to the GPX file          |
+| `output_path` | `str` | Yes      | —       | Path for the PNG output image |
+| `width`       | `int` | No       | `800`   | Image width in pixels         |
+| `height`      | `int` | No       | `300`   | Image height in pixels        |
+
+**Returns:** Success message with stats: total distance, elevation range, ascent and descent.
+
+## Prerequisites
 
 - Python >= 3.11
-- [uv](https://docs.astral.sh/uv/getting-started/installation/) (Python-Paketmanager)
+- [uv](https://docs.astral.sh/uv/getting-started/installation/) (Python package manager)
 
 ## Installation
 
 ```bash
-cd brouter-mcp
+cd mcp/brouter
 uv sync
 ```
 
-## Server starten (standalone)
+## Running standalone
 
 ```bash
-cd brouter-mcp
+cd mcp/brouter
 uv run python server.py
 ```
 
-## Kiro MCP-Konfiguration
+## Kiro MCP configuration
 
-In `.kiro/settings/mcp.json` folgenden Eintrag hinzufügen:
+Add the following entry to `.kiro/settings/mcp.json`:
 
 ```json
 {
   "mcpServers": {
     "brouter": {
       "command": "uv",
-      "args": ["run", "--directory", "brouter-mcp", "python", "server.py"],
+      "args": ["run", "--directory", "mcp/brouter", "python", "server.py"],
       "disabled": false,
       "autoApprove": []
     }
@@ -88,30 +111,35 @@ In `.kiro/settings/mcp.json` folgenden Eintrag hinzufügen:
 }
 ```
 
-Der `--directory`-Pfad ist relativ zum Workspace-Root. Nach dem Speichern der Konfiguration verbindet sich Kiro automatisch mit dem Server.
+The `--directory` path is relative to the workspace root. Kiro reconnects automatically after saving the config.
+
+**Note:** File paths in `render_gpx_map` and `render_elevation_profile` are resolved relative to the MCP server's working directory. Use absolute paths when configured with `--directory`.
 
 ## Tests
 
 ```bash
-cd brouter-mcp
+cd mcp/brouter
 uv run pytest -v
 ```
 
-Die Testsuite umfasst:
+The test suite includes:
 
-- **Property-Based Tests** (Hypothesis) — Validierung, URL-Konstruktion, GPX-Parsing, Koordinatentransformation
-- **Unit Tests** — Defaults, Randfälle, Fehlerbehandlung
-- **Integrationstests** (respx) — Gemockte HTTP-Aufrufe für beide APIs
-- **Render-Tests** — GPX-zu-PNG-Rendering, Fehlerbehandlung, Dateierzeugung
+- **Property-based tests** (Hypothesis) — validation, URL construction, GPX parsing, coordinate transformation
+- **Unit tests** — defaults, edge cases, error handling
+- **Integration tests** (respx) — mocked HTTP calls for both APIs
+- **Render tests** — GPX-to-PNG rendering (map + elevation profile), POI markers, legend, error handling
 
-## Projektstruktur
+## Project structure
 
 ```
 mcp/brouter/
-├── server.py          # MCP-Server (Single-File)
-├── pyproject.toml     # Paketdefinition und Abhängigkeiten
+├── brouter.py         # BRouter and Nominatim client library
+├── server.py          # MCP server with all tools
+├── icons/             # Twemoji-based POI markers (CC-BY 4.0)
+├── pyproject.toml     # Package definition and dependencies
 └── tests/
-    ├── test_server.py        # Property-Based und Unit Tests
-    ├── test_integration.py   # Integrationstests mit HTTP-Mocks
-    └── test_render_gpx_map.py # Tests für GPX-zu-PNG-Rendering
+    ├── test_server.py                # Property-based and unit tests
+    ├── test_integration.py           # Integration tests with HTTP mocks
+    ├── test_render_gpx_map.py        # Map rendering + POI tests
+    └── test_render_elevation_profile.py  # Elevation profile tests
 ```

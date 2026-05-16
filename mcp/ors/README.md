@@ -9,6 +9,8 @@ MCP server for car, bike, and foot routing via [OpenRouteService](https://openro
 | `calculate_route` | Route between 2–50 waypoints with distance/duration per segment |
 | `geocode`         | Geocode place names to coordinates (with country filter)        |
 | `driving_time`    | Quick distance/duration between two points                      |
+| `isochrone`       | Calculate reachability areas from a location (time-based)       |
+| `distance_matrix` | Driving times/distances between all pairs of locations (N×N)    |
 
 ## Profiles
 
