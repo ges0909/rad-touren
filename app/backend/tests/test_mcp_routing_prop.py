@@ -8,7 +8,6 @@ prefix matches, using the original (unprefixed) tool name in the `tools/call`
 JSON-RPC request.
 """
 
-import asyncio
 import json
 from pathlib import Path
 from unittest.mock import AsyncMock, MagicMock
@@ -16,9 +15,7 @@ from unittest.mock import AsyncMock, MagicMock
 import pytest
 from hypothesis import given, settings
 from hypothesis import strategies as st
-
 from mcp_manager import MCPManager, ServerConfig, ServerInstance
-
 
 # --- Strategies ---
 

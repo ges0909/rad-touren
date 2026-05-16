@@ -7,16 +7,13 @@ tool declarations list SHALL contain exactly sum(M_i) entries, each with a
 unique prefixed name.
 """
 
-import asyncio
 from pathlib import Path
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 from hypothesis import given, settings
 from hypothesis import strategies as st
-
 from mcp_manager import MCPManager, ServerConfig, ServerInstance
-
 
 # --- Strategies ---
 

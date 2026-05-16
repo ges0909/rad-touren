@@ -6,11 +6,9 @@ FunctionDeclaration format with correct naming, description, and parameters.
 Validates: Requirements 2.2, 4.1, 4.2
 """
 
-from pathlib import Path
 
 import pytest
-
-from mcp_manager import MCPManager, ServerConfig
+from mcp_manager import MCPManager
 
 
 @pytest.fixture

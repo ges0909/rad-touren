@@ -14,14 +14,19 @@ const chatInputRef = ref<InstanceType<typeof ChatInput> | null>(null);
 const mapData = ref<{
   waypoints: [number, number][];
   routes: [number, number][][];
+  pois: { lat: number; lon: number; name: string }[];
 }>({
   waypoints: [],
   routes: [],
+  pois: [],
 });
 const splitPercent = ref(50);
 
 const hasMapData = computed(
-  () => mapData.value.waypoints.length > 0 || mapData.value.routes.length > 0,
+  () =>
+    mapData.value.waypoints.length > 0 ||
+    mapData.value.routes.length > 0 ||
+    mapData.value.pois.length > 0,
 );
 
 function startResize(e: MouseEvent) {
@@ -62,7 +67,7 @@ async function handleSend(message: string) {
   tourMarkdown.value = "";
   errorMessage.value = "";
   statusMessages.value = [];
-  mapData.value = { waypoints: [], routes: [] };
+  mapData.value = { waypoints: [], routes: [], pois: [] };
 
   try {
     const response = await fetch("/api/chat", {
@@ -117,6 +122,9 @@ async function handleSend(message: string) {
               }
               if (parsed.route) {
                 mapData.value.routes.push(parsed.route);
+              }
+              if (parsed.pois) {
+                mapData.value.pois.push(...parsed.pois);
               }
             } else if (currentEvent === "status" && parsed.message) {
               if (!statusMessages.value.includes(parsed.message)) {
@@ -243,7 +251,11 @@ async function handleSend(message: string) {
         :style="{ width: tourMarkdown ? 100 - splitPercent + '%' : '100%' }"
         class="overflow-hidden min-w-0"
       >
-        <TourMap :waypoints="mapData.waypoints" :routes="mapData.routes" />
+        <TourMap
+          :waypoints="mapData.waypoints"
+          :routes="mapData.routes"
+          :pois="mapData.pois"
+        />
       </div>
     </div>
   </div>

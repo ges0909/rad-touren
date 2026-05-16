@@ -137,7 +137,7 @@ class MCPManager:
                     "arguments": arguments,
                 },
             )
-        except asyncio.TimeoutError:
+        except TimeoutError:
             logger.error("Tool %s timed out (60s)", prefixed_name)
             return {"error": f"Tool {prefixed_name} timed out after 60 seconds"}
         except Exception as e:
@@ -164,7 +164,7 @@ class MCPManager:
                 instance.process.terminate()
                 try:
                     await asyncio.wait_for(instance.process.wait(), timeout=5.0)
-                except asyncio.TimeoutError:
+                except TimeoutError:
                     instance.process.kill()
                 logger.info("Terminated MCP server: %s", name)
         self._instances.clear()

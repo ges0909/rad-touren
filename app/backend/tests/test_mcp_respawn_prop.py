@@ -7,14 +7,12 @@ Property 2: For any MCP server whose subprocess has exited unexpectedly
 spawn a new subprocess and complete successfully.
 """
 
-import asyncio
 from pathlib import Path
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 from hypothesis import given, settings
 from hypothesis import strategies as st
-
 from mcp_manager import MCPManager, ServerConfig, ServerInstance
 
 

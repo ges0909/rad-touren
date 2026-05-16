@@ -1,5 +1,6 @@
 """OSRM routing client — car route calculation and polyline decoding."""
 
+from datetime import UTC
 from typing import Any
 
 import httpx
@@ -119,9 +120,9 @@ def coords_to_gpx(
         name: Track name.
         waypoints: Optional list of {"name": str, "lat": float, "lon": float}.
     """
-    from datetime import datetime, timezone
+    from datetime import datetime
 
-    timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    timestamp = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',

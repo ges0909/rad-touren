@@ -11,9 +11,7 @@ matching the inputSchema structure (type, properties, required).
 
 from hypothesis import given, settings
 from hypothesis import strategies as st
-
 from mcp_manager import MCPManager
-
 
 # --- Strategies ---
 

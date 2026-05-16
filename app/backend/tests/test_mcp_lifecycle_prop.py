@@ -7,14 +7,12 @@ SHALL trigger exactly one subprocess spawn, and all subsequent calls SHALL
 reuse that same subprocess (no additional spawns occur while the process is alive).
 """
 
-import asyncio
 from pathlib import Path
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 from hypothesis import given, settings
 from hypothesis import strategies as st
-
 from mcp_manager import MCPManager, ServerConfig, ServerInstance
 
 

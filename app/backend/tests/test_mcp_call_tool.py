@@ -6,13 +6,11 @@ timeout handling, and unknown tool error responses.
 Validates: Requirements 2.4, 3.1
 """
 
-import asyncio
 import json
 from pathlib import Path
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
-
 from mcp_manager import MCPManager, ServerConfig, ServerInstance
 
 
@@ -173,7 +171,7 @@ class TestErrorHandling:
         self, manager_with_tool: MCPManager, mock_process: MagicMock
     ) -> None:
         """Verify timeout returns descriptive error dict."""
-        mock_process.stdout.readline.side_effect = asyncio.TimeoutError()
+        mock_process.stdout.readline.side_effect = TimeoutError()
 
         result = await manager_with_tool.call_tool("mcp_brouter_calculate_route", {})
         assert result == {"error": "Tool mcp_brouter_calculate_route timed out after 60 seconds"}

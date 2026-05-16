@@ -6,12 +6,14 @@ import "leaflet/dist/leaflet.css";
 const props = defineProps<{
   waypoints: [number, number][];
   routes: [number, number][][];
+  pois: { lat: number; lon: number; name: string }[];
 }>();
 
 const mapContainer = ref<HTMLElement | null>(null);
 let map: L.Map | null = null;
 let routeLayers: L.Polyline[] = [];
 let markerLayer: L.LayerGroup | null = null;
+let poiLayer: L.LayerGroup | null = null;
 let resizeObserver: ResizeObserver | null = null;
 
 function initMap() {
@@ -23,6 +25,7 @@ function initMap() {
     maxZoom: 18,
   }).addTo(map);
   markerLayer = L.layerGroup().addTo(map);
+  poiLayer = L.layerGroup().addTo(map);
 
   // Invalidate map size when container resizes (split-pane drag)
   resizeObserver = new ResizeObserver(() => {
@@ -39,6 +42,9 @@ function updateMap() {
   routeLayers = [];
   if (markerLayer) {
     markerLayer.clearLayers();
+  }
+  if (poiLayer) {
+    poiLayer.clearLayers();
   }
 
   const bounds: L.LatLngExpression[] = [];
@@ -79,6 +85,27 @@ function updateMap() {
     });
   }
 
+  // Add POI markers with tooltips
+  if (props.pois.length > 0) {
+    props.pois.forEach((poi) => {
+      const marker = L.circleMarker([poi.lat, poi.lon], {
+        radius: 6,
+        fillColor: "#f59e0b",
+        color: "#fff",
+        weight: 1.5,
+        fillOpacity: 0.9,
+      });
+      if (poi.name) {
+        marker.bindTooltip(poi.name, {
+          direction: "top",
+          offset: [0, -6],
+        });
+      }
+      poiLayer?.addLayer(marker);
+      bounds.push([poi.lat, poi.lon]);
+    });
+  }
+
   // Fit bounds
   if (bounds.length > 0) {
     map.fitBounds(L.latLngBounds(bounds), { padding: [30, 30] });
@@ -99,7 +126,7 @@ onUnmounted(() => {
 });
 
 watch(
-  [() => props.waypoints, () => props.routes],
+  [() => props.waypoints, () => props.routes, () => props.pois],
   () => {
     nextTick(() => {
       if (!map) initMap();

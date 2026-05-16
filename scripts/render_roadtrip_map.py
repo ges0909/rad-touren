@@ -19,9 +19,8 @@ import math
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-from staticmap import StaticMap, Line, CircleMarker
 from PIL import Image, ImageDraw, ImageFont
-
+from staticmap import CircleMarker, Line, StaticMap
 
 # ---------------------------------------------------------------------------
 # POI category colors and legend labels
@@ -172,7 +171,7 @@ def render_map(
         font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 11)
         font_bold = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 11)
         font_small = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 10)
-    except (OSError, IOError):
+    except OSError:
         font = ImageFont.load_default()
         font_bold = font
         font_small = font

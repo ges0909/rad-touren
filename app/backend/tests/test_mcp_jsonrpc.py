@@ -12,7 +12,6 @@ from pathlib import Path
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
-
 from mcp_manager import MCPManager, ServerConfig, ServerInstance
 
 
@@ -172,7 +171,7 @@ class TestTimeoutHandling:
         catches it and returns an error dict).
         """
         # Make readline hang forever (simulating a timeout)
-        mock_process.stdout.readline.side_effect = asyncio.TimeoutError()
+        mock_process.stdout.readline.side_effect = TimeoutError()
 
         manager = MCPManager(configs=[])
 
@@ -192,7 +191,7 @@ class TestTimeoutHandling:
         manager = MCPManager(configs=[])
 
         # Patch asyncio.wait_for to simulate the 60s timeout expiring
-        with patch("mcp_manager.asyncio.wait_for", side_effect=asyncio.TimeoutError()):
+        with patch("mcp_manager.asyncio.wait_for", side_effect=TimeoutError()):
             with pytest.raises(asyncio.TimeoutError):
                 await manager._send_request(server_instance, "tools/call", {"name": "slow"})
 

@@ -3,6 +3,7 @@
 import asyncio
 import json
 import logging
+import re
 from collections.abc import AsyncGenerator
 from typing import Any
 
@@ -21,6 +22,7 @@ type SSEEvent = dict[str, Any]
 # Geo-relevant tool detection by name pattern
 GEO_ROUTE_PATTERNS = ("route", "calculate_car", "calculate_bike")
 GEO_POINT_PATTERNS = ("geocode", "search_location")
+GEO_POI_PATTERNS = ("search_pois",)
 
 
 def _is_route_tool(name: str) -> bool:
@@ -31,6 +33,11 @@ def _is_route_tool(name: str) -> bool:
 def _is_geocode_tool(name: str) -> bool:
     """Check if a tool name indicates geocoding results."""
     return any(p in name for p in GEO_POINT_PATTERNS)
+
+
+def _is_poi_tool(name: str) -> bool:
+    """Check if a tool name indicates POI search results."""
+    return any(p in name for p in GEO_POI_PATTERNS)
 
 
 # Tool name → status message i18n key mapping
@@ -113,7 +120,7 @@ async def _call_gemini_with_retry(
                 timeout=timeout,
             )
             return response
-        except asyncio.TimeoutError:
+        except TimeoutError:
             if attempt < max_retries - 1:
                 wait = 2 ** (attempt + 1)
                 logger.warning(
@@ -349,8 +356,6 @@ async def run_agent(
             final_text: str = "\n".join(text_parts)
 
             # Extract route name from first heading for the log
-            import re
-
             heading_match = re.search(r"^#{1,3}\s+(.+)$", final_text, re.MULTILINE)
             route_name = heading_match.group(1).strip() if heading_match else "unnamed"
 
@@ -385,6 +390,28 @@ async def run_agent(
                 "Tool call: %s(%s)", tool_name, json.dumps(tool_args, ensure_ascii=False)[:150]
             )
 
+            # Extract POI coordinates from render_gpx_map arguments
+            if tool_name == "mcp_brouter_render_gpx_map" and tool_args.get("pois"):
+                pois_arg = tool_args["pois"]
+                poi_list: list[dict[str, Any]] = []
+                for poi in pois_arg:
+                    lat_p = poi.get("lat")
+                    lon_p = poi.get("lon")
+                    if lat_p is not None and lon_p is not None:
+                        poi_list.append(
+                            {
+                                "lat": lat_p,
+                                "lon": lon_p,
+                                "name": poi.get("name", ""),
+                            }
+                        )
+                if poi_list:
+                    logger.info("Emitting %d POI markers from render_gpx_map args", len(poi_list))
+                    yield {
+                        "event": "map",
+                        "data": {"pois": poi_list},
+                    }
+
             # Execute the tool via MCP
             result_str: str
             try:
@@ -399,6 +426,20 @@ async def run_agent(
                                 "event": "map",
                                 "data": {"route": [[lat, lon] for lat, lon in geometry]},
                             }
+                        # Auto-save GPX to temp file so subsequent tools can use it
+                        gpx_content = result.get("gpx")
+                        if gpx_content:
+                            import os
+                            import tempfile
+
+                            gpx_dir = os.path.join(tempfile.gettempdir(), "rad-touren-gpx")
+                            os.makedirs(gpx_dir, exist_ok=True)
+                            gpx_path = os.path.join(gpx_dir, "latest-route.gpx")
+                            with open(gpx_path, "w", encoding="utf-8") as f:
+                                f.write(gpx_content)
+                            logger.info("GPX saved to %s", gpx_path)
+                            # Replace gpx content with file path for the LLM
+                            result["gpx_path"] = gpx_path
                         # Strip large fields before sending to LLM (context savings)
                         result.pop("geometry", None)
                         result.pop("gpx", None)
@@ -411,6 +452,45 @@ async def run_agent(
                                     "event": "map",
                                     "data": {"waypoints": [[coords[1], coords[0]]]},
                                 }
+                    elif _is_poi_tool(tool_name):
+                        # Parse POI coordinates and names from text result
+                        text = result.get("text", "")
+                        logger.debug("POI tool result keys: %s", list(result.keys()))
+                        if text:
+                            poi_list_from_text: list[dict[str, Any]] = []
+                            for m in re.finditer(
+                                r"\*\*(.+?)\*\*\s*\([^)]*\)\s*\[(-?\d+\.\d+),\s*(-?\d+\.\d+)\]",
+                                text,
+                            ):
+                                name_val = m.group(1)
+                                lat_val = float(m.group(2))
+                                lon_val = float(m.group(3))
+                                poi_list_from_text.append(
+                                    {
+                                        "lat": lat_val,
+                                        "lon": lon_val,
+                                        "name": name_val,
+                                    }
+                                )
+                            if poi_list_from_text:
+                                logger.info(
+                                    "Emitting %d POI markers from overpass text",
+                                    len(poi_list_from_text),
+                                )
+                                yield {
+                                    "event": "map",
+                                    "data": {"pois": poi_list_from_text},
+                                }
+                            else:
+                                logger.warning(
+                                    "POI tool returned text but no POIs parsed: %s",
+                                    text[:200],
+                                )
+                        else:
+                            logger.warning(
+                                "POI tool result has no 'text' key, keys: %s",
+                                list(result.keys()),
+                            )
 
                 result_str = json.dumps(result, ensure_ascii=False, default=str)
                 # Truncate very large results to prevent context bloat

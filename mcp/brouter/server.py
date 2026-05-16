@@ -12,13 +12,13 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from fastmcp import FastMCP
 from brouter import (
     calculate_route as _lib_calculate_route,
 )
 from brouter import (
     search_location as _lib_search_location,
 )
+from fastmcp import FastMCP
 from staticmap import IconMarker, Line, StaticMap
 
 mcp = FastMCP("BRouter Cycling Router")
@@ -185,6 +185,7 @@ async def calculate_route(
 
     # Extract coordinates from GPX for map display
     import json
+
     geometry: list[list[float]] = []
     try:
         root = ET.fromstring(gpx_content)
@@ -197,14 +198,16 @@ async def calculate_route(
         pass
 
     # Return as JSON so the backend can extract geometry for map display
-    return json.dumps({
-        "distance_km": result["distance_km"],
-        "elevation_gain_m": result["elevation_gain_m"],
-        "duration_min": result["duration_min"],
-        "profile": profile,
-        "geometry": geometry,
-        "gpx": gpx_content,
-    })
+    return json.dumps(
+        {
+            "distance_km": result["distance_km"],
+            "elevation_gain_m": result["elevation_gain_m"],
+            "duration_min": result["duration_min"],
+            "profile": profile,
+            "geometry": geometry,
+            "gpx": gpx_content,
+        }
+    )
 
 
 @mcp.tool()

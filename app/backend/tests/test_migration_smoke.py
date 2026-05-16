@@ -8,8 +8,6 @@ Validates: Requirements 5.1, 5.2, 5.3, 6.1, 7.1
 
 from pathlib import Path
 
-import pytest
-
 # Backend directory (app/backend/)
 BACKEND_DIR = Path(__file__).resolve().parent.parent
 # Project root
@@ -32,7 +30,7 @@ class TestNoLibImports:
                 if stripped.startswith("from lib.") or stripped.startswith("import lib."):
                     violations.append(f"{py_file.relative_to(BACKEND_DIR)}:{i}: {stripped}")
 
-        assert violations == [], f"Found lib.* imports in backend:\n" + "\n".join(violations)
+        assert violations == [], "Found lib.* imports in backend:\n" + "\n".join(violations)
 
 
 class TestNoSanitizeSteering:
