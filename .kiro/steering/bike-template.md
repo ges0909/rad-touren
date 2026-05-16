@@ -37,11 +37,9 @@ Emoji by theme: 🏛️ culture, 🌿 nature, 🌸 seasonal, 🌊 water/lakes, �
 ## Streckenverlauf
 
 {Start} → {Waypoint 1} → {Waypoint 2} → … → {Start}
-
-[![{Tour-Name} Karte](img/{name}.png)](img/{name}.png)
-
-[![Höhenprofil](img/{name}-elevation.png)](img/{name}-elevation.png)
 ```
+
+Do NOT include image links to map or elevation profile in the markdown output. The map is displayed live in the frontend.
 
 ## 5. Streckenabschnitte
 

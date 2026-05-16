@@ -20,11 +20,9 @@ Every trip file MUST start with empty YAML front matter (`---\n---\n`). Sections
 **Mietwagen:** Übernahme/Abgabe {Airport}
 
 > {emoji} **Tipp:** {one-line highlight}
-
-[![Routenkarte](img/{name}.png)](img/{name}.png)
 ```
 
-Map directly after metadata for immediate visual overview. Rendered via `scripts/render_roadtrip_map.py` with `--stations` (day labels) and `--pois` (icons + legend overlay).
+Do NOT include image links to map in the markdown output. The map is displayed live in the frontend.
 
 ## 2. Routenplanung (combined day-by-day table)
 

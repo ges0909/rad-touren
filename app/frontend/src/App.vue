@@ -14,11 +14,13 @@ const chatInputRef = ref<InstanceType<typeof ChatInput> | null>(null);
 const mapData = ref<{
   waypoints: [number, number][];
   routes: [number, number][][];
-  pois: { lat: number; lon: number; name: string }[];
+  pois: { lat: number; lon: number; name: string; category?: string }[];
+  elevation: [number, number][];
 }>({
   waypoints: [],
   routes: [],
   pois: [],
+  elevation: [],
 });
 const splitPercent = ref(50);
 
@@ -67,7 +69,7 @@ async function handleSend(message: string) {
   tourMarkdown.value = "";
   errorMessage.value = "";
   statusMessages.value = [];
-  mapData.value = { waypoints: [], routes: [], pois: [] };
+  mapData.value = { waypoints: [], routes: [], pois: [], elevation: [] };
 
   try {
     const response = await fetch("/api/chat", {
@@ -126,6 +128,8 @@ async function handleSend(message: string) {
               if (parsed.pois) {
                 mapData.value.pois.push(...parsed.pois);
               }
+            } else if (currentEvent === "elevation" && parsed.profile) {
+              mapData.value.elevation = parsed.profile;
             } else if (currentEvent === "status" && parsed.message) {
               if (!statusMessages.value.includes(parsed.message)) {
                 statusMessages.value.push(parsed.message);
@@ -255,6 +259,7 @@ async function handleSend(message: string) {
           :waypoints="mapData.waypoints"
           :routes="mapData.routes"
           :pois="mapData.pois"
+          :elevation="mapData.elevation"
         />
       </div>
     </div>

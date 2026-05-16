@@ -403,6 +403,7 @@ async def run_agent(
                                 "lat": lat_p,
                                 "lon": lon_p,
                                 "name": poi.get("name", ""),
+                                "category": poi.get("category", ""),
                             }
                         )
                 if poi_list:
@@ -429,8 +430,10 @@ async def run_agent(
                         # Auto-save GPX to temp file so subsequent tools can use it
                         gpx_content = result.get("gpx")
                         if gpx_content:
+                            import math
                             import os
                             import tempfile
+                            import xml.etree.ElementTree as ET
 
                             gpx_dir = os.path.join(tempfile.gettempdir(), "rad-touren-gpx")
                             os.makedirs(gpx_dir, exist_ok=True)
@@ -440,6 +443,59 @@ async def run_agent(
                             logger.info("GPX saved to %s", gpx_path)
                             # Replace gpx content with file path for the LLM
                             result["gpx_path"] = gpx_path
+
+                            # Extract elevation profile from GPX
+                            try:
+                                gpx_ns = "http://www.topografix.com/GPX/1/1"
+                                root = ET.fromstring(gpx_content)
+                                points: list[tuple[float, float, float]] = []
+                                for trkpt in root.findall(f".//{{{gpx_ns}}}trkpt"):
+                                    lat_e = float(trkpt.get("lat", "0"))
+                                    lon_e = float(trkpt.get("lon", "0"))
+                                    ele_elem = trkpt.find(f"{{{gpx_ns}}}ele")
+                                    if ele_elem is not None and ele_elem.text:
+                                        ele = float(ele_elem.text)
+                                        points.append((lat_e, lon_e, ele))
+
+                                if len(points) >= 2:
+                                    # Calculate cumulative distance and sample ~200 points
+                                    cum_dist = [0.0]
+                                    for i in range(1, len(points)):
+                                        dlat = (points[i][0] - points[i - 1][0]) * 111320
+                                        dlon = (
+                                            (points[i][1] - points[i - 1][1])
+                                            * 111320
+                                            * math.cos(math.radians(points[i][0]))
+                                        )
+                                        cum_dist.append(
+                                            cum_dist[-1] + math.sqrt(dlat**2 + dlon**2)
+                                        )
+
+                                    total_m = cum_dist[-1]
+                                    # Sample to ~200 points for the chart
+                                    step = max(1, len(points) // 200)
+                                    elevation_data: list[list[float]] = []
+                                    for i in range(0, len(points), step):
+                                        elevation_data.append(
+                                            [round(cum_dist[i] / 1000, 2), round(points[i][2], 1)]
+                                        )
+                                    # Always include last point
+                                    if elevation_data[-1][0] != round(total_m / 1000, 2):
+                                        elevation_data.append(
+                                            [round(total_m / 1000, 2), round(points[-1][2], 1)]
+                                        )
+
+                                    yield {
+                                        "event": "elevation",
+                                        "data": {"profile": elevation_data},
+                                    }
+                                    logger.info(
+                                        "Elevation profile: %d points, %.1f km",
+                                        len(elevation_data),
+                                        total_m / 1000,
+                                    )
+                            except Exception as exc:
+                                logger.debug("Failed to extract elevation: %s", exc)
                         # Strip large fields before sending to LLM (context savings)
                         result.pop("geometry", None)
                         result.pop("gpx", None)
@@ -453,23 +509,25 @@ async def run_agent(
                                     "data": {"waypoints": [[coords[1], coords[0]]]},
                                 }
                     elif _is_poi_tool(tool_name):
-                        # Parse POI coordinates and names from text result
+                        # Parse POI coordinates, names, and categories from text result
                         text = result.get("text", "")
                         logger.debug("POI tool result keys: %s", list(result.keys()))
                         if text:
                             poi_list_from_text: list[dict[str, Any]] = []
                             for m in re.finditer(
-                                r"\*\*(.+?)\*\*\s*\([^)]*\)\s*\[(-?\d+\.\d+),\s*(-?\d+\.\d+)\]",
+                                r"\*\*(.+?)\*\*\s*\(([^)]*)\)\s*\[(-?\d+\.\d+),\s*(-?\d+\.\d+)\]",
                                 text,
                             ):
                                 name_val = m.group(1)
-                                lat_val = float(m.group(2))
-                                lon_val = float(m.group(3))
+                                category_val = m.group(2)
+                                lat_val = float(m.group(3))
+                                lon_val = float(m.group(4))
                                 poi_list_from_text.append(
                                     {
                                         "lat": lat_val,
                                         "lon": lon_val,
                                         "name": name_val,
+                                        "category": category_val,
                                     }
                                 )
                             if poi_list_from_text:
