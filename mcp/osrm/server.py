@@ -7,6 +7,8 @@ Usage:
     fastmcp run server.py
 """
 
+import json
+
 from fastmcp import FastMCP
 from routing import calculate_car_route as _calculate
 from routing import route_to_gpx as _route_to_gpx
@@ -28,8 +30,6 @@ async def calculate_car_route(
         waypoints: List of [longitude, latitude] coordinate pairs (min 2, max 100).
         overview: Geometry detail — "full" (default), "simplified", or "false".
     """
-    import json
-
     if len(waypoints) > 100:
         return json.dumps({"error": "Maximum 100 waypoints supported."})
 
