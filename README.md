@@ -1,6 +1,6 @@
-# 🗺️ Tour Planning — Cycling, Hiking & Roadtrips
+# 🗺️ Gerrit on Tour — Cycling, Hiking & Roadtrips
 
-AI-powered tour planning with [Kiro](https://kiro.dev) and custom MCP servers for routing, weather, POIs, public transit, and travel guide content.
+AI-powered tour planning with custom MCP servers for routing, weather, POIs, public transit, and travel guide content.
 
 | Category     | Description                                         | Status  |
 | ------------ | --------------------------------------------------- | ------- |
@@ -12,85 +12,99 @@ AI-powered tour planning with [Kiro](https://kiro.dev) and custom MCP servers fo
 
 ---
 
-## Quickstart
+## Vision
 
-Prerequisites: [Kiro](https://kiro.dev) + [uv](https://docs.astral.sh/uv/getting-started/installation/) + Node.js 20+ + npm
+A chat-based web app where prompts like _"Plan a 50 km cycling tour through the Spreewald with swimming stops"_ or _"Plan a 2-week road trip along the Sardinian coast"_ produce complete tours — interactive map, GPX download, POIs, weather, accommodations, and travel connections.
 
-```bash
-# Install all workspace packages (single command from project root)
-uv sync --all-packages
+## Architecture
+
+```
+┌─────────────────────────────────────────────────┐
+│  Frontend (Vue 3 + Vite + TypeScript + Leaflet) │
+│  Chat input → SSE stream → Map + Markdown       │
+└──────────────────────┬──────────────────────────┘
+                       │ POST /api/chat (SSE)
+┌──────────────────────▼──────────────────────────┐
+│  Backend (FastAPI + Gemini 2.5 Flash)           │
+│  ┌────────────────────────────────────────┐     │
+│  │ Agent Loop: Steering + Tool Calling    │     │
+│  └────┬──────────────────────────────┬────┘     │
+│       │ stdio JSON-RPC               │          │
+│  ┌────▼────────────────────────┐     │          │
+│  │ MCP Manager (subprocess)    │     │          │
+│  │ 9 servers, lazy spawn       │     │          │
+│  └─────────────────────────────┘     │          │
+└──────────────────────────────────────────────────┘
 ```
 
-```bash
-# API keys (.env in project root, gitignored)
-echo "ORS_API_KEY=your-key-here" >> .env
-echo "GEMINI_API_KEY=your-key-here" >> .env
-```
-
-- OpenRouteService key (free): [openrouteservice.org](https://openrouteservice.org/dev/#/signup)
-- Gemini API key (free): [Google AI Studio](https://aistudio.google.com)
-
-All other MCP servers use free APIs without a key.
-
-### Web App
-
-The project includes a web-based trip planner (FastAPI + Vue 3 + Leaflet):
-
-```bash
-# Backend
-cd app/backend && uv run uvicorn main:app --reload
-```
-
-```bash
-# Frontend (separate terminal)
-cd app/frontend && npm install && npm run dev
-```
-
-Open http://localhost:5173 — the Vite dev server proxies API requests to the backend.
-
-See [app/README.md](app/README.md) for Docker deployment and architecture details.
+The LLM is both **planner** and **author**: it reads steering files, calls tools for facts (coordinates, distances, weather), and synthesizes everything into a coherent tour document.
 
 ---
 
-## How It Works
+## Quickstart
 
-A single prompt like _"Plan a 50 km tour through the Spreewald"_ or _"Plan a 2-week roadtrip through northern Spain"_ generates a complete tour document with route, map, POIs, weather, and transit connections.
+Prerequisites: [uv](https://docs.astral.sh/uv/getting-started/installation/) + Node.js 20+
 
-Three building blocks make this possible:
+```bash
+# API keys (.env in project root, gitignored)
+echo "GEMINI_API_KEY=your-key" >> .env
+echo "ORS_API_KEY=your-key" >> .env
+echo "TAVILY_API_KEY=your-key" >> .env
+```
 
-### Steering Files
+- Gemini API key (free): [Google AI Studio](https://aistudio.google.com)
+- OpenRouteService key (free): [openrouteservice.org](https://openrouteservice.org/dev/#/signup)
+- Tavily key (free, 1000 req/month): [tavily.com](https://tavily.com)
 
-Steering files turn Kiro into a domain-specific tour planner:
+All other MCP servers use free APIs without a key.
 
-| File                       | Scope           | Purpose                                           |
-| -------------------------- | --------------- | ------------------------------------------------- |
-| `user-preferences.md`      | Always          | Interests, food/accommodation rules, travel group |
-| `cycling-tour-planning.md` | `trips/bike/**` | Cycling workflow, BRouter routing, VBB fares      |
-| `roadtrip-planning.md`     | `trips/road/**` | Roadtrip workflow, ORS routing, buffer rules      |
-| `commit-messages.md`       | Always          | Conventional Commits                              |
+### Run the Web App
 
-### MCP Servers
+```bash
+# Backend (port 8000)
+cd app/backend && uv run uvicorn main:app --reload
 
-Eight custom Python servers (FastMCP + httpx), no Node.js:
+# Frontend (port 5173, separate terminal)
+cd app/frontend && npm install && npm run dev
+```
+
+Open http://localhost:5173 — Vite proxies `/api` to the backend.
+
+```bash
+# Docker (production)
+cd app && docker build -t gerrit-on-tour .
+docker run -p 8000:8000 -e GEMINI_API_KEY=... -e ORS_API_KEY=... -e TAVILY_API_KEY=... gerrit-on-tour
+```
+
+---
+
+## MCP Servers
+
+Nine Python servers (FastMCP + httpx), spawned as subprocesses via stdio JSON-RPC:
 
 | Server                                    | Purpose                                          | API                                                                              |
 | ----------------------------------------- | ------------------------------------------------ | -------------------------------------------------------------------------------- |
 | [`brouter`](mcp/brouter/)                 | Cycling/hiking routing, geocoding, map rendering | [BRouter](https://brouter.de) + [Nominatim](https://nominatim.openstreetmap.org) |
 | [`ors`](mcp/ors/)                         | Car/cycling/walking routing, isochrones, matrix  | [OpenRouteService](https://openrouteservice.org/)                                |
-| [`osrm`](mcp/osrm/)                       | Car routing with GPX export (road geometry)      | [OSRM](https://project-osrm.org/) (public, no key)                               |
+| [`osrm`](mcp/osrm/)                       | Car routing with road geometry + GPX export      | [OSRM](https://project-osrm.org/) (public, no key)                               |
 | [`open-meteo`](mcp/open-meteo/)           | Weather forecast + geocoding                     | [Open-Meteo](https://open-meteo.com/)                                            |
 | [`vbb`](mcp/vbb/)                         | Stop search, departures, journey planning        | [VBB REST](https://v6.vbb.transport.rest/)                                       |
 | [`overpass`](mcp/overpass/)               | POI search along routes                          | [Overpass API](https://overpass-api.de/)                                         |
 | [`waymarkedtrails`](mcp/waymarkedtrails/) | Find marked hiking & cycling routes              | [Waymarked Trails](https://waymarkedtrails.org/)                                 |
 | [`wikivoyage`](mcp/wikivoyage/)           | Travel guides, destination search, nearby search | [Wikivoyage](https://de.wikivoyage.org/)                                         |
+| [`tavily`](mcp/tavily/)                   | Web search for hotels, flights, current info     | [Tavily](https://tavily.com/)                                                    |
 
-Additionally, `remote_web_search` is used for flights, hotels, car rentals, and events — no stable free API exists for those.
+## Steering Files
 
-### Hooks
+Steering files in `.kiro/steering/` serve as system prompt for the Gemini agent:
 
-| Hook                  | Trigger                                             | Action                                              |
-| --------------------- | --------------------------------------------------- | --------------------------------------------------- |
-| GPX Consistency Check | GPX file in `trips/bike/` or `trips/hike/` modified | Re-render map + elevation profile, update distances |
+| File                  | Scope         | Purpose                                           |
+| --------------------- | ------------- | ------------------------------------------------- |
+| `user-preferences.md` | Always        | Interests, food/accommodation rules, travel group |
+| `bike-planning.md`    | Cycling tours | Workflow, BRouter routing, VBB fares              |
+| `road-planning.md`    | Roadtrips     | Workflow, ORS/OSRM routing, buffer rules          |
+| `bike-template.md`    | Cycling tours | Output template structure                         |
+| `road-template.md`    | Roadtrips     | Output template structure                         |
 
 ---
 
@@ -99,13 +113,11 @@ Additionally, `remote_web_search` is used for flights, hotels, car rentals, and 
 ```
 app/
 ├── backend/                 FastAPI + Gemini agent (Python)
+│   ├── main.py              App entry, SSE endpoint, MCP lifecycle
+│   ├── agent.py             Gemini agent loop with tool calling
+│   ├── mcp_manager.py       MCP subprocess manager (lazy spawn, JSON-RPC)
+│   └── steering.py          Load steering files → system prompt
 └── frontend/                Vue 3 + Leaflet + Tailwind (TypeScript)
-lib/
-└── src/lib/                 Shared API client library (uv workspace package)
-trips/
-├── bike/                    Cycling tours: Markdown, GPX, maps
-├── hike/                    Hiking tours (planned)
-└── road/                    Multi-day car trips
 mcp/
 ├── brouter/                 Cycling/hiking routing + maps
 ├── ors/                     Car routing (OpenRouteService)
@@ -114,35 +126,29 @@ mcp/
 ├── overpass/                POI search (OpenStreetMap)
 ├── vbb/                     Public transit Berlin/Brandenburg
 ├── waymarkedtrails/         Marked hiking/cycling routes
-└── wikivoyage/              Travel guide content
-.kiro/
-├── settings/mcp.json        Server configuration
-├── hooks/                   Agent hooks
-└── steering/                Steering rules
-pyproject.toml               uv workspace root + ruff config
+├── wikivoyage/              Travel guide content
+└── tavily/                  Web search (Tavily)
+trips/
+├── bike/                    Cycling tours: Markdown, GPX, maps
+├── hike/                    Hiking tours (planned)
+└── road/                    Multi-day car trips
+scripts/                     Map rendering utilities (see scripts/README.md)
+.kiro/steering/              Steering rules for the agent
+ruff.toml                    Linter/formatter config
 .env                         API keys (gitignored)
 ```
 
 ## Tests
 
 ```bash
-# Run from project root (uv workspace resolves all dependencies)
-uv run pytest mcp/brouter/tests/ -v
-uv run pytest mcp/open-meteo/tests/ -v
-uv run pytest mcp/vbb/tests/ -v
-uv run pytest mcp/overpass/tests/ -v
+cd app/backend && uv run pytest tests/ -v
 ```
 
 ## Code Quality
 
 ```bash
-# Format + lint all Python
-uvx ruff format lib/ app/backend/ mcp/
-uvx ruff check lib/ app/backend/ mcp/ --fix
-
-# Vulnerability check
-uvx pip-audit
-cd app/frontend && npm audit
+uvx ruff check .
+uvx ruff format .
 ```
 
 ## Licenses & Data Sources
