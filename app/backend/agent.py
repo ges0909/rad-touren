@@ -496,6 +496,12 @@ async def run_agent(
                                     )
                             except Exception as exc:
                                 logger.debug("Failed to extract elevation: %s", exc)
+
+                            # Send GPX content to frontend for download
+                            yield {
+                                "event": "gpx",
+                                "data": {"gpx": gpx_content},
+                            }
                         # Strip large fields before sending to LLM (context savings)
                         result.pop("geometry", None)
                         result.pop("gpx", None)

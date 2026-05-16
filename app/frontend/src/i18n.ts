@@ -11,7 +11,6 @@ const messages = {
   },
   btnSend: { de: "Los", en: "Go" },
   btnMarkdown: { de: "Markdown", en: "Markdown" },
-  btnPdf: { de: "PDF", en: "PDF" },
   historyTitle: { de: "Letzte Anfragen", en: "Recent queries" },
   historyClear: { de: "Verlauf löschen", en: "Clear history" },
   errorNoResponse: {

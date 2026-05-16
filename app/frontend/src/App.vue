@@ -6,6 +6,7 @@ import TourMap from "./components/TourMap.vue";
 import { t, type Lang } from "./i18n";
 
 const tourMarkdown = ref("");
+const gpxContent = ref("");
 const isLoading = ref(false);
 const errorMessage = ref("");
 const statusMessages = ref<string[]>([]);
@@ -67,6 +68,7 @@ function startResize(e: MouseEvent) {
 async function handleSend(message: string) {
   isLoading.value = true;
   tourMarkdown.value = "";
+  gpxContent.value = "";
   errorMessage.value = "";
   statusMessages.value = [];
   mapData.value = { waypoints: [], routes: [], pois: [], elevation: [] };
@@ -130,6 +132,8 @@ async function handleSend(message: string) {
               }
             } else if (currentEvent === "elevation" && parsed.profile) {
               mapData.value.elevation = parsed.profile;
+            } else if (currentEvent === "gpx" && parsed.gpx) {
+              gpxContent.value = parsed.gpx;
             } else if (currentEvent === "status" && parsed.message) {
               if (!statusMessages.value.includes(parsed.message)) {
                 statusMessages.value.push(parsed.message);
@@ -242,7 +246,7 @@ async function handleSend(message: string) {
         :style="{ width: splitPercent + '%' }"
         class="overflow-hidden min-w-0"
       >
-        <TourContent :markdown="tourMarkdown" />
+        <TourContent :markdown="tourMarkdown" :gpx="gpxContent" />
       </div>
       <div
         v-if="tourMarkdown && hasMapData"

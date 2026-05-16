@@ -3,7 +3,7 @@ import { computed } from "vue";
 import { marked } from "marked";
 import DOMPurify from "dompurify";
 
-const props = defineProps<{ markdown: string }>();
+const props = defineProps<{ markdown: string; gpx: string }>();
 
 const renderedHtml = computed(() => {
   let md = props.markdown;
@@ -33,10 +33,6 @@ const filename = computed(() => {
     .replace(/^-|-$/g, "")
     .slice(0, 60);
 });
-
-function printPage() {
-  window.print();
-}
 </script>
 
 <template>
@@ -50,16 +46,20 @@ function printPage() {
           'data:text/markdown;charset=utf-8,' + encodeURIComponent(markdown)
         "
         :download="filename + '.md'"
-        class="inline-flex items-center justify-center px-3 py-1.5 text-sm bg-gray-100 hover:bg-gray-200 rounded-md transition min-w-[7rem]"
+        class="inline-flex items-center justify-center px-3 py-1.5 text-sm bg-gray-100 hover:bg-gray-200 rounded-md transition"
       >
         📄 Markdown
       </a>
-      <button
-        class="inline-flex items-center justify-center px-3 py-1.5 text-sm bg-gray-100 hover:bg-gray-200 rounded-md transition min-w-[7rem]"
-        @click="printPage"
+      <a
+        v-if="gpx"
+        :href="
+          'data:application/gpx+xml;charset=utf-8,' + encodeURIComponent(gpx)
+        "
+        :download="filename + '.gpx'"
+        class="inline-flex items-center justify-center px-3 py-1.5 text-sm bg-gray-100 hover:bg-gray-200 rounded-md transition"
       >
-        📑 PDF
-      </button>
+        🗺️ GPX
+      </a>
     </div>
   </div>
 </template>
