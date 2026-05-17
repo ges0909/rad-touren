@@ -135,7 +135,7 @@ Rules:
 
 Rules:
 
-- GPX download URL format: `https://hiking.waymarkedtrails.org/api/details/relation/{id}/gpx`
+- GPX download URL format: Link zur Waymarked Trails Routenseite (`https://hiking.waymarkedtrails.org/#route?id={id}`) — GPX-Download über die Webseite (Klick auf Download-Icon). Direkte API-Downloads sind nicht verfügbar.
 - One-way routes: flag with `⚠️ One-way` + describe return transport.
 - Swimming at endpoint: note inline with 🏊.
 - Einkehr: list refreshment options at start, endpoint, or midpoint.

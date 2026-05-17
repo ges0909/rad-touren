@@ -68,7 +68,7 @@ Küstenstraße mit Stopps:
 
 - 🚣 **Bandera de La Concha** — Prestigeträchtige Ruderregatta an den ersten beiden Sonntagen im September. Die Bucht ist gesäumt von tausenden Zuschauern. **Großes Spektakel.** ⚠️ Voll!
 - 🎊 **Euskal Jaiak (Baskische Feste)** — Anfang September. Traditioneller Sport, Musik und Tanz in der Stadt.
-- 🥾 **Camino del Norte (Pasaia → San Sebastián)** — 12 km, 4 Std., moderat. Jakobsweg-Küstenabschnitt, spektakuläre Küstenblicke. ⚠️ One-way; Hinfahrt Bus E09 nach Pasaia (~11 Min., alle 15 Min., [Lurraldebus](https://www.lurraldebus.eus)). [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=1116809) · [GPX ↓](https://hiking.waymarkedtrails.org/api/details/relation/1116809/gpx)
+- 🥾 **Camino del Norte (Pasaia → San Sebastián)** — 12 km, 4 Std., moderat. Jakobsweg-Küstenabschnitt, spektakuläre Küstenblicke. ⚠️ One-way; Hinfahrt Bus E09 nach Pasaia (~11 Min., alle 15 Min., [Lurraldebus](https://www.lurraldebus.eus)). [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=1116809) ·
 - 🍷 **Parte Vieja Pintxos** — Bar Nestor (Tortilla), La Cuchara de San Telmo, Gandarias, Bar Zeruko.
 
 **Weitere POIs in San Sebastián:**
@@ -156,13 +156,13 @@ Fahrt über Desfiladero de los Beyos.
 
 ### Tag 8 · Fr 11. Sep · Picos de Europa
 
-- 🥾 **Ruta del Cares** [PR-PNPE 3] — 22 km (hin+zurück), 6–8 Std., moderat. ⭐ 4,5 (1.880 Reviews). Schlucht-Wanderung, Pfad in Felswände gehauen. **Highlight.** Ganztageswanderung, früh starten (Poncebos). ⚠️ Steinschlagrisiko nach Waldbrand — aktuelle Lage vor Ort prüfen! [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=2687934) · [GPX ↓](https://hiking.waymarkedtrails.org/api/details/relation/2687934/gpx)
+- 🥾 **Ruta del Cares** [PR-PNPE 3] — 22 km (hin+zurück), 6–8 Std., moderat. ⭐ 4,5 (1.880 Reviews). Schlucht-Wanderung, Pfad in Felswände gehauen. **Highlight.** Ganztageswanderung, früh starten (Poncebos). ⚠️ Steinschlagrisiko nach Waldbrand — aktuelle Lage vor Ort prüfen! [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=2687934) ·
   - 🍷 **Einkehr:** Bar Garganta del Cares (am Parkplatz Poncebos, vor/nach der Wanderung). In Caín (Wendepunkt): Casa Cuevas, La Taberna de Caín — einfache Menüs, günstig.
 - 🍷 **Quesu Cabrales** — Blauschimmelkäse, in Höhlen gereift. Abend in Arenas de Cabrales.
 
 ### Tag 9 · Sa 12. Sep · Picos de Europa
 
-- 🚌 **Lagos de Covadonga** [PR-PNPE 2] — 6,4 km, 2,5 Std., leicht. ⭐ 4,2 (520 Reviews). Gletscherseen auf 1.000 m. ⚠️ **Zufahrt im September für PKW gesperrt.** [GPX ↓](https://hiking.waymarkedtrails.org/api/details/relation/4664408/gpx)
+- 🚌 **Lagos de Covadonga** [PR-PNPE 2] — 6,4 km, 2,5 Std., leicht. ⭐ 4,2 (520 Reviews). Gletscherseen auf 1.000 m. ⚠️ **Zufahrt im September für PKW gesperrt.**
   - **Anreise:** Mit dem ALSA-Bus ab Cangas de Onís oder den Parkplätzen P1-P4.
   - **Buchung:** Tickets zwingend vorab online reservieren ([buslagoscovadonga.es](https://buslagoscovadonga.es/)). Kosten ~9 € p.P.
   - 🍷 **Einkehr:** Restaurant am Lago Enol (Buferrera-Besucherzentrum) — asturische Küche, Terrasse mit Seeblick.
@@ -307,11 +307,11 @@ Ausschlafen, entspanntes Frühstück. Letzter Bummel Siete Calles. Fahrt zum Flu
 
 Markierte Wanderwege ([Waymarked Trails](https://waymarkedtrails.org), OSM-Daten):
 
-| Route                            | Länge  | Link                                                                        | GPX                                                                      |
-| -------------------------------- | ------ | --------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| Ruta del Cares                   | 21 km  | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=2687934) | [↓](https://hiking.waymarkedtrails.org/api/details/relation/2687934/gpx) |
-| Lagos de Covadonga               | 6,4 km | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=4664408) | [↓](https://hiking.waymarkedtrails.org/api/details/relation/4664408/gpx) |
-| Camino del Norte (Euskal Herria) | 228 km | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=1116809) | [↓](https://hiking.waymarkedtrails.org/api/details/relation/1116809/gpx) |
+| Route                            | Länge  | Link                                                                        |
+| -------------------------------- | ------ | --------------------------------------------------------------------------- |
+| Ruta del Cares                   | 21 km  | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=2687934) |
+| Lagos de Covadonga               | 6,4 km | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=4664408) |
+| Camino del Norte (Euskal Herria) | 228 km | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=1116809) |
 
 Routen-Inspiration (recherchiert Mai 2026):
 

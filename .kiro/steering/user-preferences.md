@@ -76,15 +76,16 @@ Rules for lodging recommendations:
 
 These rules are non-negotiable for all generated content:
 
-| Rule               | Requirement                                                                                  |
-| ------------------ | -------------------------------------------------------------------------------------------- |
-| No fabrication     | Only present data from API results or web search. If unavailable, state explicitly.          |
-| Emoji consistency  | Use interest-table emoji for POIs. Use 🍺 for beer gardens/restaurants (Overpass `einkehr`). |
-| Deduplication      | One entry per POI; remove duplicates within 200 m radius.                                    |
-| Seasonal awareness | Flag closures, limited hours, off-season risks.                                              |
-| Source attribution | Append `ℹ️ Zuletzt geprüft: {date}` for web-sourced data.                                    |
-| Links              | Official websites for major POIs only. No Google Maps, TripAdvisor, or temporary URLs.       |
-| Unverifiable data  | Mark with `ℹ️ Nicht verifiziert.` — never guess or invent details.                           |
+| Rule               | Requirement                                                                                         |
+| ------------------ | --------------------------------------------------------------------------------------------------- |
+| No fabrication     | Only present data from API results or web search. If unavailable, state explicitly.                 |
+| Emoji consistency  | Use interest-table emoji for POIs. Use 🍺 for beer gardens/restaurants (Overpass `einkehr`).        |
+| Deduplication      | One entry per POI; remove duplicates within 200 m radius.                                           |
+| Seasonal awareness | Flag closures, limited hours, off-season risks.                                                     |
+| Source attribution | Append `ℹ️ Zuletzt geprüft: {date}` for web-sourced data.                                           |
+| Links              | Official websites for major POIs only. No Google Maps, TripAdvisor, or temporary URLs.              |
+| Link verification  | Before inserting any URL, verify it returns HTTP 200 via `web_fetch`. Remove or replace dead links. |
+| Unverifiable data  | Mark with `ℹ️ Nicht verifiziert.` — never guess or invent details.                                  |
 
 ## Route Discovery & Reviews
 

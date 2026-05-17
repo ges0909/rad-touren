@@ -104,7 +104,7 @@ For each stop, gather in this order:
 10. **Accommodation** — Web search. Apply rules from `user-preferences.md`.
 11. **Hiking** — Waymarked Trails + web search. Rules:
     - Every day should have a hiking option (short walk 2–3 Std. if no major hike)
-    - Include GPX download link: `https://hiking.waymarkedtrails.org/api/details/relation/{id}/gpx`
+    - Include GPX download link where available (Waymarked Trails route page — GPX via download icon on the website, no direct API URL)
     - Flag one-way routes + provide public transport info
     - Search for Einkehr at start, endpoint, or midpoint
 12. **Swimming** — Web search for beaches, lakes, thermal baths, river pools, rock pools.
