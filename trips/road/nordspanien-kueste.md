@@ -46,7 +46,7 @@ Abendessen [Casco Viejo](https://www.bilbaoturismo.net/BilbaoTurismo/en/casco-vi
 
 ### Tag 2 · Sa 5. Sep · Bilbao → San Sebastián / Donostia · 165 km, ~4–5 Std. mit Stopps
 
-![Tag 2: Bilbao → San Sebastián](img/nordspanien-kueste-tag2.png)
+![Tag 2: Bilbao → San Sebastián](img/bilbao-san-sebastian.png)
 [Route in Google Maps](https://www.google.com/maps/dir/Bilbao/Urdaibai/San+Juan+de+Gaztelugatxe/Bermeo/Lekeitio/Zumaia/Getaria/San+Sebastián)
 
 **Mietwagen:** Übernahme Bilbao Stadtstation (z.B. Bahnhof Abando). Kompaktwagen, ~400–650 € für 13 Tage (Vollkasko inkl.). Abgabe Tag 15 am Flughafen.
@@ -86,7 +86,7 @@ Küstenstraße mit Stopps:
 
 ### Tag 4 · Mo 7. Sep · San Sebastián → Santander · 198 km, ~2,5 Std.
 
-![Tag 4: San Sebastián → Santander](img/nordspanien-kueste-tag4.png)
+![Tag 4: San Sebastián → Santander](img/san-sebastian-santander.png)
 [Route in Google Maps](https://www.google.com/maps/dir/San+Sebastián/Castro+Urdiales/Santander)
 
 Stopp Castro Urdiales (Kaffee, gotische Kirche). Ankunft Mittag.
@@ -118,7 +118,7 @@ Stopp Castro Urdiales (Kaffee, gotische Kirche). Ankunft Mittag.
 
 ### Tag 6 · Mi 9. Sep · Santander → Potes / Liébana-Tal · 106 km, ~1,5 Std. + Stopps
 
-![Tag 6: Santander → Potes](img/nordspanien-kueste-tag6.png)
+![Tag 6: Santander → Potes](img/santander-potes.png)
 [Route in Google Maps](https://www.google.com/maps/dir/Santander/Santillana+del+Mar/Comillas/Potes)
 
 - 🏛️ **[Santillana del Mar](https://www.spain.info/en/destination/santillana-del-mar/)** (Anfahrt) — Mittelalterliches Dorf, Stiftskirche.
@@ -142,7 +142,7 @@ Stopp Castro Urdiales (Kaffee, gotische Kirche). Ankunft Mittag.
 
 ### Tag 7 · Do 10. Sep · Potes → Picos de Europa / Cangas de Onís · 81 km, ~1,5 Std.
 
-![Tag 7: Potes → Cangas de Onís](img/nordspanien-kueste-tag7.png)
+![Tag 7: Potes → Cangas de Onís](img/potes-cangas-de-onis.png)
 [Route in Google Maps](https://www.google.com/maps/dir/Potes/Desfiladero+de+los+Beyos/Cangas+de+Onís)
 
 Fahrt über Desfiladero de los Beyos.
@@ -178,7 +178,7 @@ Fahrt über Desfiladero de los Beyos.
 
 ### Tag 10 · So 13. Sep · Cangas de Onís → Gijón / Oviedo · 76 km, ~1 Std.
 
-![Tag 10: Cangas de Onís → Gijón](img/nordspanien-kueste-tag10.png)
+![Tag 10: Cangas de Onís → Gijón](img/cangas-de-onis-gijon.png)
 [Route in Google Maps](https://www.google.com/maps/dir/Cangas+de+Onís/Gijón)
 
 Fahrt nach Gijón.
@@ -214,7 +214,7 @@ Fahrt nach Gijón.
 
 ### Tag 12 · Di 15. Sep · Gijón → San Vicente de la Barquera · 119 km, ~1,5 Std.
 
-![Tag 12: Gijón → San Vicente](img/nordspanien-kueste-tag12.png)
+![Tag 12: Gijón → San Vicente](img/gijon-san-vicente.png)
 [Route in Google Maps](https://www.google.com/maps/dir/Gijón/San+Vicente+de+la+Barquera)
 
 Fahrt entlang der Küste nach Kantabrien.
@@ -233,7 +233,7 @@ Fahrt entlang der Küste nach Kantabrien.
 
 ### Tag 13 · Mi 16. Sep · San Vicente → Vitoria-Gasteiz / Rioja Alavesa · 211 km, ~2,5 Std.
 
-![Tag 13: San Vicente → Vitoria-Gasteiz](img/nordspanien-kueste-tag13.png)
+![Tag 13: San Vicente → Vitoria-Gasteiz](img/san-vicente-vitoria.png)
 [Route in Google Maps](https://www.google.com/maps/dir/San+Vicente+de+la+Barquera/Vitoria-Gasteiz)
 
 Entspannte Weiterfahrt ins Baskenland. Ankunft Mittag.
@@ -262,7 +262,7 @@ Entspannte Weiterfahrt ins Baskenland. Ankunft Mittag.
 
 ### Tag 15 · Fr 18. Sep · Vitoria-Gasteiz → Bilbao · 66 km, ~1 Std.
 
-![Tag 15: Vitoria-Gasteiz → Bilbao](img/nordspanien-kueste-tag15.png)
+![Tag 15: Vitoria-Gasteiz → Bilbao](img/vitoria-bilbao.png)
 [Route in Google Maps](https://www.google.com/maps/dir/Vitoria-Gasteiz/Bilbao)
 
 Fahrt nach Bilbao. Mietwagen am Flughafen abgeben, mit Bus/Metro ins Zentrum.
