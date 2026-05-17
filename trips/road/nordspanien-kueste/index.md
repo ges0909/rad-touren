@@ -44,12 +44,14 @@ Abendessen [Casco Viejo](https://tourism.euskadi.eus/en/towns/bilbao/webtur00-co
 
 ---
 
-### Tag 2 · Sa 5. Sep · Bilbao → San Sebastián / Donostia · 165 km, ~4–5 Std. mit Stopps
+### Tag 2 · Sa 5. Sep · Bilbao → San Sebastián / Donostia · 165 km, ~8–10 Std. mit Stopps
 
 ![Tag 2: Bilbao → San Sebastián](img/bilbao-san-sebastian.png)
 [Route in Google Maps](https://www.google.com/maps/dir/Bilbao/Urdaibai/San+Juan+de+Gaztelugatxe/Bermeo/Lekeitio/Zumaia/Getaria/San+Sebastián)
 
 **Mietwagen:** Übernahme Bilbao Stadtstation (z.B. Bahnhof Abando). Kompaktwagen, ~400–650 € für 13 Tage (Vollkasko inkl.). Abgabe Tag 15 am Flughafen.
+
+> ⚠️ **Zeitmanagement:** Die Küstenstraße ist spektakulär, aber zeitintensiv. Mit Gaztelugatxe (Wanderung) und mehreren Stopps ist dies ein voller 10-Stunden-Tag. Bei Zeitnot: San Juan de Gaztelugatxe und Zumaia Flysch priorisieren.
 
 Küstenstraße mit Stopps:
 
@@ -217,6 +219,8 @@ Fahrt nach Gijón.
 ![Tag 12: Gijón → San Vicente](img/gijon-san-vicente.png)
 [Route in Google Maps](https://www.google.com/maps/dir/Gijón/San+Vicente+de+la+Barquera)
 
+> 🎊 **Regionalfeiertag (Kantabrien):** La Bien Aparecida. Banken und einige Geschäfte in San Vicente geschlossen. Restaurants und Strände sehr belebt.
+
 Fahrt entlang der Küste nach Kantabrien.
 
 **Unterkunft:** [Hotel Azul de Galimar](https://www.booking.com/hotel/es/azul-de-galimar.html) (8,6, ~364 Reviews) — Ruhige Lage, modern, Garten, Frühstück inkl. (~80–110 €/Nacht)
@@ -242,7 +246,7 @@ Entspannte Weiterfahrt ins Baskenland. Ankunft Mittag.
 
 - 🎨 **Itinerario Muralístico (IMVG)** — Europas größte Freiluft-Mural-Galerie. Rundgang ~1,5 Std.
 - 🎨 **[Artium Museoa](https://www.artium.eus)** — Zeitgenössische Kunst, 2.700+ Werke, 1950er bis heute. **Pflichtbesuch.** (~9 €/P.)
-- 🍷 **Casco Viejo Pintxos** (Vitoria) — Calle Cuchillería. Pintxo de Foie, Txuleta.
+- 🍷 **Pintxos-Wahl:** Entweder Mittagessen in der Calle Cuchillería (Vitoria) ODER (empfohlen) Abends in der historischen Altstadt von **Laguardia** — direkt bei der Unterkunft, hervorragende Weinkeller und lokale Küche.
 
 ### Tag 14 · Do 17. Sep · Rioja Alavesa (Tagesausflug, 45 Min.)
 
