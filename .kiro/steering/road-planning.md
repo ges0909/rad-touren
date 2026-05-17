@@ -15,7 +15,7 @@ Plan, generate, and present multi-day car rental road trips across Europe.
 ## Scope & Trip Profile
 
 - Origin: Berlin Brandenburg Airport (BER)
-- Destinations: Europe, reachable by direct or one-stop flight from BER
+- Destinations: Europe, reachable by direct flight from BER
 - Group: 2 persons, compact rental car (airport pickup/dropoff)
 - Duration per stop: 1–3 nights, 4–8 stops forming a logical loop
 - All trips return to the departure airport city unless a direct return flight from the endpoint is confirmed
@@ -128,7 +128,7 @@ For each stop, gather in this order:
 
 ### Phase 3: Output
 
-17. **Write trip markdown** — `trips/road/{name}.md` following `road-template.md`.
+17. **Write trip markdown** — `trips/road/{name}/index.md` following `road-template.md`.
 18. **Update index** — Append a row to `trips/road/README.md`. Do NOT rewrite the file.
 19. **Present summary** — German, to user.
 
@@ -137,11 +137,12 @@ For each stop, gather in this order:
 ```
 trips/road/
 ├── README.md              # Trip catalog index
-├── {trip-name}.md         # Trip description
-├── gpx/
-│   └── {start}-{ziel}.gpx    # Car routes per driving day
-└── img/
-    └── {start}-{ziel}.png    # Route maps per driving day
+├── {trip-name}/
+│   ├── index.md           # Trip description
+│   ├── gpx/
+│   │   └── {start}-{ziel}.gpx    # Car routes per driving day
+│   └── img/
+│       └── {start}-{ziel}.png    # Route maps per driving day
 ```
 
 Naming: kebab-case, ASCII-safe (ü→ue, ö→oe, ä→ae, ß→ss). GPX/IMG named by start-destination segment.
@@ -152,10 +153,10 @@ One map per driving day. Workflow:
 
 ```bash
 # 1. GPX with all waypoints (including swim/detour stops)
-mcp_osrm_route_to_gpx(waypoints=[...], output_path="trips/road/gpx/{start}-{ziel}.gpx", station_names=[...])
+mcp_osrm_route_to_gpx(waypoints=[...], output_path="trips/road/{trip-name}/gpx/{start}-{ziel}.gpx", station_names=[...])
 
 # 2. Render with labeled stations
-python scripts/render_roadtrip_map.py trips/road/gpx/{start}-{ziel}.gpx trips/road/img/{start}-{ziel}.png \
+python scripts/render_roadtrip_map.py trips/road/{trip-name}/gpx/{start}-{ziel}.gpx trips/road/{trip-name}/img/{start}-{ziel}.png \
   --stations '{Name}:{lon},{lat}' ...
 ```
 

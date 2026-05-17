@@ -9,9 +9,9 @@ Guide for generating and editing roadtrip markdown files in `trips/road/`. Each 
 
 ## File Structure
 
-- Location: `trips/road/{destination}.md`
-- GPX files: `trips/road/gpx/{start}-{ziel}.gpx`
-- Map images: `trips/road/img/{start}-{ziel}.png`
+- Location: `trips/road/{trip-name}/index.md`
+- GPX files: `trips/road/{trip-name}/gpx/{start}-{ziel}.gpx`
+- Map images: `trips/road/{trip-name}/img/{start}-{ziel}.png`
 - Naming: kebab-case, ASCII-safe (no umlauts, no spaces)
 
 ## Document Skeleton
@@ -156,10 +156,10 @@ Use these tools in sequence for each driving day:
 
 ```bash
 # 1. Create GPX with all waypoints (including detour/swim stops)
-mcp_osrm_route_to_gpx(waypoints=[[lon,lat], ...], output_path="trips/road/gpx/{start}-{ziel}.gpx")
+mcp_osrm_route_to_gpx(waypoints=[[lon,lat], ...], output_path="trips/road/{trip-name}/gpx/{start}-{ziel}.gpx")
 
 # 2. Render map with stations and POIs
-python scripts/render_roadtrip_map.py trips/road/gpx/{start}-{ziel}.gpx trips/road/img/{start}-{ziel}.png \
+python scripts/render_roadtrip_map.py trips/road/{trip-name}/gpx/{start}-{ziel}.gpx trips/road/{trip-name}/img/{start}-{ziel}.png \
   --stations 'Label:lon,lat' ... \
   --pois 'category:name:lon,lat' ...
 ```
