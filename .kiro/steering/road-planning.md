@@ -28,7 +28,7 @@ Plan, generate, and present multi-day car rental road trips across Europe.
 5. **Overpass rate limit**: Query POI presets **sequentially** (one at a time). Never parallelize Overpass requests.
 6. **Buffer rule**: When the trip starts and ends in the same city, place the **longer stay (2+ nights) at the end** as a buffer for the return flight. First night at the departure city: 1 night max (arrival only).
 7. **Source attribution**: When information comes from web search, note the check date: `ℹ️ Zuletzt geprüft: {date}`.
-8. **Map–table sync**: The route map and the day-by-day table MUST always be in sync. Station labels on the map show the day numbers from the table (e.g., `T2-3 San Sebastián` = days 2–3 in the table). When the table changes (days added/removed, stations reordered), re-render the map with updated labels. Use `scripts/render_roadtrip_map.py` with `--stations` matching the table and `--pois` for key highlights.
+8. **Map–table sync**: Every stop mentioned in the day's text MUST appear as a labeled marker on the route map. Use `scripts/render_roadtrip_map.py` with `--stations` for ALL stops (including swim spots, detours). Use combined labels when POIs are close (e.g., "Urdaibai / Playa de Laga"). When the itinerary changes, re-render affected maps.
 
 ## Trip Profile
 
@@ -47,7 +47,8 @@ All interests, emoji mappings, food/drink rules, and accommodation rules are def
 
 - 🎨 Moderne Kunst — **always highlight**
 - 🌿 Botanische Gärten — **always include when nearby**
-- 🍇 Weingüter — **always include in wine regions**
+
+Do NOT use 🍇 (Weingüter) or ☕ (Kaffee) as separate categories — these were removed from preferences. Wine/coffee can be mentioned under 🍷 (Regionale Küche) when relevant to local culture.
 
 Use `remote_web_search` to find POIs matching these interests at each stop. Prioritize by the interest priority order in `user-preferences.md`.
 
@@ -145,7 +146,14 @@ For each stop, gather information in this order:
 9. **Travel guide context**: Query `mcp_wikivoyage_*` — use `get_article_sections` first, then `get_section` for relevant sections (Küche, Sehenswürdigkeiten, Aktivitäten). This provides baseline knowledge for the stop.
 10. **Accommodation**: Search via `remote_web_search`. Apply accommodation rules from `user-preferences.md` (small/boutique, central, 80–150 €/night).
 11. **Hiking**: Search `mcp_waymarkedtrails_*` for marked routes near each stop (`search_routes` or `search_routes_in_region`). Get details for promising routes. Supplement with `remote_web_search` for unmarked local trails.
-12. **Swimming**: Search for beaches, lakes, or thermal baths via `remote_web_search`.
+    - **Every day should have a hiking option** — if no major hike fits, add a short walk (2–3 Std.)
+    - **GPX downloads**: Include Waymarked Trails GPX link for all routes with a route ID
+    - **One-way routes**: Flag and provide public transport info (bus line + timetable link)
+    - **Einkehr**: Search for refreshment options (bars, restaurants, huts) at start, endpoint, or midpoint of each hike
+12. **Swimming**: Search for beaches, lakes, thermal baths, river pools, and rock pools via `remote_web_search`.
+    - **Driving days**: Always check for swimming stops along the route (not just at destination)
+    - **Hiking days**: Check if trail ends at or passes a swimming spot
+    - Include thermal springs, river bathing, Felstöpfe — not just sea beaches
 13. **Food & Drink**: Search for regional restaurants, markets, local specialties. Apply food rules from `user-preferences.md`.
 14. **Culture & Art**: Search for galleries, museums, historic sites. Prioritize modern/contemporary art (highest interest priority).
 15. **Practical info**: For every major POI (museums, caves, gardens, guided tours), verify via `remote_web_search`:
@@ -167,12 +175,16 @@ For each stop, gather information in this order:
 trips/road/
 ├── README.md              # Trip catalog index
 ├── {trip-name}.md         # Trip description
-├── gpx/{trip-name}/       # GPX tracks for hikes (optional)
-└── img/{trip-name}/       # Route maps, photos (optional)
+├── gpx/                   # GPX tracks
+│   ├── {start}-{ziel}.gpx    # Car routes per driving day (start-destination naming)
+│   └── {trip-name}.gpx       # Full trip route (optional)
+└── img/
+    └── {start}-{ziel}.png    # Route maps per driving day (matching GPX names)
 ```
 
 - Naming: descriptive kebab-case, ASCII-safe (no umlauts: ü→ue, ö→oe, ä→ae, ß→ss)
-- Examples: `sardinien-ostkueste.md`, `provence-lavendel.md`
+- GPX/IMG files: named by start-destination (e.g., `bilbao-san-sebastian.gpx`)
+- Trip files: named by region (e.g., `nordspanien-kueste.md`)
 
 ## Output Template
 
@@ -180,20 +192,23 @@ See `road-template.md` for the full markdown template structure.
 
 ## Map Rendering
 
-Generate route maps via:
+Generate route maps for each driving day:
 
 ```bash
-# 1. Create GPX with street geometry
-mcp_osrm_route_to_gpx(waypoints=[...], output_path="trips/road/gpx/{name}.gpx", station_names=[...])
+# 1. Create GPX with street geometry — include ALL stops (swim, detours)
+mcp_osrm_route_to_gpx(waypoints=[...], output_path="trips/road/gpx/{start}-{ziel}.gpx", station_names=[...])
 
-# 2. Render map with stations + POIs
-python scripts/render_roadtrip_map.py trips/road/gpx/{name}.gpx trips/road/img/{name}.png \
-  --stations 'T{days} {Name}:{lon},{lat}' ... \
-  --pois '{category}:{name}:{lon},{lat}' ...
+# 2. Render map — every text stop must be a labeled station
+python scripts/render_roadtrip_map.py trips/road/gpx/{start}-{ziel}.gpx trips/road/img/{start}-{ziel}.png \
+  --stations '{Name}:{lon},{lat}' ...
 ```
 
-POI categories for `--pois`: `art`, `hike`, `swim`, `food`, `wine`, `sight`, `nature`, `coffee`.
-Icons: Twemoji PNGs in `scripts/icons/`. Legend rendered as overlay (bottom-left).
+Rules:
+
+- One map per driving day (not one for the whole trip)
+- Station labels = stop names from the text (combined when close: "Urdaibai / Playa de Laga")
+- Include Google Maps direction link below each map for route verification
+- File naming: `{start}-{ziel}` in kebab-case (e.g., `bilbao-san-sebastian.png`)
 
 ## Trip Catalog Index (`trips/road/README.md`)
 
