@@ -8,7 +8,7 @@ AI-powered tour planning with custom MCP servers for routing, weather, POIs, pub
 | 🥾 Hiking    | Day hikes in Berlin/Brandenburg                     | Planned |
 | 🚗 Roadtrips | Multi-day car rental trips across Europe            | Active  |
 
-**→ [Cycling Tours](trips/bike/README.md)** · **→ [Roadtrips](trips/road/README.md)**
+**→ [Cycling Tours](trips/bike/README.md)** · **→ [Hiking Tours](trips/hike/README.md)** · **→ [Roadtrips](trips/road/README.md)**
 
 ---
 
@@ -138,9 +138,19 @@ mcp/
 ├── wikivoyage/              Travel guide content
 └── tavily/                  Web search (Tavily)
 trips/
-├── bike/                    Cycling tours: Markdown, GPX, maps
+├── bike/                    Cycling tours (per-trip folders)
+│   ├── README.md
+│   └── {tour-name}/
+│       ├── index.md         Tour description
+│       ├── gpx/             GPX tracks
+│       └── img/             Route maps, elevation profiles
 ├── hike/                    Hiking tours (planned)
-└── road/                    Multi-day car trips
+└── road/                    Multi-day car trips (per-trip folders)
+    ├── README.md
+    └── {trip-name}/
+        ├── index.md         Trip description
+        ├── gpx/             Car route GPX per driving day
+        └── img/             Route maps per driving day
 scripts/                     Map rendering utilities (see scripts/README.md)
 .kiro/steering/              Steering rules for the agent
 ruff.toml                    Linter/formatter config
