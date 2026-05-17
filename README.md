@@ -170,6 +170,28 @@ uvx ruff check .
 uvx ruff format .
 ```
 
+## Trip Review (Cross-LLM Verification)
+
+Before traveling, run the finished trip plan through an independent LLM for a second opinion. This catches factual errors, outdated info, and logical gaps that the planning agent might miss.
+
+Save the review as `review.md` in the trip folder (e.g., `trips/road/nordspanien-kueste/review.md`).
+
+**Example prompt (paste the full trip markdown as context):**
+
+```
+Review this roadtrip plan for correctness and plausibility:
+
+1. Verify all dates and weekdays match (use a calendar for {year}).
+2. Check driving distances between cities — are they realistic?
+3. Are any museums/attractions scheduled on their closing day?
+4. Are flight days and times plausible for the stated airline/route?
+5. Flag any events mentioned that might not occur on the stated dates.
+6. Suggest timing optimizations (e.g., reorder stops to avoid closures).
+7. Note any missing practical info (advance bookings, seasonal closures).
+
+Output a structured review with: confirmed OK, issues found, and suggested optimizations.
+```
+
 ## Licenses & Data Sources
 
 | Source                                                   | License      |
