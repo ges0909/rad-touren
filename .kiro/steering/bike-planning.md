@@ -9,8 +9,7 @@ Plan, generate, and present cycling day-trip tours in the Berlin/Brandenburg reg
 
 ## Language Rules
 
-- User-facing output (tour markdown, descriptions, summaries, chat): **German**
-- Code, file names, GPX `track_name`, tool calls: **English/kebab-case**
+Defer to `user-preferences.md`. Summary: user-facing output in **German**, code/filenames/GPX in **English/kebab-case**.
 
 ## Geographic Scope
 
@@ -27,11 +26,12 @@ Plan, generate, and present cycling day-trip tours in the Berlin/Brandenburg reg
 
 ## Critical Conventions (Never Violate)
 
-1. **Coordinate order**: All MCP tool calls use **[longitude, latitude]** — longitude first. Swapping produces routes in the wrong location.
-2. **Absolute paths**: `render_gpx_map`, `render_elevation_profile`, and `search_pois_along_route` require **absolute file paths**. The workspace root is the project directory. Relative paths resolve incorrectly because MCP servers run from subdirectories.
-3. **Overpass rate limit**: Query POI presets **sequentially** (one at a time). Never parallelize Overpass requests.
+Content integrity rules (no fabrication, source attribution, deduplication) are defined in `user-preferences.md`. Additional cycling-specific rules:
+
+1. **Coordinate order**: All MCP tool calls use **[longitude, latitude]** — longitude first.
+2. **Absolute paths**: `render_gpx_map`, `render_elevation_profile`, and `search_pois_along_route` require **absolute file paths**. MCP servers run from subdirectories — relative paths resolve incorrectly.
+3. **Overpass rate limit**: Query POI presets **sequentially** (one at a time). Never parallelize.
 4. **Transit verification**: Never claim line names, connections, or travel times without querying VBB API first.
-5. **No fabrication**: Never invent POIs, transit connections, fares, or event details. Only present API-verified or web-searched data.
 
 ## Routing
 
@@ -110,7 +110,7 @@ Use **only** these MCP servers for cycling tour planning. Do not use other avail
 
 ## Points of Interest
 
-POI categories and user interests are defined in `user-preferences.md`. For map rendering, use these Overpass category mappings:
+POI categories and interest priorities are defined in `user-preferences.md`. For map rendering, use these Overpass-to-emoji mappings:
 
 | Emoji | Overpass categories                                |
 | ----- | -------------------------------------------------- |
@@ -123,9 +123,9 @@ Pass Overpass category names directly to `render_gpx_map` `pois` parameter.
 
 ### POI Curation for Map Rendering
 
-- Select ~15–25 POIs for the map (deduplicated by name and proximity)
-- Prioritize: art/galleries first, then sights, then food/drink, then swimming
-- Remove duplicates within 200 m of each other
+- Select ~15–25 POIs for the map
+- Prioritize by interest order from `user-preferences.md`
+- Deduplicate per `user-preferences.md` rules (200 m radius)
 
 ## Weather
 
@@ -136,8 +136,8 @@ Pass Overpass category names directly to `render_gpx_map` `pois` parameter.
 ## Public Transit
 
 - **Home station**: S Blankenfelde (TF) Bhf (lines: S2, RB24, RE5, RE7, RE8)
-- **Default departure**: ~09:00 ab Blankenfelde (see `user-preferences.md`)
-- **Default group**: 2 persons + 2 bicycles (see `user-preferences.md`)
+- **Default departure**: ~09:00 ab Blankenfelde
+- **Group**: per `user-preferences.md` (2 persons + 2 bicycles)
 - 1–2 transfers acceptable
 - Every tour MUST include: `> 🚲 Fahrradmitnahme in S-Bahn und Regionalbahn ist im VBB möglich (Fahrradkarte erforderlich).`
 
