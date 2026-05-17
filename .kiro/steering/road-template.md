@@ -3,11 +3,29 @@ inclusion: fileMatch
 fileMatchPattern: "trips/road/**"
 ---
 
-# Roadtrip Output Template
+# Roadtrip Document Template
 
-Every trip file MUST start with empty YAML front matter (`---\n---\n`). Sections separated by `---` horizontal rules.
+Guide for generating and editing roadtrip markdown files in `trips/road/`. Each file is a self-contained multi-day itinerary combining driving routes, accommodations, activities, and maps.
 
-## 1. Title + Compact Header
+## File Structure
+
+- Location: `trips/road/{destination}.md`
+- GPX files: `trips/road/gpx/{start}-{ziel}.gpx`
+- Map images: `trips/road/img/{start}-{ziel}.png`
+- Naming: kebab-case, ASCII-safe (no umlauts, no spaces)
+
+## Document Skeleton
+
+Every trip file starts with empty YAML front matter (`---\n---\n`). Sections are separated by `---` horizontal rules.
+
+Mandatory sections in order:
+
+1. Title + Compact Header
+2. Reiseverlauf (day-by-day itinerary)
+3. Erweiterungsideen (optional)
+4. Quellen
+
+## Section 1: Title + Compact Header
 
 ```markdown
 # {Destination} Roadtrip
@@ -16,7 +34,7 @@ Every trip file MUST start with empty YAML front matter (`---\n---\n`). Sections
 **Flug:** BER ↔ {Airport}, Direktflug {Airline} (nur {Flugtage}, {Tageszeit})
 **Mietwagen:** Übernahme {Datum} ({Ort}) / Abgabe {Datum} ({Ort}) — {N} Tage
 
-> 🌊 {One-line trip highlight — what makes this destination special}
+> 🌊 {One-line trip highlight}
 
 > ☀️ **Wetter:** {Temperaturbereich}, Regen {X}%. {Saisonaler Hinweis}.
 
@@ -25,76 +43,64 @@ Every trip file MUST start with empty YAML front matter (`---\n---\n`). Sections
 
 Rules:
 
-- No separate chapters for Wetter, Anreise, Kostenübersicht, Tipps — integrate into header
-- No duration in title (implicit from dates)
-- Weekdays in Reisezeitraum
-- Flight times noted at Tag 1 (Hinflug) and last day (Rückflug)
+- Do NOT create separate chapters for Wetter, Anreise, Kostenübersicht, or Tipps — all meta-info lives in the header blockquotes.
+- Include weekdays in Reisezeitraum.
+- Flight times go inline at Tag 1 (Hinflug) and last day (Rückflug), not in the header.
 
-## 2. Reiseverlauf
+## Section 2: Reiseverlauf
 
-One H3 (`###`) per day. All days same heading level.
+One `###` heading per day. All days at the same heading level.
 
-### Driving days (transfer between cities)
+### Day Heading Formats
+
+Driving day:
 
 ```markdown
 ### Tag {N} · {Wochentag} {Datum} · {Von} → {Ziel} · {X} km, ~{Y} Std.
-
-![Tag {N}: {Von} → {Ziel}](img/{von}-{ziel}.png)
-[Route in Google Maps](https://www.google.com/maps/dir/{Von}/{Stopp1}/{Stopp2}/{Ziel})
-
-{Fahrtbeschreibung / Unterwegs-Stopps}
-
-**Unterkunft:** [{Name}]({booking.com-URL}) ({Rating}, ~{N} Reviews) — {Beschreibung} (~{X}–{Y} €/Nacht)
-
-- 🥾 **{Wanderung}** — {Details}
-- 🏊 **{Badestelle}** — {Details}
-- 🍷 **{Restaurant}** — {Details}
 ```
 
-### Stay days (no driving)
+Stay day (no driving):
 
 ```markdown
 ### Tag {N} · {Wochentag} {Datum} · {Ort}
-
-- 🥾 **{Wanderung}** — {Details}
-- 🎨 **[{Museum}]({URL})** — {Details}. (~{X} €/P.)
 ```
 
-### Day trips
+Day trip:
 
 ```markdown
 ### Tag {N} · {Wochentag} {Datum} · {Ziel} (Tagesausflug, {X} Min.)
 ```
 
-## 3. Day Structure Rules
+### Chronological Order Within Each Day
 
-**Chronological order within each day** — activities listed in the sequence they happen:
+List items in the order they happen:
 
 1. Fahrt / Unterwegs-Stopps (morning)
-2. **Unterkunft** (check-in, placed after arrival)
+2. **Unterkunft** (after arrival)
 3. Aktivitäten am Zielort (afternoon/evening)
 
-For arrival day: Flug → Transfer → Unterkunft → Abendessen
-For departure day: Aktivitäten → Fahrt zum Flughafen → Rückflug
+Arrival day: Flug → Transfer → Unterkunft → Abendessen
+Departure day: Aktivitäten → Fahrt zum Flughafen → Rückflug
 
-## 4. Route Maps
+### Route Map Block (driving days only)
 
-Every driving day gets a route map + Google Maps link:
+Every driving day gets a map image and a Google Maps link immediately after the heading:
 
-```bash
-# 1. Create GPX with all waypoints (including swim/detour stops)
-mcp_osrm_route_to_gpx(waypoints=[...], output_path="trips/road/gpx/{start}-{ziel}.gpx")
-
-# 2. Render map — EVERY stop mentioned in text must appear as station
-python scripts/render_roadtrip_map.py trips/road/gpx/{start}-{ziel}.gpx trips/road/img/{start}-{ziel}.png \
-  --stations '{Name}:{lon},{lat}' ...
+```markdown
+![Tag {N}: {Von} → {Ziel}](img/{von}-{ziel}.png)
+[Route in Google Maps](https://www.google.com/maps/dir/{Von}/{Stopp1}/{Stopp2}/{Ziel})
 ```
 
-**Critical rule:** Every stop mentioned in the day's text MUST be visible on the map. No stop without marker. Use combined labels when POIs are close (e.g., "Urdaibai / Playa de Laga").
+### Accommodation Format
 
-File naming: `{start}-{ziel}.gpx` / `{start}-{ziel}.png` (kebab-case, ASCII-safe).
+```markdown
+**Unterkunft:** [{Name}]({booking.com-URL}) ({Rating}, ~{N} Reviews) — {Beschreibung} (~{X}–{Y} €/Nacht)
+```
 
-## 5. POI Formatting
+- Always link directly to the booking.com hotel page.
+- Place chronologically after arrival, before evening activities.
+
+## POI Formatting
 
 ```markdown
 - {emoji} **[{Name}]({description-URL})** [📍](https://www.google.com/maps/search/?api=1&query={lat},{lon}) — {Description}. (~{X} €/P., {opening hours})
@@ -102,61 +108,88 @@ File naming: `{start}-{ziel}.gpx` / `{start}-{ziel}.png` (kebab-case, ASCII-safe
 
 Rules:
 
-- **Description link**: Official website or tourism page for "what to expect" info
-- **📍 Navigation pin**: Google Maps coordinate link for POIs requiring driving (not walkable from accommodation)
-- **Entry price**: Append `(~{X} €/P.)` when applicable
-- **Opening hours**: Append closure days inline `(Di–So, Mo geschlossen)`
-- **Advance booking**: `⚠️ Tickets vorab online buchen`
-- Prioritize by interest order: Wandern → Baden → Küche → Gärten → Kunst
+- Description link → official website or tourism page.
+- 📍 pin → Google Maps coordinate link. Only add for POIs requiring driving (not walkable from accommodation).
+- Entry price: `(~{X} €/P.)` when applicable.
+- Opening hours: inline, e.g. `(Di–So, Mo geschlossen)`.
+- Advance booking: prefix with `⚠️ Tickets vorab online buchen`.
+- Priority order: Wandern → Baden → Küche → Gärten → Kunst.
 
-## 6. Hiking Routes
+### Emoji Legend
+
+| Emoji | Category                                 |
+| ----- | ---------------------------------------- |
+| 🥾    | Wandern                                  |
+| 🏊    | Baden (Strand, Fluss, Therme, Felstöpfe) |
+| 🍷    | Essen & Trinken                          |
+| 🎨    | Kunst & Museen                           |
+| 🏛️    | Sehenswürdigkeiten                       |
+| ☕    | Kaffee                                   |
+
+## Hiking Routes
 
 ```markdown
 - 🥾 **{Name}** — {Distanz}, {Dauer}, {Schwierigkeit}. ⭐ {Rating} ({N} Reviews). {Description}. [Waymarked Trails]({URL}) · [GPX ↓]({download-URL})
-  - 🍷 **Einkehr:** {Restaurant/Bar am Start/Ziel/Wendepunkt} — {Beschreibung}.
+  - 🍷 **Einkehr:** {Restaurant/Bar} — {Beschreibung}.
 ```
 
 Rules:
 
-- **GPX download**: Always include when Waymarked Trails route ID available. Format: `https://hiking.waymarkedtrails.org/api/details/relation/{id}/gpx`
-- **One-way routes**: Flag with `⚠️ One-way` + describe transport for return (bus line, link to timetable)
-- **Swimming at endpoint**: Note with 🏊 inline if trail ends at beach/river
-- **Einkehr**: List refreshment options (bar, restaurant, hut) at start, endpoint, or midpoint with brief description
-- **Every day should have a hiking option** — if no major hike, suggest a short walk (2–3 Std.)
+- GPX download URL format: `https://hiking.waymarkedtrails.org/api/details/relation/{id}/gpx`
+- One-way routes: flag with `⚠️ One-way` + describe return transport.
+- Swimming at endpoint: note inline with 🏊.
+- Einkehr: list refreshment options at start, endpoint, or midpoint.
+- Every day should have at least one hiking option (short walk 2–3 Std. if no major hike).
 
-## 7. Swimming / Bathing
+## Swimming / Bathing
 
 ```markdown
 - 🏊 **{Name}** [📍]({Google Maps link}) — {Type: Strand/Fluss/Therme/Felstöpfe}. {Brief description}.
 ```
 
-Rules:
+- Check swimming options for all driving days (unterwegs stops).
+- Include river pools, thermal springs, rock pools — not just beaches.
 
-- Check swimming options for ALL driving days (unterwegs stops)
-- Include river pools, thermal springs, rock pools — not just beaches
-- Add 📍 pin for spots requiring driving
+## Map Generation Workflow
 
-## 8. Accommodation
+Use these tools in sequence for each driving day:
 
-```markdown
-**Unterkunft:** [{Name}]({booking.com-direct-URL}) ({Rating}, ~{N} Reviews) — {Description} (~{X}–{Y} €/Nacht)
+```bash
+# 1. Create GPX with all waypoints (including detour/swim stops)
+mcp_osrm_route_to_gpx(waypoints=[[lon,lat], ...], output_path="trips/road/gpx/{start}-{ziel}.gpx")
+
+# 2. Render map with stations and POIs
+python scripts/render_roadtrip_map.py trips/road/gpx/{start}-{ziel}.gpx trips/road/img/{start}-{ziel}.png \
+  --stations 'Label:lon,lat' ... \
+  --pois 'category:name:lon,lat' ...
 ```
 
-Rules:
+### render_roadtrip_map.py Parameters
 
-- Always link directly to booking.com hotel page
-- Placed chronologically (after arrival, before evening activities)
+- `--stations 'Name:lon,lat'` — Major stops shown as labeled circle markers. Use day-prefixed labels like `T1 Bilbao`.
+- `--pois 'category:name:lon,lat'` — POI icons on map. Valid categories: `art`, `hike`, `swim`, `food`, `wine`, `sight`, `nature`, `coffee`.
+- `--width` / `--height` — Image dimensions (default: 900×600).
 
-## 9. Erweiterungsideen (optional)
+### Critical Map Rule
 
-Brief notes on route extensions with best season.
+Every stop mentioned in the day's text MUST appear as a station or POI marker on the map. No stop without a marker. Combine labels when POIs are close (e.g., "Urdaibai / Playa de Laga").
 
-## 10. Quellen
+## Section 3: Erweiterungsideen (optional)
 
-Waymarked Trails links with GPX column, Wikivoyage sources, tour operator inspiration.
+Brief notes on possible route extensions with best season.
+
+## Section 4: Quellen
+
+Table format for trail sources:
 
 ```markdown
 | Route  | Länge  | Link                         | GPX            |
 | ------ | ------ | ---------------------------- | -------------- |
 | {Name} | {X} km | [waymarkedtrails.org]({URL}) | [↓]({GPX-URL}) |
 ```
+
+Include Wikivoyage sources and tour operator inspiration links.
+
+## Language
+
+All trip content is written in **German**. Use German weekday names, date formats (TT.MM.YYYY or "DD. Monat"), and descriptions.
