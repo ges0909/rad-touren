@@ -27,7 +27,7 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 
 ### Tag 1 · Fr 4. Sep · Bilbao — Ankunft
 
-**Hinflug:** BER → Bilbao (BIO), Direktflug Eurowings, ~2,5 Std. Abflug 17:05 Uhr.
+**Hinflug:** BER → Bilbao (BIO), Direktflug Eurowings, ~2,5 Std. Abflug 17:00 Uhr (Fr).
 
 - ℹ️ Kein Morgenflug BER→BIO verfügbar. Eurowings fliegt nur abends (Mo/Fr/So).
 - Geschätzte Kosten: ~100–180 € pro Person (one-way)
@@ -40,7 +40,7 @@ Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón
 
 **Unterkunft:** [room Select Bilbao](https://www.booking.com/hotel/es/bilbao-jardines.html) (8,9, ~269 Reviews) — Casco Viejo, modern, zentral (~80–110 €/Nacht)
 
-Abendessen [Casco Viejo](https://www.bilbaoturismo.net/BilbaoTurismo/en/casco-viejo) — Bilbaos mittelalterliche Altstadt, Siete Calles, Pintxos-Bars an der Plaza Nueva.
+Abendessen [Casco Viejo](https://tourism.euskadi.eus/en/towns/bilbao/webtur00-content/en/) — Bilbaos mittelalterliche Altstadt, Siete Calles, Pintxos-Bars an der Plaza Nueva.
 
 ---
 
@@ -68,7 +68,7 @@ Küstenstraße mit Stopps:
 
 - 🚣 **Bandera de La Concha** — Prestigeträchtige Ruderregatta an den ersten beiden Sonntagen im September. Die Bucht ist gesäumt von tausenden Zuschauern. **Großes Spektakel.** ⚠️ Voll!
 - 🎊 **Euskal Jaiak (Baskische Feste)** — Anfang September. Traditioneller Sport, Musik und Tanz in der Stadt.
-- 🥾 **Camino del Norte (Pasaia → San Sebastián)** — 12 km, 4 Std., moderat. Jakobsweg-Küstenabschnitt, spektakuläre Küstenblicke. ⚠️ One-way; Hinfahrt Bus E09 nach Pasaia (~11 Min., alle 15 Min., [Lurraldebus](https://www.lurraldebus.eus)). [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=1116809) ·
+- 🥾 **Camino del Norte (Pasaia → San Sebastián)** — 12 km, 4 Std., moderat. Jakobsweg-Küstenabschnitt, spektakuläre Küstenblicke. ⚠️ One-way; Hinfahrt Bus E09 nach Pasaia (~11 Min., alle 15 Min., [Lurraldebus/Avanza](https://gipuzkoa.avanzagrupo.com)). [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=1116809) ·
 - 🍷 **Parte Vieja Pintxos** — Bar Nestor (Tortilla), La Cuchara de San Telmo, Gandarias, Bar Zeruko.
 
 **Weitere POIs in San Sebastián:**
@@ -77,7 +77,7 @@ Küstenstraße mit Stopps:
 - 🥾 **Monte Igueldo → Paseo Nuevo** — 8 km, 3 Std., moderat. ⭐ 4,5 (58 Reviews). Küstenwanderung.
 - 🏊 **Playa de la Concha** — Muschelförmige Bucht, ruhiges Wasser.
 - 🏊 **Playa de la Zurriola** — Surfer-Strand, Stadtteil Gros.
-- 🎨 **[San Telmo Museoa](https://www.santelmomuseoa.eus/en/)** — Baskische Kultur + zeitgenössische Kunst. (~7 €/P.)
+- 🎨 **[San Telmo Museoa](https://www.santelmomuseoa.eus)** — Baskische Kultur + zeitgenössische Kunst. (~7 €/P.)
 - 🎨 **[Tabakalera](https://www.tabakalera.eus/en)** — Zeitgenössische Kultur in ehemaliger Tabakfabrik.
 - 🎨 **[Chillida-Leku](https://www.museochillidaleku.com/en/)** [📍](https://www.google.com/maps/search/?api=1&query=43.2847,-1.9183) — Skulpturenpark, monumentale Stahlskulpturen. **Pflichtbesuch.** (~14 €/P., Do–Mo, Di+Mi geschlossen)
 - 🏛️ **Peine del Viento** — Chillida-Skulpturen in den Klippen.
@@ -129,7 +129,7 @@ Stopp Castro Urdiales (Kaffee, gotische Kirche). Ankunft Mittag.
 
 **Unterkunft:** [Posada San Pelayo](https://www.booking.com/hotel/es/posada-san-pelayo.html) (9,7, ~540 Reviews) — familiär, Pool, Picos-Blick, Frühstück inkl. (~80–110 €/Nacht)
 
-- 🥾 **Fuente Dé Seilbahn** [📍](https://www.google.com/maps/search/?api=1&query=43.1536,-4.8092) → Wanderung zu **Horcados Rojos** (hochalpin, 4 Std.) oder gemütlich über Puertos de Áliva zurück. (~17 €/P. hin+zurück)
+- 🥾 **Fuente Dé Seilbahn** [📍](https://www.google.com/maps/search/?api=1&query=43.1536,-4.8092) → Wanderung zu **Horcados Rojos** (hochalpin, 4 Std.) oder gemütlich über Puertos de Áliva zurück. (~21 €/P. hin+zurück)
 - 🍷 **Cocido Lebaniego** — Kichererbsen-Eintopf, Spezialität des Tals.
 
 **Weitere POIs in Potes:**
@@ -164,7 +164,7 @@ Fahrt über Desfiladero de los Beyos.
 
 - 🚌 **Lagos de Covadonga** [PR-PNPE 2] — 6,4 km, 2,5 Std., leicht. ⭐ 4,2 (520 Reviews). Gletscherseen auf 1.000 m. ⚠️ **Zufahrt im September für PKW gesperrt.**
   - **Anreise:** Mit dem ALSA-Bus ab Cangas de Onís oder den Parkplätzen P1-P4.
-  - **Buchung:** Tickets zwingend vorab online reservieren ([buslagoscovadonga.es](https://buslagoscovadonga.es/)). Kosten ~9 € p.P.
+  - **Buchung:** Tickets zwingend vorab online reservieren ([ALSA Lagos de Covadonga](https://www.alsa.com/en/travel-plans/lakes-of-covadonga)). Kosten ~9 € p.P.
   - 🍷 **Einkehr:** Restaurant am Lago Enol (Buferrera-Besucherzentrum) — asturische Küche, Terrasse mit Seeblick.
 - 🏊 **Río Sella** (Arriondas) — Flussbaden, kristallklar.
 - 🏊 **Playa de Gulpiyuri** [📍](https://www.google.com/maps/search/?api=1&query=43.4378,-4.9117) — Inland-Strand (Meerwasser durch Höhlen).
@@ -248,7 +248,7 @@ Entspannte Weiterfahrt ins Baskenland. Ankunft Mittag.
 
 - 🎊 **Magialdia** — Internationales Zauberfestival Mitte September. Magier treten in Theatern, Schaufenstern und auf öffentlichen Plätzen auf.
 - 🥾 **Salinas de Añana Salzweg** [📍](https://www.google.com/maps/search/?api=1&query=42.8000,-2.9833) — 8 km, 3 Std., leicht. Wanderung durch die historische Saline.
-- 🎨 **[Bodegas Ysios](https://www.ysios.com)** [📍](https://www.google.com/maps/search/?api=1&query=42.5783,-2.5833) (Laguardia) — Calatrava-Bau. **Architektur-Highlight.** (~15 €/P.)
+- 🎨 **[Bodegas Ysios](https://bodegasysios.com/en)** [📍](https://www.google.com/maps/search/?api=1&query=42.5783,-2.5833) (Laguardia) — Calatrava-Bau. **Architektur-Highlight.** (~15 €/P.)
 - 🎨 **[Marqués de Riscal](https://www.marquesderiscal.com)** [📍](https://www.google.com/maps/search/?api=1&query=42.5100,-2.6117) (Elciego) — Gehry-Hotel, Weingut seit 1858.
 - 🏛️ **Laguardia** — Mittelalterliches Weindorf, unterirdische Keller.
 - 🏛️ **[Salinas de Añana](https://www.vallesalado.com)** [📍](https://www.google.com/maps/search/?api=1&query=42.8000,-2.9833) — Älteste Saline der Welt (6.500 Jahre). Geführte Tour. (~12 €/P.)
@@ -284,7 +284,7 @@ Fahrt nach Bilbao. Mietwagen am Flughafen abgeben, mit Bus/Metro ins Zentrum.
 
 Ausschlafen, entspanntes Frühstück. Letzter Bummel Siete Calles. Fahrt zum Flughafen (Bus/Taxi).
 
-**Rückflug:** Bilbao (BIO) → BER, Direktflug Eurowings, ~2,5 Std. Abflug 20:15 Uhr. ℹ️ Abflugzeit vor Reiseantritt prüfen.
+**Rückflug:** Bilbao (BIO) → BER, Direktflug Eurowings, ~2,5 Std. Abflug 20:45 Uhr (So).
 
 **Weitere POIs in Bilbao:**
 
