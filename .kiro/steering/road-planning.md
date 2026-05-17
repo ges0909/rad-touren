@@ -9,27 +9,24 @@ Plan, generate, and present multi-day car rental road trips across Europe.
 
 ## Language
 
-- User-facing output (markdown, descriptions, chat): **German**
-- Code, file names, tool calls: **English/kebab-case**
+Defer to `user-preferences.md`. Summary: user-facing output in **German**, code/filenames in **English/kebab-case**.
 
 ## Scope & Trip Profile
 
-- Origin: Berlin Brandenburg Airport (BER)
-- Destinations: Europe, reachable by direct flight from BER
-- Group: 2 persons, compact rental car (airport pickup/dropoff)
+- Origin: BER (flight preferences in `user-preferences.md`)
+- Group: per `user-preferences.md` (2 persons, compact rental)
 - Duration per stop: 1–3 nights, 4–8 stops forming a logical loop
 - All trips return to the departure airport city unless a direct return flight from the endpoint is confirmed
 
 ## Hard Rules (Never Violate)
 
-1. **No fabrication** — Only present data from MCP tools or web search. State gaps explicitly.
-2. **Coordinate order** — All MCP tool calls use `[longitude, latitude]`. Swapping breaks routing.
-3. **Verify distances** — Calculate full routes via `mcp_osrm_calculate_car_route` with all waypoints. Scenic routes with intermediate stops: sum individual legs. Flag segments > 4 hours.
-4. **Seasonal awareness** — Check weather, mountain pass closures, ferry schedules. Flag off-season risks.
-5. **Overpass rate limit** — Query POI presets sequentially, never in parallel.
-6. **Buffer rule** — Same-city start/end: place the longer stay (2+ nights) at the end as flight buffer. First night: 1 night max.
-7. **Source attribution** — Web-sourced data: append `ℹ️ Zuletzt geprüft: {date}`.
-8. **Map–table sync** — Every stop in the day's text MUST appear as a labeled marker on the route map. Re-render maps when itinerary changes.
+Content integrity rules (no fabrication, source attribution, seasonal awareness) are defined in `user-preferences.md` and apply here. Additional roadtrip-specific rules:
+
+1. **Coordinate order** — All MCP tool calls use `[longitude, latitude]`. Swapping breaks routing.
+2. **Verify distances** — Calculate full routes via `mcp_osrm_calculate_car_route` with all waypoints. Scenic routes with intermediate stops: sum individual legs. Flag segments > 4 hours.
+3. **Overpass rate limit** — Query POI presets sequentially, never in parallel.
+4. **Buffer rule** — Same-city start/end: place the longer stay (2+ nights) at the end as flight buffer. First night: 1 night max.
+5. **Map–table sync** — Every stop in the day's text MUST appear as a labeled marker on the route map. Re-render maps when itinerary changes.
 
 ## Driving & Route Constraints
 
@@ -40,12 +37,10 @@ Plan, generate, and present multi-day car rental road trips across Europe.
 
 ## Interest Priorities (Roadtrip-Specific)
 
-Defer to `user-preferences.md` for the full interest table. Roadtrip-specific rules:
+Defer to `user-preferences.md` for the full interest table and priority order. Roadtrip-specific additions:
 
-- 🎨 Moderne Kunst — **always highlight**
-- 🌿 Botanische Gärten — **always include when nearby**
 - Do NOT use 🍇 (Weingüter) or ☕ (Kaffee) as separate categories — mention under 🍷 when relevant to local culture.
-- Use `remote_web_search` to find POIs at each stop. Prioritize by interest order in `user-preferences.md`.
+- Use `remote_web_search` to find POIs at each stop (Overpass only when GPX exists).
 
 ## Allowed MCP Servers
 
@@ -86,9 +81,7 @@ Always use `lang="de"` for German content.
 
 ### Waymarked Trails Usage Pattern
 
-1. `search_routes` or `search_routes_in_region` — find routes near each stop
-2. `get_route_details` — length, markings, operator, website
-3. `get_route_segments` — stages and towns (for multi-day routes or selecting day sections)
+Defer to `user-preferences.md` for the general tool sequence. For roadtrips, use `search_routes_in_region` to find hikes near each stop.
 
 ## Workflow
 
@@ -108,7 +101,7 @@ Always use `lang="de"` for German content.
 For each stop, gather in this order:
 
 9. **Travel guide** — Wikivoyage: `get_article_sections` → `get_section` (Küche, Sehenswürdigkeiten, Aktivitäten).
-10. **Accommodation** — Web search. Apply rules from `user-preferences.md` (small/boutique, central, 80–150 €/night, ≥8.5 rating).
+10. **Accommodation** — Web search. Apply rules from `user-preferences.md`.
 11. **Hiking** — Waymarked Trails + web search. Rules:
     - Every day should have a hiking option (short walk 2–3 Std. if no major hike)
     - Include GPX download link: `https://hiking.waymarkedtrails.org/api/details/relation/{id}/gpx`
@@ -117,8 +110,8 @@ For each stop, gather in this order:
 12. **Swimming** — Web search for beaches, lakes, thermal baths, river pools, rock pools.
     - Driving days: check for swimming stops along the route
     - Hiking days: check if trail ends at or passes a swimming spot
-13. **Food & Drink** — Apply food rules from `user-preferences.md` (authentic, regional, ≥4.0 rating).
-14. **Culture & Art** — Galleries, museums, historic sites. Prioritize modern/contemporary art.
+13. **Food & Drink** — Apply rules from `user-preferences.md`.
+14. **Culture & Art** — Prioritize modern/contemporary art per interest table.
 15. **Practical info** — For every major POI, verify via web search:
     - Opening days (note weekly closures)
     - Advance booking requirements (`⚠️ vorab buchen`)
