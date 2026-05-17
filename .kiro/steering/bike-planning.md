@@ -180,19 +180,21 @@ All tour files live under `trips/bike/`:
 ```
 trips/bike/
 ├── README.md                     # Tour catalog index
-├── {tour-name}.md                # Tour description
-├── gpx/{tour-name}.gpx           # GPX track
-├── img/{tour-name}.png           # Route map image
-└── img/{tour-name}-elevation.png # Elevation profile image
+├── {tour-name}/
+│   ├── index.md                  # Tour description
+│   ├── gpx/{tour-name}.gpx      # GPX track
+│   └── img/
+│       ├── {tour-name}.png           # Route map image
+│       └── {tour-name}-elevation.png # Elevation profile image
 ```
 
-- Naming: descriptive kebab-case, no `-runde` suffix. Example: `spreewald.md`, `spreewald.gpx`
+- Naming: descriptive kebab-case, no `-runde` suffix. Example: `spreewald/index.md`, `spreewald/gpx/spreewald.gpx`
 - Paths inside tour markdown are **relative**: `gpx/spreewald.gpx`, `img/spreewald.png`
-
 
 ## Output Template
 
 See `bike-template.md` for the full markdown template structure including fare tables.
+
 ## Tour Catalog Index (`trips/bike/README.md`)
 
 Table with columns: Tour (linked, theme emoji prefix), Distanz, Fahrzeit, Region. Ends with bike-transport note.
@@ -207,14 +209,14 @@ Execute in order when the user requests a new tour:
 
 1. **Geocode** waypoints via `search_location`. Verify coordinates within bounds.
 2. **Calculate route** via `calculate_route` (3–6 waypoints, first = last for round trips).
-3. **Save GPX** to `trips/bike/gpx/{name}.gpx`.
+3. **Save GPX** to `trips/bike/{name}/gpx/{name}.gpx`.
 4. **Check for spurs** in GPX. Remove and re-save if detected.
 
 ### Phase 2: Enrichment
 
 5. **Search POIs** via `search_pois_along_route` with presets `einkehr`, `badestellen`, `sehenswuerdigkeiten`, `kunst` — **sequentially, one at a time**.
-6. **Render map** via `render_gpx_map` with curated POI markers (~15–25, deduplicated). Save to `trips/bike/img/{name}.png`.
-7. **Render elevation** via `render_elevation_profile`. Save to `trips/bike/img/{name}-elevation.png`.
+6. **Render map** via `render_gpx_map` with curated POI markers (~15–25, deduplicated). Save to `trips/bike/{name}/img/{name}.png`.
+7. **Render elevation** via `render_elevation_profile`. Save to `trips/bike/{name}/img/{name}-elevation.png`.
 8. **Query weather** for tour date at start-location coordinates.
 9. **Verify transit** from/to S Blankenfelde (TF) Bhf via VBB tools.
 10. **Check disruptions** (see Disruption Check section above).
@@ -222,7 +224,7 @@ Execute in order when the user requests a new tour:
 
 ### Phase 3: Output
 
-12. **Write tour markdown** to `trips/bike/{name}.md` following the template exactly.
+12. **Write tour markdown** to `trips/bike/{name}/index.md` following the template exactly.
 13. **Update index** — append row to `trips/bike/README.md`.
 14. **Present summary** to user in German.
 
