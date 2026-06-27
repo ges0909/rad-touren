@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "GPX Round Trip Validation",
+      "description": "Validates newly created bike/hike GPX files: checks trk/trkseg/trkpt format, verifies start ≈ end (round trip), and reports trackpoint count.",
+      "trigger": "PostFileCreate",
+      "matcher": "(trips/bike/gpx/[^/]*\\.gpx$|trips/hike/gpx/[^/]*\\.gpx$)",
+      "action": {
+        "type": "agent",
+        "prompt": "A new GPX file was created. Validate the following:\n1. Does the file use `<trk>/<trkseg>/<trkpt>` format (NOT `<rte>/<rtept>`)?\n2. Is the first trackpoint identical or very close to the last trackpoint (round trip)?\n3. How many trackpoints does the file contain?\nIf any issues are found, inform the user."
+      },
+      "enabled": true
+    }
+  ]
+}

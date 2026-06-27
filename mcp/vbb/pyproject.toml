@@ -1,0 +1,21 @@
+[project]
+name = "vbb-mcp"
+version = "1.0.0"
+description = "MCP server wrapping VBB REST API for Berlin/Brandenburg public transport"
+requires-python = ">=3.11"
+dependencies = [
+    "fastmcp",
+    "httpx",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "respx",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+asyncio_mode = "auto"

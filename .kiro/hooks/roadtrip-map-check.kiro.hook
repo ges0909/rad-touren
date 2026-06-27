@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "Roadtrip Map Update Check",
+  "description": "After a roadtrip markdown is edited, checks whether stations or route order changed and asks the user if the route map should be re-rendered.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "trips/road/*.md"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A roadtrip file was edited. Check whether stations, route order, or coordinates changed. If yes, ask the user: 'Should I re-render the route map?' If only text (descriptions, restaurants, prices) was changed, no re-rendering is needed — do not respond."
+  }
+}

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" creator="BRouter-1.7.9" version="1.1">
+ <trk>
+  <name>Blankenfelde-Mahlow nach Königs Wusterhausen (sicher)</name>
+  <trkseg>
+   <trkpt lon="13.409460" lat="52.360351"><ele>48.0</ele></trkpt>
+   <trkpt lon="13.409622" lat="52.360370"><ele>48.0</ele></trkpt>
+   <trkpt lon="13.410782" lat="52.360513"><ele>47.0</ele></trkpt>
+   <trkpt lon="13.410884" lat="52.360527"><ele>47.0</ele></trkpt>
+   <trkpt lon="13.410690" lat="52.359918"><ele>47.5</ele></trkpt>
+   <trkpt lon="13.410679" lat="52.359882"><ele>47.5</ele></trkpt>
+   <trkpt lon="13.410660" lat="52.359826"><ele>47.75</ele></trkpt>
+   <trkpt lon="13.410611" lat="52.359673"><ele>48.0</ele></trkpt>
+   <trkpt lon="13.410594" lat="52.359622"><ele>48.0</ele></trkpt>
+   <trkpt lon="13.410509" lat="52.359358"><ele>48.25</ele></trkpt>
+   <trkpt lon="13.410380" lat="52.359006"><ele>48.0</ele></trkpt>
+   <trkpt lon="13.410172" lat="52.358409"><ele>48.75</ele></trkpt>
+   <trkpt lon="13.410096" lat="52.358171"><ele>49.0</ele></trkpt>
+   <trkpt lon="13.410050" lat="52.358036"><ele>49.0</ele></trkpt>
+   <trkpt lon="13.410026" lat="52.357939"><ele>49.0</ele></trkpt>
+   <trkpt lon="13.415133" lat="52.354580"><ele>48.0</ele></trkpt>
+   <trkpt lon="13.416777" lat="52.353476"><ele>48.0</ele></trkpt>
+   <trkpt lon="13.418128" lat="52.352688"><ele>50.5</ele></trkpt>
+   <trkpt lon="13.420708" lat="52.350847"><ele>46.0</ele></trkpt>
+   <trkpt lon="13.425596" lat="52.347477"><ele>41.75</ele></trkpt>
+   <trkpt lon="13.431201" lat="52.344204"><ele>40.0</ele></trkpt>
+   <trkpt lon="13.437212" lat="52.327396"><ele>43.0</ele></trkpt>
+   <trkpt lon="13.437624" lat="52.324891"><ele>42.75</ele></trkpt>
+   <trkpt lon="13.442712" lat="52.319807"><ele>43.25</ele></trkpt>
+   <trkpt lon="13.458809" lat="52.291039"><ele>41.0</ele></trkpt>
+   <trkpt lon="13.462145" lat="52.285227"><ele>40.5</ele></trkpt>
+   <trkpt lon="13.464746" lat="52.277755"><ele>39.0</ele></trkpt>
+   <trkpt lon="13.463669" lat="52.272299"><ele>38.0</ele></trkpt>
+   <trkpt lon="13.472450" lat="52.269943"><ele>37.0</ele></trkpt>
+   <trkpt lon="13.487994" lat="52.265378"><ele>37.0</ele></trkpt>
+   <trkpt lon="13.491895" lat="52.270588"><ele>39.0</ele></trkpt>
+   <trkpt lon="13.519629" lat="52.271466"><ele>36.0</ele></trkpt>
+   <trkpt lon="13.533240" lat="52.266266"><ele>37.5</ele></trkpt>
+   <trkpt lon="13.556650" lat="52.267945"><ele>34.75</ele></trkpt>
+   <trkpt lon="13.565273" lat="52.278896"><ele>35.75</ele></trkpt>
+   <trkpt lon="13.591159" lat="52.287580"><ele>34.5</ele></trkpt>
+   <trkpt lon="13.621344" lat="52.295768"><ele>34.75</ele></trkpt>
+   <trkpt lon="13.631236" lat="52.296663"><ele>37.0</ele></trkpt>
+  </trkseg>
+ </trk>
+</gpx>

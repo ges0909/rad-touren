@@ -1,0 +1,23 @@
+[project]
+name = "brouter-mcp"
+version = "1.0.0"
+description = "MCP server wrapping BRouter cycling routing API and Nominatim geocoding"
+requires-python = ">=3.11"
+dependencies = [
+    "fastmcp",
+    "httpx",
+    "staticmap",
+    "gpxpy",
+    "matplotlib",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "hypothesis",
+    "respx",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

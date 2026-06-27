@@ -1,0 +1,213 @@
+{
+  "mcpServers": {
+    "brouter": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "mcp/brouter",
+        "python",
+        "server.py"
+      ],
+      "disabled": false,
+      "autoApprove": [
+        "calculate_route",
+        "search_location",
+        "render_gpx_map",
+        "render_elevation_profile"
+      ]
+    },
+    "open-meteo": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "mcp/open-meteo",
+        "python",
+        "server.py"
+      ],
+      "disabled": false,
+      "autoApprove": [
+        "weather_forecast",
+        "geocoding"
+      ]
+    },
+    "vbb": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "mcp/vbb",
+        "python",
+        "server.py"
+      ],
+      "disabled": false,
+      "autoApprove": [
+        "search_stops",
+        "get_departures",
+        "get_journeys"
+      ]
+    },
+    "overpass": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "mcp/overpass",
+        "python",
+        "server.py"
+      ],
+      "disabled": false,
+      "autoApprove": [
+        "search_pois_along_route"
+      ]
+    },
+    "openrouteservice": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "mcp/ors",
+        "python",
+        "server.py"
+      ],
+      "disabled": false,
+      "autoApprove": [
+        "calculate_route",
+        "geocode",
+        "driving_time",
+        "distance_matrix"
+      ],
+      "disabledTools": []
+    },
+    "wikivoyage": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "mcp/wikivoyage",
+        "python",
+        "server.py"
+      ],
+      "disabled": false,
+      "autoApprove": [
+        "search_destinations",
+        "get_article",
+        "get_section",
+        "get_article_sections",
+        "search_nearby"
+      ]
+    },
+    "waymarkedtrails": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "mcp/waymarkedtrails",
+        "python",
+        "server.py"
+      ],
+      "disabled": false,
+      "autoApprove": [
+        "search_routes",
+        "get_route_details",
+        "search_routes_in_region",
+        "get_route_segments"
+      ]
+    },
+    "osrm": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "mcp/osrm",
+        "python",
+        "server.py"
+      ],
+      "disabled": false,
+      "autoApprove": [
+        "calculate_car_route",
+        "route_to_gpx"
+      ]
+    },
+    "serpapi-flights": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "mcp/serpapi-flights",
+        "python",
+        "server.py"
+      ],
+      "disabled": false,
+      "autoApprove": [
+        "search_flights",
+        "search_airport"
+      ]
+    },
+    "tavily": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "mcp/tavily",
+        "python",
+        "server.py"
+      ],
+      "disabled": false,
+      "autoApprove": [
+        "web_search",
+        "web_extract"
+      ]
+    },
+    "travel-content": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "mcp/travel-content",
+        "python",
+        "server.py"
+      ],
+      "disabled": false,
+      "autoApprove": [
+        "search_travel_articles",
+        "search_travel_videos",
+        "extract_route_tips"
+      ]
+    },
+    "travel-videos": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "mcp/travel-videos",
+        "python",
+        "server.py"
+      ],
+      "disabled": false,
+      "autoApprove": [
+        "search_travel_videos",
+        "get_video_transcript",
+        "search_and_transcribe"
+      ]
+    },
+    "podcasts": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "mcp/podcasts",
+        "python",
+        "server.py"
+      ],
+      "disabled": false,
+      "autoApprove": [
+        "search_podcasts",
+        "search_podcast_episodes",
+        "get_podcast_episodes",
+        "get_episode_transcript"
+      ]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "GPX Consistency Check",
+      "description": "When a GPX file in trips/bike/gpx/ or trips/hike/gpx/ is edited, reminds the agent to re-render the map and elevation profile, and update the distance in the corresponding tour markdown.",
+      "trigger": "PostFileSave",
+      "matcher": "(trips/bike/gpx/[^/]*\\.gpx$|trips/hike/gpx/[^/]*\\.gpx$)",
+      "action": {
+        "type": "agent",
+        "prompt": "A GPX file was modified. To keep tour artifacts consistent, you MUST:\n1. Re-render the route map (with POI markers) via mcp_brouter_render_gpx_map\n2. Re-render the elevation profile via mcp_brouter_render_elevation_profile\n3. Check the total distance in the GPX and update the corresponding tour markdown if it changed (Distanz field + segment distances)\n4. Update the tour catalog index (trips/bike/README.md or trips/hike/README.md) if the distance changed\n\nDo NOT skip any of these steps. Use absolute paths for all render calls."
+      },
+      "enabled": true
+    }
+  ]
+}

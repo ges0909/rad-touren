@@ -1,0 +1,22 @@
+[project]
+name = "serpapi-flights-mcp"
+version = "1.0.0"
+description = "MCP server for flight search via SerpAPI Google Flights"
+requires-python = ">=3.11"
+dependencies = [
+    "fastmcp",
+    "httpx",
+    "python-dotenv",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "respx",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+asyncio_mode = "auto"

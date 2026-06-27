@@ -1,0 +1,22 @@
+[project]
+name = "overpass-mcp"
+version = "1.0.0"
+description = "MCP server for POI search along cycling routes via Overpass API (OpenStreetMap)"
+requires-python = ">=3.11"
+dependencies = [
+    "fastmcp",
+    "httpx",
+    "gpxpy",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "respx",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+asyncio_mode = "auto"

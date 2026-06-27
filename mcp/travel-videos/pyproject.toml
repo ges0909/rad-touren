@@ -1,0 +1,23 @@
+[project]
+name = "travel-videos-mcp"
+version = "1.0.0"
+description = "MCP server for searching travel videos and extracting YouTube transcripts"
+requires-python = ">=3.11"
+dependencies = [
+    "fastmcp",
+    "httpx",
+    "python-dotenv",
+    "youtube-transcript-api>=0.6.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "respx",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+asyncio_mode = "auto"
