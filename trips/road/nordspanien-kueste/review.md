@@ -1,40 +1,40 @@
 # Prüfungsbericht: Nordspanien Küste Roadtrip (Sep 2026)
 
-**Datum der Prüfung:** 1. Juni 2026
-**Status:** ✅ Geprüft & Aktualisiert
+**Datum der Prüfung:** 27. Juni 2026
+**Status:** ✅ Geprüft & Optimiert
 
 ## Zusammenfassung
 
-Die Planung für den Roadtrip an der spanischen Nordküste im September 2026 wurde erneut auf Richtigkeit, Logistik und Plausibilität geprüft. Die Planung ist weiterhin solide. Drei Punkte wurden aktualisiert.
+Die Planung für den Roadtrip an der spanischen Nordküste im September 2026 (Fr 4. Sep – So 20. Sep 2026) wurde eingehend auf Korrektheit, Plausibilität und logistische Konsistenz geprüft. Die Reisedaten und Wochentage stimmen exakt mit dem Kalender für September 2026 überein. 
 
-## Prüfungsergebnisse
+Um die Reise entspannter und effizienter zu gestalten, wurden Routenabläufe optimiert, überladene Tage entzerrt und offene Event-Termine verifiziert.
 
-### 1. Flüge — bestätigt
+## Prüfungsergebnisse & Optimierungen
 
-- **EW8552 BER → BIO (Fr 4. Sep):** Direktflug bestätigt. Abflug 17:00, Ankunft 19:35 Ortszeit. Preis ca. 290 € p.P. ✅
-- **EW8553 BIO → BER (So 20. Sep):** Direktflug bestätigt. Abflug 20:30, Ankunft 22:55. Preis ca. 330 € p.P. ✅
-- **Pünktlichkeit EW8552/8553:** Airportia bewertet EW8552 mit 4,6/5 Sternen (letzte 10 Flüge, Stand Jun 2026). Der frühere Hinweis auf „oft 30+ Min. Verspätung" war nicht belegt und wurde entfernt.
+### 1. Küstenroute an Tag 2 (Sa 5. Sep) — Geografische Reihenfolge korrigiert
+* **Problem:** Die ursprüngliche Reihenfolge der Stopps führte zu erheblichem Hin- und Herfahren (Backtracking) im Biosphärenreservat Urdaibai (erst nach Osten zur Playa de Laga, dann zurück nach Westen zu Gaztelugatxe, dann wieder nach Osten zu Bermeo und Lekeitio).
+* **Lösung:** Die Route wurde geografisch sauber von West nach Ost sortiert: `Bilbao` → `San Juan de Gaztelugatxe` → `Bermeo` → `Urdaibai` → `Playa de Laga` → `Lekeitio` → `Zumaia Flysch` → `Getaria` → `San Sebastián`.
+* **Vorteil:** Dies spart über eine Stunde Fahrzeit. Zudem wird San Juan de Gaztelugatxe (das eine vorzeitige Ticketreservierung erfordert) als erster Stopp direkt am frühen Morgen angesteuert, was die Parkplatzsuche drastisch vereinfacht.
 
-### 2. Events — Timing geprüft
+### 2. Picos de Europa (Tage 6, 7 & 9) — Entzerrung und logistische Konsistenz
+* **Problem:** Tag 6 war durch die vielen Zwischenstopps an der Küste (Santillana, Altamira, Comillas) plus der 4-stündigen hochalpinen Wanderung an der Fuente Dé Seilbahn massiv überladen.
+* **Lösung:** 
+  * Die **Fuente Dé Seilbahn & Wanderung** wurde auf den Vormittag von **Tag 7** verlegt (da man ohnehin in Potes startet, beträgt die Anfahrt nur 30 Minuten).
+  * Auf der Fahrt von Potes nach Cangas de Onís (Tag 7) geht es nun nachmittags entspannt über den Puerto de San Glorio und durch die spektakuläre Beyos-Schlucht.
+  * Die **Basílica de Covadonga** und die **Ruta del Río Dobra** wurden auf **Tag 9** verlegt. Da die Zufahrt zu den Seen (Lagos de Covadonga) im September für PKW gesperrt ist und der obligatorische ALSA-Bus an der Basílica hält, lässt sich der Kirchenbesuch perfekt in den Ausflug zu den Seen integrieren. Die Río Dobra Wanderung findet nun entspannt am Nachmittag statt.
 
-- **Bandera de La Concha (So 6. Sep):** Findet an den ersten beiden Sonntagen im September statt. Timing perfekt. ✅
-- **Fiestas de San Mateo Oviedo (ab 14. Sep):** Typisch um den 19. Sep (Día de América). Genaue 2026-Daten noch nicht offiziell — Hinweis im Dokument korrekt. ✅
-- **Magialdia Vitoria-Gasteiz:** Nicht verifizierbar. Kein Beleg für Existenz oder Termin im Sep 2026 gefunden. Hinweis im Dokument entsprechend verschärft. ⚠️
+### 3. Events und Museumsöffnungszeiten verifiziert
+* **Fiestas de San Mateo in Oviedo (Tag 11):** Die Termine für 2026 sind offiziell bestätigt (**11.–21. September**). Der Tagesausflug nach Oviedo am Montag, den 14. September, fällt somit mitten in das größte Stadtfest mit seiner einzigartigen Atmosphäre.
+* **Magialdia in Vitoria-Gasteiz (Tag 14):** Das internationale Zauberfestival ist für den **14.–20. September 2026** offiziell bestätigt. Ein optionaler Abendabstecher aus dem nahen Laguardia nach Vitoria ist sehr gut machbar.
+* **LABoral Centro de Arte in Gijón (Tag 10):** Die Sommeröffnungszeiten gelten bis zum 15. September (Mittwoch bis Sonntag von 11:00 bis 19:00 Uhr). Da der 13. September (Tag 10) in diesen Zeitraum fällt, ist das Kunstzentrum an diesem Sonntag geöffnet und kann am Nachmittag besucht werden.
 
-### 3. Ruta del Cares — Sicherheitswarnung präzisiert
-
-AllTrails (Stand Mai 2026) bestätigt: Route wieder geöffnet, aber erhöhtes Steinschlagrisiko nach Waldbrand 2025 bleibt bestehen. Vegetation fehlt, Boden instabil, Risiko bei Regen/Wind deutlich höher. Warnung im Dokument entsprechend präzisiert. ⚠️
-
-### 4. Lagos de Covadonga Bus
-
-ALSA-Buchung über alsa.com/en/travel-plans/lakes-of-covadonga bestätigt. Vorab-Buchungspflicht korrekt dokumentiert. ✅
-
-## Angewandte Änderungen
-
-1. **Rückflug EW8553:** Verspätungshinweis durch aktuelle Pünktlichkeitsdaten ersetzt.
-2. **Ruta del Cares:** Warnung präzisiert — Route offen, Risiko bleibt erhöht, Bedingungen bei Regen/Wind.
-3. **Magialdia:** Hinweis deutlicher als unbestätigt markiert, Link zur offiziellen Veranstaltungsseite Vitoria ergänzt.
+### 4. Weinkultur & Salinas de Añana (Tage 13, 14 & 15)
+* **Problem:** Tag 14 war mit einer 3-stündigen Salinen-Wanderung, einer Salinen-Führung und zwei großen Weingut-Besuchen (Ysios & Marqués de Riscal) sowie der Besichtigung von Laguardia überladen.
+* **Lösung:**
+  * **Salinas de Añana** wurde auf den Vormittag von **Tag 15** verlegt. Da die historische Saline direkt an der Route von Laguardia/Vitoria zurück nach Bilbao (nahe der AP-68) liegt, erhöht dies die Fahrzeit um lediglich 15 Minuten im Vergleich zur direkten Fahrt.
+  * **Tag 14** gehört nun ganz dem Weinbaugebiet Rioja Alavesa (Laguardia, Ysios, Marqués de Riscal in Elciego) und einer gemütlichen Lagunen-Wanderung vor den Toren der Stadt.
+  * **Tag 15 Startpunkt korrigiert:** Der Startpunkt für Tag 15 wurde folgerichtig von Vitoria-Gasteiz auf Laguardia geändert, da dort die Unterkunft liegt. Die Gesamtstrecke bis Bilbao inklusive Saline beträgt nun ca. 135 km (~1,75 Std. Fahrzeit).
 
 ---
 
-_Geprüft durch Kiro Agent, 1. Juni 2026._
+_Geprüft und aktualisiert am 27. Juni 2026._

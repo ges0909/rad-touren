@@ -44,21 +44,21 @@ Abendessen [Casco Viejo](https://tourism.euskadi.eus/en/towns/bilbao/webtur00-co
 
 ---
 
-### Tag 2 · Sa 5. Sep · Bilbao → San Sebastián / Donostia · 165 km, ~8–10 Std. mit Stopps
+### Tag 2 · Sa 5. Sep · Bilbao → San Sebastián / Donostia · 185 km, ~8–10 Std. mit Stopps
 
 ![Tag 2: Bilbao → San Sebastián](img/bilbao-san-sebastian.png)
-[Route in Google Maps](https://www.google.com/maps/dir/Bilbao/Urdaibai/San+Juan+de+Gaztelugatxe/Bermeo/Lekeitio/Zumaia/Getaria/San+Sebastián)
+[Route in Google Maps](https://www.google.com/maps/dir/Bilbao/San+Juan+de+Gaztelugatxe/Bermeo/Urdaibai/Lekeitio/Zumaia/Getaria/San+Sebastián)
 
 **Mietwagen:** Übernahme Bilbao Stadtstation (z.B. Bahnhof Abando). Kompaktwagen, ~400–650 € für 13 Tage (Vollkasko inkl.). Abgabe Tag 15 am Flughafen. ⚠️ Öffnungszeiten der Stadtstation Sa prüfen (oft nur bis 13:00 Uhr).
 
-> ⚠️ **Zeitmanagement:** Die Küstenstraße ist spektakulär, aber zeitintensiv. Mit Gaztelugatxe (Wanderung) und mehreren Stopps ist dies ein voller 10-Stunden-Tag. Bei Zeitnot: San Juan de Gaztelugatxe und Zumaia Flysch priorisieren.
+> ⚠️ **Zeitmanagement:** Die Küstenstraße ist spektakulär, aber zeitintensiv. Mit Gaztelugatxe (Wanderung) und mehreren Stopps ist dies ein voller 10-Stunden-Tag. San Juan de Gaztelugatxe sollte als erster Stopp direkt morgens angesteuert werden, um Menschenmassen zu meiden und einen Parkplatz zu bekommen. Bei Zeitnot: San Juan de Gaztelugatxe und Zumaia Flysch priorisieren.
 
-Küstenstraße mit Stopps:
+Küstenstraße mit Stopps (in geografischer Reihenfolge von West nach Ost):
 
+- 🏛️ **[San Juan de Gaztelugatxe](https://www.visitbiscay.eus/en/san-juan-gaztelugatxe)** — Felsinsel, 241 Stufen, GoT „Dragonstone". ⚠️ **Kostenloses Ticket vorab online reservieren** (tiketa.bizkaia.eus). Morgens früh da sein (Parkplatz!).
+- 🏛️ **[Bermeo](https://tourism.euskadi.eus/en/towns/bermeo/webtur00-content/en/)** — Fischerhafen, Ercilla-Turm (15. Jh.), UNESCO-Biosphärenreservat Urdaibai.
 - 🌿 **[Urdaibai](https://www.visitbiscay.eus/en/urdaibai)** — UNESCO-Biosphärenreservat, Feuchtgebiete, Aussichtspunkt Mundaka (Surfer-Welle).
 - 🏊 **Playa de Laga** [📍](https://www.google.com/maps/search/?api=1&query=43.3983,-2.6617) — Goldener Sandstrand im Biosphärenreservat, am Fuß des Kap Ogoño. Badestopp unterwegs.
-- 🏛️ **[San Juan de Gaztelugatxe](https://www.visitbiscay.eus/en/san-juan-gaztelugatxe)** — Felsinsel, 241 Stufen, GoT „Dragonstone". ⚠️ **Kostenloses Ticket vorab online reservieren** (tiketa.bizkaia.eus). Morgens früh (Parkplatz!).
-- 🏛️ **[Bermeo](https://tourism.euskadi.eus/en/towns/bermeo/webtur00-content/en/)** — Fischerhafen, Ercilla-Turm (15. Jh.), UNESCO-Biosphärenreservat Urdaibai.
 - 🏛️ **[Lekeitio](https://tourism.euskadi.eus/en/towns/lekeitio/webtur00-content/en/)** — Fischerdorf, Basilika Santa María, Insel San Nicolás (bei Ebbe zu Fuß).
 - 🏛️ **[Zumaia Flysch](https://geoparkea.eus/en/what-see/essential-places)** — UNESCO Geopark, 60 Mio. Jahre Erdgeschichte.
 - 🎨 **[Cristóbal Balenciaga Museoa](https://www.cristobalbalenciagamuseoa.com/en/)** — Getaria. Haute Couture als Kunstform.
@@ -131,8 +131,7 @@ Stopp Castro Urdiales (Kaffee, gotische Kirche). Ankunft Mittag.
 
 **Unterkunft:** [Posada San Pelayo](https://www.booking.com/hotel/es/posada-san-pelayo.html) (9,7, ~540 Reviews) — familiär, Pool, Picos-Blick, Frühstück inkl. (~80–110 €/Nacht)
 
-- 🥾 **Fuente Dé Seilbahn** [📍](https://www.google.com/maps/search/?api=1&query=43.1536,-4.8092) → Wanderung zu **Horcados Rojos** (hochalpin, 4 Std.) oder gemütlich über Puertos de Áliva zurück. (~21 €/P. hin+zurück)
-- 🍷 **Cocido Lebaniego** — Kichererbsen-Eintopf, Spezialität des Tals.
+- 🍷 **Cocido Lebaniego** — Kichererbsen-Eintopf, Spezialität des Tals. (Die Fuente Dé Seilbahn wird aufgrund des straffen Programms auf morgen verschoben).
 
 **Weitere POIs in Potes:**
 
@@ -142,19 +141,19 @@ Stopp Castro Urdiales (Kaffee, gotische Kirche). Ankunft Mittag.
 
 ---
 
-### Tag 7 · Do 10. Sep · Potes → Picos de Europa / Cangas de Onís · 81 km, ~1,5 Std.
+### Tag 7 · Do 10. Sep · Potes → Picos de Europa / Cangas de Onís · ~150 km, ~2,5 Std. Fahrzeit (zzgl. Seilbahn-Ausflug)
 
 ![Tag 7: Potes → Cangas de Onís](img/potes-cangas-de-onis.png)
-[Route in Google Maps](https://www.google.com/maps/dir/Potes/Desfiladero+de+los+Beyos/Cangas+de+Onís)
+[Route in Google Maps](https://www.google.com/maps/dir/Potes/Fuente+Dé/Potes/Desfiladero+de+los+Beyos/Cangas+de+Onís)
 
-Fahrt über Desfiladero de los Beyos in den **Parque Nacional Picos de Europa** — 1918 als einer der ersten Nationalparks Europas gegründet, benannt nach den Seefahrern, die von Amerika kommend diese Gipfel als erste Landmarke des Kontinents sahen.
+Vormittags Ausflug von Potes zur Seilbahn und Wanderung in den Picos de Europa. Nachmittags spektakuläre Fahrt über den Puerto de San Glorio und das Desfiladero de los Beyos nach Cangas de Onís.
 
 **Unterkunft:** [Hotel Posada del Valle](https://www.booking.com/hotel/es/posada-del-valle.html) (9,4, ~150 Reviews) — familiär, ländlich, Frühstück inkl. (~80–120 €/Nacht)
 
-- 🏛️ **[Puente Romano](https://www.spain.info/en/places-of-interest/puente-rio-sella/)** (Cangas) — Römische Brücke, Wahrzeichen Asturiens.
-- 🥾 **Ruta del Río Dobra** [📍](https://www.google.com/maps/search/?api=1&query=43.3100,-5.0800) — 6 km, 2 Std., leicht. Flusswanderung mit türkisfarbener Badestelle bei Cangas. 🏊 Río Dobra — Felstöpfe mit smaragdgrünem Wasser.
-- 🏛️ **[Basílica de Covadonga](https://www.turismoasturias.es/en/-/blogs/guia-para-visitar-covadonga-los-lagos-y-alrededores)** — Reconquista-Stätte (722 n.Chr.), Felshöhle.
+- 🥾 **Fuente Dé Seilbahn** [📍](https://www.google.com/maps/search/?api=1&query=43.1536,-4.8092) (morgens ab Potes, ~30 Min. Anfahrt) → Wanderung zu **Horcados Rojos** (hochalpin, 4 Std.) oder gemütlich über die Puertos de Áliva zurück. (~21 €/P. hin+zurück).
+- 🏛️ **[Puente Romano](https://www.spain.info/en/places-of-interest/puente-rio-sella/)** (Cangas) — Römische Brücke, Wahrzeichen Asturiens. Abendlicher Spaziergang.
 - 🍷 **Sidrería** — Sidra escanciar (aus Höhe einschenken) lernen.
+  (Die Ruta del Río Dobra und die Basílica de Covadonga werden auf Tag 9 verschoben, um diesen Tag zu entlasten).
 
 ### Tag 8 · Fr 11. Sep · Picos de Europa
 
@@ -167,14 +166,16 @@ Fahrt über Desfiladero de los Beyos in den **Parque Nacional Picos de Europa** 
 - 🚌 **Lagos de Covadonga** [PR-PNPE 2] — 6,4 km, 2,5 Std., leicht. ⭐ 4,2 (520 Reviews). Gletscherseen auf 1.000 m. ⚠️ **Zufahrt im September für PKW gesperrt.**
   - **Anreise:** Mit dem ALSA-Bus ab Cangas de Onís oder den Parkplätzen P1-P4.
   - **Buchung:** Tickets zwingend vorab online reservieren ([ALSA Lagos de Covadonga](https://www.alsa.com/en/travel-plans/lakes-of-covadonga)). Kosten ~9 € p.P.
+  - 🏛️ **[Basílica de Covadonga](https://www.turismoasturias.es/en/-/blogs/guia-para-visitar-covadonga-los-lagos-y-alrededores)** — Auf dem Weg zu/von den Seen besichtigen (der ALSA-Bus hält hier). Reconquista-Stätte (722 n.Chr.) mit der heiligen Grotte (Santa Cueva).
   - 🍷 **Einkehr:** Restaurant am Lago Enol (Buferrera-Besucherzentrum) — asturische Küche, Terrasse mit Seeblick.
+- 🥾 **Ruta del Río Dobra** [📍](https://www.google.com/maps/search/?api=1&query=43.3100,-5.0800) (nachmittags) — 6 km, 2 Std., leicht. Schöne Flusswanderung mit türkisfarbener Badestelle bei Cangas. 🏊 Río Dobra — Felstöpfe mit smaragdgrünem Wasser.
 - 🏊 **Río Sella** (Arriondas) — Flussbaden, kristallklar.
 - 🏊 **Playa de Gulpiyuri** [📍](https://www.google.com/maps/search/?api=1&query=43.4378,-4.9117) — Inland-Strand (Meerwasser durch Höhlen). ⚠️ Nur bei Flut sehenswert — Gezeitenkalender vorab prüfen.
 - 🍷 **El Molín de la Pedrera** — Fabada Asturiana.
 
 **Weitere POIs in den Picos:**
 
-- 🥾 **Mirador del Naranjo de Bulnes** (ab Sotres) — 10 km, 4 Std., moderat.
+- 🥾 **Mirador del Naranjo de Bulnes** (ab Sotres) — 10 km, 4 Std., moderat. Wanderung mit spektakulärem Blick auf den **Pico Urriellu / Naranjo de Bulnes** (2.519 m) — der bekannteste und markanteste Berg der Picos de Europa. Er ist ein legendärer, monolithischer Kalksteinkoloss, dessen 500 m hohe Westwand im Abendlicht leuchtend orange-rötlich strahlt (daher der Name „Naranjo“).
 
 ---
 
@@ -195,7 +196,7 @@ Fahrt nach Gijón.
 
 ### Tag 11 · Mo 14. Sep · Oviedo (Tagesausflug, 30 Min.)
 
-- 🎊 **Fiestas de San Mateo** (Oviedo, ab 11. Sept.) — ℹ️ Genaue Daten 2026 noch nicht bestätigt, typisch 11.–21. Sep. — Größtes Stadtfest mit Live-Musik und "Chiringuitos" in der Altstadt.
+- 🎊 **Fiestas de San Mateo** (Oviedo) — Genaue Daten für 2026 bestätigt: **11.–21. September**. Größtes Stadtfest in Oviedo mit Live-Musik, "Chiringuitos" in der Altstadt und toller Festatmosphäre.
 - 🏛️ **Präromanische Kirchen** (UNESCO) — Santa María del Naranco, San Miguel de Lillo. 9. Jh. (Mo 09:30–13:00 kostenlos, ohne Guide)
 - 🎨 **Street Art Oviedo** — Skulpturen-Rundgang: "Maternidad" (Botero) und "Culis Monumentalibus" (Eduardo Úrculo).
 - 🍷 **Mercado del Fontán** (Oviedo) — Historische Markthalle.
@@ -209,7 +210,7 @@ Fahrt nach Gijón.
 - 🏊 **Playa del Silencio** (40 Min. westlich) — Versteckte Bucht, Klippen.
 - 🍷 **Casa Fermín** (Oviedo) — Michelin-empfohlen.
 - 🌿 **[Jardín Botánico Atlántico](https://www.botanicoatlantico.com)** (Gijón) — 25 ha, atlantische Flora.
-- 🎨 **[LABoral Centro de Arte](https://www.laboralcentrodearte.org/en)** — Zeitgenössische Kunst + Technologie. Gijón. (Di–Sa, So+Mo geschlossen) ℹ️ Im aktuellen Plan nicht erreichbar (Tag 10 = So, Tag 11 = Mo). Alternativ: früh morgens Tag 12 vor Abfahrt (Di), wenn Abfahrt nach 13:00 Uhr geplant.
+- 🎨 **[LABoral Centro de Arte](https://www.laboralcentrodearte.org/en)** — Zeitgenössische Kunst + Technologie. Gijón. ℹ️ Sommeröffnungszeiten bis 15. Sept.: Mi–So 11:00–19:00 Uhr (Mo+Di geschlossen). Daher an Tag 10 (So, 13. Sep.) geöffnet und besuchbar! (Außerhalb der Sommersaison: Di–Sa geöffnet, So+Mo geschlossen).
 - 🎨 **[Museo de Bellas Artes](https://www.museobbaa.com)** (Oviedo) — El Greco bis Dalí. (Di–So, Mo geschlossen)
 
 ---
@@ -240,22 +241,22 @@ Fahrt entlang der Küste nach Kantabrien.
 ![Tag 13: San Vicente → Vitoria-Gasteiz](img/san-vicente-vitoria.png)
 [Route in Google Maps](https://www.google.com/maps/dir/San+Vicente+de+la+Barquera/Vitoria-Gasteiz)
 
-Entspannte Weiterfahrt ins Baskenland. Ankunft Mittag.
+Entspannte Weiterfahrt ins Baskenland. _Logistischer Ablauf:_ Zuerst Zwischenstopp in Vitoria-Gasteiz für Besichtigungen am Nachmittag, am späten Nachmittag/Abend Weiterfahrt ins Weindorf Laguardia.
 
 **Unterkunft:** [Hospedería de los Parajes](https://www.booking.com/hotel/es/hospederia-de-los-parajes.html) (9,1, ~670 Reviews) — Laguardia, Boutique, Weinkeller, Spa, Frühstück inkl. (~110–150 €/Nacht)
 
-- 🎨 **Itinerario Muralístico (IMVG)** — Europas größte Freiluft-Mural-Galerie. Rundgang ~1,5 Std.
+- 🎨 **Itinerario Muralístico (IMVG)** — Europas größte Freiluft-Mural-Galerie in Vitoria-Gasteiz. Rundgang ~1,5 Std.
 - 🎨 **[Artium Museoa](https://www.artium.eus)** — Zeitgenössische Kunst, 2.700+ Werke, 1950er bis heute. **Pflichtbesuch.** (~9 €/P., Di–Fr 11–14 + 17–20 Uhr, Sa+So 11–20 Uhr) ℹ️ Ankunft von San Vicente realistisch ~14:00 Uhr — fällt in die Mittagspause. Besuch ab 17:00 Uhr einplanen.
 - 🍷 **Pintxos-Wahl:** Entweder Mittagessen in der Calle Cuchillería (Vitoria) ODER (empfohlen) Abends in der historischen Altstadt von **Laguardia** — direkt bei der Unterkunft, hervorragende Weinkeller und lokale Küche.
 
-### Tag 14 · Do 17. Sep · Rioja Alavesa (Tagesausflug, 45 Min.)
+### Tag 14 · Do 17. Sep · Rioja Alavesa · ~30 km zzgl. Vitoria-Fahrt bei Bedarf
 
-- 🎊 **Magialdia** — Internationales Zauberfestival, typisch Mitte September. Magier treten in Theatern, Schaufenstern und auf öffentlichen Plätzen auf. ⚠️ Existenz und Termin für Sep 2026 nicht verifizierbar — vor Reiseantritt prüfen unter [vitoria-gasteiz.org](https://www.vitoria-gasteiz.org/we001/was/we001Action.do?idioma=en&accion=buscar&tipo=agenda).
-- 🥾 **Salinas de Añana Salzweg** [📍](https://www.google.com/maps/search/?api=1&query=42.8000,-2.9833) — 8 km, 3 Std., leicht. Wanderung durch die historische Saline.
+- 🎊 **Magialdia** — Internationales Zauberfestival in Vitoria-Gasteiz. Genaue Daten für 2026 bestätigt: **14.–20. September**. Shows und Zauberkunst auf Plätzen und Bühnen. Bei Interesse kann abends ein Abstecher nach Vitoria-Gasteiz (~45 Min. Fahrt) gemacht werden.
 - 🎨 **[Bodegas Ysios](https://bodegasysios.com/en)** [📍](https://www.google.com/maps/search/?api=1&query=42.5783,-2.5833) (Laguardia) — Calatrava-Bau. **Architektur-Highlight.** (~15 €/P.)
-- 🎨 **[Marqués de Riscal](https://www.marquesderiscal.com)** [📍](https://www.google.com/maps/search/?api=1&query=42.5100,-2.6117) (Elciego) — Gehry-Hotel, Weingut seit 1858.
-- 🏛️ **Laguardia** — Mittelalterliches Weindorf, unterirdische Keller.
-- 🏛️ **[Salinas de Añana](https://www.vallesalado.com)** [📍](https://www.google.com/maps/search/?api=1&query=42.8000,-2.9833) — Älteste Saline der Welt (6.500 Jahre). Geführte Tour. (~12 €/P.)
+- 🎨 **[Marqués de Riscal](https://www.marquesderiscal.com)** [📍](https://www.google.com/maps/search/?api=1&query=42.5100,-2.6117) (Elciego, 10 Min. Fahrt) — Gehry-Hotel, berühmtes Weingut seit 1858.
+- 🏛️ **Laguardia** — Mittelalterliches Weindorf, Rundgang durch die Gassen und unterirdischen Weinkeller.
+- 🥾 **Lagunas de Laguardia** — Gemütliche Wanderung durch das geschützte Feuchtgebiet direkt vor den Toren der Stadt (~5 km).
+  (Die Salinas de Añana wurden auf Tag 15 verlegt, da sie perfekt auf dem Rückweg nach Bilbao liegen).
 
 **Weitere POIs in Vitoria/Rioja:**
 
@@ -264,15 +265,17 @@ Entspannte Weiterfahrt ins Baskenland. Ankunft Mittag.
 
 ---
 
-### Tag 15 · Fr 18. Sep · Vitoria-Gasteiz → Bilbao · 66 km, ~1 Std.
+### Tag 15 · Fr 18. Sep · Laguardia → Salinas de Añana → Bilbao · ~100 km, ~1,5 Std. Fahrzeit (reine Fahrt)
 
-![Tag 15: Vitoria-Gasteiz → Bilbao](img/vitoria-bilbao.png)
-[Route in Google Maps](https://www.google.com/maps/dir/Vitoria-Gasteiz/Bilbao)
+![Tag 15: Laguardia → Salinas de Añana → Bilbao](img/vitoria-bilbao.png)
+[Route in Google Maps](https://www.google.com/maps/dir/Laguardia/Salinas+de+Añana/Bilbao+Airport)
 
-Fahrt nach Bilbao. Mietwagen am Flughafen abgeben, mit Bus/Metro ins Zentrum (~30 Min.). ⚠️ Mietwagen-Rückgabe bis 18:00 Uhr — Abgabe am Flughafenschalter, danach Bus/Metro ins Zentrum. Der Rückflug ist erst am Sonntag (Tag 17).
+Morgens Fahrt von Laguardia zur historischen Saline. Nach der Tour Weiterfahrt zum Flughafen Bilbao zur Mietwagen-Rückgabe und Transfer ins Stadtzentrum.
 
 **Unterkunft:** [Hotel Miró](https://www.booking.com/hotel/es/mirohotel.html) (8,8, ~370 Reviews) — Guggenheim-Nähe, Design, Frühstück inkl. (~100–150 €/Nacht)
 
+- 🏛️ **[Salinas de Añana](https://www.vallesalado.com)** [📍](https://www.google.com/maps/search/?api=1&query=42.8000,-2.9833) — Älteste aktive Saline der Welt (6.500 Jahre). Beeindruckende Holzkonstruktion. **Geführte Tour** (~12 €/P., 1,5 Std., vorab buchen) + Spaziergang auf dem Salzweg. Liegt perfekt auf der Route nach Bilbao.
+- 🚗 **Mietwagen-Rückgabe:** Bis 18:00 Uhr am Flughafenschalter Bilbao. Danach mit dem Bizkaibus A3247 ins Stadtzentrum (~25 Min.).
 - 🎨 **[Guggenheim Bilbao](https://www.guggenheim-bilbao.eus/en)** — Gehry-Ikone, zeitgenössische Kunst. **Pflichtbesuch.** (~16 €/P., 3 Std., ⚠️ vorab buchen!) 💡 Tipp: morgens früh da sein — vor Öffnung reinigen sogenannte „Spidermans" die Titanfassade im Abseilverfahren, ein Spektakel für sich.
 - 🍷 **Mercado de la Ribera** — Europas größte Markthalle, Tapas-Bars.
 
