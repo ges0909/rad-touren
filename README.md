@@ -1,14 +1,14 @@
-# 🗺️ Gerrit on Tour — Cycling, Hiking & Roadtrips
+# 🗺️ Gerrit on Tour — Biking, Hiking & Roadtrips
 
 AI-powered tour planning with custom MCP servers for routing, weather, POIs, public transit, and travel guide content.
 
 | Category     | Description                                         | Status  |
 | ------------ | --------------------------------------------------- | ------- |
-| 🚴 Cycling   | Day trips in Berlin/Brandenburg via regional trains | Active  |
+| 🚴 Biking    | Day trips in Berlin/Brandenburg via regional trains | Active  |
 | 🥾 Hiking    | Day hikes in Berlin/Brandenburg                     | Planned |
 | 🚗 Roadtrips | Multi-day car rental trips across Europe            | Active  |
 
-**→ [Cycling Tours](trips/bike/README.md)** · **→ [Hiking Tours](trips/hike/README.md)** · **→ [Roadtrips](trips/road/README.md)**
+**→ [Biking Tours](trips/bike/README.md)** · **→ [Hiking Tours](trips/hike/README.md)** · **→ [Roadtrips](trips/road/README.md)**
 
 ---
 
@@ -17,9 +17,9 @@ AI-powered tour planning with custom MCP servers for routing, weather, POIs, pub
 Two ways to plan tours:
 
 1. **In Kiro** (primary) — open this project in [Kiro](https://kiro.dev), type a prompt, and the MCP servers + steering files turn Kiro into a specialized tour planner. Results land as Markdown + GPX in `trips/`.
-2. **Web App** (spin-off) — a standalone chat UI that uses the same MCP servers and steering files, accessible without Kiro via browser.
+2. **Web App** (spin-off) — a standalone browser UI powered by **Google Gemini 2.5 Flash** as the LLM agent, replicating the same planning workflow accessible without Kiro.
 
-A single prompt like _"Plan a 50 km cycling tour through the Spreewald with swimming stops"_ or _"Plan a 2-week road trip along the Sardinian coast"_ produces complete tours — route, map, POIs, weather, accommodations, and travel connections.
+A single prompt like _"Plan a 50 km bike tour through the Spreewald with swimming stops"_ or _"Plan a 2-week road trip along the Sardinian coast"_ produces complete tours — route, map, POIs, weather, accommodations, and travel connections.
 
 ## Architecture
 
@@ -39,7 +39,7 @@ A single prompt like _"Plan a 50 km cycling tour through the Spreewald with swim
 │  │ MCP Manager (subprocess)    │     │          │
 │  │ 9 servers, lazy spawn       │     │          │
 │  └─────────────────────────────┘     │          │
-└──────────────────────────────────────────────────┘
+└─────────────────────────────────────────────────┘
 ```
 
 The LLM is both **planner** and **author**: it reads steering files, calls tools for facts (coordinates, distances, weather), and synthesizes everything into a coherent tour document.
@@ -93,13 +93,13 @@ Thirteen Python servers (FastMCP + httpx), spawned as subprocesses via stdio JSO
 
 | Server                                    | Purpose                                          | API                                                                                                                           |
 | ----------------------------------------- | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| [`brouter`](mcp/brouter/)                 | Cycling/hiking routing, geocoding, map rendering | [BRouter](https://brouter.de) + [Nominatim](https://nominatim.openstreetmap.org)                                              |
-| [`ors`](mcp/ors/)                         | Car/cycling/walking routing, isochrones, matrix  | [OpenRouteService](https://openrouteservice.org/)                                                                             |
+| [`brouter`](mcp/brouter/)                 | Bike/hiking routing, geocoding, map rendering    | [BRouter](https://brouter.de) + [Nominatim](https://nominatim.openstreetmap.org)                                              |
+| [`ors`](mcp/ors/)                         | Car/bike/walking routing, isochrones, matrix     | [OpenRouteService](https://openrouteservice.org/)                                                                             |
 | [`osrm`](mcp/osrm/)                       | Car routing with road geometry + GPX export      | [OSRM](https://project-osrm.org/) (public, no key)                                                                            |
 | [`open-meteo`](mcp/open-meteo/)           | Weather forecast + geocoding                     | [Open-Meteo](https://open-meteo.com/)                                                                                         |
 | [`vbb`](mcp/vbb/)                         | Stop search, departures, journey planning        | [VBB REST](https://v6.vbb.transport.rest/)                                                                                    |
 | [`overpass`](mcp/overpass/)               | POI search along routes                          | [Overpass API](https://overpass-api.de/)                                                                                      |
-| [`waymarkedtrails`](mcp/waymarkedtrails/) | Find marked hiking & cycling routes              | [Waymarked Trails](https://waymarkedtrails.org/)                                                                              |
+| [`waymarkedtrails`](mcp/waymarkedtrails/) | Find marked hiking & biking routes               | [Waymarked Trails](https://waymarkedtrails.org/)                                                                              |
 | [`wikivoyage`](mcp/wikivoyage/)           | Travel guides, destination search, nearby search | [Wikivoyage](https://de.wikivoyage.org/)                                                                                      |
 | [`tavily`](mcp/tavily/)                   | Web search for hotels, flights, current info     | [Tavily](https://tavily.com/)                                                                                                 |
 | [`serpapi-flights`](mcp/serpapi-flights/) | Flight search via Google Flights                 | [SerpAPI](https://serpapi.com/)                                                                                               |
@@ -111,13 +111,13 @@ Thirteen Python servers (FastMCP + httpx), spawned as subprocesses via stdio JSO
 
 Steering files in `.kiro/steering/` serve as system prompt for the Gemini agent:
 
-| File                  | Scope         | Purpose                                           |
-| --------------------- | ------------- | ------------------------------------------------- |
-| `user-preferences.md` | Always        | Interests, food/accommodation rules, travel group |
-| `bike-planner.md`     | Cycling tours | Workflow, BRouter routing, VBB fares              |
-| `road-planner.md`     | Roadtrips     | Workflow, ORS/OSRM routing, buffer rules          |
-| `bike-template.md`    | Cycling tours | Output template structure                         |
-| `road-template.md`    | Roadtrips     | Output template structure                         |
+| File                  | Scope      | Purpose                                           |
+| --------------------- | ---------- | ------------------------------------------------- |
+| `user-preferences.md` | Always     | Interests, food/accommodation rules, travel group |
+| `bike-planner.md`     | Bike tours | Workflow, BRouter routing, VBB fares              |
+| `road-planner.md`     | Roadtrips  | Workflow, ORS/OSRM routing, buffer rules          |
+| `bike-template.md`    | Bike tours | Output template structure                         |
+| `road-template.md`    | Roadtrips  | Output template structure                         |
 
 ---
 
@@ -132,13 +132,13 @@ app/
 │   └── steering.py          Load steering files → system prompt
 └── frontend/                Vue 3 + Leaflet + Tailwind (TypeScript)
 mcp/
-├── brouter/                 Cycling/hiking routing + maps
+├── brouter/                 Bike/hiking routing + maps
 ├── ors/                     Car routing (OpenRouteService)
 ├── osrm/                    Car routing + GPX export (OSRM)
 ├── open-meteo/              Weather
 ├── overpass/                POI search (OpenStreetMap)
 ├── vbb/                     Public transit Berlin/Brandenburg
-├── waymarkedtrails/         Marked hiking/cycling routes
+├── waymarkedtrails/         Marked hiking/biking routes
 ├── wikivoyage/              Travel guide content
 ├── tavily/                  Web search (Tavily)
 ├── serpapi-flights/         Flight search (Google Flights)
@@ -146,7 +146,7 @@ mcp/
 ├── travel-videos/           ÖR video search + transcripts
 └── podcasts/                Podcast search + transcripts (iTunes)
 trips/
-├── bike/                    Cycling tours (per-trip folders)
+├── bike/                    Bike tours (per-trip folders)
 │   ├── README.md
 │   └── {tour-name}/
 │       ├── index.md         Tour description
