@@ -41,7 +41,7 @@ Open this project in [Kiro](https://kiro.dev) and type your tour request:
 
 1. **MCP servers** provide data via tool calling (routing, weather, POIs, transit)
 2. **Steering files** guide the planning workflow (preferences, output format, rules)
-3. **Gemini 2.5 Flash** orchestrates everything and writes the tour document
+3. **Kiro's LLM** orchestrates everything and writes the tour document
 4. Results are saved as Markdown + GPX in `trips/{bike|road}/{tour-name}/`
 
 The LLM is both **planner** and **author** — it doesn't just route, it researches, prioritizes, and writes cohesive tour descriptions.
