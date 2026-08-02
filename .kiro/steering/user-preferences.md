@@ -3,6 +3,37 @@ inclusion: fileMatch
 fileMatchPattern: "trips/**"
 ---
 
+# Reiseplanung mit Gerrit on Tour
+
+Persönliche Vorgaben für die Planung von Radtouren, Roadtrips und Wanderungen.
+
+## Home Base & Travel Group
+
+- **Home base:** S Blankenfelde (TF) Bhf, Berlin
+- **Reisegruppe:** 2 Personen
+
+## Tour-Typen
+
+| Type         | Area                                             | Status  |
+| ------------ | ------------------------------------------------ | ------- |
+| 🚴 Cycling   | Berlin/Brandenburg day trips via regional trains | Active  |
+| 🥾 Hiking    | Berlin/Brandenburg day hikes                     | Planned |
+| 🚗 Roadtrips | Multi-day car trips across Europe                | Active  |
+
+## Output-Format
+
+Jede Tour-Anfrage produziert:
+
+- Markdown-Dokument (`trips/{type}/{tour-name}/index.md`)
+- GPX-Track(s) (`gpx/{segment-name}.gpx`)
+- Routenkarte als PNG (`img/route-map.png`)
+- Höhenprofil als PNG (`img/elevation-profile.png`, nur Cycling)
+- Wetter-Prognose (nur Roadtrips)
+- ÖPV-Verbindungen (nur Cycling)
+- POIs entlang der Route
+
+---
+
 # User Preferences
 
 Single source of truth for personal defaults across all tour types (cycling, hiking, roadtrips). Domain-specific steering files reference and extend these rules.

@@ -1,3 +1,8 @@
+---
+inclusion: fileMatch
+fileMatchPattern: ["app/**", "mcp/**", "docs/**", "scripts/**", ".kiro/**"]
+---
+
 # Project Structure
 
 ```

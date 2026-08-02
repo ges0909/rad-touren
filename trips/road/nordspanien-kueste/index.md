@@ -1,7 +1,7 @@
 ---
 ---
 
-# Nordspanien Küste Roadtrip
+# Nordspanien
 
 **Reisezeitraum:** Fr 4. September – So 20. September 2026 · 17 Tage · ~1.150 km (inkl.
 Tagesausflüge) **Flug:** BER ↔ Bilbao BIO, Direktflug Eurowings (nur Mo/Fr/So,
@@ -21,17 +21,27 @@ Abendflüge) **Mietwagen:** Übernahme Sa 5. Sep (Stadtstation Bilbao) / Abgabe 
 
 ---
 
-## Flughafenshuttle
+## Übernachtungen im Überblick
 
-- [Línea Bizkaibus A3247 - Bilbao - Aireportua/Aeropuerto](https://www.enbizkaia.com/articulo/servicios/linea-bizkaibus-a3247-bilbao-aireportua-aeropuerto/20230213135959014770.html)
-- Bushaltestelle vor dem Ausgang der Ankunftshalle
-- Barik-Karte: Verkaufsstelle innerhalb des Terminals in der Nähe des Ausgangs, 3 EUR +
-  Guthaben
-- Dauer der Fahrt in die Innenstadt: 20 -30 min
+| Datum               | Nächte | Ort                     | Unterkunft                                                                                 |
+| ------------------- | ------ | ----------------------- | ------------------------------------------------------------------------------------------ |
+| Fr 4. – Sa 5. Sep   | 1      | Bakio                   | [Casa Rural Lastoetxe](https://www.booking.com/hotel/es/casa-rural-lastoetxe-vizcaya.html) |
+| Sa 5. – Mo 7. Sep   | 2      | San Sebastián           | [A Room in the City](https://www.booking.com/hotel/es/a-room-in-the-city.html)             |
+| Mo 7. – Mi 9. Sep   | 2      | Santander               |                                                                                            |
+| Mi 9. – Do 10. Sep  | 1      | Potes                   | [Albergue La Cabaña](https://www.booking.com/hotel/es/albergue-la-cabana.html)             |
+| Do 10. – So 13. Sep | 3      | Cangas de Onís          | [Hotel Covadonga](https://www.booking.com/hotel/es/covadonga-cangas-de-onis.de.html)       |
+| So 13. – Di 15. Sep | 2      | Gijón                   |                                                                                            |
+| Di 15. – Do 17. Sep | 2      | San Vicente de Barquera |                                                                                            |
+| Do 17. – Sa 19. Sep | 2      | Laguardia (Rioja)       |                                                                                            |
+| Sa 19. – Mo 20. Sep | 2      | Bilbao                  |                                                                                            |
+
+**Gesamt:** 17 Nächte (4.–20. Sep 2026)
+
+---
 
 ## Reiseverlauf
 
-Bilbao → San Sebastián → Santander → Potes → Picos de Europa → Gijón/Oviedo → San
+Bilbao → Bakio (Gaztelugatxe) → San Sebastián → Santander → Potes → Picos de Europa → Gijón/Oviedo → San
 Vicente de la Barquera → Vitoria-Gasteiz/Rioja Alavesa → Bilbao
 
 > 💡 **Fahrstrecken:** Durch den Stopp in **San Vicente de la Barquera** sind alle
@@ -42,7 +52,7 @@ Vicente de la Barquera → Vitoria-Gasteiz/Rioja Alavesa → Bilbao
 
 ---
 
-### Tag 1 · Fr 4. Sep · Bilbao — Ankunft
+### Tag 1 · Fr 4. Sep · Bilbao → Bakio · 35 km, ~35 Min.
 
 **Hinflug:** BER → Bilbao (BIO), Direktflug Eurowings EW8552, ~2,5 Std. Abflug 17:00
 Uhr, Ankunft Bilbao ca. 19:35 Uhr Ortszeit (Fr).
@@ -51,65 +61,133 @@ Uhr, Ankunft Bilbao ca. 19:35 Uhr Ortszeit (Fr).
 - ℹ️ Kein Morgenflug BER→BIO verfügbar. Eurowings fliegt nur abends (Mo/Fr/So).
 - Geschätzte Kosten: ~290 € pro Person (one-way, Stand Jun 2026)
 
-**Transfer Flughafen → Zentrum:**
+**Mietwagen:** Übernahme am Flughafen Bilbao direkt nach Ankunft. Kompaktwagen,
+~400–650 € für 13 Tage (Vollkasko inkl.). Abgabe Tag 15 am Flughafen.
 
-- **Bus A3247 (Bizkaibus):** Alle 15 Min., Dauer ~25 Min. Einzelticket 4,50 €
-  (kontaktlos im Bus).
-- **Taxi:** Direkt vor der Halle, ~25–35 €, Dauer ~15 Min.
-- 💡 **Tipp:** [Barik-Guthabenkarte](https://www.ctb.eus/en/how-barik-works) (3 €) am
-  Automaten kaufen, Busfahrt kostet dann nur ~1,14 €. Karte kann zu zweit geteilt
-  werden.
+**Fahrt nach Bakio:** ~35 Min. direkt vom Flughafen. Ankunft ca. 20:30 Uhr.
 
 **Unterkunft:**
-[room Select Bilbao](https://www.booking.com/hotel/es/bilbao-jardines.html) (8,9, ~269
-Reviews) — Casco Viejo, modern, zentral (~80–110 €/Nacht)
+[Casa Rural Lastoetxe](https://www.booking.com/hotel/es/casa-rural-lastoetxe-vizcaya.html) — Landhaus bei Bakio, 10 Min. zu Gaztelugatxe
 
-Abendessen
-[Casco Viejo](https://tourism.euskadi.eus/en/towns/bilbao/webtur00-content/en/) —
-Bilbaos mittelalterliche Altstadt, Siete Calles, Pintxos-Bars an der Plaza Nueva.
+**Abendessen:** Hotel-Restaurant (regionale Küche) oder Bakio Ortskern (5 Min. zu Fuß).
 
 ---
 
-### Tag 2 · Sa 5. Sep · Bilbao → San Sebastián / Donostia · 185 km, ~8–10 Std. mit Stopps
+### Tag 2 · Sa 5. Sep · Bakio → San Sebastián / Donostia · 190 km, ~4,5 Std. Fahrzeit + Stopps (Gesamtdauer 8 Std.)
 
-![Tag 2: Bilbao → San Sebastián](img/bilbao-san-sebastian.png)
-[Route in Google Maps](https://www.google.com/maps/dir/Bilbao/San+Juan+de+Gaztelugatxe/Bermeo/Urdaibai/Lekeitio/Zumaia/Getaria/San+Sebastián)
+![Tag 2: Bakio → San Sebastián](img/bakio-san-sebastian.png)
+[Route in Google Maps](https://www.google.com/maps/dir/Bakio/San+Juan+de+Gaztelugatxe/Bermeo/Urdaibai/Playa+de+Laga/Lekeitio/Zumaia/Getaria/San+Sebastián)
 
-**Mietwagen:** Übernahme Bilbao Stadtstation (z.B. Bahnhof Abando). Kompaktwagen,
-~400–650 € für 13 Tage (Vollkasko inkl.). Abgabe Tag 15 am Flughafen. ⚠️ Öffnungszeiten
-der Stadtstation Sa prüfen (oft nur bis 13:00 Uhr).
+> ⚠️ **Gaztelugatxe-Strategie:** Ihr habt ein Backup-Ticket für 13:55 Uhr, aber die **beste Option ist der frühe Morgen**:
+>
+> - **Vor 10:00 Uhr:** Keine Zugangskontrolle → freier Zugang ohne Ticket (bestätigt durch Erfahrungsberichte)
+> - **Vorteile:** Leerer Parkplatz, keine Menschenmassen, beste Lichtverhältnisse, entspannter Tagesverlauf
+> - **Timing:** 7:15 Uhr Abfahrt vom Hotel (5 Min. Fahrt) → 7:30–9:00 Uhr Aufstieg → 9:30 Uhr zurück
+> - Falls wider Erwarten doch Kontrolle: Ticket für 13:55 Uhr als Backup nutzen
+>
+> Die Küstenstraße ist spektakulär, aber zeitintensiv. Mit mehreren Stopps ist dies ein voller 8-Stunden-Tag.
 
-> ⚠️ **Zeitmanagement:** Die Küstenstraße ist spektakulär, aber zeitintensiv. Mit
-> Gaztelugatxe (Wanderung) und mehreren Stopps ist dies ein voller 10-Stunden-Tag. San
-> Juan de Gaztelugatxe sollte als erster Stopp direkt morgens angesteuert werden, um
-> Menschenmassen zu meiden und einen Parkplatz zu bekommen. Bei Zeitnot: San Juan de
-> Gaztelugatxe und Zumaia Flysch priorisieren.
+**Empfohlene Route (Gaztelugatxe früh morgens — beste Variante!):**
 
-Küstenstraße mit Stopps (in geografischer Reihenfolge von West nach Ost):
+1. 🏛️
+   **[San Juan de Gaztelugatxe](https://www.visitbiscay.eus/en/san-juan-gaztelugatxe)**
+   (**7:30–9:00 Uhr**, 5 Min. Fahrt vom Hotel) — Felsinsel, 241 Stufen, GoT
+   „Dragonstone". **Freier Zugang vor 10:00 Uhr (keine Ticketkontrolle).**
+   - ⏰ **Timing:** 7:15 Uhr Abfahrt Hotel → 7:20 Uhr Parkplatz → 7:30–9:00 Uhr
+     Aufstieg & Abstieg
+   - 💡 **Vorteile:** Leerer Parkplatz, keine Warteschlangen, goldenes Morgenlicht,
+     entspannter restlicher Tag
+   - 🎫 **Backup:** Ticket für 13:55 Uhr falls wider Erwarten doch Kontrolle (sehr
+     unwahrscheinlich vor 10 Uhr)
+2. 🏊 **Playa de Bakio** (~9:30 Uhr) — Kaffeepause am Hotelstrand nach der Wanderung.
+3. 🏛️ **[Bermeo](https://tourism.euskadi.eus/en/towns/bermeo/webtur00-content/en/)**
+   (~10:30 Uhr, 10 Min. Fahrt) — Fischerhafen, Ercilla-Turm (15. Jh.), zweites
+   Frühstück im Hafen.
+4. 🌿 **[Urdaibai](https://www.visitbiscay.eus/en/urdaibai)** (~11:30 Uhr) —
+   UNESCO-Biosphärenreservat, Aussichtspunkt Mundaka (Surfer-Welle).
+5. 🏊 **Playa de Laga** (~12:00 Uhr)
+   [📍](https://www.google.com/maps/search/?api=1&query=43.3983,-2.6617) — Goldener
+   Sandstrand, Badestopp + Mittagspause.
+6. 🏛️ **[Lekeitio](https://tourism.euskadi.eus/en/towns/lekeitio/webtur00-content/en/)**
+   (~14:00 Uhr) — Fischerdorf, Basilika Santa María, Insel San Nicolás (bei Ebbe zu
+   Fuß).
+7. 🏛️ **[Zumaia Flysch](https://geoparkea.eus/en/what-see/essential-places)** (~15:30
+   Uhr, 1–1,5 Std.) — UNESCO Geopark, 60 Mio. Jahre Erdgeschichte in vertikalen
+   Gesteinsschichten. **Game of Thrones "Dragonstone" Kulisse.**
+   - **Playa de Itzurun** — Strand zwischen den Flysch-Formationen. ⚠️ Bei Ebbe am
+     beeindruckendsten (Nachmittags-Ebbe: ~16:00 Uhr).
+   - **Ermita de San Telmo** (1540) — Kapelle auf der Klippe, bester Panoramablick
+     (5 Min. Aufstieg vom Strand).
+   - **Optional:** Baratzazarrak Aussichtsplattform — dramatischer Blick auf die
+     höchsten Klippen (zusätzlich 15 Min. Fahrt + 10 Min. Fußweg).
+8. 🎨 **[Cristóbal Balenciaga Museoa](https://www.cristobalbalenciagamuseoa.com/en/)**
+   (~16:30 Uhr) — Getaria. Haute Couture als Kunstform.
+9. 🍷 **Getaria Hafen** (~17:00 Uhr) — Gegrillter Fisch, Txakoli-Wein.
+10. **Ankunft San Sebastián** (~18:00 Uhr)
 
-- 🏛️
-  **[San Juan de Gaztelugatxe](https://www.visitbiscay.eus/en/san-juan-gaztelugatxe)** —
-  Felsinsel, 241 Stufen, GoT „Dragonstone". ⚠️ **Kostenloses Ticket vorab online
-  reservieren** (tiketa.bizkaia.eus). Morgens früh da sein (Parkplatz!).
-- 🏛️ **[Bermeo](https://tourism.euskadi.eus/en/towns/bermeo/webtur00-content/en/)** —
-  Fischerhafen, Ercilla-Turm (15. Jh.), UNESCO-Biosphärenreservat Urdaibai.
-- 🌿 **[Urdaibai](https://www.visitbiscay.eus/en/urdaibai)** —
-  UNESCO-Biosphärenreservat, Feuchtgebiete, Aussichtspunkt Mundaka (Surfer-Welle).
-- 🏊 **Playa de Laga**
-  [📍](https://www.google.com/maps/search/?api=1&query=43.3983,-2.6617) — Goldener
-  Sandstrand im Biosphärenreservat, am Fuß des Kap Ogoño. Badestopp unterwegs.
-- 🏛️ **[Lekeitio](https://tourism.euskadi.eus/en/towns/lekeitio/webtur00-content/en/)**
-  — Fischerdorf, Basilika Santa María, Insel San Nicolás (bei Ebbe zu Fuß).
-- 🏛️ **[Zumaia Flysch](https://geoparkea.eus/en/what-see/essential-places)** — UNESCO
-  Geopark, 60 Mio. Jahre Erdgeschichte.
-- 🎨 **[Cristóbal Balenciaga Museoa](https://www.cristobalbalenciagamuseoa.com/en/)** —
-  Getaria. Haute Couture als Kunstform.
-- 🍷 **Getaria Hafen** — Gegrillter Fisch auf Holzkohle, Txakoli-Wein.
+**Alternative mit Ticket um 13:55 Uhr (falls ihr doch später starten wollt):**
+
+Falls ihr nicht so früh aufstehen wollt (oder das Wetter schlecht ist):
+
+1. 🏊 **Playa de Bakio** (~9:00 Uhr) — Entspannter Morgenstart am Hotelstrand.
+2. 🏛️ **[Bermeo](https://tourism.euskadi.eus/en/towns/bermeo/webtur00-content/en/)**
+   (~10:00 Uhr, 10 Min. Fahrt) — Fischerhafen, Ercilla-Turm (15. Jh.), Kaffee im Hafen.
+3. 🌿 **[Urdaibai](https://www.visitbiscay.eus/en/urdaibai)** (~11:00 Uhr) —
+   UNESCO-Biosphärenreservat, Aussichtspunkt Mundaka (Surfer-Welle).
+4. 🏊 **Playa de Laga** (~11:30 Uhr)
+   [📍](https://www.google.com/maps/search/?api=1&query=43.3983,-2.6617) — Goldener
+   Sandstrand, Badestopp + Mittagspause.
+5. 🏛️
+   **[San Juan de Gaztelugatxe](https://www.visitbiscay.eus/en/san-juan-gaztelugatxe)**
+   (**13:55 Uhr**) — Felsinsel mit eurem Ticket.
+6. 🏛️ **[Lekeitio](https://tourism.euskadi.eus/en/towns/lekeitio/webtur00-content/en/)**
+   (~15:30 Uhr) — Fischerdorf, Basilika Santa María, Insel San Nicolás (bei Ebbe zu
+   Fuß).
+7. 🏛️ **[Zumaia Flysch](https://geoparkea.eus/en/what-see/essential-places)** (~16:30
+   Uhr, 1–1,5 Std.) — UNESCO Geopark, 60 Mio. Jahre Erdgeschichte in vertikalen
+   Gesteinsschichten. **Game of Thrones "Dragonstone" Kulisse.**
+   - **Playa de Itzurun** — Strand zwischen den Flysch-Formationen. ⚠️ Bei Ebbe am
+     beeindruckendsten (Nachmittags-Ebbe: ~16:00 Uhr).
+   - **Ermita de San Telmo** (1540) — Kapelle auf der Klippe, bester Panoramablick
+     (5 Min. Aufstieg vom Strand).
+   - **Optional:** Baratzazarrak Aussichtsplattform — dramatischer Blick auf die
+     höchsten Klippen (zusätzlich 15 Min. Fahrt + 10 Min. Fußweg).
+8. 🎨 **[Cristóbal Balenciaga Museoa](https://www.cristobalbalenciagamuseoa.com/en/)**
+   (~17:00 Uhr) — Getaria. Haute Couture als Kunstform.
+9. 🍷 **Getaria Hafen** (~17:30 Uhr) — Gegrillter Fisch auf Holzkohle, Txakoli-Wein.
+10. **Ankunft San Sebastián** (~19:00 Uhr)
+
+**Option ohne Gaztelugatxe:**
+
+1. 🏊 **Playa de Bakio** (~9:00 Uhr) — Morgen am Hotelstrand.
+2. 🏛️ **[Bermeo](https://tourism.euskadi.eus/en/towns/bermeo/webtur00-content/en/)**
+   (~10:00 Uhr) — Fischerhafen, Kaffee.
+3. 🌿 **[Urdaibai](https://www.visitbiscay.eus/en/urdaibai)** (~11:00 Uhr) —
+   UNESCO-Biosphärenreservat, Mundaka.
+4. 🏊 **Playa de Laga** (~11:30–13:00 Uhr)
+   [📍](https://www.google.com/maps/search/?api=1&query=43.3983,-2.6617) — Ausgiebige
+   Badezeit + Mittagspause.
+5. 🏛️ **[Lekeitio](https://tourism.euskadi.eus/en/towns/lekeitio/webtur00-content/en/)**
+   (~14:00 Uhr) — Fischerdorf, Insel San Nicolás.
+6. 🏛️ **[Zumaia Flysch](https://geoparkea.eus/en/what-see/essential-places)** (~15:30
+   Uhr, 1–1,5 Std.) — UNESCO Geopark, 60 Mio. Jahre Erdgeschichte in vertikalen
+   Gesteinsschichten. **Game of Thrones "Dragonstone" Kulisse.**
+   - **Playa de Itzurun** — Strand zwischen den Flysch-Formationen. ⚠️ Bei Ebbe am
+     beeindruckendsten (Vormittags-Ebbe: ~10:30 Uhr).
+   - **Ermita de San Telmo** (1540) — Kapelle auf der Klippe, bester Panoramablick
+     (5 Min. Aufstieg vom Strand).
+   - **Optional:** Baratzazarrak Aussichtsplattform — dramatischer Blick auf die
+     höchsten Klippen (zusätzlich 15 Min. Fahrt + 10 Min. Fußweg).
+7. 🎨 **[Cristóbal Balenciaga Museoa](https://www.cristobalbalenciagamuseoa.com/en/)**
+   (~16:30 Uhr) — Getaria. Haute Couture als Kunstform.
+8. 🍷 **Getaria Hafen** (~17:00 Uhr) — Gegrillter Fisch, Txakoli-Wein.
+9. **Ankunft San Sebastián** (~18:00 Uhr)
 
 **Unterkunft:**
-[Pensión Nuevas Artes](https://www.booking.com/hotel/es/pension-bellas-artes.html) (9,1,
-~200 Reviews) oder [Hotel Parma](https://www.booking.com/hotel/es/parma.html) (8,5,
-~2.300 Reviews) — Altstadt-Nähe, Frühstück inkl. (~100–140 €/Nacht)
+[A Room in the City](https://www.booking.com/hotel/es/a-room-in-the-city.html) — Hostel in ehemaligem Kloster, zentral, 3 Min. zur Playa de La Concha, 10 Min. zur Altstadt (Location Rating 9.5/10)
+
+💡 **Tipp Option B:** Gaztelugatxe unter der Woche von San Sebastián aus als
+Tagesausflug nachholen (~1 Std. Fahrt, flexiblere Tickets, weniger Andrang).
 
 ### Tag 3 · So 6. Sep · San Sebastián
 
@@ -123,7 +201,8 @@ Küstenstraße mit Stopps (in geografischer Reihenfolge von West nach Ost):
 - 🥾 **Camino del Norte (Pasaia → San Sebastián)** — 12 km, 4 Std., moderat.
   Jakobsweg-Küstenabschnitt, spektakuläre Küstenblicke. ⚠️ One-way; Hinfahrt Bus E09
   nach Pasaia (~11 Min., alle 15 Min.,
-  [Lurraldebus/Avanza](https://gipuzkoa.avanzagrupo.com)).
+  [Lurraldebus/Avanza](https://gipuzkoa.avanzagrupo.com)). **Barik-Karte wird
+  akzeptiert** (Lurraldebus & Dbus).
   [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=1116809) ·
 - 🍷 **Parte Vieja Pintxos** — Bar Nestor (Tortilla), La Cuchara de San Telmo,
   Gandarias, Bar Zeruko.
@@ -153,10 +232,6 @@ Küstenstraße mit Stopps (in geografischer Reihenfolge von West nach Ost):
 [Route in Google Maps](https://www.google.com/maps/dir/San+Sebastián/Castro+Urdiales/Santander)
 
 Stopp Castro Urdiales (Kaffee, gotische Kirche). Ankunft Mittag.
-
-**Unterkunft:**
-[Urban Suite Santander](https://www.booking.com/hotel/es/urban-suites-santander.html)
-(8,7, ~1.100 Reviews) — Modern, zentral, nah am Centro Botín (~90–120 €/Nacht)
 
 - 🏛️ **[Palacio de la Magdalena](https://palaciomagdalena.com/en/)** — Königlicher
   Sommerpalast, Halbinsel-Rundgang.
@@ -205,10 +280,6 @@ Stopp Castro Urdiales (Kaffee, gotische Kirche). Ankunft Mittag.
   [📍](https://www.google.com/maps/search/?api=1&query=43.2283,-4.6017) — Thermalquelle
   (60°C) mitten in der Schlucht. Thermalhöhle + Außenbecken 38°C. Direkt auf der Route.
 
-**Unterkunft:**
-[Posada San Pelayo](https://www.booking.com/hotel/es/posada-san-pelayo.html) (9,7, ~540
-Reviews) — familiär, Pool, Picos-Blick, Frühstück inkl. (~80–110 €/Nacht)
-
 - 🍷 **Cocido Lebaniego** — Kichererbsen-Eintopf, Spezialität des Tals. (Die Fuente Dé
   Seilbahn wird aufgrund des straffen Programms auf morgen verschoben).
 
@@ -229,10 +300,6 @@ Reviews) — familiär, Pool, Picos-Blick, Frühstück inkl. (~80–110 €/Nach
 Vormittags Ausflug von Potes zur Seilbahn und Wanderung in den Picos de Europa.
 Nachmittags spektakuläre Fahrt über den Puerto de San Glorio und das Desfiladero de los
 Beyos nach Cangas de Onís.
-
-**Unterkunft:**
-[Hotel Posada del Valle](https://www.booking.com/hotel/es/posada-del-valle.html) (9,4,
-~150 Reviews) — familiär, ländlich, Frühstück inkl. (~80–120 €/Nacht)
 
 - 🥾 **Fuente Dé Seilbahn**
   [📍](https://www.google.com/maps/search/?api=1&query=43.1536,-4.8092) (morgens ab
@@ -267,7 +334,7 @@ Beyos nach Cangas de Onís.
   Reviews). Gletscherseen auf 1.000 m. ⚠️ **Zufahrt im September für PKW gesperrt.**
   - **Anreise:** Mit dem ALSA-Bus ab Cangas de Onís oder den Parkplätzen P1-P4.
   - **Buchung:** Tickets zwingend vorab online reservieren
-    ([ALSA Lagos de Covadonga](https://www.alsa.com/en/travel-plans/lakes-of-covadonga)).
+    ([ALSA Lagos de Covadonga](<https://www.alsa.es/checkout?p_p_id=com_babel_alsa_espania_purchase_web_PurchasePortlet&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&_com_babel_alsa_espania_purchase_web_PurchasePortlet_javax.portlet.action=SearchJourneysAction&p_auth=SJnUOwZH&code=&serviceType=&accessible=0&_com_babel_alsa_global_portlet_AlsaGlobalJourneySearchPortlet_INSTANCE_odyl_originStationNameId=Lagos%20Covadonga%20Subida%20(Todas%20las%20paradas)&originStationId=20969&originStationSimplifiedName=Lagos%20Covadonga%20Subida&originStationIsMoveliaStop=false&destinationStationId=8892&destinationStationSimplifiedName=Lagos%20Covadonga&destinationStationIsMoveliaStop=false&departureDate=12%2F09%2F2026&_departureDate=12%2F09%2F2026&returnDate=12%2F09%2F2026&_returnDate=12%2F09%2F2026&originalLocale=es_ES&locationMode=3&passengerType-1=2&passengerType-4=0&passengerType-5=0&passengerType-2=0&passengerType-3=0&numPassengers=2&regionalZone=&travelType=RETURN&youngPromoCode=&promoCode=&jsonAlsaPassPassenger=&jsonVoucherPassenger=>)).
     Kosten ~9 € p.P.
   - 🏛️
     **[Basílica de Covadonga](https://www.turismoasturias.es/en/-/blogs/guia-para-visitar-covadonga-los-lagos-y-alrededores)**
@@ -335,7 +402,7 @@ Fahrt nach Gijón.
   [Vía Verde](https://www.viasverdes.com/itinerarios/itinerario.asp?id=27)
 - 🏊 **Playa del Silencio** (40 Min. westlich) — Versteckte Bucht, Klippen.
 - 🍷 **Casa Fermín** (Oviedo) — Michelin-empfohlen.
-- 🌿 **[Jardín Botánico Atlántico](https://www.botanicoatlantico.com)** (Gijón) — 25 ha,
+- 🌿 **[Jardín Botánico Atlántico](https://www.spain.info/de/highlights/botanischer-garten-atlantico/)** (Gijón) — 25 ha,
   atlantische Flora.
 - 🎨 **[LABoral Centro de Arte](https://www.laboralcentrodearte.org/en)** —
   Zeitgenössische Kunst + Technologie. Gijón. ℹ️ Sommeröffnungszeiten bis 15. Sept.:
@@ -454,7 +521,8 @@ Reviews) — Guggenheim-Nähe, Design, Frühstück inkl. (~100–150 €/Nacht)
 
 ### Tag 16 · Sa 19. Sep · Bilbao
 
-- 🏛️ **Casco Viejo** — Siete Calles, mittelalterliche Altstadt.
+- 🏛️ **Casco Viejo** — Siete Calles, mittelalterliche Altstadt, Plaza Nueva.
+- 🍷 **Mercado de la Ribera** — Europas größte Markthalle, Tapas-Bars.
 - 🏛️ **[Puente Bizkaia](https://puente-colgante.com/en)**
   [📍](https://www.google.com/maps/search/?api=1&query=43.3231,-3.0172) —
   UNESCO-Schwebefähre (1893), 15 Min. Fahrt.
