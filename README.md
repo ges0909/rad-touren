@@ -1,14 +1,13 @@
-# 🗺️ Gerrit on Tour — Biking, Hiking & Roadtrips
+# 🗺️ Gerrit on Tour — Biking & Roadtrips
 
 AI-powered tour planning with custom MCP servers for routing, weather, POIs, public transit, and travel guide content.
 
-| Category     | Description                                         | Status  |
-| ------------ | --------------------------------------------------- | ------- |
-| 🚴 Biking    | Day trips in Berlin/Brandenburg via regional trains | Active  |
-| 🥾 Hiking    | Day hikes in Berlin/Brandenburg                     | Planned |
-| 🚗 Roadtrips | Multi-day car rental trips across Europe            | Active  |
+| Category     | Description                                         | Status |
+| ------------ | --------------------------------------------------- | ------ |
+| 🚴 Biking    | Day trips in Berlin/Brandenburg via regional trains | Active |
+| 🚗 Roadtrips | Multi-day car rental trips across Europe            | Active |
 
-**→ [Biking Tours](trips/bike/README.md)** · **→ [Hiking Tours](trips/hike/README.md)** · **→ [Roadtrips](trips/road/README.md)**
+**→ [Biking Tours](trips/bike/README.md)** · **→ [Roadtrips](trips/road/README.md)**
 
 ---
 
@@ -93,13 +92,13 @@ Thirteen Python servers (FastMCP + httpx), spawned as subprocesses via stdio JSO
 
 | Server                                    | Purpose                                          | API                                                                                                                           |
 | ----------------------------------------- | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| [`brouter`](mcp/brouter/)                 | Bike/hiking routing, geocoding, map rendering    | [BRouter](https://brouter.de) + [Nominatim](https://nominatim.openstreetmap.org)                                              |
+| [`brouter`](mcp/brouter/)                 | Bike routing, geocoding, map rendering           | [BRouter](https://brouter.de) + [Nominatim](https://nominatim.openstreetmap.org)                                              |
 | [`ors`](mcp/ors/)                         | Car/bike/walking routing, isochrones, matrix     | [OpenRouteService](https://openrouteservice.org/)                                                                             |
 | [`osrm`](mcp/osrm/)                       | Car routing with road geometry + GPX export      | [OSRM](https://project-osrm.org/) (public, no key)                                                                            |
 | [`open-meteo`](mcp/open-meteo/)           | Weather forecast + geocoding                     | [Open-Meteo](https://open-meteo.com/)                                                                                         |
 | [`vbb`](mcp/vbb/)                         | Stop search, departures, journey planning        | [VBB REST](https://v6.vbb.transport.rest/)                                                                                    |
 | [`overpass`](mcp/overpass/)               | POI search along routes                          | [Overpass API](https://overpass-api.de/)                                                                                      |
-| [`waymarkedtrails`](mcp/waymarkedtrails/) | Find marked hiking & biking routes               | [Waymarked Trails](https://waymarkedtrails.org/)                                                                              |
+| [`waymarkedtrails`](mcp/waymarkedtrails/) | Find marked cycling routes                       | [Waymarked Trails](https://waymarkedtrails.org/)                                                                              |
 | [`wikivoyage`](mcp/wikivoyage/)           | Travel guides, destination search, nearby search | [Wikivoyage](https://de.wikivoyage.org/)                                                                                      |
 | [`tavily`](mcp/tavily/)                   | Web search for hotels, flights, current info     | [Tavily](https://tavily.com/)                                                                                                 |
 | [`serpapi-flights`](mcp/serpapi-flights/) | Flight search via Google Flights                 | [SerpAPI](https://serpapi.com/)                                                                                               |
@@ -152,7 +151,6 @@ trips/
 │       ├── index.md         Tour description
 │       ├── gpx/             GPX tracks
 │       └── img/             Route maps, elevation profiles
-├── hike/                    Hiking tours (planned)
 └── road/                    Multi-day car trips (per-trip folders)
     ├── README.md
     └── {trip-name}/

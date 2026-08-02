@@ -45,7 +45,7 @@ Do NOT use VBB (Berlin-only transit) or BRouter (cycling-specific).
 | overpass        | `mcp_overpass_*`         | POI search along GPX routes (OSM)               |
 | open-meteo      | `mcp_open_meteo_*`       | Weather forecast                                |
 | wikivoyage      | `mcp_wikivoyage_*`       | Travel guide content                            |
-| waymarkedtrails | `mcp_waymarkedtrails_*`  | Marked hiking/cycling routes                    |
+| waymarkedtrails | `mcp_waymarkedtrails_*`  | Marked cycling routes                           |
 | serpapi-flights | `mcp_serpapi_flights_*`  | Google Flights — live prices and schedules      |
 | podcasts        | `mcp_podcasts_*`         | Travel podcast search + transcript extraction   |
 
@@ -78,7 +78,7 @@ Note: Do NOT use 🍇 (Weingüter) or ☕ (Kaffee) as standalone POI categories 
 
 ### Waymarked Trails Pattern
 
-For roadtrips, use `search_routes_in_region` to find hikes near each stop. See `user-preferences.md` for the full tool sequence and rating thresholds.
+Use `search_routes_in_region` to discover marked cycling routes near stops. See `user-preferences.md` for the full tool sequence and rating thresholds.
 
 ### Podcast Pattern (optional enrichment)
 
@@ -106,12 +106,13 @@ Best used during Phase 1 research alongside written itinerary sources.
 ### Phase 2: Enrichment (per stop)
 
 9. **Travel guide** — Wikivoyage: sections `Küche`, `Sehenswürdigkeiten`, `Aktivitäten`.
-10. **Accommodation** — Web search. Apply rules from `user-preferences.md`.
-11. **Hiking** — Waymarked Trails + web search:
-    - Every day must have a hiking option (minimum 2–3 h walk if no major hike)
-    - Include GPX link via the Waymarked Trails route page (download via site icon — no direct API URL)
-    - Flag one-way routes and provide return transport info
-    - Find Einkehr at start, endpoint, or midpoint
+10. **Accommodation** — Web search. Apply rules from `road-preferences.md`.
+11. **Wandern (day hikes)** — Web search for hiking trails:
+    - Every day should have a hiking option (2–5 h, moderate difficulty)
+    - Use AllTrails, Komoot, Wikiloc for trail discovery and ratings (≥4.0 stars, ≥30 reviews)
+    - Note trailhead access, parking, and return logistics
+    - Flag difficulty level and gear requirements
+    - Identify Einkehr options at start/endpoint
 12. **Swimming** — Web search for beaches, lakes, thermal baths, river pools, rock pools. Check driving-day routes for en-route swimming stops.
 13. **Food & Drink** — Apply rules from `user-preferences.md`. Note markets and local specialties.
 14. **Culture & Art** — Prioritize modern/contemporary art per interest table.

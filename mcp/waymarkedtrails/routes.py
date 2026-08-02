@@ -1,4 +1,4 @@
-"""Waymarked Trails API client — search for marked hiking and cycling routes."""
+"""Waymarked Trails API client — search for marked cycling routes."""
 
 from typing import Any
 
