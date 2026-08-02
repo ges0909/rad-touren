@@ -13,7 +13,6 @@ Universelle Vorgaben für alle Reisetypen (Cycling, Hiking, Roadtrips). Reisetyp
 - **Reisegruppe:** 2 Personen (default)
 - **Reisetypen:**
   - 🚴 Cycling: Tagestouren (siehe `bike-preferences.md`)
-  - 🥾 Hiking: Tageswanderungen (geplant, siehe `hike-preferences.md`)
   - 🚗 Roadtrips: Mehrtagstrips (siehe `road-preferences.md`)
 
 ## Response Language

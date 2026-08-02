@@ -116,7 +116,6 @@ The following additional rules are loaded automatically based on active files:
 - `road-preferences.md` — Roadtrip preferences (flights, accommodation, food, interests)
 - `road-planner.md` — Roadtrip workflow + ORS/OSRM rules
 - `road-output-template.md` — Roadtrip output format
-- `hike-preferences.md` — Hiking preferences (planned, for future use)
 
 ### App-Entwicklung (active in `app/**`, `mcp/**`, `docs/**`, `scripts/**`)
 
