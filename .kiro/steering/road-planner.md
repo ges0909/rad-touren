@@ -5,7 +5,7 @@ fileMatchPattern: "trips/road/**"
 
 # Roadtrip Planner — Europe
 
-Workflow for planning multi-day car rental road trips across Europe. See `road-output-template.md` for document formatting and `user-preferences.md` for personal defaults (group size, interests, food/accommodation rules, content integrity).
+Workflow for planning multi-day car rental road trips across Europe. See `road-output-template.md` for document formatting, `user-preferences.md` for universal rules, and `road-preferences.md` for roadtrip-specific preferences (flights, accommodation, food, interests).
 
 ## Language
 

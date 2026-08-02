@@ -109,11 +109,14 @@ The following additional rules are loaded automatically based on active files:
 
 ### Reiseplanung (active in `trips/**`)
 
-- `user-preferences.md` — Persönliche Reisepräferenzen, Home Base, Interessen
+- `user-preferences.md` — Universal travel preferences, home base, content integrity
+- `bike-preferences.md` — Cycling tour preferences (distance, terrain, interests, food)
 - `bike-planner.md` — Cycling tour workflow + BRouter/VBB rules
 - `bike-output-template.md` — Cycling tour output format
+- `road-preferences.md` — Roadtrip preferences (flights, accommodation, food, interests)
 - `road-planner.md` — Roadtrip workflow + ORS/OSRM rules
 - `road-output-template.md` — Roadtrip output format
+- `hike-preferences.md` — Hiking preferences (planned, for future use)
 
 ### App-Entwicklung (active in `app/**`, `mcp/**`, `docs/**`, `scripts/**`)
 

@@ -5,7 +5,7 @@ fileMatchPattern: "trips/bike/**"
 
 # Bike Tour Planner — Berlin/Brandenburg
 
-Rules for planning, generating, and presenting cycling day-trip tours in the Berlin/Brandenburg region. Read alongside `user-preferences.md` (personal defaults, content integrity, interests) and `bike-template.md` (output format).
+Rules for planning, generating, and presenting cycling day-trip tours in the Berlin/Brandenburg region. Read alongside `user-preferences.md` (universal rules), `bike-preferences.md` (personal cycling preferences), and `bike-output-template.md` (output format).
 
 ## Language
 
