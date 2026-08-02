@@ -49,11 +49,15 @@ SERVER_PREFIX_MAP: dict[str, str] = {
     "wikivoyage": "wikivoyage",
     "waymarkedtrails": "waymarkedtrails",
     "tavily": "tavily",
+    "serpapi-flights": "serpapi_flights",
+    "travel-content": "travel_content",
+    "travel-videos": "travel_videos",
+    "podcasts": "podcasts",
 }
 
 
 def build_server_configs() -> list[ServerConfig]:
-    """Build server configurations for all 8 tour-planning MCP servers."""
+    """Build server configurations for all 13 tour-planning MCP servers."""
     servers = [
         ("brouter", "mcp/brouter"),
         ("open-meteo", "mcp/open-meteo"),
@@ -64,6 +68,10 @@ def build_server_configs() -> list[ServerConfig]:
         ("wikivoyage", "mcp/wikivoyage"),
         ("waymarkedtrails", "mcp/waymarkedtrails"),
         ("tavily", "mcp/tavily"),
+        ("serpapi-flights", "mcp/serpapi-flights"),
+        ("travel-content", "mcp/travel-content"),
+        ("travel-videos", "mcp/travel-videos"),
+        ("podcasts", "mcp/podcasts"),
     ]
     configs: list[ServerConfig] = []
     for name, directory in servers:

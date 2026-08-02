@@ -27,9 +27,9 @@ def _select_files(user_message: str) -> list[str]:
     files: list[str] = ["user-preferences.md"]
 
     if detected == "bike":
-        files += ["bike-planning.md", "bike-template.md"]
+        files += ["bike-preferences.md", "bike-planner.md", "bike-output-template.md"]
     elif detected == "road":
-        files += ["road-planning.md", "road-template.md"]
+        files += ["road-preferences.md", "road-planner.md", "road-output-template.md"]
     # "general" → only user-preferences, keep prompt small
 
     return files
