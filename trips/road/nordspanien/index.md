@@ -5,8 +5,8 @@
 
 **Reisezeitraum:** Fr 4. September – So 20. September 2026 · 17 Tage · ~1.150 km (inkl.
 Tagesausflüge) **Flug:** BER ↔ Bilbao BIO, Direktflug Eurowings (nur Mo/Fr/So,
-Abendflüge) **Mietwagen:** Übernahme Sa 5. Sep (Stadtstation Bilbao) / Abgabe Fr 18. Sep
-(Flughafen) — 13 Tage
+Abendflüge) **Mietwagen:** Übernahme Fr 4. Sep (Flughafen Bilbao) / Abgabe Fr 18. Sep
+(Flughafen) — 14 Tage
 
 > 🌊 Die spanische Nordküste: grüne Berge, wilde Atlantikküste, Pintxos-Bars,
 > Sidra-Häuser und die Picos de Europa direkt hinter dem Strand. Anfang September: warm,
@@ -31,18 +31,17 @@ Abendflüge) **Mietwagen:** Übernahme Sa 5. Sep (Stadtstation Bilbao) / Abgabe 
 | Mi 9. – Do 10. Sep  | 1      | Potes                   | [Albergue La Cabaña](https://www.booking.com/hotel/es/albergue-la-cabana.html)             |
 | Do 10. – So 13. Sep | 3      | Cangas de Onís          | [Hotel Covadonga](https://www.booking.com/hotel/es/covadonga-cangas-de-onis.de.html)       |
 | So 13. – Di 15. Sep | 2      | Gijón                   |                                                                                            |
-| Di 15. – Do 17. Sep | 2      | San Vicente de Barquera |                                                                                            |
-| Do 17. – Sa 19. Sep | 2      | Laguardia (Rioja)       |                                                                                            |
-| Sa 19. – Mo 20. Sep | 2      | Bilbao                  |                                                                                            |
+| Di 15. – Mi 16. Sep | 1      | San Vicente de Barquera |                                                                                            |
+| Mi 16. – Do 17. Sep | 1      | Vitoria-Gasteiz         |                                                                                            |
+| Do 17. – So 20. Sep | 3      | Bilbao                  |                                                                                            |
 
-**Gesamt:** 17 Nächte (4.–20. Sep 2026)
+**Gesamt:** 16 Nächte (4.–20. Sep 2026)
 
 ---
 
 ## Reiseverlauf
 
-Bilbao → Bakio (Gaztelugatxe) → San Sebastián → Santander → Potes → Picos de Europa → Gijón/Oviedo → San
-Vicente de la Barquera → Vitoria-Gasteiz/Rioja Alavesa → Bilbao
+Bilbao → Bakio (Gaztelugatxe) → San Sebastián → Santander → Potes → Picos de Europa → Gijón/Oviedo → San Vicente de la Barquera → Vitoria-Gasteiz → Bilbao
 
 > 💡 **Fahrstrecken:** Durch den Stopp in **San Vicente de la Barquera** sind alle
 > Etappen jetzt unter 2,5 Stunden reine Fahrzeit. Die Reise ist somit sehr entspannt.
@@ -445,95 +444,64 @@ Fahrt entlang der Küste nach Kantabrien.
 
 ---
 
-### Tag 13 · Mi 16. Sep · San Vicente → Vitoria-Gasteiz / Rioja Alavesa · 211 km, ~2,5 Std.
+### Tag 13 · Mi 16. Sep · San Vicente → Vitoria-Gasteiz · 210 km, ~2,5 Std. + Stopp
 
 ![Tag 13: San Vicente → Vitoria-Gasteiz](img/san-vicente-vitoria.png)
-[Route in Google Maps](https://www.google.com/maps/dir/San+Vicente+de+la+Barquera/Vitoria-Gasteiz)
+[Route in Google Maps](https://www.google.com/maps/dir/San+Vicente+de+la+Barquera/Laguardia/Vitoria-Gasteiz)
 
-Entspannte Weiterfahrt ins Baskenland. _Logistischer Ablauf:_ Zuerst Zwischenstopp in
-Vitoria-Gasteiz für Besichtigungen am Nachmittag, am späten Nachmittag/Abend Weiterfahrt
-ins Weindorf Laguardia.
+Entspannte Weiterfahrt ins Baskenland mit Zwischenstopp in Laguardia für eine Wanderung.
+
+**Stopp Laguardia (Vormittag/Mittag):**
+
+- 🥾 **Lagunas de Laguardia** [📍](https://www.google.com/maps/search/?api=1&query=42.5500,-2.5833) — Wanderung durch das geschützte Feuchtgebiet direkt vor den Toren der Stadt (~5 km, 1,5–2 Std., leicht). Rast mit Blick auf die Weinterrassen.
+- 🏛️ **Laguardia Altstadt** (optional, 30 Min.) — Kurzer Bummel durch das mittelalterliche Weindorf.
+- 🍷 **Mittagessen** in Laguardia (optional)
+
+Ankunft in Vitoria-Gasteiz am Nachmittag (~15:00–16:00 Uhr).
 
 **Unterkunft:**
-[Hospedería de los Parajes](https://www.booking.com/hotel/es/hospederia-de-los-parajes.html)
-(9,1, ~670 Reviews) — Laguardia, Boutique, Weinkeller, Spa, Frühstück inkl. (~110–150
-€/Nacht)
+[Hotel Silken Ciudad de Vitoria](https://www.booking.com/hotel/es/silken-ciudad-de-vitoria.html) (8,6, ~2.000 Reviews) — Zentral, moderne Zimmer, Frühstück inkl. (~90–120 €/Nacht)
 
-- 🎨 **Itinerario Muralístico (IMVG)** — Europas größte Freiluft-Mural-Galerie in
-  Vitoria-Gasteiz. Rundgang ~1,5 Std.
-- 🎨 **[Artium Museoa](https://www.artium.eus)** — Zeitgenössische Kunst, 2.700+ Werke,
-  1950er bis heute. **Pflichtbesuch.** (~9 €/P., Di–Fr 11–14 + 17–20 Uhr, Sa+So 11–20
-  Uhr) ℹ️ Ankunft von San Vicente realistisch ~14:00 Uhr — fällt in die Mittagspause.
-  Besuch ab 17:00 Uhr einplanen.
-- 🍷 **Pintxos-Wahl:** Entweder Mittagessen in der Calle Cuchillería (Vitoria) ODER
-  (empfohlen) Abends in der historischen Altstadt von **Laguardia** — direkt bei der
-  Unterkunft, hervorragende Weinkeller und lokale Küche.
-
-### Tag 14 · Do 17. Sep · Rioja Alavesa · ~30 km zzgl. Vitoria-Fahrt bei Bedarf
-
-- 🎊 **Magialdia** — Internationales Zauberfestival in Vitoria-Gasteiz. Genaue Daten für
-  2026 bestätigt: **14.–20. September**. Shows und Zauberkunst auf Plätzen und Bühnen.
-  Bei Interesse kann abends ein Abstecher nach Vitoria-Gasteiz (~45 Min. Fahrt) gemacht
-  werden.
-- 🎨 **[Bodegas Ysios](https://bodegasysios.com/en)**
-  [📍](https://www.google.com/maps/search/?api=1&query=42.5783,-2.5833) (Laguardia) —
-  Calatrava-Bau. **Architektur-Highlight.** (~15 €/P.)
-- 🎨 **[Marqués de Riscal](https://www.marquesderiscal.com)**
-  [📍](https://www.google.com/maps/search/?api=1&query=42.5100,-2.6117) (Elciego, 10
-  Min. Fahrt) — Gehry-Hotel, berühmtes Weingut seit 1858.
-- 🏛️ **Laguardia** — Mittelalterliches Weindorf, Rundgang durch die Gassen und
-  unterirdischen Weinkeller.
-- 🥾 **Lagunas de Laguardia** — Gemütliche Wanderung durch das geschützte Feuchtgebiet
-  direkt vor den Toren der Stadt (~5 km). (Die Salinas de Añana wurden auf Tag 15
-  verlegt, da sie perfekt auf dem Rückweg nach Bilbao liegen).
-
-**Weitere POIs in Vitoria/Rioja:**
-
-- 🍷 **Lamm al sarmiento** — Auf Rebholz gegrillt, Rioja-Spezialität.
-- 🏛️ **[Catedral de Santa María](https://www.catedralvitoria.eus/en)** — Gotisch,
-  „offene Baustelle" (Ken Follett-Inspiration).
+- 🎨 **Itinerario Muralístico (IMVG)** — Europas größte Freiluft-Mural-Galerie. Rundgang ~1,5 Std., kostenlos.
+- 🎨 **[Artium Museoa](https://www.artium.eus)** — Zeitgenössische Kunst, 2.700+ Werke, 1950er bis heute. **Pflichtbesuch.** (~9 €/P., Di–Fr 11–14 + 17–20 Uhr, Sa+So 11–20 Uhr) ℹ️ Besuch ab 17:00 Uhr einplanen.
+- �️ **[Catedral de Santa María](https://www.catedralvitoria.eus/en)** — Gotisch, „offene Baustelle" (Ken Follett-Inspiration). Geführte Touren.
+- � **Calle Cuchillería** — Pintxos-Straße, authentisch und weniger touristisch als San Sebastián.
 
 ---
 
-### Tag 15 · Fr 18. Sep · Laguardia → Salinas de Añana → Bilbao · ~100 km, ~1,5 Std. Fahrzeit (reine Fahrt)
+### Tag 14 · Do 17. Sep · Vitoria-Gasteiz → Bilbao · ~70 km, ~1 Std.
 
-![Tag 15: Laguardia → Salinas de Añana → Bilbao](img/vitoria-bilbao.png)
-[Route in Google Maps](https://www.google.com/maps/dir/Laguardia/Salinas+de+Añana/Bilbao+Airport)
+![Tag 14: Vitoria → Bilbao](img/vitoria-bilbao.png)
+[Route in Google Maps](https://www.google.com/maps/dir/Vitoria-Gasteiz/Bilbao)
 
-Morgens Fahrt von Laguardia zur historischen Saline. Nach der Tour Weiterfahrt zum
-Flughafen Bilbao zur Mietwagen-Rückgabe und Transfer ins Stadtzentrum.
+Entspannte Weiterfahrt nach Bilbao. Ankunft am Vormittag.
 
-**Unterkunft:** [Hotel Miró](https://www.booking.com/hotel/es/mirohotel.html) (8,8, ~370
-Reviews) — Guggenheim-Nähe, Design, Frühstück inkl. (~100–150 €/Nacht)
+**Unterkunft:** [Hotel Miró](https://www.booking.com/hotel/es/mirohotel.html) (8,8, ~370 Reviews) — Guggenheim-Nähe, Design, Frühstück inkl. (~100–150 €/Nacht)
 
-- 🏛️ **[Salinas de Añana](https://www.vallesalado.com)**
-  [📍](https://www.google.com/maps/search/?api=1&query=42.8000,-2.9833) — Älteste aktive
-  Saline der Welt (6.500 Jahre). Beeindruckende Holzkonstruktion. **Geführte Tour** (~12
-  €/P., 1,5 Std., vorab buchen) + Spaziergang auf dem Salzweg. Liegt perfekt auf der
-  Route nach Bilbao.
-- 🚗 **Mietwagen-Rückgabe:** Bis 18:00 Uhr am Flughafenschalter Bilbao. Danach mit dem
-  Bizkaibus A3247 ins Stadtzentrum (~25 Min.).
-- 🎨 **[Guggenheim Bilbao](https://www.guggenheim-bilbao.eus/en)** — Gehry-Ikone,
-  zeitgenössische Kunst. **Pflichtbesuch.** (~16 €/P., 3 Std., ⚠️ vorab buchen!) 💡
-  Tipp: morgens früh da sein — vor Öffnung reinigen sogenannte „Spidermans" die
-  Titanfassade im Abseilverfahren, ein Spektakel für sich.
+- **[Guggenheim Bilbao](https://www.guggenheim-bilbao.eus/en)** — Gehry-Ikone, zeitgenössische Kunst. **Pflichtbesuch.** (~16 €/P., 3 Std., ⚠️ vorab buchen!) 💡 Tipp: morgens früh da sein — vor Öffnung reinigen sogenannte „Spidermans" die Titanfassade im Abseilverfahren, ein Spektakel für sich.
+- 🏛️ **Casco Viejo** — Siete Calles, mittelalterliche Altstadt, Plaza Nueva.
 - 🍷 **Mercado de la Ribera** — Europas größte Markthalle, Tapas-Bars.
+
+---
+
+### Tag 15 · Fr 18. Sep · Bilbao
+
+- 🏛️ **[Puente Bizkaia](https://puente-colgante.com/en)** [📍](https://www.google.com/maps/search/?api=1&query=43.3231,-3.0172) — UNESCO-Schwebefähre (1893), 15 Min. Fahrt nach Getxo.
+- 🥾 **Artxanda Funicular + Rundweg** — 5 km, 2 Std., leicht. Panorama (Sonnenuntergang).
+- 🎨 **[Museo de Bellas Artes](https://bilbaomuseoa.eus)** — Goya bis Chillida, El Greco bis zeitgenössische Kunst.
+- 🛶 Optional: Kayak auf dem Nervión.
+- 🍷 **Plaza Nueva Pintxos** — Gilda, Txuleta, Bacalao al Pil-Pil.
+
+---
 
 ### Tag 16 · Sa 19. Sep · Bilbao
 
-- 🏛️ **Casco Viejo** — Siete Calles, mittelalterliche Altstadt, Plaza Nueva.
-- 🍷 **Mercado de la Ribera** — Europas größte Markthalle, Tapas-Bars.
-- 🏛️ **[Puente Bizkaia](https://puente-colgante.com/en)**
-  [📍](https://www.google.com/maps/search/?api=1&query=43.3231,-3.0172) —
-  UNESCO-Schwebefähre (1893), 15 Min. Fahrt.
-- 🥾 **Artxanda Funicular + Rundweg** — 5 km, 2 Std., leicht. Panorama
-  (Sonnenuntergang).
-- 🛶 Optional: Kayak auf dem Nervión.
-- 🍷 **Plaza Nueva Pintxos** — Gilda, Txuleta, Bacalao al Pil-Pil.
-- 🍷 **[Café Iruña](https://www.cafeiruna.com/)**
-  [📍](https://www.google.com/maps/search/?api=1&query=43.2634,-2.9253) — Seit 1903,
-  neo-maurischer Stil, Bilbaos bekanntestes Traditionslokal. Pintxos an der Theke,
-  typische Atmosphäre.
+- �️ **Casco Viejo** — Weiteres Erkunden der Altstadt, Siete Calles.
+- �🍷 **[Café Iruña](https://www.cafeiruna.com/)** [📍](https://www.google.com/maps/search/?api=1&query=43.2634,-2.9253) — Seit 1903, neo-maurischer Stil, Bilbaos bekanntestes Traditionslokal. Pintxos an der Theke, typische Atmosphäre.
+- 🥾 **Optional:** Spaziergang entlang der Ría de Bilbao oder Besuch der Basilika de Begoña (Hügel über der Altstadt, 20 Min. zu Fuß).
+- 🍷 **Restaurante Mina** — Michelin-Stern, baskische Avantgarde (Reservierung empfohlen).
+
+---
 
 ### Tag 17 · So 20. Sep · Bilbao (Abreise)
 
