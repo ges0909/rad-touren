@@ -3,7 +3,7 @@
 
 # Nordspanien
 
-**Reisezeitraum:** Fr 4. September – So 20. September 2026 · 17 Tage · ~1.150 km (inkl.
+**Reisezeitraum:** Fr 4. September – So 20. September 2026 · 17 Tage · ~1.250 km (inkl.
 Tagesausflüge) **Flug:** BER ↔ Bilbao BIO, Direktflug Eurowings (nur Mo/Fr/So,
 Abendflüge) **Mietwagen:** Übernahme Fr 4. Sep (Flughafen Bilbao) / Abgabe Fr 18. Sep
 (Flughafen) — 14 Tage
@@ -19,6 +19,8 @@ Abendflüge) **Mietwagen:** Übernahme Fr 4. Sep (Flughafen Bilbao) / Abgabe Fr 
 > mautfrei. Lichtpflicht bei Regen/Tunnel. Notruf 112. Pintxos: Zahnstocher zählen beim
 > Zahlen. Sidra: „escanciar" — aus 1 m Höhe ins Glas.
 
+> 📱 **Nützliche Apps & Ausrüstung:** Gezeiten-App (z. B. _Nautide_) für Flysch (Zumaia) & Playa de Gulpiyuri (Ebbe/Flut-Zeiten!). _Wikiloc_ für lokale Wanderwege. _Barik-Karte_ für ÖPNV im Baskenland. Robuste Regenjacke, Wanderschuhe & Zwiebellook (Küste vs. Gebirge) einpacken!
+
 ---
 
 ## Übernachtungen im Überblick
@@ -32,10 +34,26 @@ Abendflüge) **Mietwagen:** Übernahme Fr 4. Sep (Flughafen Bilbao) / Abgabe Fr 
 | Do 10. – So 13. Sep | 3      | Cangas de Onís          | [Hotel Covadonga](https://www.booking.com/hotel/es/covadonga-cangas-de-onis.de.html)       |
 | So 13. – Di 15. Sep | 2      | Gijón                   |                                                                                            |
 | Di 15. – Mi 16. Sep | 1      | San Vicente de Barquera |                                                                                            |
-| Mi 16. – Do 17. Sep | 1      | Vitoria-Gasteiz         |                                                                                            |
-| Do 17. – So 20. Sep | 3      | Bilbao                  |                                                                                            |
+| Mi 16. – Fr 18. Sep | 2      | Vitoria-Gasteiz         |                                                                                            |
+| Fr 18. – So 20. Sep | 2      | Bilbao                  |                                                                                            |
 
 **Gesamt:** 16 Nächte (4.–20. Sep 2026)
+
+---
+
+## Vorab-Reservierungen
+
+Einige Attraktionen und Transporte auf dieser Route erfordern oder empfehlen eine rechtzeitige Online-Buchung vor der Reise, um lange Wartezeiten oder Einlassstopps zu vermeiden:
+
+| Tag / Datum             | Aktivität / Ort                   | Vorlauf     | Details & Buchungs-Link                                                                                                                                   |
+| :---------------------- | :-------------------------------- | :---------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Tag 2** (Sa 5. Sep)   | **San Juan de Gaztelugatxe**      | 2–4 Wochen  | Kostenloses Zeitslot-Ticket erforderlich (falls Zugang nach 10:00 Uhr). [visitbiscay.eus](https://www.visitbiscay.eus/en/san-juan-gaztelugatxe)           |
+| **Tag 3** (So 6. Sep)   | **Bar Nestor** (San Sebastián)    | Am Reisetag | Keine Online-Buchung. Persönliches Eintragen auf die Liste vor Ort um **12:00 Uhr** (mittags) oder **19:00 Uhr** (abends) für Tortilla.                   |
+| **Tag 6** (Mi 9. Sep)   | **Höhle von Altamira** (Neocueva) | 2–4 Wochen  | Replika-Museum & Höhle in Santillana del Mar. Tickets vorab sichern. [culturaydeporte.gob.es](https://www.culturaydeporte.gob.es/mnaltamira/en/home.html) |
+| **Tag 9** (Sa 12. Sep)  | **Lagos de Covadonga Bus**        | 2–3 Wochen  | PKW-Zufahrt im September gesperrt. ALSA-Shuttlebus ab Cangas de Onís reservieren (~9 € p.P.). [alsa.es](https://www.alsa.es)                              |
+| **Tag 14** (Do 17. Sep) | **Guggenheim Museum** (Bilbao)    | 2–3 Wochen  | Zeitslot-Ticket zwingend empfohlen (morgens bevorzugt). [guggenheim-bilbao.eus](https://www.guggenheim-bilbao.eus/en)                                     |
+
+> 💡 **Tipp für Unterkünfte:** Beliebte Unterkünfte in Potes und Cangas de Onís sind im September durch Wanderer gut gebucht – frühzeitig sichern!
 
 ---
 
@@ -203,8 +221,7 @@ Tagesausflug nachholen (~1 Std. Fahrt, flexiblere Tickets, weniger Andrang).
   [Lurraldebus/Avanza](https://gipuzkoa.avanzagrupo.com)). **Barik-Karte wird
   akzeptiert** (Lurraldebus & Dbus).
   [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=1116809) ·
-- 🍷 **Parte Vieja Pintxos** — Bar Nestor (Tortilla), La Cuchara de San Telmo,
-  Gandarias, Bar Zeruko.
+- 🍷 **Parte Vieja Pintxos** — Bar Nestor (Tortilla ⚠️ Liste vor Ort um 12:00 / 19:00 Uhr eintragen!), La Cuchara de San Telmo, Gandarias, Bar Zeruko. **Must-try:** _Gilda_ (Ur-Pintxo mit Sardelle, Peperoni, Olive) + _Txakoli_ (trockener Weißwein) oder _Zurrito_ (kleines Bier).
 
 **Weitere POIs in San Sebastián:**
 
@@ -297,67 +314,27 @@ Stopp Castro Urdiales (Kaffee, gotische Kirche). Ankunft Mittag.
 [Route in Google Maps](https://www.google.com/maps/dir/Potes/Fuente+Dé/Potes/Desfiladero+de+los+Beyos/Cangas+de+Onís)
 
 Vormittags Ausflug von Potes zur Seilbahn und Wanderung in den Picos de Europa.
-Nachmittags spektakuläre Fahrt über den Puerto de San Glorio und das Desfiladero de los
-Beyos nach Cangas de Onís.
+Nachmittags spektakuläre Fahrt über den Puerto de San Glorio und das Desfiladero de los Beyos nach Cangas de Onís.
 
 - 🥾 **Fuente Dé Seilbahn**
-  [📍](https://www.google.com/maps/search/?api=1&query=43.1536,-4.8092) (morgens ab
-  Potes, ~30 Min. Anfahrt) → Wanderung zu **Horcados Rojos** (hochalpin, 4 Std.) oder
-  gemütlich über die Puertos de Áliva zurück. (~21 €/P. hin+zurück).
-- 🏛️ **[Puente Romano](https://www.spain.info/en/places-of-interest/puente-rio-sella/)**
-  (Cangas) — Römische Brücke, Wahrzeichen Asturiens. Abendlicher Spaziergang.
-- 🍷 **Sidrería** — Sidra escanciar (aus Höhe einschenken) lernen. (Die Ruta del Río
-  Dobra und die Basílica de Covadonga werden auf Tag 9 verschoben, um diesen Tag zu
-  entlasten).
+  [📍](https://www.google.com/maps/search/?api=1&query=43.1536,-4.8092) (morgens ab Potes, ~30 Min. Anfahrt) → Wanderung zu **Horcados Rojos** (hochalpin, 4 Std.) oder gemütlich über die Puertos de Áliva zurück. (~21 €/P. hin+zurück).
+- 🏛️ **[Puente Romano](https://www.spain.info/en/places-of-interest/puente-rio-sella/)** (Cangas) — Römische Brücke, Wahrzeichen Asturiens. Abendlicher Spaziergang.
+- 🍷 **Sidrería** — Sidra escanciar (aus Höhe einschenken) lernen.
 
-### Tag 8 · Fr 11. Sep · Picos de Europa
+### Tag 8 · Fr 11. Sep · Picos de Europa (Ruta del Cares)
 
-- 🥾 **Ruta del Cares** [PR-PNPE 3] — 22 km (hin+zurück), 6–8 Std., moderat. ⭐ 4,5
-  (1.880 Reviews). Schlucht-Wanderung durch die „Garganta Divina" — ~70 in den Fels
-  gehauene Tunnel, Pfad ursprünglich für einen Wasserkanal zum Kraftwerk Poncebos
-  (frühes 20. Jh.) gebaut. **Highlight.** Ganztageswanderung, früh starten (Poncebos).
-  ⚠️ Die ersten 2 km ab Poncebos sind steil — danach flach. ⚠️ Route wieder geöffnet,
-  aber erhöhtes Steinschlagrisiko nach Waldbrand 2025 — Vegetation fehlt, Boden
-  instabil. Bei Regen oder Wind Risiko deutlich höher. Aktuelle Lage vorab prüfen:
-  [valledevaldeon.es](https://valledevaldeon.es/disfrutalo/turismo-activo-y-aventura/la-ruta-del-cares/)
-  [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=2687934)
-  - 🍷 **Einkehr:** Bar Garganta del Cares (am Parkplatz Poncebos, vor/nach der
-    Wanderung). In Caín (Wendepunkt): Casa Cuevas, La Taberna de Caín — einfache Menüs,
-    günstig.
-- 🍷 **Quesu Cabrales** — Blauschimmelkäse, in Höhlen gereift. Abend in Arenas de
-  Cabrales.
+- 🥾 **Ruta del Cares** [PR-PNPE 3] — 22 km (hin+zurück), 6–8 Std., moderat. ⭐ 4,5 (1.880 Reviews). Schlucht-Wanderung durch die „Garganta Divina" — ~70 in den Fels gehauene Tunnel. Ganztageswanderung ab Poncebos. ⚠️ Steinschlagrisiko vorab prüfen.
+  - 🍷 **Einkehr:** Bar Garganta del Cares (Poncebos). In Caín: Casa Cuevas / La Taberna de Caín.
+- 🍷 **Quesu Cabrales & Gamonéu** — Blauschimmelkäse & Höhlenkäse-Tasting in Arenas de Cabrales.
 
-### Tag 9 · Sa 12. Sep · Picos de Europa
+### Tag 9 · Sa 12. Sep · Picos de Europa (Lagos de Covadonga & Río Dobra)
 
-- 🚌 **Lagos de Covadonga** [PR-PNPE 2] — 6,4 km, 2,5 Std., leicht. ⭐ 4,2 (520
-  Reviews). Gletscherseen auf 1.000 m. ⚠️ **Zufahrt im September für PKW gesperrt.**
-  - **Anreise:** Mit dem ALSA-Bus ab Cangas de Onís oder den Parkplätzen P1-P4.
-  - **Buchung:** Tickets zwingend vorab online reservieren
-    ([ALSA Lagos de Covadonga](<https://www.alsa.es/checkout?p_p_id=com_babel_alsa_espania_purchase_web_PurchasePortlet&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&_com_babel_alsa_espania_purchase_web_PurchasePortlet_javax.portlet.action=SearchJourneysAction&p_auth=SJnUOwZH&code=&serviceType=&accessible=0&_com_babel_alsa_global_portlet_AlsaGlobalJourneySearchPortlet_INSTANCE_odyl_originStationNameId=Lagos%20Covadonga%20Subida%20(Todas%20las%20paradas)&originStationId=20969&originStationSimplifiedName=Lagos%20Covadonga%20Subida&originStationIsMoveliaStop=false&destinationStationId=8892&destinationStationSimplifiedName=Lagos%20Covadonga&destinationStationIsMoveliaStop=false&departureDate=12%2F09%2F2026&_departureDate=12%2F09%2F2026&returnDate=12%2F09%2F2026&_returnDate=12%2F09%2F2026&originalLocale=es_ES&locationMode=3&passengerType-1=2&passengerType-4=0&passengerType-5=0&passengerType-2=0&passengerType-3=0&numPassengers=2&regionalZone=&travelType=RETURN&youngPromoCode=&promoCode=&jsonAlsaPassPassenger=&jsonVoucherPassenger=>)).
-    Kosten ~9 € p.P.
-  - 🏛️
-    **[Basílica de Covadonga](https://www.turismoasturias.es/en/-/blogs/guia-para-visitar-covadonga-los-lagos-y-alrededores)**
-    — Auf dem Weg zu/von den Seen besichtigen (der ALSA-Bus hält hier).
-    Reconquista-Stätte (722 n.Chr.) mit der heiligen Grotte (Santa Cueva).
-  - 🍷 **Einkehr:** Restaurant am Lago Enol (Buferrera-Besucherzentrum) — asturische
-    Küche, Terrasse mit Seeblick.
-- 🥾 **Ruta del Río Dobra**
-  [📍](https://www.google.com/maps/search/?api=1&query=43.3100,-5.0800) (nachmittags) —
-  6 km, 2 Std., leicht. Schöne Flusswanderung mit türkisfarbener Badestelle bei Cangas.
-  🏊 Río Dobra — Felstöpfe mit smaragdgrünem Wasser.
-- 🏊 **Río Sella** (Arriondas) — Flussbaden, kristallklar.
-- 🏊 **Playa de Gulpiyuri**
-  [📍](https://www.google.com/maps/search/?api=1&query=43.4378,-4.9117) — Inland-Strand
-  (Meerwasser durch Höhlen). ⚠️ Nur bei Flut sehenswert — Gezeitenkalender vorab prüfen.
-- 🍷 **El Molín de la Pedrera** — Fabada Asturiana.
-
-**Weitere POIs in den Picos:**
-
-- 🥾 **Mirador del Naranjo de Bulnes** (ab Sotres) — 10 km, 4 Std., moderat. Wanderung
-  mit spektakulärem Blick auf den **Pico Urriellu / Naranjo de Bulnes** (2.519 m) — der
-  bekannteste und markanteste Berg der Picos de Europa. Er ist ein legendärer,
-  monolithischer Kalksteinkoloss, dessen 500 m hohe Westwand im Abendlicht leuchtend
-  orange-rötlich strahlt (daher der Name „Naranjo“).
+- 🚌 **Lagos de Covadonga** [PR-PNPE 2] — 6,4 km, 2,5 Std., leicht. Gletscherseen auf 1.000 m. ⚠️ PKW-Zufahrt gesperrt, ALSA-Bus ab Cangas buchen!
+  - 🏛️ **[Basílica de Covadonga](https://www.turismoasturias.es/en/-/blogs/guia-para-visitar-visitar-covadonga-los-lagos-y-alrededores)** — Heilige Grotte (Santa Cueva) & Reconquista-Stätte.
+  - 🍷 **Einkehr:** Restaurant am Lago Enol.
+- 🥾 **Ruta del Río Dobra** (nachmittags) — 6 km, 2 Std., leicht. Flusswanderung zu türkisfarbenen Felstöpfen bei Cangas.
+- 🏊 **Playa de Gulpiyuri** — Inland-Strand (nur bei Flut!).
+- 🍷 **El Molín de la Pedrera** — Fabada Asturiana in Cangas de Onís.
 
 ---
 
@@ -368,47 +345,17 @@ Beyos nach Cangas de Onís.
 
 Fahrt nach Gijón.
 
-**Unterkunft:**
-[La Casona de Jovellanos](https://www.booking.com/hotel/es/la-casona-de-jovellanos.html)
-(9,4, ~300 Reviews) — Gijón Altstadt, familiär, Frühstück inkl. (~90–130 €/Nacht)
+- 🥾 **Senda del Cervigón** (Gijón) — 8 km Küstenpfad bis Playa de La Ñora.
+- 🎨 **Elogio del Horizonte** — Chillida-Skulptur am Cerro de Santa Catalina.
+- 🏊 **Playa de San Lorenzo** (Gijón) — Stadtstrand.
+- 🍷 **Sidrería Tierra Astur** (Gijón) — Sidra-Kultur erleben (_escanciar_).
 
-- 🥾 **Senda del Cervigón** (Gijón) — 8 km, 2,5 Std., leicht. Küstenpfad mit Skulpturen.
-  🏊 Endet an der Playa de La Ñora — kleine Bucht zum Abkühlen.
-  - 🍷 **Einkehr:** Bar Playa La Ñora (am Endpunkt, Getränke + Bocadillos).
-- 🎨 **Elogio del Horizonte** — Monumentale Chillida-Skulptur am Cerro de Santa
-  Catalina. Man kann in die Skulptur treten und dem Meer "lauschen".
-- 🏊 **Playa de San Lorenzo** (Gijón) — 1,5 km Stadtstrand.
-- 🍷 **Sidrería Tierra Astur** (Gijón) — Sidra + asturische Küche.
+### Tag 11 · Mo 14. Sep · Oviedo (Tagesausflug ab Gijón)
 
-### Tag 11 · Mo 14. Sep · Oviedo (Tagesausflug, 30 Min.)
-
-- 🎊 **Fiestas de San Mateo** (Oviedo) — Genaue Daten für 2026 bestätigt: **11.–21.
-  September**. Größtes Stadtfest in Oviedo mit Live-Musik, "Chiringuitos" in der
-  Altstadt und toller Festatmosphäre.
-- 🏛️ **Präromanische Kirchen** (UNESCO) — Santa María del Naranco, San Miguel de
-  Lillo. 9. Jh. (Mo 09:30–13:00 kostenlos, ohne Guide)
-- 🎨 **Street Art Oviedo** — Skulpturen-Rundgang: "Maternidad" (Botero) und "Culis
-  Monumentalibus" (Eduardo Úrculo).
+- 🎊 **Fiestas de San Mateo** (Oviedo) — Größtes Stadtfest in Oviedo (11.–21. Sep.) mit Live-Musik & Chiringuitos.
+- 🏛️ **Präromanische Kirchen** (UNESCO) — Santa María del Naranco (Mo Vormittag kostenlos).
+- 🎨 **Street Art & Skulpturen** — Botero, Úrculo.
 - 🍷 **Mercado del Fontán** (Oviedo) — Historische Markthalle.
-
-> Hinweis: Museen montags geschlossen.
-
-**Weitere POIs in Gijón/Oviedo:**
-
-- 🎨 **Museo Barjola** (Gijón) — Zeitgenössische Kunst in einer historischen Kapelle.
-- 🥾 **Senda del Oso** (50 Min. ab Gijón, Startpunkt Tuñón) — 18 km, 4 Std., leicht. ⭐
-  4,5 (54 Reviews). Ehem. Bergbau-Pfad (Vía Verde Tuñón–Proaza).
-  [Vía Verde](https://www.viasverdes.com/itinerarios/itinerario.asp?id=27)
-- 🏊 **Playa del Silencio** (40 Min. westlich) — Versteckte Bucht, Klippen.
-- 🍷 **Casa Fermín** (Oviedo) — Michelin-empfohlen.
-- 🌿 **[Jardín Botánico Atlántico](https://www.spain.info/de/highlights/botanischer-garten-atlantico/)** (Gijón) — 25 ha,
-  atlantische Flora.
-- 🎨 **[LABoral Centro de Arte](https://www.laboralcentrodearte.org/en)** —
-  Zeitgenössische Kunst + Technologie. Gijón. ℹ️ Sommeröffnungszeiten bis 15. Sept.:
-  Mi–So 11:00–19:00 Uhr (Mo+Di geschlossen). Daher an Tag 10 (So, 13. Sep.) geöffnet und
-  besuchbar! (Außerhalb der Sommersaison: Di–Sa geöffnet, So+Mo geschlossen).
-- 🎨 **[Museo de Bellas Artes](https://www.museobbaa.com)** (Oviedo) — El Greco bis
-  Dalí. (Di–So, Mo geschlossen)
 
 ---
 
@@ -417,89 +364,65 @@ Fahrt nach Gijón.
 ![Tag 12: Gijón → San Vicente](img/gijon-san-vicente.png)
 [Route in Google Maps](https://www.google.com/maps/dir/Gijón/San+Vicente+de+la+Barquera)
 
-> 🎊 **Regionalfeiertag (Kantabrien):** La Bien Aparecida. Banken und einige Geschäfte
-> in San Vicente geschlossen. Restaurants und Strände sehr belebt.
+> 🎊 **Regionalfeiertag (Kantabrien):** La Bien Aparecida. Restaurants & Strände belebt.
 
 Fahrt entlang der Küste nach Kantabrien.
 
-**Unterkunft:**
-[Hotel Azul de Galimar](https://www.booking.com/hotel/es/azul-de-galimar.html) (8,6,
-~364 Reviews) — Ruhige Lage, modern, Garten, Frühstück inkl. (~80–110 €/Nacht)
-
-- 🏰
-  **[Castillo del Rey](https://www.spain.info/en/destination/san-vicente-la-barquera/)**
-  — Mittelalterliche Burg mit Panoramablick auf Küste und Picos.
-- 🥾 **Senda Costera (Pendueles → Vidiago)**
-  [📍](https://www.google.com/maps/search/?api=1&query=43.3950,-4.6700) — 5 km, 2 Std.,
-  leicht. Küstenklippen mit Bufones de Pría (Meerwasser-Fontänen). Auf dem Weg nach San
-  Vicente.
-- 🏊 **Playa de Torimbia**
-  [📍](https://www.google.com/maps/search/?api=1&query=43.4417,-4.8483) —
-  Halbmondförmige Naturbucht bei Llanes, unverbaut. Auf dem Weg (5 Min. Abstecher).
-- 🏛️ **Altstadt** — Puente de la Maza (28 Bögen), Kirche Santa María de los Ángeles.
-- 🏊 **Playa de Oyambre** — Naturpark, goldener Sand, wenig bebaut.
-- 🏊 **Playa de Merón** — Breiter Strand, Dünenlandschaft.
-- 🍷 **Hafen** — Frischer Fisch und Meeresfrüchte direkt vom Boot. Spezialität:
-  Sorropotún (Bonito-Eintopf).
+- 🏰 **Castillo del Rey** — Mittelalterliche Burg mit Panoramablick.
+- 🥾 **Senda Costera (Pendueles → Vidiago)** — 5 km Küstenklippen mit Bufones de Pría.
+- 🏊 **Playa de Torimbia** / **Playa de Oyambre**.
+- 🍷 **Hafen** — Frischer Bonito-Eintopf (_Sorropotún_).
 
 ---
 
-### Tag 13 · Mi 16. Sep · San Vicente → Vitoria-Gasteiz · 210 km, ~2,5 Std. + Stopp
+### Tag 13 · Mi 16. Sep · San Vicente → Vitoria-Gasteiz · 210 km, ~2,5 Std.
 
 ![Tag 13: San Vicente → Vitoria-Gasteiz](img/san-vicente-vitoria.png)
-[Route in Google Maps](https://www.google.com/maps/dir/San+Vicente+de+la+Barquera/Laguardia/Vitoria-Gasteiz)
+[Route in Google Maps](https://www.google.com/maps/dir/San+Vicente+de+la+Barquera/Vitoria-Gasteiz)
 
-Entspannte Weiterfahrt ins Baskenland mit Zwischenstopp in Laguardia für eine Wanderung.
+Entspannte Weiterfahrt ins Baskenland. Ankunft in Vitoria-Gasteiz am Nachmittag (~15:00 Uhr).
 
-**Stopp Laguardia (Vormittag/Mittag):**
-
-- 🥾 **Lagunas de Laguardia** [📍](https://www.google.com/maps/search/?api=1&query=42.5500,-2.5833) — Wanderung durch das geschützte Feuchtgebiet direkt vor den Toren der Stadt (~5 km, 1,5–2 Std., leicht). Rast mit Blick auf die Weinterrassen.
-- 🏛️ **Laguardia Altstadt** (optional, 30 Min.) — Kurzer Bummel durch das mittelalterliche Weindorf.
-- 🍷 **Mittagessen** in Laguardia (optional)
-
-Ankunft in Vitoria-Gasteiz am Nachmittag (~15:00–16:00 Uhr).
-
-**Unterkunft:**
-[Hotel Silken Ciudad de Vitoria](https://www.booking.com/hotel/es/silken-ciudad-de-vitoria.html) (8,6, ~2.000 Reviews) — Zentral, moderne Zimmer, Frühstück inkl. (~90–120 €/Nacht)
-
-- 🎨 **Itinerario Muralístico (IMVG)** — Europas größte Freiluft-Mural-Galerie. Rundgang ~1,5 Std., kostenlos.
-- 🎨 **[Artium Museoa](https://www.artium.eus)** — Zeitgenössische Kunst, 2.700+ Werke, 1950er bis heute. **Pflichtbesuch.** (~9 €/P., Di–Fr 11–14 + 17–20 Uhr, Sa+So 11–20 Uhr) ℹ️ Besuch ab 17:00 Uhr einplanen.
-- �️ **[Catedral de Santa María](https://www.catedralvitoria.eus/en)** — Gotisch, „offene Baustelle" (Ken Follett-Inspiration). Geführte Touren.
-- � **Calle Cuchillería** — Pintxos-Straße, authentisch und weniger touristisch als San Sebastián.
+- 🎨 **[Artium Museoa](https://www.artium.eus)** — Zeitgenössische Kunst (Di–Fr 11–14 + 17–20 Uhr).
+- 🎨 **Itinerario Muralístico (IMVG)** — Europas größte Freiluft-Mural-Galerie.
+- 🍷 **Calle Cuchillería** — Authentische Pintxos-Straße.
 
 ---
 
-### Tag 14 · Do 17. Sep · Vitoria-Gasteiz → Bilbao · ~70 km, ~1 Std.
+### Tag 14 · Do 17. Sep · Vitoria-Gasteiz & Rioja Alavesa (Tagesausflug) · ~90 km Runden
 
-![Tag 14: Vitoria → Bilbao](img/vitoria-bilbao.png)
+![Tag 14: Vitoria → Laguardia → Vitoria](img/san-vicente-vitoria.png)
+[Route in Google Maps](https://www.google.com/maps/dir/Vitoria-Gasteiz/Laguardia/Vitoria-Gasteiz)
+
+Ganztagesausflug in die berühmte Weinregion **Rioja Alavesa**.
+
+- 🥾 **Lagunas de Laguardia** [📍](https://www.google.com/maps/search/?api=1&query=42.5500,-2.5833) — Wanderung durch das geschützte Naturschutzgebiet & Weinterrassen (~5 km, 1,5 Std., leicht).
+- 🏛️ **Laguardia Altstadt** — Mittelalterliches Weindorf auf einem Hügel mit unterirdischem Tunnelsystem.
+- 🍷 **Bodega-Architektur & Weinprobe** — Spektakuläre Weingüter wie _Bodegas Ysios_ (Santiago Calatrava) oder _Marqués de Riscal_ (Frank Gehry) in Elciego.
+- 🏛️ **[Catedral de Santa María](https://www.catedralvitoria.eus/en)** (abends in Vitoria) — Gotische Kathedrale („offene Baustelle").
+
+---
+
+### Tag 15 · Fr 18. Sep · Vitoria-Gasteiz → Bilbao · ~70 km, ~1 Std.
+
+![Tag 15: Vitoria → Bilbao](img/vitoria-bilbao.png)
 [Route in Google Maps](https://www.google.com/maps/dir/Vitoria-Gasteiz/Bilbao)
 
-Entspannte Weiterfahrt nach Bilbao. Ankunft am Vormittag.
+Entspannte Weiterfahrt nach Bilbao am Vormittag.
 
-**Unterkunft:** [Hotel Miró](https://www.booking.com/hotel/es/mirohotel.html) (8,8, ~370 Reviews) — Guggenheim-Nähe, Design, Frühstück inkl. (~100–150 €/Nacht)
-
-- **[Guggenheim Bilbao](https://www.guggenheim-bilbao.eus/en)** — Gehry-Ikone, zeitgenössische Kunst. **Pflichtbesuch.** (~16 €/P., 3 Std., ⚠️ vorab buchen!) 💡 Tipp: morgens früh da sein — vor Öffnung reinigen sogenannte „Spidermans" die Titanfassade im Abseilverfahren, ein Spektakel für sich.
-- 🏛️ **Casco Viejo** — Siete Calles, mittelalterliche Altstadt, Plaza Nueva.
-- 🍷 **Mercado de la Ribera** — Europas größte Markthalle, Tapas-Bars.
-
----
-
-### Tag 15 · Fr 18. Sep · Bilbao
-
+- 🚗 **Mietwagen-Abgabe:** Abgabe am Flughafen Bilbao (BIO) oder Stadtfiliale (Ende der 14-tägigen Mietdauer). Vom Flughafen per Bus A3247 (alle 15 Min., 20 Min. Fahrt, ~3 €) zurück in die Innenstadt. Bilbao danach bequem per Metro, Funicular & zu Fuß erkunden!
 - 🏛️ **[Puente Bizkaia](https://puente-colgante.com/en)** [📍](https://www.google.com/maps/search/?api=1&query=43.3231,-3.0172) — UNESCO-Schwebefähre (1893), 15 Min. Fahrt nach Getxo.
 - 🥾 **Artxanda Funicular + Rundweg** — 5 km, 2 Std., leicht. Panorama (Sonnenuntergang).
-- 🎨 **[Museo de Bellas Artes](https://bilbaomuseoa.eus)** — Goya bis Chillida, El Greco bis zeitgenössische Kunst.
-- 🛶 Optional: Kayak auf dem Nervión.
-- 🍷 **Plaza Nueva Pintxos** — Gilda, Txuleta, Bacalao al Pil-Pil.
+- 🍷 **Plaza Nueva Pintxos** — Gilda, Bacalao al Pil-Pil.
 
 ---
 
-### Tag 16 · Sa 19. Sep · Bilbao
+### Tag 16 · Sa 19. Sep · Bilbao (Kultur & Altstadt)
 
-- �️ **Casco Viejo** — Weiteres Erkunden der Altstadt, Siete Calles.
-- �🍷 **[Café Iruña](https://www.cafeiruna.com/)** [📍](https://www.google.com/maps/search/?api=1&query=43.2634,-2.9253) — Seit 1903, neo-maurischer Stil, Bilbaos bekanntestes Traditionslokal. Pintxos an der Theke, typische Atmosphäre.
-- 🥾 **Optional:** Spaziergang entlang der Ría de Bilbao oder Besuch der Basilika de Begoña (Hügel über der Altstadt, 20 Min. zu Fuß).
-- 🍷 **Restaurante Mina** — Michelin-Stern, baskische Avantgarde (Reservierung empfohlen).
+- 🎨 **[Guggenheim Bilbao](https://www.guggenheim-bilbao.eus/en)** — Gehry-Ikone, zeitgenössische Kunst. **Pflichtbesuch.** (~16 €/P., 3 Std., ⚠️ vorab buchen!)
+- 🏛️ **Casco Viejo** — Siete Calles, Plaza Nueva.
+- 🍷 **[Café Iruña](https://www.cafeiruna.com/)** — Seit 1903, neo-maurischer Stil, Bilbaos bekanntestes Traditionslokal. Pintxos an der Theke.
+- 🎨 **[Museo de Bellas Artes](https://bilbaomuseoa.eus)** — Goya bis Chillida.
+- 🍷 **Restaurante Mina** — Michelin-Stern, baskische Avantgarde.
 
 ---
 

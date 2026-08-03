@@ -121,6 +121,6 @@ The following additional rules are loaded automatically based on active files:
 
 - `app-product.md` — Platform architecture, tech stack, MCP ecosystem, naming conventions
 - `mcp-development.md` — MCP server development guidelines
-- `trip-planner-app.md` — Web app coding guidelines (Vue 3 + FastAPI)
+- `app/AGENTS.md` — Web app coding guidelines (Vue 3 + FastAPI)
 
 **Note:** You do not need to manually load these files. Kiro's fileMatch system loads them automatically when you work on matching files.

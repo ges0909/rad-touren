@@ -3,98 +3,90 @@ inclusion: fileMatch
 fileMatchPattern: "trips/**"
 ---
 
-# Reiseplanung mit Gerrit on Tour
+# Universal Travel Preferences — Gerrit on Tour
 
-Universelle Vorgaben für alle Reisetypen (Cycling, Hiking, Roadtrips). Reisetyp-spezifische Präferenzen sind in separaten Dateien organisiert.
+These rules apply to all travel types (cycling, hiking, roadtrips). Type-specific preferences are in separate steering files (`bike-preferences.md`, `road-preferences.md`).
 
-## Home Base & Travel Group
+## User Profile
 
 - **Home base:** S Blankenfelde (TF) Bhf, Berlin
-- **Reisegruppe:** 2 Personen (default)
-- **Reisetypen:**
-  - 🚴 Cycling: Tagestouren (siehe `bike-preferences.md`)
-  - 🚗 Roadtrips: Mehrtagstrips (siehe `road-preferences.md`)
+- **Default group size:** 2 persons
+- **Travel types:** Cycling day trips, multi-day roadtrips
 
-## Response Language
+## Language Rules
 
-- Output language is controlled by the UI language toggle (DE/EN). Follow the system prompt language instruction.
-- Code artifacts (file names, GPX metadata, MCP tool parameters, commit messages) are always in English using kebab-case.
+- Write tour content in the language matching the user's prompt language.
+- Code artifacts are always English kebab-case: file names, GPX metadata, MCP tool parameters, commit messages.
 
-## Interests — Grundkategorien
+## Interest Categories
 
-Diese Kategorien gelten für alle Reisetypen. Die Prioritätsreihenfolge und Anwendung ist reisetyp-spezifisch definiert.
+Use these categories and emojis consistently across all tour documents. When a location matches multiple categories, list them in priority order defined by the active type-specific preferences file.
 
-| Emoji | Interest           | Beschreibung                                           |
-| ----- | ------------------ | ------------------------------------------------------ |
-| 🥾    | Wandern            | Wanderwege, Naturpfade, Aussichtspunkte                |
-| 🏊    | Baden              | Seen, Strände, Thermen, Naturbadestellen               |
-| 🍷    | Regionale Küche    | Lokale Restaurants, Märkte, Food-Spezialitäten         |
-| 🌿    | Botanische Gärten  | Botanische Gärten, Arboreten, Landschaftsparks         |
-| 🎨    | Moderne Kunst      | Galerien, Skulpturenparks, zeitgenössische Kunstmuseen |
-| 🏛️    | Sehenswürdigkeiten | Historische Stätten, Denkmäler, Museen                 |
+| Emoji | Category           | Scope                                                 |
+| ----- | ------------------ | ----------------------------------------------------- |
+| 🥾    | Wandern            | Hiking trails, nature paths, viewpoints               |
+| 🏊    | Baden              | Lakes, beaches, thermal baths, natural swimming spots |
+| 🍷    | Regionale Küche    | Local restaurants, markets, food specialties          |
+| 🌿    | Botanische Gärten  | Botanical gardens, arboreta, landscape parks          |
+| 🎨    | Moderne Kunst      | Galleries, sculpture parks, contemporary art museums  |
+| 🏛️    | Sehenswürdigkeiten | Historic sites, monuments, museums                    |
 
-**Verwendung:**
+Additional contextual emoji: `🍺` for beer gardens/restaurants (maps to Overpass `einkehr` preset).
 
-- Verwende die Emojis aus dieser Tabelle konsistent in allen Tour-Dokumenten
-- Bei mehreren Kategorien pro Location: höchste Priorität zuerst
-- Prioritätsreihenfolge: siehe reisetyp-spezifische Präferenz-Datei
+## Content Integrity (Non-Negotiable)
 
-## Content Integrity
+These rules override all other considerations when generating tour content:
 
-Diese Regeln sind nicht verhandelbar für alle generierten Inhalte:
+1. **No fabrication.** Only present data sourced from API results or web search. If data is unavailable, state it explicitly — never invent details.
+2. **Deduplication.** One entry per POI. Remove duplicates within a 200 m radius.
+3. **Seasonal awareness.** Flag closures, limited opening hours, and off-season risks.
+4. **Source attribution.** Append `ℹ️ Zuletzt geprüft: {YYYY-MM-DD}` to web-sourced data.
+5. **Link policy.** Only official websites for major POIs. Never use Google Maps, TripAdvisor, or ephemeral URLs.
+6. **Link verification.** Before inserting any URL, confirm HTTP 200 via `web_fetch`. Remove or replace dead links.
+7. **Unverifiable data.** Mark with `ℹ️ Nicht verifiziert.` — never guess or fabricate.
 
-| Rule               | Requirement                                                                                        |
-| ------------------ | -------------------------------------------------------------------------------------------------- |
-| No fabrication     | Nur Daten aus API-Ergebnissen oder Web-Suche präsentieren. Falls nicht verfügbar, explizit angeben |
-| Emoji consistency  | Interest-Tabelle Emojis für POIs verwenden. 🍺 für Biergärten/Restaurants (Overpass `einkehr`)     |
-| Deduplication      | Ein Eintrag pro POI; Duplikate im 200 m Radius entfernen                                           |
-| Seasonal awareness | Schließungen, eingeschränkte Öffnungszeiten, Off-Season-Risiken kennzeichnen                       |
-| Source attribution | `ℹ️ Zuletzt geprüft: {date}` für web-basierte Daten anhängen                                       |
-| Links              | Nur offizielle Websites für große POIs. Keine Google Maps, TripAdvisor oder temporäre URLs         |
-| Link verification  | Vor Einfügen jeder URL: HTTP 200 via `web_fetch` prüfen. Tote Links entfernen/ersetzen             |
-| Unverifiable data  | Mit `ℹ️ Nicht verifiziert.` markieren — niemals Details raten oder erfinden                        |
+## Route Discovery Workflow
 
-## Route Discovery & Reviews
+### Waymarked Trails (Marked Routes)
 
-### Waymarked Trails (offiziell markierte Routen)
+Use these MCP tools in sequence for route research:
 
-Diese MCP-Tools in Reihenfolge für Route-Recherche verwenden:
+1. `search_routes(query, activity)` — find routes by name, region, or keyword
+2. `get_route_details(route_id, activity)` — retrieve distance, markings, operator
+3. `get_route_segments(route_id, activity)` — get stages and waypoints along the route
 
-1. `search_routes(query, activity)` — Routen nach Name, Region oder Keyword finden
-2. `get_route_details(route_id, activity)` — Länge, Markierungen, Betreiber abrufen
-3. `get_route_segments(route_id, activity)` — Etappen und Orte entlang der Route
+### Review Lookup (Hiking Routes)
 
-### Review Lookup (Web-Suche)
+Always look up reviews when recommending hiking routes. Apply these thresholds:
 
-**Immer Bewertungen nachschlagen bei Wanderrouten-Vorschlägen.** Diese Schwellenwerte anwenden:
+- **Prefer:** ≥ 4.0 stars with ≥ 30 reviews
+- **Discard:** < 3.5 stars or < 10 reviews (unless no alternative exists)
 
-- Bevorzugt: ≥4.0 Sterne mit ≥30 Bewertungen
-- Verwerfen: <3.5 Sterne oder <10 Bewertungen (außer keine Alternative)
+Search procedure:
 
-Vorgehen:
+1. `"{route name}" AllTrails review`
+2. `"{route name}" Komoot Bewertung`
+3. `"{route name}" Wikiloc rating` (especially for Spain/Portugal)
+4. Summarize: rating, praise/criticism, difficulty, trail surface
+5. Append: `ℹ️ Bewertungen aus Web-Recherche ({YYYY-MM-DD}), nicht per API verifiziert.`
 
-1. Suche: `"{route name}" AllTrails review`
-2. Suche: `"{route name}" Komoot Bewertung`
-3. Suche: `"{route name}" Wikiloc rating` (besonders Spanien/Portugal)
-4. Zusammenfassen: Bewertung, Lob/Kritik, Schwierigkeit, Wegebeschaffenheit
-5. Markieren: `ℹ️ Bewertungen aus Web-Recherche ({date}), nicht per API verifiziert.`
+### Tool Selection
 
-### Tool Selection Guide
+| Intent                     | Tool                                            |
+| -------------------------- | ----------------------------------------------- |
+| Find routes in a region    | `search_routes` (Waymarked Trails)              |
+| Route recommendation       | `search_routes` + `get_route_details`           |
+| Route ratings/reviews      | Web search (AllTrails / Komoot)                 |
+| Custom cycling route       | BRouter `calculate_route`                       |
+| Custom car or hiking route | OpenRouteService `calculate_route`              |
+| Experience reports         | Web search (Komoot / AllTrails / Outdooractive) |
 
-| Intent                 | Tool                                                   |
-| ---------------------- | ------------------------------------------------------ |
-| Routen in einer Region | Waymarked Trails `search_routes`                       |
-| Routen-Empfehlung      | Waymarked Trails `search_routes` + `get_route_details` |
-| Routen-Rating/Review   | Web search (AllTrails/Komoot)                          |
-| Custom Cycling Tour    | BRouter `calculate_route`                              |
-| Custom Car/Hiking Tour | OpenRouteService `calculate_route`                     |
-| Erfahrungsberichte     | Web search (Komoot/AllTrails/Outdooractive)            |
+## Output Structure
 
-## Output-Format
+Every tour request produces at minimum:
 
-Jede Tour-Anfrage produziert:
+- Markdown document: `trips/{type}/{tour-name}/index.md`
+- GPX track(s): `trips/{type}/{tour-name}/gpx/{segment-name}.gpx`
+- Route map PNG: `trips/{type}/{tour-name}/img/route-map.png`
 
-- Markdown-Dokument (`trips/{type}/{tour-name}/index.md`)
-- GPX-Track(s) (`gpx/{segment-name}.gpx`)
-- Routenkarte als PNG (`img/route-map.png`)
-- Zusätzliche Outputs sind reisetyp-spezifisch definiert
+Additional outputs are defined in the type-specific output template (`bike-output-template.md`, `road-output-template.md`).

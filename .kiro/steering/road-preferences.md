@@ -3,121 +3,103 @@ inclusion: fileMatch
 fileMatchPattern: "trips/road/**"
 ---
 
-# Roadtrip Preferences — Europa Mehrtagstrips
+# Roadtrip Preferences
 
-Persönliche Präferenzen für Auto-Rundreisen. Diese Datei ergänzt `user-preferences.md` (universelle Regeln) und `road-planner.md` (technische Workflow-Regeln).
+Personal preferences for multi-day car road trips across Europe. Supplements `user-preferences.md` (universal rules) and `road-planner.md` (workflow and tool usage).
 
 ## Trip Profile
 
-| Eigenschaft       | Wert                                              |
-| ----------------- | ------------------------------------------------- |
-| Dauer             | 7–14 Tage                                         |
-| Stops             | 4–8 Stationen, logische Rundfahrt                 |
-| Stay per Stop     | 1–3 Nächte (1 Nacht bei Durchgangsorten)          |
-| Driving per Day   | Max. 4 Stunden (bei Überschreitung: Stop einfügen) |
-| Gruppe            | 2 Personen                                        |
-| Fahrzeug          | Kompaktwagen, Flughafen Pickup/Dropoff            |
-| Booking           | billiger-mietwagen.de                             |
+- Duration: 7–14 days
+- Stops: 4–8 stations forming a logical loop
+- Stay per stop: 1–3 nights (1 night for transit stops only)
+- Max driving per day: 4 hours — if exceeded, insert an intermediate stop
+- Group: 2 persons
+- Vehicle: compact car, airport pickup/dropoff
+- Booking: billiger-mietwagen.de
 
 ## Flight Preferences
 
-- **Priorität 1:** Direktflüge ab BER
-- **Priorität 2:** Nächster Flughafen mit BER-Direktverbindung (max. ~3 h Fahrzeit akzeptabel)
-- **Grenzüberschreitende Anmietung:** Akzeptabel (EU/Schengen), Zuschlag beachten
-- **Abflug:** Früh morgens (07:00–09:00 Uhr)
-- **Rückflug:** Nachmittag/Abend (15:00–17:00 Uhr)
+Priority order for airport selection:
 
-**Buffer-Regel (Same-City Start/End):**
-- Erste Übernachtung am Ankunftsort: max. 1 Nacht
-- Längerer Aufenthalt (2+ Nächte): ans Ende legen (Flug-Buffer)
+1. Direct flights from BER (always preferred)
+2. Nearest airport with BER direct connection (max ~3 h drive acceptable)
 
-## Interests — Priorität (Mehrtagstrips)
+Cross-border rental (EU/Schengen) is acceptable — note surcharges.
 
-Diese Prioritätsreihenfolge für Roadtrips verwenden. Bei mehreren Interests pro Location höchste Priorität zuerst nennen.
+Timing:
 
-| #   | Emoji | Interest          | Verhalten                                                                                                        |
-| --- | ----- | ----------------- | ---------------------------------------------------------------------------------------------------------------- |
-| 1   | 🥾    | Wandern           | **Highest priority.** Tageswanderungen (3–5 h) als Haupt-Aktivität. Rating ≥4.0 (≥30 Reviews, AllTrails/Komoot) |
-| 2   | 🎨    | Moderne Kunst     | **Immer hervorheben.** Galerien, Skulpturenparks, zeitgenössische Museen.                                        |
-| 3   | 🏛️    | Sehenswürdigkeiten| Historische Stätten, UNESCO-Welterbe, bedeutende Museen.                                                         |
-| 4   | 🌿    | Botanische Gärten | **Immer erwähnen wenn in Stadt/Region verfügbar.**                                                               |
-| 5   | 🍷    | Regionale Küche   | Lokale Restaurants, Weingüter, Food-Märkte.                                                                      |
-| 6   | 🏊    | Baden             | Strände, Thermen, Seen. Besonders relevant bei Küsten-/Sommer-Trips.                                             |
+- Outbound: early morning (07:00–09:00)
+- Return: afternoon/evening (15:00–17:00)
 
-**Anwendung:**
-- Pro Stop: 1–2 Wanderungen recherchieren (Web-Suche: AllTrails, Komoot, Wikiloc)
-- Kunst & Sehenswürdigkeiten: Wikivoyage + Web-Suche kombinieren
-- Wanderungen als eigene Tages-Aktivität einplanen (nicht nur „optional")
+Buffer rule (same-city start/end):
 
-## Food & Drink (Mehrtagstrips)
+- First night at arrival city: max 1 night
+- Longer stays (2+ nights) at start/end city: place at the end as flight buffer
 
-Regeln für Restaurant-Empfehlungen (Prioritätsreihenfolge):
+## Interest Priorities
 
-1. **Bodenständig und authentisch** — Traditionsküche, Familienrestaurants, Gasthäuser. Kein Fine Dining außer explizit gewünscht.
-2. Regional/lokal vor internationalen Ketten
-3. Märkte und Food Halls vor Touristen-Restaurants
-4. **Niemals** Fast Food oder Ketten empfehlen
-5. **Rating-Schwelle:** ≥4.0 auf TripAdvisor (mind. 50 Bewertungen). Immer Rating angeben. Michelin/Bib Gourmand erwähnen falls vorhanden.
-6. **Cross-Check:** High-End-Picks via Google Maps oder TheFork/ElTenedor gegenchecken
+Apply this priority order when planning stops and activities. When a location has multiple interests, list the highest priority first.
 
-**Reservierung:**
-- Bei beliebten Restaurants: Reservierung empfehlen (mit 🍷 + „**Reservierung empfohlen**")
-- Alternative ohne Reservierung angeben
+| Priority | Emoji | Interest           | Guidance                                                                                                                             |
+| -------- | ----- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| 1        | 🥾    | Wandern            | Main activity. Plan 1–2 day hikes (3–5 h) per stop. Require rating ≥4.0 with ≥30 reviews (AllTrails/Komoot). Always web-search.      |
+| 2        | 🎨    | Moderne Kunst      | Always highlight. Include galleries, sculpture parks, contemporary museums at every stop where available.                            |
+| 3        | 🏛️    | Sehenswürdigkeiten | Historic sites, UNESCO heritage, significant museums.                                                                                |
+| 4        | 🌿    | Botanische Gärten  | Always mention when available in a city/region. Do not skip even if other interests are strong.                                      |
+| 5        | 🍷    | Regionale Küche    | Local restaurants, wineries, food markets. See Food & Drink section below.                                                           |
+| 6        | 🏊    | Baden              | Beaches, thermal baths, lakes. Especially relevant for coastal and summer trips. Check driving-day routes for en-route swim options. |
 
-**Format:**
-```
-### 🍷 Abendessen: Casa Marcelo
+Research approach per stop:
 
-- **Lage:** Santiago de Compostela Altstadt
-- **Spezialität:** Galicische Küche, Tasting Menu
-- **Rating:** ⭐ 4.6/5 (327 Bewertungen, TripAdvisor) | Michelin Bib Gourmand
-- **Preis:** €€€ (~45–60 € p.P.)
-- **Reservierung:** Empfohlen (TheFork)
-- **Website:** [casamarcelo.net](https://...)
-- ℹ️ Zuletzt geprüft: 2026-08-02
-```
+- Hiking: web-search AllTrails, Komoot, Wikiloc — treat as dedicated day activity, not optional add-on
+- Art & sights: combine Wikivoyage with web search
+- Swimming: search for options along driving routes between stops
 
-## Accommodation
+## Food & Drink
 
-Regeln für Unterkunfts-Empfehlungen:
+### Selection Criteria (priority order)
 
-- **Typ:** Kleine/familiäre Hotels, B&Bs, Pensiones — keine großen Ketten
-- **Frühstück:** Inklusive bevorzugt
-- **Booking-Plattform:** booking.com
-- **Lage:** Zentral, fußläufig zu Sehenswürdigkeiten
-- **Budget:** ~80–150 €/Nacht für 2 Personen
-- **Wellness:** Sauna/Wellness-Bereich erwähnen falls vorhanden
-- **Rating-Schwelle:** ≥8.5 auf booking.com (mind. 50 Bewertungen). Immer Rating + Review-Count angeben.
-- **Verwerfen:** <7.5 oder <20 Reviews (außer keine Alternative)
-- **Cross-Check:** Bei <50 Reviews oder ungewöhnlichem Rating via TripAdvisor oder Trivago verifizieren. Diskrepanzen notieren.
+1. Authentic and traditional — family restaurants, local cuisine, taverns. No fine dining unless explicitly requested.
+2. Regional/local over international chains
+3. Markets and food halls over tourist restaurants
+4. Never recommend fast food or chains
+5. Rating threshold: ≥4.0 on TripAdvisor (minimum 50 reviews). Always state the rating. Mention Michelin/Bib Gourmand if applicable.
+6. Cross-check high-end picks via Google Maps or TheFork/ElTenedor
 
-**Format:**
-```
-### 🏨 Übernachtung: Hotel Casa Antiga
+### Reservations
 
-- **Lage:** 5 Gehminuten zur Altstadt
-- **Zimmer:** 12 Zimmer, familiengeführt seit 1987
-- **Rating:** ⭐ 9.2/10 (184 Bewertungen, booking.com)
-- **Preis:** ~95 €/Nacht (Frühstück inklusive)
-- **Extras:** Innenhof, kostenlose Weinprobe
-- **Booking:** [booking.com/hotel/casa-antiga](https://...)
-- ℹ️ Zuletzt geprüft: 2026-08-02
+- Popular restaurants: recommend reservation (mark with 🍷 + "**Reservierung empfohlen**")
+- Always provide a no-reservation alternative nearby
+
+### Output Format
+
+```markdown
+### 🍷 Abendessen: {Restaurant Name}
+
+- **Lage:** {City/neighborhood}
+- **Spezialität:** {Cuisine type, signature dishes}
+- **Rating:** ⭐ {X.X}/5 ({N} Bewertungen, TripAdvisor) | {Michelin note if any}
+- **Preis:** {€/€€/€€€} (~{range} € p.P.)
+- **Reservierung:** {Empfohlen (Platform) | Nicht nötig}
+- **Website:** [{domain}]({url})
+- ℹ️ Zuletzt geprüft: {YYYY-MM-DD}
 ```
 
-## Detours & "Unterwegs"-Stops
+## Detours & "Unterwegs" Stops
 
-Empfehle 30–60 min optionale Stops zwischen Hauptstationen:
+Between main stations, suggest 1–2 optional stops (30–60 min each):
 
-- Aussichtspunkte
-- Kleine historische Orte
-- Besondere Cafés/Restaurants
-- Fotospots
+- Scenic viewpoints
+- Small historic towns
+- Notable cafés or regional food stops
+- Photo opportunities
 
-Format: Als eigener Abschnitt `**Unterwegs:**` mit Entfernung/Fahrzeit vom Hauptroute.
+Format as a dedicated `**Unterwegs:**` section with distance and driving time from main route.
 
 ## Seasonal Awareness
 
-- **Saison-Check:** Öffnungszeiten von Museen, Gärten, Attraktionen prüfen
-- **Wetter:** Prognose für gesamte Trip-Dauer abrufen (Open-Meteo)
-- **Hochsaison:** Bei Sommer/Ferienzeiten Buchungs-Empfehlung verstärken
-- **Off-Season:** Geschlossene Attraktionen explizit kennzeichnen
+- Check opening hours/days for museums, gardens, attractions (note weekly closures)
+- Fetch weather forecast for entire trip duration via Open-Meteo
+- High season (summer/holidays): emphasize advance booking recommendations
+- Off-season: explicitly mark closed attractions with ⚠️
+- Flag advance booking requirements: `⚠️ vorab buchen`

@@ -106,7 +106,7 @@ Best used during Phase 1 research alongside written itinerary sources.
 ### Phase 2: Enrichment (per stop)
 
 9. **Travel guide** — Wikivoyage: sections `Küche`, `Sehenswürdigkeiten`, `Aktivitäten`.
-10. **Accommodation** — Web search. Apply rules from `road-preferences.md`.
+10. **Accommodation** — User books independently. Only fill Übernachtungen table structure (dates, nights, location).
 11. **Wandern (day hikes)** — Web search for hiking trails:
     - Every day should have a hiking option (2–5 h, moderate difficulty)
     - Use AllTrails, Komoot, Wikiloc for trail discovery and ratings (≥4.0 stars, ≥30 reviews)
@@ -174,16 +174,15 @@ Station labels: use day-prefixed names like `T1 Bilbao`. Combine labels when POI
 | No hiking trails found  | Try alternative search terms. Note absence if still empty.                                                        |
 | Weather API unavailable | `ℹ️ Wetterdaten nicht verfügbar.`                                                                                 |
 | Driving time unclear    | Estimate ~80 km/h rural, ~120 km/h highway. Mark `ℹ️ Geschätzt.`                                                  |
-| Hotel search empty      | Suggest booking.com/Airbnb with criteria from `user-preferences.md`.                                              |
+| Hotel search empty      | N/A — user books independently.                                                                                   |
 | Geocode fails           | Retry with `country` filter. Still failing → ask user.                                                            |
 | Wikivoyage no article   | Fall back to `remote_web_search`.                                                                                 |
 
 ## Refreshing Existing Trips
 
-| Section     | Tool                    | Reason                 |
-| ----------- | ----------------------- | ---------------------- |
-| Wetter      | `mcp_open_meteo_*`      | Forecasts change daily |
-| Flüge       | `mcp_serpapi_flights_*` | Prices change          |
-| Unterkünfte | `remote_web_search`     | Availability changes   |
+| Section | Tool                    | Reason                 |
+| ------- | ----------------------- | ---------------------- |
+| Wetter  | `mcp_open_meteo_*`      | Forecasts change daily |
+| Flüge   | `mcp_serpapi_flights_*` | Prices change          |
 
 Update `ℹ️ Zuletzt geprüft: {date}` when refreshing any section.

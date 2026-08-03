@@ -1,8 +1,3 @@
----
-inclusion: fileMatch
-fileMatchPattern: "app/**"
----
-
 # App Development Guidelines
 
 Rules for the Trip Planner web application (`app/` directory).
