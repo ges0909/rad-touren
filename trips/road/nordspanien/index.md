@@ -50,7 +50,7 @@ Einige Attraktionen und Transporte auf dieser Route erfordern oder empfehlen ein
 | **Tag 3** (So 6. Sep)   | **Bar Nestor** (San Sebastián)    | Am Reisetag | Keine Online-Buchung. Persönliches Eintragen auf die Liste vor Ort um **12:00 Uhr** (mittags) oder **19:00 Uhr** (abends) für Tortilla.                   | [ ] |
 | **Tag 6** (Mi 9. Sep)   | **Höhle von Altamira** (Neocueva) | 2–4 Wochen  | Replika-Museum & Höhle in Santillana del Mar. Tickets vorab sichern. [culturaydeporte.gob.es](https://www.culturaydeporte.gob.es/mnaltamira/en/home.html) | [ ] |
 | **Tag 9** (Sa 12. Sep)  | **Lagos de Covadonga Bus**        | 2–3 Wochen  | PKW-Zufahrt im September gesperrt. ALSA-Shuttlebus ab Cangas de Onís reservieren (~9 € p.P.). [alsa.es](https://www.alsa.es)                              | [ ] |
-| **Tag 14** (Do 17. Sep) | **Guggenheim Museum** (Bilbao)    | 2–3 Wochen  | Zeitslot-Ticket zwingend empfohlen (morgens bevorzugt). [guggenheim-bilbao.eus](https://www.guggenheim-bilbao.eus/en)                                     | [ ] |
+| **Tag 16** (Sa 19. Sep) | **Guggenheim Museum** (Bilbao)    | 2–3 Wochen  | Zeitslot-Ticket zwingend empfohlen (morgens bevorzugt). [guggenheim-bilbao.eus](https://www.guggenheim-bilbao.eus/en)                                     | [ ] |
 
 > 💡 **Tipp für Unterkünfte:** Beliebte Unterkünfte in Potes und Cangas de Onís sind im September durch Wanderer gut gebucht – frühzeitig sichern!
 
@@ -422,11 +422,6 @@ Uhr (So). ℹ️ Pünktlichkeit laut Airportia gut (4,6/5 Sterne, Stand Jun 2026
 BER ca. 22:55 Uhr.
 [→ Direktflüge BIO→BER, 20. Sep](https://www.skyscanner.de/g/referrals/v1/flights/day-view/?origin=BIO&destination=BER&outboundDate=2026-09-20&adults=2&stops=0&currency=EUR&locale=de-DE&market=DE)
 
-**Weitere POIs in Bilbao:**
-
-- 🎨 **[Museo de Bellas Artes](https://bilbaomuseoa.eus)** — Goya bis Chillida.
-- 🍷 **[Restaurante Mina](https://www.restaurantemina.es)** — Michelin-Stern, baskische Avantgarde.
-
 ---
 
 ## Quellen
@@ -469,9 +464,6 @@ Sehempfehlungen zur Vorbereitung (ÖR Mediathek):
 | ARD    | Podcast: Asturiens Menschen und Mythen (54 Min.)                          | [ARD Sounds](https://www.ardsounds.de/episode/urn:ard:episode:109674ba1fdec334)                                                                                                                                 |
 | BR     | Podcast: Radioreisen — Nordspanien: Picos, Padrón, Bilbao→Porto (54 Min.) | [Apple Podcasts](https://podcasts.apple.com/at/podcast/nordspanien-kalksteingebirge-picos-de-europa-gr%C3%BCnes/id560983615?i=1000770007595)                                                                    |
 | Arte   | Unbekanntes Spanien — Von Asturien nach Zamora (43 Min., bis 17.10.2026)  | [Arte Mediathek](https://www.arte.tv/de/videos/RC-027779/unbekanntes-spanien)                                                                                                                                   |
-
-> ℹ️ Kein Direktflug Santiago de Compostela (SCQ) → Berlin (BER). Daher Rundreise ab/bis
-> Bilbao.
 
 > ℹ️ Zuletzt geprüft: 2026-06-02. Wanderrouten-Bewertungen aus Web-Recherche (2026-05),
 > Quelle: AllTrails. Nicht per API verifiziert.
