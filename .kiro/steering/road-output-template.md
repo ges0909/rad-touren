@@ -71,17 +71,18 @@ Omit optional sections entirely if empty — never leave blank headings.
 Structural skeleton showing where the traveller sleeps each night. The "Unterkunft" column stays empty — the user fills it after booking.
 
 ```markdown
-| Datum             | Nächte | Ort           | Unterkunft |
-| ----------------- | ------ | ------------- | ---------- |
-| Fr 4. – Sa 5. Sep | 1      | Bakio         |            |
-| Sa 5. – Mo 7. Sep | 2      | San Sebastián |            |
+| Datum             | Nächte | Ort                                          | Unterkunft |
+| ----------------- | ------ | -------------------------------------------- | ---------- |
+| Fr 4. – Sa 5. Sep | 1      | [Bakio](#tag-1--fr-4-sep--bilbao--bakio-...) |            |
+| Sa 5. – Mo 7. Sep | 2      | [San Sebastián](#tag-3--so-6-sep--san-...)   |            |
 ```
 
 **Rules:**
 
 - One row per accommodation stop (not per night).
 - Date range format: `{Wochentag} {Tag}. – {Wochentag} {Tag}. {Monat}` (German abbreviations).
-- "Unterkunft" column: always leave empty. Never suggest hotels, links, or prices in this table.
+- "Ort" column: link each location to its first relevant day heading using a markdown anchor (`[Ort](#tag-n--...)`). The anchor is derived from the `###` day heading (lowercase, spaces → hyphens, special chars removed).
+- "Unterkunft" column: filled manually by the user after booking. Never overwrite, delete, or suggest changes to existing entries. Leave empty cells empty — the AI must not insert hotel recommendations.
 - End with footer: `**Gesamt:** {N} Nächte ({Start-Datum}–{End-Datum})`
 
 ---
@@ -91,9 +92,9 @@ Structural skeleton showing where the traveller sleeps each night. The "Unterkun
 Include only when attractions require or strongly recommend advance booking. Omit section entirely otherwise.
 
 ```markdown
-| Tag / Datum           | Aktivität / Ort              | Vorlauf    | Details & Buchungs-Link                                     |
-| :-------------------- | :--------------------------- | :--------- | :---------------------------------------------------------- |
-| **Tag 2** (Sa 5. Sep) | **San Juan de Gaztelugatxe** | 2–4 Wochen | Kostenloses Zeitslot-Ticket. [visitbiscay.eus](https://...) |
+| Tag / Datum           | Aktivität / Ort              | Vorlauf    | Details & Buchungs-Link                                     | ✅  |
+| :-------------------- | :--------------------------- | :--------- | :---------------------------------------------------------- | :-- |
+| **Tag 2** (Sa 5. Sep) | **San Juan de Gaztelugatxe** | 2–4 Wochen | Kostenloses Zeitslot-Ticket. [visitbiscay.eus](https://...) | [ ] |
 ```
 
 **Rules:**
@@ -101,6 +102,7 @@ Include only when attractions require or strongly recommend advance booking. Omi
 - Left-align all columns.
 - Include recommended lead time (e.g., "2–4 Wochen").
 - Sort chronologically by trip day.
+- "✅" column: checkboxes (`[ ]`) for the user to manually mark completed bookings. Never modify existing checkbox states — user-managed content is read-only for the AI.
 - Optional tip below table: `💡 **Tipp:** {advice}`
 
 ---

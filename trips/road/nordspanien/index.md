@@ -1,7 +1,7 @@
 ---
 ---
 
-# Nordspanien
+# Nordspanien Roadtrip
 
 **Reisezeitraum:** Fr 4. September – So 20. September 2026 · 17 Tage · ~1.250 km (inkl.
 Tagesausflüge) **Flug:** BER ↔ Bilbao BIO, Direktflug Eurowings (nur Mo/Fr/So,
@@ -25,17 +25,17 @@ Abendflüge) **Mietwagen:** Übernahme Fr 4. Sep (Flughafen Bilbao) / Abgabe Fr 
 
 ## Übernachtungen im Überblick
 
-| Datum               | Nächte | Ort                     | Unterkunft                                                                                 |
-| ------------------- | ------ | ----------------------- | ------------------------------------------------------------------------------------------ |
-| Fr 4. – Sa 5. Sep   | 1      | Bakio                   | [Casa Rural Lastoetxe](https://www.booking.com/hotel/es/casa-rural-lastoetxe-vizcaya.html) |
-| Sa 5. – Mo 7. Sep   | 2      | San Sebastián           | [A Room in the City](https://www.booking.com/hotel/es/a-room-in-the-city.html)             |
-| Mo 7. – Mi 9. Sep   | 2      | Santander               |                                                                                            |
-| Mi 9. – Do 10. Sep  | 1      | Potes                   | [Albergue La Cabaña](https://www.booking.com/hotel/es/albergue-la-cabana.html)             |
-| Do 10. – So 13. Sep | 3      | Cangas de Onís          | [Hotel Covadonga](https://www.booking.com/hotel/es/covadonga-cangas-de-onis.de.html)       |
-| So 13. – Di 15. Sep | 2      | Gijón                   |                                                                                            |
-| Di 15. – Mi 16. Sep | 1      | San Vicente de Barquera |                                                                                            |
-| Mi 16. – Fr 18. Sep | 2      | Vitoria-Gasteiz         |                                                                                            |
-| Fr 18. – So 20. Sep | 2      | Bilbao                  |                                                                                            |
+| Datum               | Nächte | Ort                                                                                             | Unterkunft                                                                                 |
+| ------------------- | ------ | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Fr 4. – Sa 5. Sep   | 1      | [Bakio](#tag-1--fr-4-sep--bilbao--bakio--35-km-35-min)                                          | [Casa Rural Lastoetxe](https://www.booking.com/hotel/es/casa-rural-lastoetxe-vizcaya.html) |
+| Sa 5. – Mo 7. Sep   | 2      | [San Sebastián](#tag-3--so-6-sep--san-sebastián)                                                | [A Room in the City](https://www.booking.com/hotel/es/a-room-in-the-city.html)             |
+| Mo 7. – Mi 9. Sep   | 2      | [Santander](#tag-4--mo-7-sep--san-sebastián--santander--198-km-25-std)                          |                                                                                            |
+| Mi 9. – Do 10. Sep  | 1      | [Potes](#tag-6--mi-9-sep--santander--potes--liébana-tal--106-km-15-std--stopps)                 | [Albergue La Cabaña](https://www.booking.com/hotel/es/albergue-la-cabana.html)             |
+| Do 10. – So 13. Sep | 3      | [Cangas de Onís](#tag-8--fr-11-sep--picos-de-europa-ruta-del-cares)                             | [Hotel Covadonga](https://www.booking.com/hotel/es/covadonga-cangas-de-onis.de.html)       |
+| So 13. – Di 15. Sep | 2      | [Gijón](#tag-10--so-13-sep--cangas-de-onís--gijón--oviedo--76-km-1-std)                         |                                                                                            |
+| Di 15. – Mi 16. Sep | 1      | [San Vicente de Barquera](#tag-12--di-15-sep--gijón--san-vicente-de-la-barquera--119-km-15-std) |                                                                                            |
+| Mi 16. – Fr 18. Sep | 2      | [Vitoria-Gasteiz](#tag-13--mi-16-sep--san-vicente--vitoria-gasteiz--210-km-25-std)              |                                                                                            |
+| Fr 18. – So 20. Sep | 2      | [Bilbao](#tag-15--fr-18-sep--vitoria-gasteiz--bilbao--70-km-1-std)                              |                                                                                            |
 
 **Gesamt:** 16 Nächte (4.–20. Sep 2026)
 
@@ -45,13 +45,13 @@ Abendflüge) **Mietwagen:** Übernahme Fr 4. Sep (Flughafen Bilbao) / Abgabe Fr 
 
 Einige Attraktionen und Transporte auf dieser Route erfordern oder empfehlen eine rechtzeitige Online-Buchung vor der Reise, um lange Wartezeiten oder Einlassstopps zu vermeiden:
 
-| Tag / Datum             | Aktivität / Ort                   | Vorlauf     | Details & Buchungs-Link                                                                                                                                   |
-| :---------------------- | :-------------------------------- | :---------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Tag 2** (Sa 5. Sep)   | **San Juan de Gaztelugatxe**      | 2–4 Wochen  | Kostenloses Zeitslot-Ticket erforderlich (falls Zugang nach 10:00 Uhr). [visitbiscay.eus](https://www.visitbiscay.eus/en/san-juan-gaztelugatxe)           |
-| **Tag 3** (So 6. Sep)   | **Bar Nestor** (San Sebastián)    | Am Reisetag | Keine Online-Buchung. Persönliches Eintragen auf die Liste vor Ort um **12:00 Uhr** (mittags) oder **19:00 Uhr** (abends) für Tortilla.                   |
-| **Tag 6** (Mi 9. Sep)   | **Höhle von Altamira** (Neocueva) | 2–4 Wochen  | Replika-Museum & Höhle in Santillana del Mar. Tickets vorab sichern. [culturaydeporte.gob.es](https://www.culturaydeporte.gob.es/mnaltamira/en/home.html) |
-| **Tag 9** (Sa 12. Sep)  | **Lagos de Covadonga Bus**        | 2–3 Wochen  | PKW-Zufahrt im September gesperrt. ALSA-Shuttlebus ab Cangas de Onís reservieren (~9 € p.P.). [alsa.es](https://www.alsa.es)                              |
-| **Tag 14** (Do 17. Sep) | **Guggenheim Museum** (Bilbao)    | 2–3 Wochen  | Zeitslot-Ticket zwingend empfohlen (morgens bevorzugt). [guggenheim-bilbao.eus](https://www.guggenheim-bilbao.eus/en)                                     |
+| Tag / Datum             | Aktivität / Ort                   | Vorlauf     | Details & Buchungs-Link                                                                                                                                   | ✅  |
+| :---------------------- | :-------------------------------- | :---------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: |
+| **Tag 2** (Sa 5. Sep)   | **San Juan de Gaztelugatxe**      | 2–4 Wochen  | Kostenloses Zeitslot-Ticket erforderlich (falls Zugang nach 10:00 Uhr). [visitbiscay.eus](https://www.visitbiscay.eus/en/san-juan-gaztelugatxe)           | ✅  |
+| **Tag 3** (So 6. Sep)   | **Bar Nestor** (San Sebastián)    | Am Reisetag | Keine Online-Buchung. Persönliches Eintragen auf die Liste vor Ort um **12:00 Uhr** (mittags) oder **19:00 Uhr** (abends) für Tortilla.                   | [ ] |
+| **Tag 6** (Mi 9. Sep)   | **Höhle von Altamira** (Neocueva) | 2–4 Wochen  | Replika-Museum & Höhle in Santillana del Mar. Tickets vorab sichern. [culturaydeporte.gob.es](https://www.culturaydeporte.gob.es/mnaltamira/en/home.html) | [ ] |
+| **Tag 9** (Sa 12. Sep)  | **Lagos de Covadonga Bus**        | 2–3 Wochen  | PKW-Zufahrt im September gesperrt. ALSA-Shuttlebus ab Cangas de Onís reservieren (~9 € p.P.). [alsa.es](https://www.alsa.es)                              | [ ] |
+| **Tag 14** (Do 17. Sep) | **Guggenheim Museum** (Bilbao)    | 2–3 Wochen  | Zeitslot-Ticket zwingend empfohlen (morgens bevorzugt). [guggenheim-bilbao.eus](https://www.guggenheim-bilbao.eus/en)                                     | [ ] |
 
 > 💡 **Tipp für Unterkünfte:** Beliebte Unterkünfte in Potes und Cangas de Onís sind im September durch Wanderer gut gebucht – frühzeitig sichern!
 
@@ -71,6 +71,9 @@ Bilbao → Bakio (Gaztelugatxe) → San Sebastián → Santander → Potes → P
 
 ### Tag 1 · Fr 4. Sep · Bilbao → Bakio · 35 km, ~35 Min.
 
+![Tag 1: Bilbao → Bakio](img/bilbao-bakio.png)
+[Route in Google Maps](https://www.google.com/maps/dir/Bilbao+Airport/Bakio)
+
 **Hinflug:** BER → Bilbao (BIO), Direktflug Eurowings EW8552, ~2,5 Std. Abflug 17:00
 Uhr, Ankunft Bilbao ca. 19:35 Uhr Ortszeit (Fr).
 [→ Direktflüge BER→BIO, 4. Sep](https://www.skyscanner.de/g/referrals/v1/flights/day-view/?origin=BER&destination=BIO&outboundDate=2026-09-04&adults=2&stops=0&currency=EUR&locale=de-DE&market=DE)
@@ -82,9 +85,6 @@ Uhr, Ankunft Bilbao ca. 19:35 Uhr Ortszeit (Fr).
 ~400–650 € für 13 Tage (Vollkasko inkl.). Abgabe Tag 15 am Flughafen.
 
 **Fahrt nach Bakio:** ~35 Min. direkt vom Flughafen. Ankunft ca. 20:30 Uhr.
-
-**Unterkunft:**
-[Casa Rural Lastoetxe](https://www.booking.com/hotel/es/casa-rural-lastoetxe-vizcaya.html) — Landhaus bei Bakio, 10 Min. zu Gaztelugatxe
 
 **Abendessen:** Hotel-Restaurant (regionale Küche) oder Bakio Ortskern (5 Min. zu Fuß).
 
@@ -200,8 +200,7 @@ Falls ihr nicht so früh aufstehen wollt (oder das Wetter schlecht ist):
 8. 🍷 **Getaria Hafen** (~17:00 Uhr) — Gegrillter Fisch, Txakoli-Wein.
 9. **Ankunft San Sebastián** (~18:00 Uhr)
 
-**Unterkunft:**
-[A Room in the City](https://www.booking.com/hotel/es/a-room-in-the-city.html) — Hostel in ehemaligem Kloster, zentral, 3 Min. zur Playa de La Concha, 10 Min. zur Altstadt (Location Rating 9.5/10)
+**Unterkunft:** Hostel in ehemaligem Kloster, zentral, 3 Min. zur Playa de La Concha, 10 Min. zur Altstadt.
 
 💡 **Tipp Option B:** Gaztelugatxe unter der Woche von San Sebastián aus als
 Tagesausflug nachholen (~1 Std. Fahrt, flexiblere Tickets, weniger Andrang).
@@ -254,7 +253,7 @@ Stopp Castro Urdiales (Kaffee, gotische Kirche). Ankunft Mittag.
 - 🥾 **Península de la Magdalena** — 4 km, 1,5 Std., leicht. Rundweg um die Halbinsel
   mit Palast, Zoo und Strandblick.
 - 🏊 **Playa del Sardinero** — Stadtstrand, Belle-Époque.
-- 🍷 **Mercado de la Esperanza** — Markthalle, Fisch, Tapas-Bars.
+- 🍷 **[Mercado de la Esperanza](https://www.santander.es/servicios-empresas/areas-tematicas/mercados/mercado-esperanza)** — Markthalle, Fisch, Tapas-Bars.
 
 > Hinweis: Centro Botín montags geschlossen.
 
@@ -268,7 +267,7 @@ Stopp Castro Urdiales (Kaffee, gotische Kirche). Ankunft Mittag.
 - 🏊 **Playa de la Arnía**
   [📍](https://www.google.com/maps/search/?api=1&query=43.4738,-3.8783) — Wilde
   Felsbucht, spektakuläre Felsformationen. 15 Min. Fahrt.
-- 🍷 **Bodega del Riojano** — Kantabrische Küche seit 1908.
+- 🍷 **[Bodega del Riojano](https://bodegadelriojano.com)** — Kantabrische Küche seit 1908.
 
 **Weitere POIs in Santander:**
 
@@ -316,7 +315,7 @@ Stopp Castro Urdiales (Kaffee, gotische Kirche). Ankunft Mittag.
 Vormittags Ausflug von Potes zur Seilbahn und Wanderung in den Picos de Europa.
 Nachmittags spektakuläre Fahrt über den Puerto de San Glorio und das Desfiladero de los Beyos nach Cangas de Onís.
 
-- 🥾 **Fuente Dé Seilbahn**
+- 🥾 **[Fuente Dé Seilbahn](https://telefericodefuentede.com)**
   [📍](https://www.google.com/maps/search/?api=1&query=43.1536,-4.8092) (morgens ab Potes, ~30 Min. Anfahrt) → Wanderung zu **Horcados Rojos** (hochalpin, 4 Std.) oder gemütlich über die Puertos de Áliva zurück. (~21 €/P. hin+zurück).
 - 🏛️ **[Puente Romano](https://www.spain.info/en/places-of-interest/puente-rio-sella/)** (Cangas) — Römische Brücke, Wahrzeichen Asturiens. Abendlicher Spaziergang.
 - 🍷 **Sidrería** — Sidra escanciar (aus Höhe einschenken) lernen.
@@ -333,8 +332,8 @@ Nachmittags spektakuläre Fahrt über den Puerto de San Glorio und das Desfilade
   - 🏛️ **[Basílica de Covadonga](https://www.turismoasturias.es/en/-/blogs/guia-para-visitar-visitar-covadonga-los-lagos-y-alrededores)** — Heilige Grotte (Santa Cueva) & Reconquista-Stätte.
   - 🍷 **Einkehr:** Restaurant am Lago Enol.
 - 🥾 **Ruta del Río Dobra** (nachmittags) — 6 km, 2 Std., leicht. Flusswanderung zu türkisfarbenen Felstöpfen bei Cangas.
-- 🏊 **Playa de Gulpiyuri** — Inland-Strand (nur bei Flut!).
-- 🍷 **El Molín de la Pedrera** — Fabada Asturiana in Cangas de Onís.
+- 🏊 **[Playa de Gulpiyuri](https://www.turismoasturias.es/en/descubre/costa/playas/playa-de-gulpiyuri)** — Inland-Strand (nur bei Flut!).
+- 🍷 **[El Molín de la Pedrera](https://elmolindelapedrera.com)** — Fabada Asturiana in Cangas de Onís.
 
 ---
 
@@ -353,9 +352,9 @@ Fahrt nach Gijón.
 ### Tag 11 · Mo 14. Sep · Oviedo (Tagesausflug ab Gijón)
 
 - 🎊 **Fiestas de San Mateo** (Oviedo) — Größtes Stadtfest in Oviedo (11.–21. Sep.) mit Live-Musik & Chiringuitos.
-- 🏛️ **Präromanische Kirchen** (UNESCO) — Santa María del Naranco (Mo Vormittag kostenlos).
+- 🏛️ **[Präromanische Kirchen](https://www.turismoasturias.es/en/descubre/cultura/prerromanico/santa-maria-del-naranco)** (UNESCO) — Santa María del Naranco (Mo Vormittag kostenlos).
 - 🎨 **Street Art & Skulpturen** — Botero, Úrculo.
-- 🍷 **Mercado del Fontán** (Oviedo) — Historische Markthalle.
+- 🍷 **[Mercado del Fontán](https://mercadofontan.es)** (Oviedo) — Historische Markthalle.
 
 ---
 
@@ -383,7 +382,7 @@ Fahrt entlang der Küste nach Kantabrien.
 Entspannte Weiterfahrt ins Baskenland. Ankunft in Vitoria-Gasteiz am Nachmittag (~15:00 Uhr).
 
 - 🎨 **[Artium Museoa](https://www.artium.eus)** — Zeitgenössische Kunst (Di–Fr 11–14 + 17–20 Uhr).
-- 🎨 **Itinerario Muralístico (IMVG)** — Europas größte Freiluft-Mural-Galerie.
+- 🎨 **[Itinerario Muralístico (IMVG)](https://www.muralismopublico.com/p/en/home.php)** — Europas größte Freiluft-Mural-Galerie.
 - 🍷 **Calle Cuchillería** — Authentische Pintxos-Straße.
 
 ---
@@ -397,7 +396,7 @@ Ganztagesausflug in die berühmte Weinregion **Rioja Alavesa**.
 
 - 🥾 **Lagunas de Laguardia** [📍](https://www.google.com/maps/search/?api=1&query=42.5500,-2.5833) — Wanderung durch das geschützte Naturschutzgebiet & Weinterrassen (~5 km, 1,5 Std., leicht).
 - 🏛️ **Laguardia Altstadt** — Mittelalterliches Weindorf auf einem Hügel mit unterirdischem Tunnelsystem.
-- 🍷 **Bodega-Architektur & Weinprobe** — Spektakuläre Weingüter wie _Bodegas Ysios_ (Santiago Calatrava) oder _Marqués de Riscal_ (Frank Gehry) in Elciego.
+- 🍷 **Bodega-Architektur & Weinprobe** — Spektakuläre Weingüter wie _[Bodegas Ysios](https://bodegasysios.com/en)_ (Santiago Calatrava) oder _[Marqués de Riscal](https://www.marquesderiscal.com/en/the-marques-de-riscal-city-of-wine)_ (Frank Gehry) in Elciego.
 - 🏛️ **[Catedral de Santa María](https://www.catedralvitoria.eus/en)** (abends in Vitoria) — Gotische Kathedrale („offene Baustelle").
 
 ---
@@ -411,7 +410,7 @@ Entspannte Weiterfahrt nach Bilbao am Vormittag.
 
 - 🚗 **Mietwagen-Abgabe:** Abgabe am Flughafen Bilbao (BIO) oder Stadtfiliale (Ende der 14-tägigen Mietdauer). Vom Flughafen per Bus A3247 (alle 15 Min., 20 Min. Fahrt, ~3 €) zurück in die Innenstadt. Bilbao danach bequem per Metro, Funicular & zu Fuß erkunden!
 - 🏛️ **[Puente Bizkaia](https://puente-colgante.com/en)** [📍](https://www.google.com/maps/search/?api=1&query=43.3231,-3.0172) — UNESCO-Schwebefähre (1893), 15 Min. Fahrt nach Getxo.
-- 🥾 **Artxanda Funicular + Rundweg** — 5 km, 2 Std., leicht. Panorama (Sonnenuntergang).
+- 🥾 **[Artxanda Funicular](https://funicularartxanda.bilbao.eus/en/home) + Rundweg** — 5 km, 2 Std., leicht. Panorama (Sonnenuntergang).
 - 🍷 **Plaza Nueva Pintxos** — Gilda, Bacalao al Pil-Pil.
 
 ---
@@ -422,7 +421,7 @@ Entspannte Weiterfahrt nach Bilbao am Vormittag.
 - 🏛️ **Casco Viejo** — Siete Calles, Plaza Nueva.
 - 🍷 **[Café Iruña](https://www.cafeiruna.com/)** — Seit 1903, neo-maurischer Stil, Bilbaos bekanntestes Traditionslokal. Pintxos an der Theke.
 - 🎨 **[Museo de Bellas Artes](https://bilbaomuseoa.eus)** — Goya bis Chillida.
-- 🍷 **Restaurante Mina** — Michelin-Stern, baskische Avantgarde.
+- 🍷 **[Restaurante Mina](https://www.restaurantemina.es)** — Michelin-Stern, baskische Avantgarde.
 
 ---
 
@@ -440,23 +439,7 @@ BER ca. 22:55 Uhr.
 **Weitere POIs in Bilbao:**
 
 - 🎨 **[Museo de Bellas Artes](https://bilbaomuseoa.eus)** — Goya bis Chillida.
-- 🍷 **Restaurante Mina** — Michelin-Stern, baskische Avantgarde.
-
----
-
-## Erweiterungsideen
-
-**A: Verlängerung bis Galizien (+4–5 Tage)** — Gijón → Lugo (röm. Stadtmauer) → A Coruña
-(Herkulesturm) → Santiago de Compostela. Kein Direktflug SCQ→BER, daher
-One-Way-Mietwagen zurück nach Bilbao (~6 Std.) oder Umsteigeflug. 💡 **Padrón** (20 km
-SW Santiago): Ursprungsort der Pimientos de Padrón — Besuch bei Anbau-Familien möglich
-(Empfehlung BR Radioreisen, Georg Bayerle).
-
-**B: Pamplona als Startpunkt (+1–2 Tage)** — Navarra: Stadtmauern, Stierlauf-Route,
-Kathedrale, Weinregion.
-
-**C: Französisches Baskenland (+1–2 Tage)** — Biarritz/Saint-Jean-de-Luz ab San
-Sebastián (20–40 Min.). Art Deco, Surfen, französisch-baskische Küche.
+- 🍷 **[Restaurante Mina](https://www.restaurantemina.es)** — Michelin-Stern, baskische Avantgarde.
 
 ---
 
@@ -464,11 +447,11 @@ Sebastián (20–40 Min.). Art Deco, Surfen, französisch-baskische Küche.
 
 Markierte Wanderwege ([Waymarked Trails](https://waymarkedtrails.org), OSM-Daten):
 
-| Route                            | Länge  | Link                                                                        |
-| -------------------------------- | ------ | --------------------------------------------------------------------------- |
-| Ruta del Cares                   | 21 km  | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=2687934) |
-| Lagos de Covadonga               | 6,4 km | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=4664408) |
-| Camino del Norte (Euskal Herria) | 228 km | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=1116809) |
+| Route                            | Länge  | Link                                                                        | GPX |
+| -------------------------------- | ------ | --------------------------------------------------------------------------- | --- |
+| Ruta del Cares                   | 21 km  | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=2687934) | —   |
+| Lagos de Covadonga               | 6,4 km | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=4664408) | —   |
+| Camino del Norte (Euskal Herria) | 228 km | [waymarkedtrails.org](https://hiking.waymarkedtrails.org/#route?id=1116809) | —   |
 
 Routen-Inspiration (recherchiert Mai 2026):
 
@@ -504,5 +487,5 @@ Sehempfehlungen zur Vorbereitung (ÖR Mediathek):
 > ℹ️ Kein Direktflug Santiago de Compostela (SCQ) → Berlin (BER). Daher Rundreise ab/bis
 > Bilbao.
 
-> ℹ️ Zuletzt geprüft: 2. Juni 2026. Wanderrouten-Bewertungen aus Web-Recherche (Mai
-> 2026), Quelle: AllTrails. Nicht per API verifiziert.
+> ℹ️ Zuletzt geprüft: 2026-06-02. Wanderrouten-Bewertungen aus Web-Recherche (2026-05),
+> Quelle: AllTrails. Nicht per API verifiziert.
