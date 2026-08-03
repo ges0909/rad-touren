@@ -44,15 +44,16 @@ Abendflüge) **Mietwagen:** Übernahme Fr 4. Sep (Flughafen Bilbao) / Abgabe Fr 
 
 Einige Attraktionen und Transporte auf dieser Route erfordern oder empfehlen eine rechtzeitige Online-Buchung vor der Reise, um lange Wartezeiten oder Einlassstopps zu vermeiden:
 
-| Tag / Datum             | Aktivität / Ort                   | Vorlauf     | Details & Buchungs-Link                                                                                                                                   | ✅  |
-| :---------------------- | :-------------------------------- | :---------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: |
-| **Tag 2** (Sa 5. Sep)   | **San Juan de Gaztelugatxe**      | 2–4 Wochen  | Kostenloses Zeitslot-Ticket erforderlich (falls Zugang nach 10:00 Uhr). [visitbiscay.eus](https://www.visitbiscay.eus/en/san-juan-gaztelugatxe)           | ✅  |
-| **Tag 3** (So 6. Sep)   | **Bar Nestor** (San Sebastián)    | Am Reisetag | Keine Online-Buchung. Persönliches Eintragen auf die Liste vor Ort um **12:00 Uhr** (mittags) oder **19:00 Uhr** (abends) für Tortilla.                   | [ ] |
-| **Tag 6** (Mi 9. Sep)   | **Höhle von Altamira** (Neocueva) | 2–4 Wochen  | Replika-Museum & Höhle in Santillana del Mar. Tickets vorab sichern. [culturaydeporte.gob.es](https://www.culturaydeporte.gob.es/mnaltamira/en/home.html) | [ ] |
-| **Tag 9** (Sa 12. Sep)  | **Lagos de Covadonga Bus**        | 2–3 Wochen  | PKW-Zufahrt im September gesperrt. ALSA-Shuttlebus ab Cangas de Onís reservieren (~9 € p.P.). [alsa.es](https://www.alsa.es)                              | [ ] |
-| **Tag 16** (Sa 19. Sep) | **Guggenheim Museum** (Bilbao)    | 2–3 Wochen  | Zeitslot-Ticket zwingend empfohlen (morgens bevorzugt). [guggenheim-bilbao.eus](https://www.guggenheim-bilbao.eus/en)                                     | [ ] |
+| Tag / Datum             | Aktivität / Ort                       | Vorlauf     | Details & Buchungs-Link                                                                                                                                   | ✅  |
+| :---------------------- | :------------------------------------ | :---------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: |
+| **Tag 2** (Sa 5. Sep)   | **San Juan de Gaztelugatxe**          | 2–4 Wochen  | Kostenloses Zeitslot-Ticket erforderlich (falls Zugang nach 10:00 Uhr). [visitbiscay.eus](https://www.visitbiscay.eus/en/san-juan-gaztelugatxe)           | [x] |
+| **Tag 3** (So 6. Sep)   | **Bar Nestor** (San Sebastián)        | Am Reisetag | Keine Online-Buchung. Persönliches Eintragen auf die Liste vor Ort um **12:00 Uhr** (mittags) oder **19:00 Uhr** (abends) für Tortilla.                   | [ ] |
+| **Tag 6** (Mi 9. Sep)   | **Höhle von Altamira** (Neocueva)     | 2–4 Wochen  | Replika-Museum & Höhle in Santillana del Mar. Tickets vorab sichern. [culturaydeporte.gob.es](https://www.culturaydeporte.gob.es/mnaltamira/en/home.html) | [ ] |
+| **Tag 9** (Sa 12. Sep)  | **Lagos de Covadonga Bus**            | 2–3 Wochen  | PKW-Zufahrt im September gesperrt. ALSA-Shuttlebus ab Cangas de Onís reservieren (~9 € p.P.). [alsa.es](https://www.alsa.es)                              | [ ] |
+| **Tag 13** (Mi 16. Sep) | **Catedral de Santa María** (Vitoria) | 1–2 Wochen  | Führung „Abierto por obras" mit Schutzhelm. Online-Reservierung. [catedralvitoria.eus](https://www.catedralvitoria.eus/en)                                | [ ] |
+| **Tag 16** (Sa 19. Sep) | **Guggenheim Museum** (Bilbao)        | 2–3 Wochen  | Zeitslot-Ticket zwingend empfohlen (morgens bevorzugt). [guggenheim-bilbao.eus](https://www.guggenheim-bilbao.eus/en)                                     | [ ] |
 
-> 💡 **Tipp für Unterkünfte:** Beliebte Unterkünfte in Potes und Cangas de Onís sind im September durch Wanderer gut gebucht – frühzeitig sichern!
+💡 **Tipp für Unterkünfte:** Beliebte Unterkünfte in Potes und Cangas de Onís sind im September durch Wanderer gut gebucht – frühzeitig sichern!
 
 ---
 
@@ -123,10 +124,8 @@ Uhr, Ankunft Bilbao ca. 19:35 Uhr Ortszeit (Fr).
      (5 Min. Aufstieg vom Strand).
    - **Optional:** Baratzazarrak Aussichtsplattform — dramatischer Blick auf die
      höchsten Klippen (zusätzlich 15 Min. Fahrt + 10 Min. Fußweg).
-8. 🎨 **[Cristóbal Balenciaga Museoa](https://www.cristobalbalenciagamuseoa.com/en/)**
-   (~16:30 Uhr) — Getaria. Haute Couture als Kunstform.
-9. 🍷 **Getaria Hafen** (~17:00 Uhr) — Gegrillter Fisch, Txakoli-Wein.
-10. **Ankunft San Sebastián** (~18:00 Uhr)
+8. **Getaria Hafen** (~17:00 Uhr) — Gegrillter Fisch, Txakoli-Wein.
+9. **Ankunft San Sebastián** (~18:00 Uhr)
 
 **Alternative mit Ticket um 13:55 Uhr (falls ihr doch später starten wollt):**
 
@@ -155,10 +154,8 @@ Falls ihr nicht so früh aufstehen wollt (oder das Wetter schlecht ist):
      (5 Min. Aufstieg vom Strand).
    - **Optional:** Baratzazarrak Aussichtsplattform — dramatischer Blick auf die
      höchsten Klippen (zusätzlich 15 Min. Fahrt + 10 Min. Fußweg).
-8. 🎨 **[Cristóbal Balenciaga Museoa](https://www.cristobalbalenciagamuseoa.com/en/)**
-   (~17:00 Uhr) — Getaria. Haute Couture als Kunstform.
-9. 🍷 **Getaria Hafen** (~17:30 Uhr) — Gegrillter Fisch auf Holzkohle, Txakoli-Wein.
-10. **Ankunft San Sebastián** (~19:00 Uhr)
+8. **Getaria Hafen** (~17:30 Uhr) — Gegrillter Fisch auf Holzkohle, Txakoli-Wein.
+9. **Ankunft San Sebastián** (~19:00 Uhr)
 
 **Option ohne Gaztelugatxe:**
 
@@ -181,10 +178,8 @@ Falls ihr nicht so früh aufstehen wollt (oder das Wetter schlecht ist):
      (5 Min. Aufstieg vom Strand).
    - **Optional:** Baratzazarrak Aussichtsplattform — dramatischer Blick auf die
      höchsten Klippen (zusätzlich 15 Min. Fahrt + 10 Min. Fußweg).
-7. 🎨 **[Cristóbal Balenciaga Museoa](https://www.cristobalbalenciagamuseoa.com/en/)**
-   (~16:30 Uhr) — Getaria. Haute Couture als Kunstform.
-8. 🍷 **Getaria Hafen** (~17:00 Uhr) — Gegrillter Fisch, Txakoli-Wein.
-9. **Ankunft San Sebastián** (~18:00 Uhr)
+7. **Getaria Hafen** (~17:00 Uhr) — Gegrillter Fisch, Txakoli-Wein.
+8. **Ankunft San Sebastián** (~18:00 Uhr)
 
 **Unterkunft:** Hostel in ehemaligem Kloster, zentral, 3 Min. zur Playa de La Concha, 10 Min. zur Altstadt.
 
@@ -328,19 +323,24 @@ Nachmittags spektakuläre Fahrt über den Puerto de San Glorio und das Desfilade
 ![Tag 10: Cangas de Onís → Gijón](img/cangas-de-onis-gijon.png)
 [Route in Google Maps](https://www.google.com/maps/dir/Cangas+de+Onís/Gijón)
 
-Fahrt nach Gijón.
+Fahrt nach Gijón. Maritime Hafenstadt mit Atlantik-Flair.
 
-- 🥾 **Senda del Cervigón** (Gijón) — 8 km Küstenpfad bis Playa de La Ñora.
-- 🎨 **Elogio del Horizonte** — Chillida-Skulptur am Cerro de Santa Catalina.
-- 🏊 **Playa de San Lorenzo** (Gijón) — Stadtstrand.
-- 🍷 **Sidrería Tierra Astur** (Gijón) — Sidra-Kultur erleben (_escanciar_).
+- 🏛️ **Cimadevilla & Cerro de Santa Catalina** — Historisches Fischerviertel auf der Halbinsel. Enge Gassen, bunte Häuser, gemütliche Plätze.
+- 🎨 **Elogio del Horizonte** — Chillida-Betonskulptur auf dem Cerro. Stellt man sich in die Mitte, hört man Meeresrauschen wie in einer Muschel.
+- 🥾 **Senda del Cervigón** — 8 km Küstenpfad bis Playa de La Ñora.
+- 🏊 **Playa de San Lorenzo** — 1,5 km Stadtstrand, Promenade „El Muro".
+- 🌿 **[Jardín Botánico Atlántico](http://botanico.gijon.es/)** — Atlantischer Botanischer Garten.
+- �️ **[Laboral Ciudad de la Cultura](https://www.laboralciudaddelacultura.com/)** — Größtes Gebäude Spaniens, heute Kulturzentrum. Turmbesteigung mit Panoramablick.
+- 🍷 **Cuesta de Cholo** (Cimadevilla) — Sidrerías-Gasse im Hafenviertel. Sidra escanciar + Cachopo oder Fabada.
 
 ### Tag 11 · Mo 14. Sep · Oviedo (Tagesausflug ab Gijón)
 
-- 🎊 **Fiestas de San Mateo** (Oviedo) — Größtes Stadtfest in Oviedo (11.–21. Sep.) mit Live-Musik & Chiringuitos.
-- 🏛️ **[Präromanische Kirchen](https://www.turismoasturias.es/en/descubre/cultura/prerromanico/santa-maria-del-naranco)** (UNESCO) — Santa María del Naranco (Mo Vormittag kostenlos).
-- 🎨 **Street Art & Skulpturen** — Botero, Úrculo.
-- 🍷 **[Mercado del Fontán](https://mercadofontan.es)** (Oviedo) — Historische Markthalle.
+- 🎊 **Fiestas de San Mateo** (Oviedo) — Größtes Stadtfest (11.–21. Sep.) mit Live-Musik & Chiringuitos.
+- 🏛️ **[Catedral de San Salvador](https://catedraldeoviedo.com/)** — Gotisches Meisterwerk. Cámara Santa (UNESCO) mit Heiligem Grabtuch und asturischen Königskreuzen.
+- 🏛️ **[Präromanische Kirchen](https://www.turismoasturias.es/en/descubre/cultura/prerromanico/santa-maria-del-naranco)** (UNESCO) — Santa María del Naranco & San Miguel de Lillo am Monte Naranco (9. Jh., Mo Vormittag kostenlos).
+- 🎨 **Skulpturen-Freilichtmuseum** — Über 100 Bronzestatuen in der Innenstadt. Fotomotive: Woody Allen, Mafalda auf Parkbank im Campo de San Francisco, Botero.
+- 🍷 **[Mercado del Fontán](https://mercadofontan.es)** — Historische Markthalle, frischer Fisch, asturischer Käse.
+- 🍷 **Calle Gascona** („Bulevar de la Sidra") — Ganze Straße voller Sidrerías. Dazu: Fabada Asturiana oder Cachopo.
 
 ---
 
@@ -351,12 +351,24 @@ Fahrt nach Gijón.
 
 > 🎊 **Regionalfeiertag (Kantabrien):** La Bien Aparecida. Restaurants & Strände belebt.
 
-Fahrt entlang der Küste nach Kantabrien.
+Fahrt entlang der Küste nach Kantabrien. Malerisches Fischerstädtchen auf einem Hügel zwischen Rías, Stränden und Picos-Panorama.
 
-- 🏰 **Castillo del Rey** — Mittelalterliche Burg mit Panoramablick.
-- 🥾 **Senda Costera (Pendueles → Vidiago)** — 5 km Küstenklippen mit Bufones de Pría.
-- 🏊 **Playa de Torimbia** / **Playa de Oyambre**.
-- 🍷 **Hafen** — Frischer Bonito-Eintopf (_Sorropotún_).
+**Unterwegs (Asturien → Kantabrien):**
+
+- 🥾 **Senda Costera (Pendueles → Vidiago)** — 5 km Küstenklippen mit Bufones de Pría (Meerwasser-Fontänen).
+- 🏊 **Playa de Torimbia** — Abgelegener Naturstrand zwischen Klippen (kurzer Abstieg).
+
+**In San Vicente de la Barquera:**
+
+- 🏛️ **Puebla Vieja** — Mittelalterliche Altstadt auf der Felszunge. Kirche Santa María de los Ángeles (13. Jh.) mit Grabdenkmälern und Bucht-Panorama.
+- 🏰 **Castillo del Rey** — Burg von 1210, 360°-Panoramablick auf Meer, Ría und Picos de Europa.
+- 🏛️ **Puente de la Maza** — Steinbrücke (15. Jh.) mit 28 Bögen über die Ría.
+- 🏊 **Playa de Oyambre** (Naturpark Oyambre) — Weitläufiger Dünenstrand. Alternativ: Playa de Merón (Surfer) oder Playa de El Tostadero (ruhig, in der Ría).
+- 🍷 **Hafen** — Frischer Bonito-Eintopf (_Sorropotún_), Spezialität des Ortes.
+
+**Optional (Halbtagsausflug):**
+
+- 🏛️ **[Höhle El Soplao](https://www.elsoplao.es/)** (~30 Min. landeinwärts) — Geologisches Wunder: exzentrische Heliktit-Formationen, Kristallstalaktiten. Anfahrt per Minenbahn.
 
 ---
 
@@ -367,9 +379,13 @@ Fahrt entlang der Küste nach Kantabrien.
 
 Entspannte Weiterfahrt ins Baskenland. Ankunft in Vitoria-Gasteiz am Nachmittag (~15:00 Uhr).
 
+- �️ **Plaza de la Virgen Blanca & Plaza de España** — Lebendiges Stadtzentrum mit grünem Pflanzendenkmal. Neoklassischer Hauptplatz direkt nebenan.
+- 🏛️ **Muralla Medieval** — Gut erhaltene mittelalterliche Stadtmauer (11. Jh.), Rundgang durch die mandelförmige Altstadt „La Almendra".
+- 🎨 **[Itinerario Muralístico (IMVG)](https://www.muralismopublico.com/p/en/home.php)** — Riesige Wandgemälde an Altstadthäusern, Open-Air-Galerie.
 - 🎨 **[Artium Museoa](https://www.artium.eus)** — Zeitgenössische Kunst (Di–Fr 11–14 + 17–20 Uhr).
-- 🎨 **[Itinerario Muralístico (IMVG)](https://www.muralismopublico.com/p/en/home.php)** — Europas größte Freiluft-Mural-Galerie.
-- 🍷 **Calle Cuchillería** — Authentische Pintxos-Straße.
+- 🍷 **Calle Cuchillería** — Authentische Pintxos-Straße. Tipp: _Toloño_ (Design-Pintxos), dazu Txakoli oder Rioja.
+- 🌿 **[Parque Salburua](https://www.vitoria-gasteiz.org/wb021/was/contenidoAction.do?idioma=es&uid=u7538efd3_12da74c12a4__7fb1)** — Geschütztes Feuchtgebiet im Grünen Gürtel. Hirsche, Vogelbeobachtung. Perfekt für Abendspaziergang.
+- 🏛️ **[Catedral de Santa María](https://www.catedralvitoria.eus/en)** — Gotische Kathedrale „Abierto por obras": Führung mit Schutzhelm durch die Fundamente. Inspirierte Ken Follett. ⚠️ Reservierung empfohlen.
 
 ---
 
@@ -378,12 +394,17 @@ Entspannte Weiterfahrt ins Baskenland. Ankunft in Vitoria-Gasteiz am Nachmittag 
 ![Tag 14: Vitoria → Laguardia → Vitoria](img/san-vicente-vitoria.png)
 [Route in Google Maps](https://www.google.com/maps/dir/Vitoria-Gasteiz/Laguardia/Vitoria-Gasteiz)
 
-Ganztagesausflug in die berühmte Weinregion **Rioja Alavesa**.
+Ganztagesausflug in die berühmte Weinregion **Rioja Alavesa** mit Stopp an der historischen Saline.
+
+**Unterwegs:**
+
+- 🏛️ **Valle Salado de Añana** [📍](https://www.google.com/maps/search/?api=1&query=42.7983,-2.9850) — Spektakuläre Saline (~30 Min. westlich), über 1.000 Jahre alt. Holzkanäle, Salzterrassen, Gourmet-Salz. Geführte Tour ~1 Std.
+
+**In Laguardia & Rioja Alavesa:**
 
 - 🥾 **Lagunas de Laguardia** [📍](https://www.google.com/maps/search/?api=1&query=42.5500,-2.5833) — Wanderung durch das geschützte Naturschutzgebiet & Weinterrassen (~5 km, 1,5 Std., leicht).
-- 🏛️ **Laguardia Altstadt** — Mittelalterliches Weindorf auf einem Hügel mit unterirdischem Tunnelsystem.
+- 🏛️ **Laguardia Altstadt** — Komplett ummauerte mittelalterliche Weinstadt auf einem Hügel. Unterirdisches Tunnelsystem mit jahrhundertealten Weinkellern unter den Häusern.
 - 🍷 **Bodega-Architektur & Weinprobe** — Spektakuläre Weingüter wie _[Bodegas Ysios](https://bodegasysios.com/en)_ (Santiago Calatrava) oder _[Marqués de Riscal](https://www.marquesderiscal.com/en/the-marques-de-riscal-city-of-wine)_ (Frank Gehry) in Elciego.
-- 🏛️ **[Catedral de Santa María](https://www.catedralvitoria.eus/en)** (abends in Vitoria) — Gotische Kathedrale („offene Baustelle").
 
 ---
 
