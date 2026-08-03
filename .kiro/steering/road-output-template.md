@@ -27,12 +27,11 @@ Trip files start with empty YAML front matter (`---\n---\n`). Major sections sep
 
 **Required sections in order:**
 
-1. Title + Compact Header
+1. Title + Compact Header (inkl. Route overview)
 2. Übernachtungen im Überblick
 3. Vorab-Reservierungen _(only if advance booking needed)_
-4. Reiseverlauf (day-by-day itinerary)
-5. Erweiterungsideen _(optional)_
-6. Quellen
+4. Tagesplan (day-by-day itinerary)
+5. Quellen
 
 Omit optional sections entirely if empty — never leave blank headings.
 
@@ -47,26 +46,31 @@ Omit optional sections entirely if empty — never leave blank headings.
 **Flug:** BER ↔ {Airport}, Direktflug {Airline} (nur {Flugtage}, {Tageszeit})
 **Mietwagen:** Übernahme {Datum} ({Ort}) / Abgabe {Datum} ({Ort}) — {N} Tage
 
-> 🌊 {One-line trip highlight}
+**Reiseverlauf:** [{Stop 1}](#anchor) → [{Stop 2}](#anchor) → ... → [{Stop N}](#anchor). {Fahrzeit-Zusammenfassung}.
 
-> ☀️ **Wetter:** {Temperaturbereich}, Regen {X}%. {Saisonaler Hinweis}.
+🌊 {One-line trip highlight}
 
-> 🇪🇸 **Länderinfo:** {Preisniveau}. Tempolimit: {X} / {Y} / {Z} km/h. {Besonderheiten}. Notruf {N}. {Lokale Bräuche}.
+☀️ **Wetter:** {Temperaturbereich}, Regen {X}%. {Saisonaler Hinweis}.
 
-> 📱 **Nützliche Apps & Ausrüstung:** {App-Empfehlungen}. {Packliste-Tipps}.
+🇪🇸 **Länderinfo:** {Preisniveau}. Tempolimit: {X} / {Y} / {Z} km/h. {Besonderheiten}. Notruf {N}. {Lokale Bräuche}.
+
+📱 **Nützliche Apps & Ausrüstung:** {App-Empfehlungen}. {Packliste-Tipps}.
+
+💡 **Flexibilität:** {Wetter-Alternativen, Museumsbackup bei Regen}.
 ```
 
 **Rules:**
 
-- All meta-info lives in these header blockquotes — do NOT create separate chapters for Wetter, Anreise, Kostenübersicht, or Tipps.
+- All meta-info lives in these header paragraphs — do NOT create separate chapters for Wetter, Anreise, Kostenübersicht, or Tipps. Use plain paragraphs with emoji prefix (not blockquotes).
 - Always include weekday abbreviations in Reisezeitraum.
 - Flight times appear inline at Tag 1 (Hinflug) and last day (Rückflug), never in the header.
 - Country flag emoji matches destination country (🇪🇸, 🇮🇹, 🇫🇮, etc.).
-- Apps & gear blockquote: include only when the trip has special requirements (tides, mountain gear, transit cards). Omit for generic trips.
+- Apps & gear paragraph: include only when the trip has special requirements (tides, mountain gear, transit cards). Omit for generic trips.
+- Reiseverlauf: list all major stops linked to their day heading anchors, separated by `→`. End with a driving-time summary sentence.
 
 ---
 
-## Section 2: Übernachtungen im Überblick
+## Section 3: Übernachtungen im Überblick
 
 Structural skeleton showing where the traveller sleeps each night. The "Unterkunft" column stays empty — the user fills it after booking.
 
@@ -87,7 +91,7 @@ Structural skeleton showing where the traveller sleeps each night. The "Unterkun
 
 ---
 
-## Section 3: Vorab-Reservierungen
+## Section 4: Vorab-Reservierungen
 
 Include only when attractions require or strongly recommend advance booking. Omit section entirely otherwise.
 
@@ -107,7 +111,7 @@ Include only when attractions require or strongly recommend advance booking. Omi
 
 ---
 
-## Section 4: Reiseverlauf
+## Section 2: Tagesplan
 
 One `###` heading per day. All days use the same heading level (`###`).
 
@@ -216,13 +220,7 @@ Use when alternative routes exist (timing, weather, or optional stops):
 
 ---
 
-## Section 5: Erweiterungsideen
-
-Brief notes on possible route extensions or alternative stops. Include best season for each suggestion. Omit section entirely if none apply.
-
----
-
-## Section 6: Quellen
+## Section 5: Quellen
 
 ### Hiking Routes Table
 

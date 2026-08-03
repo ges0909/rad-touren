@@ -8,18 +8,17 @@ Tagesausflüge) **Flug:** BER ↔ Bilbao BIO, Direktflug Eurowings (nur Mo/Fr/So
 Abendflüge) **Mietwagen:** Übernahme Fr 4. Sep (Flughafen Bilbao) / Abgabe Fr 18. Sep
 (Flughafen) — 14 Tage
 
-> 🌊 Die spanische Nordküste: grüne Berge, wilde Atlantikküste, Pintxos-Bars,
-> Sidra-Häuser und die Picos de Europa direkt hinter dem Strand. Anfang September: warm,
-> wenig Touristen, perfekte Wanderbedingungen.
+**Reiseverlauf:** [Bilbao](#tag-1--fr-4-sep--bilbao--bakio--35-km-35-min) → [Bakio](#tag-1--fr-4-sep--bilbao--bakio--35-km-35-min) → [San Sebastián](#tag-3--so-6-sep--san-sebastián) → [Santander](#tag-4--mo-7-sep--san-sebastián--santander--198-km-25-std) → [Potes](#tag-6--mi-9-sep--santander--potes--liébana-tal--106-km-15-std--stopps) → [Picos de Europa](#tag-8--fr-11-sep--picos-de-europa-ruta-del-cares) → [Gijón](#tag-10--so-13-sep--cangas-de-onís--gijón--oviedo--76-km-1-std) / [Oviedo](#tag-11--mo-14-sep--oviedo-tagesausflug-ab-gijón) → [San Vicente de la Barquera](#tag-12--di-15-sep--gijón--san-vicente-de-la-barquera--119-km-15-std) → [Vitoria-Gasteiz](#tag-13--mi-16-sep--san-vicente--vitoria-gasteiz--210-km-25-std) → [Bilbao](#tag-15--fr-18-sep--vitoria-gasteiz--bilbao--70-km-1-std). Alle Etappen unter 2,5 Std. Fahrzeit.
 
-> ☀️ **Wetter:** Küste 14–25°C, Berge 8–20°C, Regen 20–35%. Meer 19–21°C. Regenjacke
-> einpacken!
+🌊 Die spanische Nordküste: grüne Berge, wilde Atlantikküste, Pintxos-Bars, Sidra-Häuser und die Picos de Europa direkt hinter dem Strand. Anfang September: warm, wenig Touristen, perfekte Wanderbedingungen.
 
-> 🇪🇸 **Länderinfo:** Preisniveau ähnlich DE. Tempolimit: 50 / 90 / 120 km/h. Autovías
-> mautfrei. Lichtpflicht bei Regen/Tunnel. Notruf 112. Pintxos: Zahnstocher zählen beim
-> Zahlen. Sidra: „escanciar" — aus 1 m Höhe ins Glas.
+☀️ **Wetter:** Küste 14–25°C, Berge 8–20°C, Regen 20–35%. Meer 19–21°C. Regenjacke einpacken!
 
-> 📱 **Nützliche Apps & Ausrüstung:** Gezeiten-App (z. B. _Nautide_) für Flysch (Zumaia) & Playa de Gulpiyuri (Ebbe/Flut-Zeiten!). _Wikiloc_ für lokale Wanderwege. _Barik-Karte_ für ÖPNV im Baskenland. Robuste Regenjacke, Wanderschuhe & Zwiebellook (Küste vs. Gebirge) einpacken!
+🇪🇸 **Länderinfo:** Preisniveau ähnlich DE. Tempolimit: 50 / 90 / 120 km/h. Autovías mautfrei. Lichtpflicht bei Regen/Tunnel. Notruf 112. Pintxos: Zahnstocher zählen beim Zahlen. Sidra: „escanciar" — aus 1 m Höhe ins Glas.
+
+📱 **Nützliche Apps & Ausrüstung:** Gezeiten-App (z. B. _Nautide_) für Flysch (Zumaia) & Playa de Gulpiyuri (Ebbe/Flut-Zeiten!). _Wikiloc_ für lokale Wanderwege. _Barik-Karte_ für ÖPNV im Baskenland. Robuste Regenjacke, Wanderschuhe & Zwiebellook (Küste vs. Gebirge) einpacken!
+
+💡 **Flexibilität:** Bei Regen Museumstage vorziehen (Guggenheim, Artium, Centro Botín). Bei Hitze: Strandtage priorisieren. Ruta del Cares nur bei trockenem Wetter.
 
 ---
 
@@ -57,21 +56,8 @@ Einige Attraktionen und Transporte auf dieser Route erfordern oder empfehlen ein
 
 ---
 
-## Reiseverlauf
-
-Bilbao → Bakio (Gaztelugatxe) → San Sebastián → Santander → Potes → Picos de Europa → Gijón/Oviedo → San Vicente de la Barquera → Vitoria-Gasteiz → Bilbao
-
-> 💡 **Fahrstrecken:** Durch den Stopp in **San Vicente de la Barquera** sind alle
-> Etappen jetzt unter 2,5 Stunden reine Fahrzeit. Die Reise ist somit sehr entspannt.
-
-> 💡 **Flexibilität:** Bei Regen Museumstage vorziehen (Guggenheim, Artium, Centro
-> Botín). Bei Hitze: Strandtage priorisieren. Ruta del Cares nur bei trockenem Wetter.
-
----
-
 ### Tag 1 · Fr 4. Sep · Bilbao → Bakio · 35 km, ~35 Min.
 
-![Tag 1: Bilbao → Bakio](img/bilbao-bakio.png)
 [Route in Google Maps](https://www.google.com/maps/dir/Bilbao+Airport/Bakio)
 
 **Hinflug:** BER → Bilbao (BIO), Direktflug Eurowings EW8552, ~2,5 Std. Abflug 17:00
