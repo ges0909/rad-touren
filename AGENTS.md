@@ -109,18 +109,18 @@ The following additional rules are loaded automatically based on active files:
 
 ### Reiseplanung (active in `trips/**`)
 
-- `user-preferences.md` — Universal travel preferences, home base, content integrity
-- `bike-preferences.md` — Cycling tour preferences (distance, terrain, interests, food)
-- `bike-planner.md` — Cycling tour workflow + BRouter/VBB rules
-- `bike-output-template.md` — Cycling tour output format
-- `road-preferences.md` — Roadtrip preferences (flights, accommodation, food, interests)
-- `road-planner.md` — Roadtrip workflow + ORS/OSRM rules
-- `road-output-template.md` — Roadtrip output format
+- `travel/user-preferences.md` — Universal travel preferences, home base, content integrity
+- `travel/bike-preferences.md` — Cycling tour preferences (distance, terrain, interests, food)
+- `travel/bike-planner.md` — Cycling tour workflow + BRouter/VBB rules
+- `travel/bike-output-template.md` — Cycling tour output format
+- `travel/road-preferences.md` — Roadtrip preferences (flights, accommodation, food, interests)
+- `travel/road-planner.md` — Roadtrip workflow + ORS/OSRM rules
+- `travel/road-output-template.md` — Roadtrip output format
 
 ### App-Entwicklung (active in `app/**`, `mcp/**`, `docs/**`, `scripts/**`)
 
-- `app-product.md` — Platform architecture, tech stack, MCP ecosystem, naming conventions
-- `mcp-development.md` — MCP server development guidelines
+- `dev/app-product.md` — Platform architecture, tech stack, MCP ecosystem, naming conventions
+- `dev/mcp-development.md` — MCP server development guidelines
 - `app/AGENTS.md` — Web app coding guidelines (Vue 3 + FastAPI)
 
 **Note:** You do not need to manually load these files. Kiro's fileMatch system loads them automatically when you work on matching files.
