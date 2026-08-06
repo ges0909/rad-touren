@@ -46,6 +46,29 @@ pip install staticmap pillow
 
 **Hinweis:** Dieses Script wird für die statischen Tour-Dokumente in `trips/` verwendet. Die Web-App rendert Routen live via Leaflet im Browser.
 
+## check_unused_assets.py
+
+Findet ungenutzte Bilder in `trips/` — also PNG/JPG-Dateien in `img/` oder `maps/`, die in keiner `index.md` referenziert werden.
+
+**Verwendung:**
+
+```bash
+# Nur anzeigen
+python3 scripts/check_unused_assets.py
+
+# Ungenutzte Dateien löschen
+python3 scripts/check_unused_assets.py --delete
+```
+
+**Pre-commit Hook:**
+
+Das Skript läuft automatisch bei jedem Commit, der `trips/` betrifft. Konfiguration in `.pre-commit-config.yaml`.
+
+```bash
+# Hook installieren (einmalig)
+uvx pre-commit install
+```
+
 ## icons/
 
 18×18px PNG-Icons für die POI-Kategorien auf der Karte.
