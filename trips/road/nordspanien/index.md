@@ -59,8 +59,9 @@ Einige Attraktionen und Transporte auf dieser Route erfordern oder empfehlen ein
 
 ---
 
-### Tag 1 · Fr 4. Sep · Bilbao → Bakio · 35 km, ~35 Min.
+### Tag 1 · Fr 4. Sep · Bilbao → Bakio · 22 km, ~30 Min.
 
+![Tag 1: Bilbao → Bakio](img/bilbao-bakio.png)
 [Route in Google Maps](https://www.google.com/maps/dir/Bilbao+Airport/Bakio)
 
 **Hinflug:** BER → Bilbao (BIO), Direktflug Eurowings EW8552, ~2,5 Std. Abflug 17:00
@@ -76,9 +77,9 @@ Uhr, Ankunft Bilbao ca. 19:35 Uhr Ortszeit (Fr).
 
 ---
 
-### Tag 2 · Sa 5. Sep · Bakio → San Sebastián / Donostia · 150 km, ~3,5 Std. Fahrzeit + Stopps
+### Tag 2 · Sa 5. Sep · Bakio → San Sebastián / Donostia · 137 km, ~2,5 Std. Fahrzeit + Stopps
 
-![Tag 2: Bakio → San Sebastián](img/bakio-san-sebastian.png)
+![Tag 2: Bakio → San Sebastián](maps/tag-02-bakio-san-sebastian.png)
 [Route in Google Maps](https://www.google.com/maps/dir/Bakio/San+Juan+de+Gaztelugatxe/Bermeo/Urdaibai/Playa+de+Laga/Zumaia/San+Sebastián)
 
 Gaztelugatxe früh morgens, dann entspannt entlang der Küste nach San Sebastián. Fokus auf die Highlights, ohne Hetze.
@@ -114,7 +115,8 @@ Gaztelugatxe früh morgens, dann entspannt entlang der Küste nach San Sebastiá
   [Lurraldebus/Avanza](https://gipuzkoa.avanzagrupo.com)). **Barik-Karte wird
   akzeptiert** (Lurraldebus & Dbus).
   [Waymarked Trails](https://hiking.waymarkedtrails.org/#route?id=1116809) ·
-- 🍷 **Parte Vieja Pintxos** — Bar Nestor (Tortilla ⚠️ Liste vor Ort um 12:00 / 19:00 Uhr eintragen!), La Cuchara de San Telmo, Gandarias, Bar Zeruko. **Must-try:** _Gilda_ (Ur-Pintxo mit Sardelle, Peperoni, Olive) + _Txakoli_ (trockener Weißwein) oder _Zurrito_ (kleines Bier).
+- 🍷 **Parte Vieja** — Pintxos-Gassen mit dutzenden Bars auf engem Raum. **Probieren:** _Gilda_ (Ur-Pintxo mit Sardelle, Peperoni, Olive) + _Txakoli_ (trockener Weißwein) oder _Zurrito_ (kleines Bier).
+  - ⚠️ **Bar Nestor** — Berühmt für Tortilla. Keine Reservierung möglich. Persönlich auf Liste eintragen: 12:00 Uhr (mittags) oder 19:00 Uhr (abends).
 
 **Weitere POIs in San Sebastián:**
 
@@ -135,9 +137,9 @@ Gaztelugatxe früh morgens, dann entspannt entlang der Küste nach San Sebastiá
 
 ---
 
-### Tag 4 · Mo 7. Sep · San Sebastián → Santander · 198 km, ~2,5 Std.
+### Tag 4 · Mo 7. Sep · San Sebastián → Santander · 203 km, ~2,5 Std.
 
-![Tag 4: San Sebastián → Santander](img/san-sebastian-santander.png)
+![Tag 4: San Sebastián → Santander](maps/tag-04-san-sebastian-santander.png)
 [Route in Google Maps](https://www.google.com/maps/dir/San+Sebastián/Castro+Urdiales/Playa+de+Oriñón/Santander)
 
 **Unterwegs:**
@@ -160,24 +162,23 @@ Ankunft Santander ca. 13:00 Uhr.
 
 - 🥾 **Cabo Mayor → Mataleñas** — 6 km, 2 Std., leicht. Klippenpfad, Leuchtturm. 🏊
   Endet an der Playa de Mataleñas — geschützte Bucht, kristallklares Wasser.
-  - 🍷 **Einkehr:** Chiringuito an der Playa de Mataleñas (Sommer, Getränke + Snacks).
 - 🎨 **[Centro Botín](https://www.centrobotin.org/en/)** — Renzo Piano, zeitgenössische
   Kunst. **Highlight.** (~9 €/P., Di–So, Mo geschlossen)
 - 🏊 **Playa de la Arnía**
   [📍](https://www.google.com/maps/search/?api=1&query=43.4738,-3.8783) — Wilde
   Felsbucht, spektakuläre Felsformationen. 15 Min. Fahrt.
-- 🍷 **[Bodega del Riojano](https://bodegadelriojano.com)** — Kantabrische Küche seit 1908.
+- 🍷 **[Bodega del Riojano](https://bodegadelriojano.com)** — Historisches Lokal seit 1908, kantabrische Atmosphäre.
 
-**Weitere POIs in Santander:**
+**Kulinarisches in Santander:**
 
-- 🍷 **Cañadío** — Moderne Küche, Meeresfrüchte.
+- 🍷 **Cañadío-Viertel** — Moderne Pintxos-Szene rund um die Plaza Cañadío. **Probieren:** Rabas (frittierte Tintenfischringe), Anchoas del Cantábrico.
 - 🌿 **Jardines de Piquío** — Art-Deco-Gärten.
 
 ---
 
 ### Tag 6 · Mi 9. Sep · Santander → Potes / Liébana-Tal · 106 km, ~1,5 Std. + Stopps
 
-![Tag 6: Santander → Potes](img/santander-potes.png)
+![Tag 6: Santander → Potes](maps/tag-06-santander-potes.png)
 [Route in Google Maps](https://www.google.com/maps/dir/Santander/Santillana+del+Mar/Comillas/Potes)
 
 - 🏛️ **[Santillana del Mar](https://www.spain.info/en/destination/santillana-del-mar/)**
@@ -206,7 +207,7 @@ Ankunft Santander ca. 13:00 Uhr.
 
 ### Tag 7 · Do 10. Sep · Potes → Picos de Europa / Cangas de Onís · ~150 km, ~2,5 Std. Fahrzeit (zzgl. Seilbahn-Ausflug)
 
-![Tag 7: Potes → Cangas de Onís](img/potes-cangas-de-onis.png)
+![Tag 7: Potes → Cangas de Onís](maps/tag-07-potes-cangas-de-onis.png)
 [Route in Google Maps](https://www.google.com/maps/dir/Potes/Fuente+Dé/Potes/Desfiladero+de+los+Beyos/Cangas+de+Onís)
 
 Vormittags Ausflug von Potes zur Seilbahn und Wanderung in den Picos de Europa.
@@ -223,7 +224,6 @@ Nachmittags spektakuläre Fahrt über den Puerto de San Glorio und das Desfilade
 
 - 🥾 **Ruta del Cares** [PR-PNPE 3] — 22 km (hin+zurück), 6–8 Std., moderat. ⭐ 4,5 (1.880 Reviews). Schlucht-Wanderung durch die „Garganta Divina" — ~70 in den Fels gehauene Tunnel. Ganztageswanderung ab Poncebos. ⚠️ Steinschlagrisiko vorab prüfen. **Nur bei trockenem Wetter!**
   - ⚠️ **Kein Handyempfang** in weiten Teilen der Schlucht — Route vorher offline speichern, Begleitung empfohlen.
-  - 🍷 **Einkehr:** Bar Garganta del Cares (Poncebos). In Caín: Casa Cuevas / La Taberna de Caín.
 - 🍷 **Quesu Cabrales & Gamonéu** — Blauschimmelkäse & Höhlenkäse-Tasting in Arenas de Cabrales.
 
 > 🌧️ **Plan B bei Regen:** Oviedo-Kulturtag vorziehen (Tag 8 ↔ Tag 11 tauschen). Oviedo funktioniert bei jedem Wetter: Kathedrale, präromanische Kirchen, Skulpturen-Tour, Mercado del Fontán. Die Ruta del Cares dann am ehemaligen Tag 11 nachholen, falls das Wetter besser ist.
@@ -232,17 +232,16 @@ Nachmittags spektakuläre Fahrt über den Puerto de San Glorio und das Desfilade
 
 - 🚌 **Lagos de Covadonga** [PR-PNPE 2] — 6,4 km, 2,5 Std., leicht. Gletscherseen auf 1.000 m. ⚠️ PKW-Zufahrt gesperrt, ALSA-Bus ab Cangas buchen!
   - 🏛️ **[Basílica de Covadonga](https://www.turismoasturias.es/en/-/blogs/guia-para-visitar-visitar-covadonga-los-lagos-y-alrededores)** — Heilige Grotte (Santa Cueva) & Reconquista-Stätte.
-  - 🍷 **Einkehr:** Restaurant am Lago Enol.
 - 🥾 **Ruta del Río Dobra** (nachmittags) — 6 km, 2 Std., leicht. Flusswanderung zu türkisfarbenen Felstöpfen bei Cangas.
-- 🍷 **[El Molín de la Pedrera](https://elmolindelapedrera.com)** — Fabada Asturiana in Cangas de Onís.
+- 🍷 **Cangas de Onís Sidrerías** — Abends durch die Altstadt schlendern. **Probieren:** Fabada Asturiana, Sidra escanciar (aus 1 m Höhe ins Glas).
 
 > 🌧️ **Plan B bei Regen:** Lagos de Covadonga bei Nebel/Regen meiden (keine Sicht). Stattdessen: Basílica de Covadonga (überdacht) + Museo de Covadonga + Käserei-Besuch in Arenas de Cabrales. Nachmittags entspannt in Cangas — Sidrería-Hopping bei jedem Wetter möglich.
 
 ---
 
-### Tag 10 · So 13. Sep · Cangas de Onís → Gijón / Oviedo · 95 km, ~1,5 Std. (via Llanes)
+### Tag 10 · So 13. Sep · Cangas de Onís → Gijón / Oviedo · 123 km, ~1,5 Std. (via Llanes)
 
-![Tag 10: Cangas de Onís → Gijón](img/cangas-de-onis-gijon.png)
+![Tag 10: Cangas de Onís → Gijón](maps/tag-10-cangas-de-onis-gijon.png)
 [Route in Google Maps](https://www.google.com/maps/dir/Cangas+de+Onís/Playa+de+Gulpiyuri/Ribadesella/Gijón)
 
 **Unterwegs (Küstenroute via Llanes):**
@@ -274,7 +273,7 @@ Ankunft Gijón ca. 13:00 Uhr. Maritime Hafenstadt mit Atlantik-Flair.
 
 ### Tag 12 · Di 15. Sep · Gijón → San Vicente de la Barquera · 119 km, ~1,5 Std.
 
-![Tag 12: Gijón → San Vicente](img/gijon-san-vicente.png)
+![Tag 12: Gijón → San Vicente](maps/tag-12-gijon-san-vicente.png)
 [Route in Google Maps](https://www.google.com/maps/dir/Gijón/San+Vicente+de+la+Barquera)
 
 > 🎊 **Regionalfeiertag (Kantabrien):** La Bien Aparecida. Restaurants & Strände belebt.
@@ -300,9 +299,9 @@ Fahrt entlang der Küste nach Kantabrien. Malerisches Fischerstädtchen auf eine
 
 ---
 
-### Tag 13 · Mi 16. Sep · San Vicente → Vitoria-Gasteiz · 210 km, ~2,5 Std.
+### Tag 13 · Mi 16. Sep · San Vicente → Vitoria-Gasteiz · 220 km, ~3 Std.
 
-![Tag 13: San Vicente → Vitoria-Gasteiz](img/san-vicente-vitoria.png)
+![Tag 13: San Vicente → Vitoria-Gasteiz](maps/tag-13-san-vicente-vitoria.png)
 [Route in Google Maps](https://www.google.com/maps/dir/San+Vicente+de+la+Barquera/Ramales+de+la+Victoria/Vitoria-Gasteiz)
 
 **Unterwegs (Kantabrien → Baskenland):**
@@ -341,9 +340,9 @@ Ganztagesausflug in die berühmte Weinregion **Rioja Alavesa** mit Stopp an der 
 
 ---
 
-### Tag 15 · Fr 18. Sep · Vitoria-Gasteiz → Bilbao · ~70 km, ~1 Std.
+### Tag 15 · Fr 18. Sep · Vitoria-Gasteiz → Bilbao · ~62 km, ~50 Min.
 
-![Tag 15: Vitoria → Bilbao](img/vitoria-bilbao.png)
+![Tag 15: Vitoria → Bilbao](maps/tag-15-vitoria-bilbao.png)
 [Route in Google Maps](https://www.google.com/maps/dir/Vitoria-Gasteiz/Bilbao)
 
 Vormittags Fahrt nach Bilbao, Mietwagen-Rückgabe am Flughafen. Nachmittags Erkundung per Metro & zu Fuß.
@@ -362,9 +361,9 @@ Vormittags Fahrt nach Bilbao, Mietwagen-Rückgabe am Flughafen. Nachmittags Erku
 
 - 🎨 **[Guggenheim Bilbao](https://www.guggenheim-bilbao.eus/en)** — Gehry-Ikone, zeitgenössische Kunst. **Pflichtbesuch.** (~16 €/P., 3 Std., ⚠️ vorab buchen!) 💡 Tipp: morgens früh da sein — vor Öffnung reinigen sogenannte „Spidermans" die Titanfassade im Abseilverfahren, ein Spektakel für sich. Außenskulpturen: „Puppy" (Jeff Koons Blumenhund) und „Maman" (Louise Bourgeois Riesenspinne).
 - 🏛️ **Casco Viejo** — Siete Calles (Die sieben Straßen), mittelalterliche Altstadt. [Santiago-Kathedrale](https://catedralbilbao.com/) und Plaza Nueva.
-- 🍷 **[Café Iruña](https://www.cafeirunabilbao.net/)** [📍](https://www.google.com/maps/search/?api=1&query=43.2634,-2.9253) — Seit 1903, neo-maurischer Stil, Bilbaos bekanntestes Traditionslokal. Pintxos an der Theke, typische Atmosphäre.
+- 🍷 **Plaza Nueva & Casco Viejo** — Pintxos-Zentrum unter den Arkaden. **Probieren:** Gilda (Ur-Pintxo: Olive, Peperoni, Sardelle), Bacalao al Pil-Pil. Dazu Txakoli oder Zurrito.
+- 🏛️ **[Café Iruña](https://www.cafeirunabilbao.net/)** [📍](https://www.google.com/maps/search/?api=1&query=43.2634,-2.9253) — Seit 1903, neo-maurischer Stil, Bilbaos bekanntestes Traditionslokal. Sehenswert für Architektur & Atmosphäre.
 - 🎨 **[Museo de Bellas Artes](https://bilbaomuseoa.eus)** — Goya bis Chillida, El Greco bis zeitgenössische Kunst. (~9 €/P.)
-- 🍷 **[Restaurante Mina](https://www.restaurantemina.es)** — Michelin-Stern, baskische Avantgarde (Reservierung empfohlen).
 
 **Weitere POIs in Bilbao:**
 

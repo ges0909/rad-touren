@@ -129,11 +129,11 @@ One `###` heading per day. All days use the same heading level (`###`).
 2. **Flight info** _(arrival/departure days only)_
 3. **Fahrt / Unterwegs-Stopps** _(morning driving)_
 4. **Aktivitäten am Zielort** _(afternoon/evening)_
-5. **Abendessen**
+5. **Kulinarisches** _(food neighborhoods + regional specialties, NOT specific restaurants)_
 
 **Special day patterns:**
 
-- Arrival day: Flug → Transfer → Abendessen
+- Arrival day: Flug → Transfer → Kulinarisches Viertel
 - Departure day: Aktivitäten → Fahrt zum Flughafen → Rückflug
 
 ### Route Map Block
@@ -196,7 +196,6 @@ Use when alternative routes exist (timing, weather, or optional stops):
 
 ```markdown
 - 🥾 **{Name}** — {Distanz}, {Dauer}, {Schwierigkeit}. ⭐ {Rating} ({N} Reviews). {Description}. [Waymarked Trails]({URL}) · [GPX ↓]({download-URL})
-  - 🍷 **Einkehr:** {Restaurant/Bar} — {Beschreibung}.
 ```
 
 **Rules:**
@@ -205,9 +204,29 @@ Use when alternative routes exist (timing, weather, or optional stops):
 - Rating: include when available (prefer ≥4.0 stars). Source: AllTrails, Komoot, or Wikiloc.
 - Flag one-way routes: `⚠️ One-way` + describe return transport.
 - Note swimming at endpoint inline with 🏊.
-- Einkehr: list refreshment options at start, endpoint, or midpoint.
 - Every day should offer at least one hiking option (minimum: short walk 2–3 Std.).
 - Multiple options: present as numbered list with pros/cons.
+
+### Culinary Format
+
+Do NOT recommend specific restaurants. Instead, provide orientation:
+
+```markdown
+- 🍷 **{Viertel/Straße}** — {Description: type of food scene, what's typical here}. **Probieren:** {regional specialty 1}, {specialty 2}.
+```
+
+**Examples:**
+
+```markdown
+- 🍷 **Parte Vieja** (San Sebastián) — Pintxos-Gassen mit dutzenden Bars auf engem Raum. **Probieren:** Gilda (Sardelle, Peperoni, Olive), Txakoli.
+- 🍷 **Calle Gascona** (Oviedo) — „Bulevar de la Sidra", komplette Straße voller Sidrerías. **Probieren:** Sidra escanciar, Fabada Asturiana, Cachopo.
+```
+
+**Exception — reservation mechanics:** When a place has a specific booking mechanism the user must know (not a normal reservation), include it:
+
+```markdown
+- 🍷 **Bar Nestor** (San Sebastián) — Berühmt für Tortilla. ⚠️ Keine Reservierung möglich. Persönlich auf Liste eintragen: 12:00 Uhr (mittags) oder 19:00 Uhr (abends).
+```
 
 ### Swimming Format
 

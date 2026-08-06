@@ -46,7 +46,7 @@ Apply this priority order when planning stops and activities. When a location ha
 | 2        | 🎨    | Moderne Kunst      | Always highlight. Include galleries, sculpture parks, contemporary museums at every stop where available.                            |
 | 3        | 🏛️    | Sehenswürdigkeiten | Historic sites, UNESCO heritage, significant museums.                                                                                |
 | 4        | 🌿    | Botanische Gärten  | Always mention when available in a city/region. Do not skip even if other interests are strong.                                      |
-| 5        | 🍷    | Regionale Küche    | Local restaurants, wineries, food markets. See Food & Drink section below.                                                           |
+| 5        | 🍷    | Regionale Küche    | Kulinarische Viertel und regionale Spezialitäten nennen. Keine konkreten Restaurant-Empfehlungen.                                    |
 | 6        | 🏊    | Baden              | Beaches, thermal baths, lakes. Especially relevant for coastal and summer trips. Check driving-day routes for en-route swim options. |
 
 Research approach per stop:
@@ -57,33 +57,21 @@ Research approach per stop:
 
 ## Food & Drink
 
-### Selection Criteria (priority order)
+User decides spontaneously where to eat — do NOT research or recommend specific restaurants.
 
-1. Authentic and traditional — family restaurants, local cuisine, taverns. No fine dining unless explicitly requested.
-2. Regional/local over international chains
-3. Markets and food halls over tourist restaurants
-4. Never recommend fast food or chains
-5. Rating threshold: ≥4.0 on TripAdvisor (minimum 50 reviews). Always state the rating. Mention Michelin/Bib Gourmand if applicable.
-6. Cross-check high-end picks via Google Maps or TheFork/ElTenedor
+### What to include
 
-### Reservations
+1. **Kulinarische Viertel** — neighborhoods with high restaurant/bar density (e.g., Pintxos-Gassen, Sidrería-Straßen, Markthallen)
+2. **Regionale Spezialitäten** — must-try dishes and drinks of the region (what to order, not where)
+3. **Märkte & Food Halls** — as sightseeing, not dining recommendations
+4. **Reservierungspflichtige Ausnahmen** — only when a specific mechanism must be known (e.g., Bar Nestor's list system)
 
-- Popular restaurants: recommend reservation (mark with 🍷 + "**Reservierung empfohlen**")
-- Always provide a no-reservation alternative nearby
+### What NOT to include
 
-### Output Format
-
-```markdown
-### 🍷 Abendessen: {Restaurant Name}
-
-- **Lage:** {City/neighborhood}
-- **Spezialität:** {Cuisine type, signature dishes}
-- **Rating:** ⭐ {X.X}/5 ({N} Bewertungen, TripAdvisor) | {Michelin note if any}
-- **Preis:** {€/€€/€€€} (~{range} € p.P.)
-- **Reservierung:** {Empfohlen (Platform) | Nicht nötig}
-- **Website:** [{domain}]({url})
-- ℹ️ Zuletzt geprüft: {YYYY-MM-DD}
-```
+- Specific restaurant names, ratings, or links
+- Price ranges or reservation recommendations
+- TripAdvisor/Google ratings
+- "Abendessen" sections with restaurant picks
 
 ## Detours & "Unterwegs" Stops
 
