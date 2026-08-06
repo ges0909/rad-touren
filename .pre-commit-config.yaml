@@ -1,0 +1,9 @@
+repos:
+  - repo: local
+    hooks:
+      - id: check-unused-assets
+        name: Check for unused trip assets
+        entry: python3 scripts/check_unused_assets.py
+        language: system
+        pass_filenames: false
+        files: ^trips/.*\.(md|png|jpg)$
