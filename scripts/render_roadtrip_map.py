@@ -130,15 +130,79 @@ def geo_to_pixel(lon: float, lat: float, m: StaticMap) -> tuple[int, int]:
 # ---------------------------------------------------------------------------
 
 
+def calculate_dimensions(
+    coords: list[tuple[float, float]],
+    stations: list[tuple[str, float, float]],
+    pois: list[tuple[str, str, float, float]],
+    target_width: int = 900,
+    min_height: int = 300,
+    max_height: int = 700,
+) -> tuple[int, int]:
+    """Calculate optimal map dimensions based on route bounding box.
+
+    Returns (width, height) where width is fixed and height adapts to the route's
+    aspect ratio, clamped between min_height and max_height.
+    """
+    # Collect all coordinates
+    all_coords = list(coords)
+    all_coords.extend((lon, lat) for _, lon, lat in stations)
+    all_coords.extend((lon, lat) for _, _, lon, lat in pois)
+
+    if not all_coords:
+        return target_width, 500
+
+    lons = [c[0] for c in all_coords]
+    lats = [c[1] for c in all_coords]
+
+    min_lon, max_lon = min(lons), max(lons)
+    min_lat, max_lat = min(lats), max(lats)
+
+    # Calculate geographic span
+    lon_span = max_lon - min_lon
+    lat_span = max_lat - min_lat
+
+    # Avoid division by zero
+    if lon_span < 0.001:
+        lon_span = 0.001
+    if lat_span < 0.001:
+        lat_span = 0.001
+
+    # Approximate aspect ratio (latitude degrees are ~111 km, longitude varies by latitude)
+    # At ~43° latitude (northern Spain), 1° longitude ≈ 81 km
+    avg_lat = (min_lat + max_lat) / 2
+    lon_km = lon_span * 111 * math.cos(math.radians(avg_lat))
+    lat_km = lat_span * 111
+
+    # Calculate height based on geographic aspect ratio
+    geo_ratio = lat_km / lon_km if lon_km > 0 else 1.0
+    calculated_height = int(target_width * geo_ratio)
+
+    # Add some padding for labels (roughly 15% extra height)
+    calculated_height = int(calculated_height * 1.15)
+
+    # Clamp to min/max
+    height = max(min_height, min(calculated_height, max_height))
+
+    return target_width, height
+
+
 def render_map(
     coords: list[tuple[float, float]],
     stations: list[tuple[str, float, float]],
     pois: list[tuple[str, str, float, float]],
     output_path: str,
-    width: int = 900,
-    height: int = 600,
+    width: int | None = None,
+    height: int | None = None,
 ) -> None:
-    """Render route, stations, POIs, and legend overlay to a PNG map."""
+    """Render route, stations, POIs, and legend overlay to a PNG map.
+
+    If width/height are not specified, dimensions are calculated automatically
+    based on the route's geographic extent.
+    """
+    # Auto-calculate dimensions if not specified
+    if width is None or height is None:
+        width, height = calculate_dimensions(coords, stations, pois)
+
     m = StaticMap(width, height, padding_x=40, padding_y=40)
 
     # Simplify track for rendering
@@ -289,8 +353,8 @@ def main():
         default=[],
         help="POI markers as 'category:name:lon,lat' (categories: art, hike, swim, food, wine, sight, nature, coffee)",
     )
-    parser.add_argument("--width", type=int, default=900)
-    parser.add_argument("--height", type=int, default=600)
+    parser.add_argument("--width", type=int, default=None, help="Map width in pixels (default: 900)")
+    parser.add_argument("--height", type=int, default=None, help="Map height in pixels (default: auto-calculated from route)")
 
     args = parser.parse_args()
 
@@ -298,10 +362,16 @@ def main():
     stations = [parse_station(s) for s in args.stations]
     pois = [parse_poi(p) for p in args.pois]
 
-    print(f"Loaded {len(coords)} track points from GPX")
-    print(f"Rendering map with {len(stations)} stations, {len(pois)} POIs...")
+    # Calculate dimensions
+    width = args.width if args.width else 900
+    height = args.height
+    if height is None:
+        width, height = calculate_dimensions(coords, stations, pois, target_width=width)
 
-    render_map(coords, stations, pois, args.output_png, args.width, args.height)
+    print(f"Loaded {len(coords)} track points from GPX")
+    print(f"Rendering map ({width}×{height} px) with {len(stations)} stations, {len(pois)} POIs...")
+
+    render_map(coords, stations, pois, args.output_png, width, height)
 
 
 if __name__ == "__main__":
