@@ -124,3 +124,19 @@ The following additional rules are loaded automatically based on active files:
 - `app/AGENTS.md` — Web app coding guidelines (Vue 3 + FastAPI)
 
 **Note:** You do not need to manually load these files. Kiro's fileMatch system loads them automatically when you work on matching files.
+
+---
+
+## Python Environment
+
+This project uses a virtual environment at `.venv/`. When executing Python scripts:
+
+```bash
+# Correct — use venv interpreter directly
+.venv/bin/python scripts/render_roadtrip_map.py ...
+
+# Wrong — system Python may lack dependencies
+python3 scripts/render_roadtrip_map.py ...
+```
+
+**Rule:** Always use `.venv/bin/python` for any Python script execution in this repository.
