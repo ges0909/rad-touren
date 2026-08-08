@@ -90,7 +90,7 @@ Structural skeleton showing where the traveller sleeps each night. The "Unterkun
 
 - One row per accommodation stop (not per night).
 - Date range format: `{Wochentag} {Tag}. – {Wochentag} {Tag}. {Monat}` (German abbreviations).
-- "Ort" column: link to the day's explicit anchor using `[Ort](#tag-N)`. Do NOT use auto-generated anchors derived from the full heading text.
+- "Ort" column: link to the **arrival day's** anchor using `[Ort](#tag-N)`. For multi-night stays, link to the day when the traveller first arrives at that location, not subsequent stay days.
 - "Unterkunft" column: filled manually by the user after booking. Never overwrite, delete, or suggest changes to existing entries. Leave empty cells empty — the AI must not insert hotel recommendations.
 - End with footer: `**Gesamt:** {N} Nächte ({Start-Datum}–{End-Datum})`
 
