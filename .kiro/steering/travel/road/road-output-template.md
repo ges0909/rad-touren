@@ -294,6 +294,7 @@ Sehempfehlungen zur Vorbereitung (ÖR Mediathek):
 - Include duration and availability window (e.g., "bis 2029") for Mediathek content.
 - Prefer official broadcaster sources (BR, WDR, NDR) over commercial platforms.
 - Always end Quellen section with: `ℹ️ Zuletzt geprüft: {Datum}`
+- **Update the date** whenever you make substantive changes to the trip (GPX recalculation, route corrections, POI updates, map regeneration). Format changes (toggles, emoji) don't require a date update.
 
 ---
 
