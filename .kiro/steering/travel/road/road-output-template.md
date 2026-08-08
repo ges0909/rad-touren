@@ -80,17 +80,17 @@ Omit optional sections entirely if empty — never leave blank headings.
 Structural skeleton showing where the traveller sleeps each night. The "Unterkunft" column stays empty — the user fills it after booking.
 
 ```markdown
-| Datum             | Nächte | Ort                                          | Unterkunft |
-| ----------------- | ------ | -------------------------------------------- | ---------- |
-| Fr 4. – Sa 5. Sep | 1      | [Bakio](#tag-1--fr-4-sep--bilbao--bakio-...) |            |
-| Sa 5. – Mo 7. Sep | 2      | [San Sebastián](#tag-3--so-6-sep--san-...)   |            |
+| Datum             | Nächte | Ort                     | Unterkunft |
+| ----------------- | ------ | ----------------------- | ---------- |
+| Fr 4. – Sa 5. Sep | 1      | [Bakio](#tag-1)         |            |
+| Sa 5. – Mo 7. Sep | 2      | [San Sebastián](#tag-3) |            |
 ```
 
 **Rules:**
 
 - One row per accommodation stop (not per night).
 - Date range format: `{Wochentag} {Tag}. – {Wochentag} {Tag}. {Monat}` (German abbreviations).
-- "Ort" column: link each location to its first relevant day heading using a markdown anchor (`[Ort](#tag-n--...)`). The anchor is derived from the `###` day heading (lowercase, spaces → hyphens, special chars removed).
+- "Ort" column: link to the day's explicit anchor using `[Ort](#tag-N)`. Do NOT use auto-generated anchors derived from the full heading text.
 - "Unterkunft" column: filled manually by the user after booking. Never overwrite, delete, or suggest changes to existing entries. Leave empty cells empty — the AI must not insert hotel recommendations.
 - End with footer: `**Gesamt:** {N} Nächte ({Start-Datum}–{End-Datum})`
 
@@ -119,6 +119,18 @@ Include only when attractions require or strongly recommend advance booking. Omi
 ## Section 2: Tagesplan
 
 One `###` heading per day. All days use the same heading level (`###`).
+
+### Day Anchors
+
+Add an explicit HTML anchor before each day heading for stable navigation links:
+
+```markdown
+<a id="tag-1"></a>
+
+### Tag 1 · Fr 4. Sep · Bilbao → Bakio · 22 km, ~30 Min.
+```
+
+Use short `#tag-N` links in the Übernachtungen table and Reiseverlauf instead of auto-generated anchors. This keeps links stable when heading text changes (e.g., distance corrections).
 
 ### Day Heading Formats
 
