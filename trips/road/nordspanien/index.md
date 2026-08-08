@@ -48,12 +48,12 @@ Einige Attraktionen und Transporte auf dieser Route erfordern oder empfehlen ein
 
 | Tag / Datum             | Aktivität / Ort                       | Vorlauf     | Details & Buchungs-Link                                                                                                                                   | ✅  |
 | :---------------------- | :------------------------------------ | :---------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- | :-: |
-| **Tag 2** (Sa 5. Sep)   | **San Juan de Gaztelugatxe**          | 2–4 Wochen  | Kostenloses Zeitslot-Ticket erforderlich (falls Zugang nach 10:00 Uhr). [visitbiscay.eus](https://www.visitbiscay.eus/en/san-juan-gaztelugatxe)           | [x] |
-| **Tag 3** (So 6. Sep)   | **Bar Nestor** (San Sebastián)        | Am Reisetag | Keine Online-Buchung. Persönliches Eintragen auf die Liste vor Ort um **12:00 Uhr** (mittags) oder **19:00 Uhr** (abends) für Tortilla.                   | [ ] |
-| **Tag 6** (Mi 9. Sep)   | **Höhle von Altamira** (Neocueva)     | 2–4 Wochen  | Replika-Museum & Höhle in Santillana del Mar. Tickets vorab sichern. [culturaydeporte.gob.es](https://www.culturaydeporte.gob.es/mnaltamira/en/home.html) | [ ] |
-| **Tag 9** (Sa 12. Sep)  | **Lagos de Covadonga Bus**            | 2–3 Wochen  | PKW-Zufahrt im September gesperrt. ALSA-Shuttlebus ab Cangas de Onís reservieren (~9 € p.P.). [alsa.es](https://www.alsa.es)                              | [ ] |
-| **Tag 13** (Mi 16. Sep) | **Catedral de Santa María** (Vitoria) | 1–2 Wochen  | Führung „Abierto por obras" mit Schutzhelm. Online-Reservierung. [catedralvitoria.eus](https://www.catedralvitoria.eus/en)                                | [ ] |
-| **Tag 16** (Sa 19. Sep) | **Guggenheim Museum** (Bilbao)        | 2–3 Wochen  | Zeitslot-Ticket zwingend empfohlen (morgens bevorzugt). [guggenheim-bilbao.eus](https://www.guggenheim-bilbao.eus/en)                                     | [ ] |
+| **Tag 2** (Sa 5. Sep)   | **San Juan de Gaztelugatxe**          | 2–4 Wochen  | Kostenloses Zeitslot-Ticket erforderlich (falls Zugang nach 10:00 Uhr). [visitbiscay.eus](https://www.visitbiscay.eus/en/san-juan-gaztelugatxe)           | ✅  |
+| **Tag 3** (So 6. Sep)   | **Bar Nestor** (San Sebastián)        | Am Reisetag | Keine Online-Buchung. Persönliches Eintragen auf die Liste vor Ort um **12:00 Uhr** (mittags) oder **19:00 Uhr** (abends) für Tortilla.                   |     |
+| **Tag 6** (Mi 9. Sep)   | **Höhle von Altamira** (Neocueva)     | 2–4 Wochen  | Replika-Museum & Höhle in Santillana del Mar. Tickets vorab sichern. [culturaydeporte.gob.es](https://www.culturaydeporte.gob.es/mnaltamira/en/home.html) |     |
+| **Tag 9** (Sa 12. Sep)  | **Lagos de Covadonga Bus**            | 2–3 Wochen  | PKW-Zufahrt im September gesperrt. ALSA-Shuttlebus ab Cangas de Onís reservieren (~9 € p.P.). [alsa.es](https://www.alsa.es)                              |     |
+| **Tag 13** (Mi 16. Sep) | **Catedral de Santa María** (Vitoria) | 1–2 Wochen  | Führung „Abierto por obras" mit Schutzhelm. Online-Reservierung. [catedralvitoria.eus](https://www.catedralvitoria.eus/en)                                |     |
+| **Tag 16** (Sa 19. Sep) | **Guggenheim Museum** (Bilbao)        | 2–3 Wochen  | Zeitslot-Ticket zwingend empfohlen (morgens bevorzugt). [guggenheim-bilbao.eus](https://www.guggenheim-bilbao.eus/en)                                     |     |
 
 💡 **Tipp für Unterkünfte:** Beliebte Unterkünfte in Potes und Cangas de Onís sind im September durch Wanderer gut gebucht – frühzeitig sichern!
 
@@ -239,7 +239,7 @@ Nachmittags spektakuläre Fahrt über den Puerto de San Glorio und das Desfilade
 
 ---
 
-### Tag 10 · So 13. Sep · Cangas de Onís → Gijón / Oviedo · 123 km, ~1,5 Std. (via Llanes)
+### Tag 10 · So 13. Sep · Cangas de Onís → Gijón / Oviedo · 145 km, ~2 Std. (via Llanes)
 
 ![Tag 10: Cangas de Onís → Gijón](maps/tag-10-cangas-de-onis-gijon.png)
 [Route in Google Maps](https://www.google.com/maps/dir/Cangas+de+Onís/Playa+de+Gulpiyuri/Ribadesella/Gijón)
