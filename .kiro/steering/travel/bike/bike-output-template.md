@@ -7,6 +7,10 @@ fileMatchPattern: "trips/bike/**"
 
 Every tour file MUST start with empty YAML front matter (`---\n---\n`) and contain these sections in order, separated by `---` horizontal rules. Omit section 6 (Badestellen) if no swimming spots exist.
 
+## Verification Date Rule
+
+**Update `ℹ️ Zuletzt geprüft:` dates** whenever you make substantive changes to the tour (GPX recalculation, route corrections, POI updates, map regeneration, fare updates). Format changes (toggles, styling) don't require a date update.
+
 ## 1. Title
 
 ```markdown
