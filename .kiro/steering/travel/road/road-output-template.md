@@ -143,14 +143,25 @@ One `###` heading per day. All days use the same heading level (`###`).
 
 ### Route Map Block
 
-Required for every driving day. Place immediately after the day heading:
+Required for every driving day. Place immediately after the day heading. Maps are wrapped in a collapsible `<details>` toggle for a cleaner overview:
 
 ```markdown
+<details>
+<summary>🗺️ Karte anzeigen</summary>
+
 ![Tag {N}: {Von} → {Ziel}](maps/tag-{NN}-{von}-{ziel}.png)
-[Route in Google Maps](https://www.google.com/maps/dir/{Von}/{Stopp1}/{Stopp2}/{Ziel})
+
+[📍 Google Maps](https://www.google.com/maps/dir/{Von}/{Stopp1}/{Stopp2}/{Ziel})
+
+</details>
 ```
 
-**Map file naming:** `tag-{NN}-{von}-{ziel}.png` where `{NN}` is zero-padded day number (01, 02, ..., 14, 15).
+**Rules:**
+
+- Use `<details><summary>🗺️ Karte anzeigen</summary>` to wrap maps (collapsed by default).
+- Empty line required after `<summary>` and before `</details>`.
+- Google Maps link uses 📍 pin emoji: `[📍 Google Maps](url)`.
+- Map file naming: `tag-{NN}-{von}-{ziel}.png` where `{NN}` is zero-padded day number (01, 02, ..., 14, 15).
 
 ### Route Variants
 
