@@ -19,8 +19,8 @@ python scripts/render_roadtrip_map.py <gpx_file> <output_png> \
 
 ```bash
 python scripts/render_roadtrip_map.py \
-    trips/road/gpx/nordspanien-kueste.gpx \
-    trips/road/img/nordspanien-kueste.png \
+    trips/road/nordspanien/gpx/bilbao-bakio.gpx \
+    trips/road/nordspanien/maps/tag-01-bilbao-bakio.png \
     --stations 'T1 Bilbao:-2.9253,43.2627' 'T2-3 San Sebastián:-1.9812,43.3183' \
     --pois 'art:Guggenheim:-2.9340,43.2687' 'wine:Bodegas Ysios:-2.5950,42.5680'
 ```
@@ -48,7 +48,7 @@ pip install staticmap pillow
 
 ## check_unused_assets.py
 
-Findet ungenutzte Bilder in `trips/` — also PNG/JPG-Dateien in `img/` oder `maps/`, die in keiner `index.md` referenziert werden.
+Findet ungenutzte Bilder in `trips/` — also PNG/JPG-Dateien in `maps/`, die in keiner `index.md` referenziert werden.
 
 **Verwendung:**
 

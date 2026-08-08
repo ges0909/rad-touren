@@ -19,6 +19,7 @@ Type a prompt like:
 - _"Plan a 10-day road trip along the northern Spanish coast"_
 
 Get a complete tour plan:
+
 - ✅ Route with GPX track and rendered map
 - ✅ Accommodation recommendations (ratings, prices, booking links)
 - ✅ Hiking trails with ratings from AllTrails/Komoot
@@ -119,21 +120,21 @@ docker run -p 8000:8000 \
 
 Self-contained Python servers providing tour planning capabilities via [Model Context Protocol](https://modelcontextprotocol.io/):
 
-| Server                                    | Purpose                                  | API / Data Source                    | Key Required |
-| ----------------------------------------- | ---------------------------------------- | ------------------------------------ | ------------ |
-| [`brouter`](mcp/brouter/)                 | Bike routing, map rendering, elevation   | BRouter + Nominatim                  | No           |
-| [`ors`](mcp/ors/)                         | Car/foot routing, isochrones, matrix     | OpenRouteService                     | Yes          |
-| [`osrm`](mcp/osrm/)                       | Car routing + GPX export                 | OSRM (public)                        | No           |
-| [`open-meteo`](mcp/open-meteo/)           | Weather forecast + geocoding             | Open-Meteo                           | No           |
-| [`vbb`](mcp/vbb/)                         | Public transit (Berlin/Brandenburg)      | VBB REST API                         | No           |
-| [`overpass`](mcp/overpass/)               | POI search along GPX routes              | OpenStreetMap Overpass API           | No           |
-| [`waymarkedtrails`](mcp/waymarkedtrails/) | Marked cycling routes                    | Waymarked Trails                     | No           |
-| [`wikivoyage`](mcp/wikivoyage/)           | Travel guides, destination search        | Wikivoyage                           | No           |
-| [`tavily`](mcp/tavily/)                   | Web search (hotels, restaurants, etc.)   | Tavily Search API                    | Yes          |
-| [`serpapi-flights`](mcp/serpapi-flights/) | Flight search via Google Flights         | SerpAPI                              | Yes          |
-| [`travel-content`](mcp/travel-content/)   | Travel article search + route tips       | Tavily (quality press)               | Yes          |
-| [`travel-videos`](mcp/travel-videos/)     | Public broadcaster videos + transcripts  | YouTube (ÖR channels)                | No           |
-| [`podcasts`](mcp/podcasts/)               | Travel podcast search + transcripts      | iTunes Search API                    | No           |
+| Server                                    | Purpose                                 | API / Data Source          | Key Required |
+| ----------------------------------------- | --------------------------------------- | -------------------------- | ------------ |
+| [`brouter`](mcp/brouter/)                 | Bike routing, map rendering, elevation  | BRouter + Nominatim        | No           |
+| [`ors`](mcp/ors/)                         | Car/foot routing, isochrones, matrix    | OpenRouteService           | Yes          |
+| [`osrm`](mcp/osrm/)                       | Car routing + GPX export                | OSRM (public)              | No           |
+| [`open-meteo`](mcp/open-meteo/)           | Weather forecast + geocoding            | Open-Meteo                 | No           |
+| [`vbb`](mcp/vbb/)                         | Public transit (Berlin/Brandenburg)     | VBB REST API               | No           |
+| [`overpass`](mcp/overpass/)               | POI search along GPX routes             | OpenStreetMap Overpass API | No           |
+| [`waymarkedtrails`](mcp/waymarkedtrails/) | Marked cycling routes                   | Waymarked Trails           | No           |
+| [`wikivoyage`](mcp/wikivoyage/)           | Travel guides, destination search       | Wikivoyage                 | No           |
+| [`tavily`](mcp/tavily/)                   | Web search (hotels, restaurants, etc.)  | Tavily Search API          | Yes          |
+| [`serpapi-flights`](mcp/serpapi-flights/) | Flight search via Google Flights        | SerpAPI                    | Yes          |
+| [`travel-content`](mcp/travel-content/)   | Travel article search + route tips      | Tavily (quality press)     | Yes          |
+| [`travel-videos`](mcp/travel-videos/)     | Public broadcaster videos + transcripts | YouTube (ÖR channels)      | No           |
+| [`podcasts`](mcp/podcasts/)               | Travel podcast search + transcripts     | iTunes Search API          | No           |
 
 **Architecture:** FastMCP + httpx, spawned as subprocesses via stdio JSON-RPC. Each server is self-contained with its own `pyproject.toml`.
 
@@ -142,14 +143,17 @@ Self-contained Python servers providing tour planning capabilities via [Model Co
 Steering files in `.kiro/steering/` define preferences, workflow, and output format. Loaded automatically via `fileMatch` patterns:
 
 **Universal (always loaded):**
+
 - `user-preferences.md` — Home base, interests, content integrity rules
 
-**Bike tours (`trips/bike/**`):**
+**Bike tours (`trips/bike/**`):\*\*
+
 - `bike-preferences.md` — Distance limits, terrain, interests priority, food/drink rules
 - `bike-planner.md` — Workflow (BRouter routing, VBB transit, Overpass POIs)
 - `bike-output-template.md` — Markdown structure and formatting
 
-**Roadtrips (`trips/road/**`):**
+**Roadtrips (`trips/road/**`):\*\*
+
 - `road-preferences.md` — Flight preferences, accommodation rules, hiking priorities
 - `road-planner.md` — Workflow (ORS/OSRM routing, flight search, daily driving limits)
 - `road-output-template.md` — Markdown structure and formatting
@@ -188,11 +192,11 @@ The `fileMatch` system ensures only relevant rules are loaded per tour type, pre
 │   ├── bike/{tour-name}/     Bike tour documents
 │   │   ├── index.md          Tour description (German)
 │   │   ├── gpx/              GPX tracks
-│   │   └── img/              Route maps, elevation profiles
+│   │   └── maps/             Route maps, elevation profiles
 │   └── road/{trip-name}/     Roadtrip documents
 │       ├── index.md          Trip description (German)
 │       ├── gpx/              Car route GPX per day
-│       └── img/              Route maps per driving day
+│       └── maps/             Route maps per driving day (tag-{NN}-{start}-{ziel}.png)
 ├── .kiro/
 │   ├── settings/mcp.json     MCP server configuration
 │   └── steering/             Planning rules (fileMatch-based)
@@ -233,6 +237,7 @@ mcp/{name}/
 ```
 
 Run a server standalone:
+
 ```bash
 cd mcp/brouter && uv run python server.py
 ```

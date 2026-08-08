@@ -13,13 +13,18 @@ This document defines the **output structure only**. For workflow, tool usage, a
 
 ```
 trips/road/{trip-name}/
-├── index.md                  # Trip document (German)
-├── gpx/{start}-{ziel}.gpx   # Car route per driving day
-└── img/{start}-{ziel}.png   # Route map per driving day
+├── index.md                           # Trip document (German)
+├── gpx/{start}-{ziel}.gpx            # Car route per driving day
+└── maps/tag-{NN}-{start}-{ziel}.png  # Route map per driving day
 ```
 
-- All file/folder names: kebab-case, ASCII-safe (ü→ue, ö→oe, ä→ae, ß→ss)
-- GPX and image files named by driving segment: `{start}-{ziel}` (e.g., `bakio-san-sebastian`)
+### Naming Rules
+
+- **Folder names:** kebab-case, ASCII-safe (ü→ue, ö→oe, ä→ae, ß→ss)
+- **GPX files:** `{start}-{ziel}.gpx` — segment-based naming (e.g., `bilbao-bakio.gpx`)
+- **Map files:** `tag-{NN}-{start}-{ziel}.png` — day-prefixed with zero-padded number (e.g., `tag-01-bilbao-bakio.png`, `tag-14-vitoria-rioja-vitoria.png`)
+- **Image folder:** Always `maps/` (not `img/`) for consistency across all trip types
+- All file names use lowercase ASCII characters only
 
 ## Document Structure
 
@@ -141,9 +146,11 @@ One `###` heading per day. All days use the same heading level (`###`).
 Required for every driving day. Place immediately after the day heading:
 
 ```markdown
-![Tag {N}: {Von} → {Ziel}](img/{von}-{ziel}.png)
+![Tag {N}: {Von} → {Ziel}](maps/tag-{NN}-{von}-{ziel}.png)
 [Route in Google Maps](https://www.google.com/maps/dir/{Von}/{Stopp1}/{Stopp2}/{Ziel})
 ```
+
+**Map file naming:** `tag-{NN}-{von}-{ziel}.png` where `{NN}` is zero-padded day number (01, 02, ..., 14, 15).
 
 ### Route Variants
 
@@ -298,10 +305,15 @@ mcp_osrm_route_to_gpx(
 ```bash
 python scripts/render_roadtrip_map.py \
   trips/road/{trip-name}/gpx/{start}-{ziel}.gpx \
-  trips/road/{trip-name}/img/{start}-{ziel}.png \
+  trips/road/{trip-name}/maps/tag-{NN}-{start}-{ziel}.png \
   --stations 'T{N} {Name}:{lon},{lat}' ... \
   --pois 'category:name:lon,lat' ...
 ```
+
+**File naming:**
+
+- GPX: `{start}-{ziel}.gpx` (segment-based)
+- Map: `tag-{NN}-{start}-{ziel}.png` (day-prefixed with zero-padded number)
 
 **render_roadtrip_map.py parameters:**
 

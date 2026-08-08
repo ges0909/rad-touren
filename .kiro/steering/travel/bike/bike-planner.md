@@ -250,14 +250,19 @@ trips/bike/
 └── {tour-name}/
     ├── index.md                       # Tour description
     ├── gpx/{tour-name}.gpx            # GPX track
-    └── img/
+    └── maps/
         ├── {tour-name}.png            # Route map image
         └── {tour-name}-elevation.png  # Elevation profile image
 ```
 
-- Naming: descriptive kebab-case, no `-runde` suffix. Example: `spreewald/index.md`.
-- Paths inside tour markdown are **relative**: `gpx/spreewald.gpx`, `img/spreewald.png`.
-- Output format: follow `bike-template.md` exactly.
+### Naming Conventions
+
+- **Folder names:** descriptive kebab-case, no `-runde` suffix. Example: `spreewald/`
+- **GPX files:** `{tour-name}.gpx` (e.g., `spreewald.gpx`, `strausberg-buckow.gpx`)
+- **Map files:** `{tour-name}.png` and `{tour-name}-elevation.png`
+- **Image folder:** Always `maps/` (not `img/`) for consistency across all trip types
+- Paths inside tour markdown are **relative**: `gpx/spreewald.gpx`, `maps/spreewald.png`
+- Output format: follow `bike-template.md` exactly
 
 ## Tour Catalog Index (`trips/bike/README.md`)
 
@@ -279,8 +284,8 @@ Execute phases in order. Do not skip or reorder steps.
 ### Phase 2: Enrichment
 
 5. **Search POIs** via `search_pois_along_route` with presets `einkehr`, `badestellen`, `sehenswuerdigkeiten`, `kunst` — **one call at a time, sequentially**.
-6. **Render map** via `render_gpx_map` with ~15–25 curated, deduplicated POI markers. Save to `trips/bike/{name}/img/{name}.png`.
-7. **Render elevation profile** via `render_elevation_profile`. Save to `trips/bike/{name}/img/{name}-elevation.png`.
+6. **Render map** via `render_gpx_map` with ~15–25 curated, deduplicated POI markers. Save to `trips/bike/{name}/maps/{name}.png`.
+7. **Render elevation profile** via `render_elevation_profile`. Save to `trips/bike/{name}/maps/{name}-elevation.png`.
 8. **Hiking options** — `search_routes_in_region` + web search for ratings. Apply thresholds from `user-preferences.md`.
 9. **Swimming** — web search for lakes, rivers, and outdoor pools along the entire route.
 10. **Practical info** — verify opening days, booking requirements, and seasonal closures for every major POI via web search.

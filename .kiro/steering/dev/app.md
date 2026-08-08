@@ -44,12 +44,12 @@ trips/
 ├── bike/{tour-name}/
 │   ├── index.md        # German-language tour description
 │   ├── gpx/            # GPX track(s)
-│   └── img/            # Route map + elevation profile PNGs
+│   └── maps/           # Route map + elevation profile PNGs
 └── road/{trip-name}/
     ├── index.md        # German-language trip description
     ├── review.md       # Optional cross-LLM review
     ├── gpx/            # One GPX per driving day
-    └── img/            # One route map per driving day
+    └── maps/           # One route map per driving day (tag-{NN}-{start}-{ziel}.png)
 ```
 
 ## Development Workflows

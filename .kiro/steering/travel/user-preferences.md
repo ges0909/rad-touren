@@ -87,6 +87,6 @@ Every tour request produces at minimum:
 
 - Markdown document: `trips/{type}/{tour-name}/index.md`
 - GPX track(s): `trips/{type}/{tour-name}/gpx/{segment-name}.gpx`
-- Route map PNG: `trips/{type}/{tour-name}/img/route-map.png`
+- Route map PNG: `trips/{type}/{tour-name}/maps/route-map.png`
 
 Additional outputs are defined in the type-specific output template (`bike-output-template.md`, `road-output-template.md`).

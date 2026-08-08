@@ -138,11 +138,17 @@ trips/road/
     ├── review.md                # Optional cross-LLM review
     ├── gpx/
     │   └── {start}-{ziel}.gpx  # Car route per driving day
-    └── img/
-        └── {start}-{ziel}.png  # Route map per driving day
+    └── maps/
+        └── tag-{NN}-{start}-{ziel}.png  # Route map per driving day
 ```
 
-Naming: kebab-case, ASCII-safe (ü→ue, ö→oe, ä→ae, ß→ss). GPX and image files named by start–destination segment.
+### Naming Conventions
+
+- **Folder names:** kebab-case, ASCII-safe (ü→ue, ö→oe, ä→ae, ß→ss)
+- **GPX files:** `{start}-{ziel}.gpx` (e.g., `bilbao-bakio.gpx`, `san-sebastian-santander.gpx`)
+- **Map files:** `tag-{NN}-{start}-{ziel}.png` with zero-padded day number (e.g., `tag-01-bilbao-bakio.png`, `tag-14-vitoria-rioja-vitoria.png`)
+- **Image folder:** Always `maps/` (not `img/`) for consistency across all trip types
+- All names use lowercase ASCII characters only
 
 ## Map Rendering
 
@@ -153,10 +159,12 @@ One map per driving day. Steps:
 mcp_osrm_route_to_gpx(waypoints=[[lon,lat], ...], output_path="trips/road/{trip}/gpx/{start}-{ziel}.gpx", station_names=[...])
 
 # 2. Render with labeled stations and POIs
-python scripts/render_roadtrip_map.py trips/road/{trip}/gpx/{start}-{ziel}.gpx trips/road/{trip}/img/{start}-{ziel}.png \
+python scripts/render_roadtrip_map.py trips/road/{trip}/gpx/{start}-{ziel}.gpx trips/road/{trip}/maps/tag-{NN}-{start}-{ziel}.png \
   --stations 'T{N} {Name}:{lon},{lat}' ... \
   --pois 'category:name:lon,lat' ...
 ```
+
+**Map file naming:** `tag-{NN}-{start}-{ziel}.png` where `{NN}` is zero-padded day number (01, 02, ..., 14, 15).
 
 Valid POI categories: `art`, `hike`, `swim`, `food`, `wine`, `sight`, `nature`, `coffee`.
 
