@@ -491,5 +491,5 @@ Sehempfehlungen zur Vorbereitung (ÖR Mediathek):
 | BR     | Podcast: Radioreisen — Nordspanien: Picos, Padrón, Bilbao→Porto (54 Min.) | [Apple Podcasts](https://podcasts.apple.com/at/podcast/nordspanien-kalksteingebirge-picos-de-europa-gr%C3%BCnes/id560983615?i=1000770007595)                                                                    |
 | Arte   | Unbekanntes Spanien — Von Asturien nach Zamora (43 Min., bis 17.10.2026)  | [Arte Mediathek](https://www.arte.tv/de/videos/RC-027779/unbekanntes-spanien)                                                                                                                                   |
 
-> ℹ️ Zuletzt geprüft: 2026-08-06. Wanderrouten-Bewertungen aus Web-Recherche (2026-05),
-> Quelle: AllTrails. Nicht per API verifiziert.
+> ℹ️ Zuletzt geprüft: 2026-08-08. GPX-Routen und Karten aktualisiert (2026-08-08).
+> Wanderrouten-Bewertungen aus Web-Recherche (2026-05), Quelle: AllTrails. Nicht per API verifiziert.
