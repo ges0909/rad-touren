@@ -28,15 +28,15 @@ Abendflüge) **Mietwagen:** Übernahme Fr 4. Sep (Flughafen Bilbao) / Abgabe Fr 
 
 | Datum               | Nächte | Ort                                                                                             | Unterkunft                                                                                 |
 | ------------------- | ------ | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Fr 4. – Sa 5. Sep   | 1      | [Bakio](#tag-1--fr-4-sep--bilbao--bakio--35-km-35-min)                                          | [Casa Rural Lastoetxe](https://www.booking.com/hotel/es/casa-rural-lastoetxe-vizcaya.html) |
+| Fr 4. – Sa 5. Sep   | 1      | [Bakio](#tag-1--fr-4-sep--bilbao--bakio--22-km-30-min)                                          | [Casa Rural Lastoetxe](https://www.booking.com/hotel/es/casa-rural-lastoetxe-vizcaya.html) |
 | Sa 5. – Mo 7. Sep   | 2      | [San Sebastián](#tag-3--so-6-sep--san-sebastián)                                                | [A Room in the City](https://www.booking.com/hotel/es/a-room-in-the-city.html)             |
-| Mo 7. – Mi 9. Sep   | 2      | [Santander](#tag-4--mo-7-sep--san-sebastián--santander--198-km-25-std)                          |                                                                                            |
+| Mo 7. – Mi 9. Sep   | 2      | [Santander](#tag-4--mo-7-sep--san-sebastián--santander--203-km-25-std)                          |                                                                                            |
 | Mi 9. – Do 10. Sep  | 1      | [Potes](#tag-6--mi-9-sep--santander--potes--liébana-tal--106-km-15-std--stopps)                 | [Albergue La Cabaña](https://www.booking.com/hotel/es/albergue-la-cabana.html)             |
 | Do 10. – So 13. Sep | 3      | [Cangas de Onís](#tag-8--fr-11-sep--picos-de-europa-ruta-del-cares)                             | [Hotel Covadonga](https://www.booking.com/hotel/es/covadonga-cangas-de-onis.de.html)       |
-| So 13. – Di 15. Sep | 2      | [Gijón](#tag-10--so-13-sep--cangas-de-onís--gijón--oviedo--76-km-1-std)                         |                                                                                            |
+| So 13. – Di 15. Sep | 2      | [Gijón](#tag-10--so-13-sep--cangas-de-onís--gijón--oviedo--145-km-2-std-via-llanes)             |                                                                                            |
 | Di 15. – Mi 16. Sep | 1      | [San Vicente de Barquera](#tag-12--di-15-sep--gijón--san-vicente-de-la-barquera--119-km-15-std) |                                                                                            |
-| Mi 16. – Fr 18. Sep | 2      | [Vitoria-Gasteiz](#tag-13--mi-16-sep--san-vicente--vitoria-gasteiz--210-km-25-std)              |                                                                                            |
-| Fr 18. – So 20. Sep | 2      | [Bilbao](#tag-15--fr-18-sep--vitoria-gasteiz--bilbao--70-km-1-std)                              |                                                                                            |
+| Mi 16. – Fr 18. Sep | 2      | [Vitoria-Gasteiz](#tag-13--mi-16-sep--san-vicente--vitoria-gasteiz--220-km-3-std)               |                                                                                            |
+| Fr 18. – So 20. Sep | 2      | [Bilbao](#tag-15--fr-18-sep--vitoria-gasteiz--bilbao--62-km-50-min)                             |                                                                                            |
 
 **Gesamt:** 16 Nächte (4.–20. Sep 2026)
 
