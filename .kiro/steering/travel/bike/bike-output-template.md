@@ -5,7 +5,7 @@ fileMatchPattern: "trips/bike/**"
 
 # Bike Tour Output Template
 
-Every tour file MUST start with empty YAML front matter (`---\n---\n`) and contain these sections in order, separated by `---` horizontal rules. Omit section 6 (Badestellen) if no swimming spots exist.
+Every tour file starts directly with the title — no YAML front matter. Sections are separated by `---` horizontal rules. Omit section 6 (Badestellen) if no swimming spots exist.
 
 ## Verification Date Rule
 

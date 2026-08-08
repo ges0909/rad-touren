@@ -1,6 +1,3 @@
----
----
-
 # Nordspanien Roadtrip
 
 **Reisezeitraum:** Fr 4. September – So 20. September 2026 · 17 Tage · ~1.250 km (inkl.

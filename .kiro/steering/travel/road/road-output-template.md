@@ -28,7 +28,7 @@ trips/road/{trip-name}/
 
 ## Document Structure
 
-Trip files start with empty YAML front matter (`---\n---\n`). Major sections separated by `---` horizontal rules.
+Trip files start directly with the title — no YAML front matter. Major sections separated by `---` horizontal rules.
 
 **Required sections in order:**
 
