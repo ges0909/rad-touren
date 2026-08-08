@@ -67,7 +67,7 @@ Einige Attraktionen und Transporte auf dieser Route erfordern oder empfehlen ein
 
 </details>
 
-[📍 Google Maps](https://www.google.com/maps/dir/Bilbao+Airport/Bakio)
+[📍 Google Maps](https://www.google.com/maps/dir/43.305130,-2.906570/43.427066,-2.808386)
 
 **Hinflug:** BER → Bilbao (BIO), Direktflug Eurowings EW8552, ~2,5 Std. Abflug 17:00
 Uhr, Ankunft Bilbao ca. 19:35 Uhr Ortszeit (Fr).
@@ -93,7 +93,7 @@ Uhr, Ankunft Bilbao ca. 19:35 Uhr Ortszeit (Fr).
 
 </details>
 
-[📍 Google Maps](https://www.google.com/maps/dir/Bakio/San+Juan+de+Gaztelugatxe/Bermeo/Urdaibai/Playa+de+Laga/Zumaia/San+Sebastián)
+[📍 Google Maps](https://www.google.com/maps/dir/43.427066,-2.808386/43.420798,-2.725301/43.408543,-2.699275/43.295850,-2.254304/43.314798,-1.974583)
 
 Gaztelugatxe früh morgens, dann entspannt entlang der Küste nach San Sebastián. Fokus auf die Highlights, ohne Hetze.
 
@@ -163,7 +163,7 @@ Gaztelugatxe früh morgens, dann entspannt entlang der Küste nach San Sebastiá
 
 </details>
 
-[📍 Google Maps](https://www.google.com/maps/dir/San+Sebastián/Castro+Urdiales/Playa+de+Oriñón/Santander)
+[📍 Google Maps](https://www.google.com/maps/dir/43.314798,-1.974583/43.380846,-3.218721/43.455334,-3.824443)
 
 **Unterwegs:**
 
@@ -212,7 +212,7 @@ Ankunft Santander ca. 13:00 Uhr.
 
 </details>
 
-[📍 Google Maps](https://www.google.com/maps/dir/Santander/Santillana+del+Mar/Comillas/Potes)
+[📍 Google Maps](https://www.google.com/maps/dir/43.455334,-3.824443/43.388891,-4.107843/43.384996,-4.290027/43.154381,-4.622185)
 
 - 🏛️ **[Santillana del Mar](https://www.spain.info/en/destination/santillana-del-mar/)**
   (Anfahrt) — Mittelalterliches Dorf, Stiftskirche.
@@ -249,7 +249,7 @@ Ankunft Santander ca. 13:00 Uhr.
 
 </details>
 
-[📍 Google Maps](https://www.google.com/maps/dir/Potes/Fuente+Dé/Potes/Desfiladero+de+los+Beyos/Cangas+de+Onís)
+[📍 Google Maps](https://www.google.com/maps/dir/43.154381,-4.622185/43.143100,-4.812400/43.154381,-4.622185/43.351964,-5.128428)
 
 Vormittags Ausflug von Potes zur Seilbahn und Wanderung in den Picos de Europa.
 Nachmittags spektakuläre Fahrt über den Puerto de San Glorio und das Desfiladero de los Beyos nach Cangas de Onís.
@@ -295,7 +295,7 @@ Nachmittags spektakuläre Fahrt über den Puerto de San Glorio und das Desfilade
 
 </details>
 
-[📍 Google Maps](https://www.google.com/maps/dir/Cangas+de+Onís/Playa+de+Gulpiyuri/Ribadesella/Gijón)
+[📍 Google Maps](https://www.google.com/maps/dir/43.351964,-5.128428/43.419294,-4.753886/43.461492,-5.057672/43.537055,-5.667170)
 
 **Unterwegs (Küstenroute via Llanes):**
 
@@ -337,7 +337,7 @@ Ankunft Gijón ca. 13:00 Uhr. Maritime Hafenstadt mit Atlantik-Flair.
 
 </details>
 
-[📍 Google Maps](https://www.google.com/maps/dir/Gijón/San+Vicente+de+la+Barquera)
+[📍 Google Maps](https://www.google.com/maps/dir/43.537055,-5.667170/43.386368,-4.398566)
 
 > 🎊 **Regionalfeiertag (Kantabrien):** La Bien Aparecida. Restaurants & Strände belebt.
 
@@ -373,7 +373,7 @@ Fahrt entlang der Küste nach Kantabrien. Malerisches Fischerstädtchen auf eine
 
 </details>
 
-[📍 Google Maps](https://www.google.com/maps/dir/San+Vicente+de+la+Barquera/Ramales+de+la+Victoria/Vitoria-Gasteiz)
+[📍 Google Maps](https://www.google.com/maps/dir/43.386368,-4.398566/42.854747,-2.676179)
 
 **Unterwegs (Kantabrien → Baskenland):**
 
@@ -402,7 +402,7 @@ Ankunft in Vitoria-Gasteiz am Nachmittag (~15:00 Uhr).
 
 </details>
 
-[📍 Google Maps](https://www.google.com/maps/dir/Vitoria-Gasteiz/Valle+Salado+de+A%C3%B1ana/Laguardia/Vitoria-Gasteiz)
+[📍 Google Maps](https://www.google.com/maps/dir/42.854747,-2.676179/42.800452,-2.983381/42.553699,-2.584773/42.854747,-2.676179)
 
 Ganztagesausflug in die berühmte Weinregion **Rioja Alavesa** mit Stopp an der historischen Saline.
 
@@ -429,7 +429,7 @@ Ganztagesausflug in die berühmte Weinregion **Rioja Alavesa** mit Stopp an der 
 
 </details>
 
-[📍 Google Maps](https://www.google.com/maps/dir/Vitoria-Gasteiz/Bilbao)
+[📍 Google Maps](https://www.google.com/maps/dir/42.854747,-2.676179/43.258534,-2.937123)
 
 Vormittags Fahrt nach Bilbao, Mietwagen-Rückgabe am Flughafen. Nachmittags Erkundung per Metro & zu Fuß.
 

@@ -165,13 +165,14 @@ Required for every driving day. Place immediately after the day heading. Maps ar
 
 </details>
 
-[📍 Google Maps](https://www.google.com/maps/dir/{Von}/{Stopp1}/{Stopp2}/{Ziel})
+[📍 Google Maps](https://www.google.com/maps/dir/{lat1},{lon1}/{lat2},{lon2}/...)
 ```
 
 **Rules:**
 
 - Use `<details><summary>🗺️ Karte anzeigen</summary>` to wrap the map image only.
 - Google Maps link goes **outside** the `<details>` block — always visible for quick access.
+- **Use coordinates** (from GPX waypoints) instead of place names — coordinates are unambiguous and always resolve correctly.
 - Empty line required after `<summary>` and before `</details>`.
 - Map file naming: `tag-{NN}-{von}-{ziel}.png` where `{NN}` is zero-padded day number (01, 02, ..., 14, 15).
 
