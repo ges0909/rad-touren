@@ -2,8 +2,8 @@
 <gpx version="1.1" creator="trip-planner"
      xmlns="http://www.topografix.com/GPX/1/1">
   <metadata>
-    <name>Tag 12: Gijón - San Vicente de la Barquera</name>
-    <time>2026-08-06T05:47:47Z</time>
+    <name>Gijon - San Vicente de la Barquera</name>
+    <time>2026-08-08T07:59:41Z</time>
   </metadata>
   <wpt lat="43.537055" lon="-5.667170">
     <name>Gijón</name>
@@ -12,7 +12,7 @@
     <name>San Vicente de la Barquera</name>
   </wpt>
   <trk>
-    <name>Tag 12: Gijón - San Vicente de la Barquera</name>
+    <name>Gijon - San Vicente de la Barquera</name>
     <trkseg>
       <trkpt lat="43.537060" lon="-5.667190"/>
       <trkpt lat="43.537530" lon="-5.666850"/>
@@ -264,6 +264,7 @@
       <trkpt lat="43.503350" lon="-5.587290"/>
       <trkpt lat="43.503420" lon="-5.586710"/>
       <trkpt lat="43.503520" lon="-5.585950"/>
+      <trkpt lat="43.503800" lon="-5.584860"/>
       <trkpt lat="43.504000" lon="-5.584170"/>
       <trkpt lat="43.504650" lon="-5.582650"/>
       <trkpt lat="43.504970" lon="-5.581970"/>

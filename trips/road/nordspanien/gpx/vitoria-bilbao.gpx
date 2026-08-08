@@ -2,8 +2,8 @@
 <gpx version="1.1" creator="trip-planner"
      xmlns="http://www.topografix.com/GPX/1/1">
   <metadata>
-    <name>Tag 15: Vitoria-Gasteiz - Bilbao</name>
-    <time>2026-08-06T05:49:00Z</time>
+    <name>Vitoria-Gasteiz - Bilbao</name>
+    <time>2026-08-08T08:00:36Z</time>
   </metadata>
   <wpt lat="42.854747" lon="-2.676179">
     <name>Vitoria-Gasteiz</name>
@@ -12,7 +12,7 @@
     <name>Bilbao</name>
   </wpt>
   <trk>
-    <name>Tag 15: Vitoria-Gasteiz - Bilbao</name>
+    <name>Vitoria-Gasteiz - Bilbao</name>
     <trkseg>
       <trkpt lat="42.854790" lon="-2.676400"/>
       <trkpt lat="42.856320" lon="-2.675880"/>
@@ -1265,7 +1265,10 @@
       <trkpt lat="43.257430" lon="-2.937040"/>
       <trkpt lat="43.257510" lon="-2.937040"/>
       <trkpt lat="43.257550" lon="-2.937030"/>
-      <trkpt lat="43.258110" lon="-2.936980"/>
+      <trkpt lat="43.258030" lon="-2.936990"/>
+      <trkpt lat="43.258080" lon="-2.936980"/>
+      <trkpt lat="43.258110" lon="-2.936970"/>
+      <trkpt lat="43.258180" lon="-2.936950"/>
       <trkpt lat="43.258470" lon="-2.936830"/>
     </trkseg>
   </trk>
