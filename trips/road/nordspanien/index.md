@@ -68,9 +68,9 @@ Einige Attraktionen und Transporte auf dieser Route erfordern oder empfehlen ein
 
 ![Tag 1: Bilbao → Bakio](maps/tag-01-bilbao-bakio.png)
 
-[📍 Google Maps](https://www.google.com/maps/dir/Bilbao+Airport/Bakio)
-
 </details>
+
+[📍 Google Maps](https://www.google.com/maps/dir/Bilbao+Airport/Bakio)
 
 **Hinflug:** BER → Bilbao (BIO), Direktflug Eurowings EW8552, ~2,5 Std. Abflug 17:00
 Uhr, Ankunft Bilbao ca. 19:35 Uhr Ortszeit (Fr).
@@ -94,9 +94,9 @@ Uhr, Ankunft Bilbao ca. 19:35 Uhr Ortszeit (Fr).
 
 ![Tag 2: Bakio → San Sebastián](maps/tag-02-bakio-san-sebastian.png)
 
-[📍 Google Maps](https://www.google.com/maps/dir/Bakio/San+Juan+de+Gaztelugatxe/Bermeo/Urdaibai/Playa+de+Laga/Zumaia/San+Sebastián)
-
 </details>
+
+[📍 Google Maps](https://www.google.com/maps/dir/Bakio/San+Juan+de+Gaztelugatxe/Bermeo/Urdaibai/Playa+de+Laga/Zumaia/San+Sebastián)
 
 Gaztelugatxe früh morgens, dann entspannt entlang der Küste nach San Sebastián. Fokus auf die Highlights, ohne Hetze.
 
@@ -164,9 +164,9 @@ Gaztelugatxe früh morgens, dann entspannt entlang der Küste nach San Sebastiá
 
 ![Tag 4: San Sebastián → Santander](maps/tag-04-san-sebastian-santander.png)
 
-[📍 Google Maps](https://www.google.com/maps/dir/San+Sebastián/Castro+Urdiales/Playa+de+Oriñón/Santander)
-
 </details>
+
+[📍 Google Maps](https://www.google.com/maps/dir/San+Sebastián/Castro+Urdiales/Playa+de+Oriñón/Santander)
 
 **Unterwegs:**
 
@@ -213,9 +213,9 @@ Ankunft Santander ca. 13:00 Uhr.
 
 ![Tag 6: Santander → Potes](maps/tag-06-santander-potes.png)
 
-[📍 Google Maps](https://www.google.com/maps/dir/Santander/Santillana+del+Mar/Comillas/Potes)
-
 </details>
+
+[📍 Google Maps](https://www.google.com/maps/dir/Santander/Santillana+del+Mar/Comillas/Potes)
 
 - 🏛️ **[Santillana del Mar](https://www.spain.info/en/destination/santillana-del-mar/)**
   (Anfahrt) — Mittelalterliches Dorf, Stiftskirche.
@@ -250,9 +250,9 @@ Ankunft Santander ca. 13:00 Uhr.
 
 ![Tag 7: Potes → Cangas de Onís](maps/tag-07-potes-cangas-de-onis.png)
 
-[📍 Google Maps](https://www.google.com/maps/dir/Potes/Fuente+Dé/Potes/Desfiladero+de+los+Beyos/Cangas+de+Onís)
-
 </details>
+
+[📍 Google Maps](https://www.google.com/maps/dir/Potes/Fuente+Dé/Potes/Desfiladero+de+los+Beyos/Cangas+de+Onís)
 
 Vormittags Ausflug von Potes zur Seilbahn und Wanderung in den Picos de Europa.
 Nachmittags spektakuläre Fahrt über den Puerto de San Glorio und das Desfiladero de los Beyos nach Cangas de Onís.
@@ -296,9 +296,9 @@ Nachmittags spektakuläre Fahrt über den Puerto de San Glorio und das Desfilade
 
 ![Tag 10: Cangas de Onís → Gijón](maps/tag-10-cangas-de-onis-gijon.png)
 
-[📍 Google Maps](https://www.google.com/maps/dir/Cangas+de+Onís/Playa+de+Gulpiyuri/Ribadesella/Gijón)
-
 </details>
+
+[📍 Google Maps](https://www.google.com/maps/dir/Cangas+de+Onís/Playa+de+Gulpiyuri/Ribadesella/Gijón)
 
 **Unterwegs (Küstenroute via Llanes):**
 
@@ -338,9 +338,9 @@ Ankunft Gijón ca. 13:00 Uhr. Maritime Hafenstadt mit Atlantik-Flair.
 
 ![Tag 12: Gijón → San Vicente](maps/tag-12-gijon-san-vicente.png)
 
-[📍 Google Maps](https://www.google.com/maps/dir/Gijón/San+Vicente+de+la+Barquera)
-
 </details>
+
+[📍 Google Maps](https://www.google.com/maps/dir/Gijón/San+Vicente+de+la+Barquera)
 
 > 🎊 **Regionalfeiertag (Kantabrien):** La Bien Aparecida. Restaurants & Strände belebt.
 
@@ -374,9 +374,9 @@ Fahrt entlang der Küste nach Kantabrien. Malerisches Fischerstädtchen auf eine
 
 ![Tag 13: San Vicente → Vitoria-Gasteiz](maps/tag-13-san-vicente-vitoria.png)
 
-[📍 Google Maps](https://www.google.com/maps/dir/San+Vicente+de+la+Barquera/Ramales+de+la+Victoria/Vitoria-Gasteiz)
-
 </details>
+
+[📍 Google Maps](https://www.google.com/maps/dir/San+Vicente+de+la+Barquera/Ramales+de+la+Victoria/Vitoria-Gasteiz)
 
 **Unterwegs (Kantabrien → Baskenland):**
 
@@ -403,9 +403,9 @@ Ankunft in Vitoria-Gasteiz am Nachmittag (~15:00 Uhr).
 
 ![Tag 14: Vitoria → Valle Salado → Laguardia → Vitoria](maps/tag-14-vitoria-rioja-vitoria.png)
 
-[📍 Google Maps](https://www.google.com/maps/dir/Vitoria-Gasteiz/Valle+Salado+de+A%C3%B1ana/Laguardia/Vitoria-Gasteiz)
-
 </details>
+
+[📍 Google Maps](https://www.google.com/maps/dir/Vitoria-Gasteiz/Valle+Salado+de+A%C3%B1ana/Laguardia/Vitoria-Gasteiz)
 
 Ganztagesausflug in die berühmte Weinregion **Rioja Alavesa** mit Stopp an der historischen Saline.
 
@@ -430,9 +430,9 @@ Ganztagesausflug in die berühmte Weinregion **Rioja Alavesa** mit Stopp an der 
 
 ![Tag 15: Vitoria → Bilbao](maps/tag-15-vitoria-bilbao.png)
 
-[📍 Google Maps](https://www.google.com/maps/dir/Vitoria-Gasteiz/Bilbao)
-
 </details>
+
+[📍 Google Maps](https://www.google.com/maps/dir/Vitoria-Gasteiz/Bilbao)
 
 Vormittags Fahrt nach Bilbao, Mietwagen-Rückgabe am Flughafen. Nachmittags Erkundung per Metro & zu Fuß.
 

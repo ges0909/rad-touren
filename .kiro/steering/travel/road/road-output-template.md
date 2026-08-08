@@ -163,16 +163,16 @@ Required for every driving day. Place immediately after the day heading. Maps ar
 
 ![Tag {N}: {Von} → {Ziel}](maps/tag-{NN}-{von}-{ziel}.png)
 
-[📍 Google Maps](https://www.google.com/maps/dir/{Von}/{Stopp1}/{Stopp2}/{Ziel})
-
 </details>
+
+[📍 Google Maps](https://www.google.com/maps/dir/{Von}/{Stopp1}/{Stopp2}/{Ziel})
 ```
 
 **Rules:**
 
-- Use `<details><summary>🗺️ Karte anzeigen</summary>` to wrap maps (collapsed by default).
+- Use `<details><summary>🗺️ Karte anzeigen</summary>` to wrap the map image only.
+- Google Maps link goes **outside** the `<details>` block — always visible for quick access.
 - Empty line required after `<summary>` and before `</details>`.
-- Google Maps link uses 📍 pin emoji: `[📍 Google Maps](url)`.
 - Map file naming: `tag-{NN}-{von}-{ziel}.png` where `{NN}` is zero-padded day number (01, 02, ..., 14, 15).
 
 ### Route Variants
