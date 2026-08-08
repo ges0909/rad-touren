@@ -29,7 +29,7 @@ Abendflüge) **Mietwagen:** Übernahme Fr 4. Sep (Flughafen Bilbao) / Abgabe Fr 
 | Datum               | Nächte | Ort                                   | Unterkunft                                                                                 |
 | ------------------- | ------ | ------------------------------------- | ------------------------------------------------------------------------------------------ |
 | Fr 4. – Sa 5. Sep   | 1      | [Bakio](#tag-1)                       | [Casa Rural Lastoetxe](https://www.booking.com/hotel/es/casa-rural-lastoetxe-vizcaya.html) |
-| Sa 5. – Mo 7. Sep   | 2      | [San Sebastián](#tag-3)               | [A Room in the City](https://www.booking.com/hotel/es/a-room-in-the-city.html)             |
+| Sa 5. – Mo 7. Sep   | 2      | [San Sebastián](#tag-2)               | [A Room in the City](https://www.booking.com/hotel/es/a-room-in-the-city.html)             |
 | Mo 7. – Mi 9. Sep   | 2      | [Santander](#tag-4)                   |                                                                                            |
 | Mi 9. – Do 10. Sep  | 1      | [Potes](#tag-6)                       | [Albergue La Cabaña](https://www.booking.com/hotel/es/albergue-la-cabana.html)             |
 | Do 10. – So 13. Sep | 3      | [Cangas de Onís](#tag-7)              | [Hotel Covadonga](https://www.booking.com/hotel/es/covadonga-cangas-de-onis.de.html)       |
