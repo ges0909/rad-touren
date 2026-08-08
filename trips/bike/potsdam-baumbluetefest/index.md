@@ -17,9 +17,9 @@
 
 Potsdam Hbf → Schloss Charlottenhof → Werder (Baumblütenfest!) → Petzow → Geltow → Caputh → Schwielowsee → Templiner See → Potsdam Hbf
 
-[![Potsdam–Baumblütenfest-Runde Karte](img/potsdam-baumbluetefest.png)](img/potsdam-baumbluetefest.png)
+[![Potsdam–Baumblütenfest-Runde Karte](maps/potsdam-baumbluetefest.png)](maps/potsdam-baumbluetefest.png)
 
-[![Höhenprofil](img/potsdam-baumbluetefest-elevation.png)](img/potsdam-baumbluetefest-elevation.png)
+[![Höhenprofil](maps/potsdam-baumbluetefest-elevation.png)](maps/potsdam-baumbluetefest-elevation.png)
 
 ---
 

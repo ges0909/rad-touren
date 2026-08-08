@@ -17,9 +17,9 @@
 
 Lübben → Lübbenau → Lehde → Burg (Spreewald) → Lübben
 
-[![Spreewald-Runde Karte](img/spreewald.png)](img/spreewald.png)
+[![Spreewald-Runde Karte](maps/spreewald.png)](maps/spreewald.png)
 
-[![Höhenprofil](img/spreewald-elevation.png)](img/spreewald-elevation.png)
+[![Höhenprofil](maps/spreewald-elevation.png)](maps/spreewald-elevation.png)
 
 ---
 

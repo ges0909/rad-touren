@@ -62,5 +62,5 @@ Die RE-Verbindungen haben Fahrradmitnahme (Stellplätze im RE begrenzt, am Woche
 ## GPX & Karten
 
 - GPX: [blankenfelde-kw-sicher.gpx](gpx/blankenfelde-kw-sicher.gpx)
-- Routenkarte: ![Route](img/route-karte.png)
-- Höhenprofil: ![Höhenprofil](img/hoehenprofil.png)
+- Routenkarte: ![Route](maps/route-karte.png)
+- Höhenprofil: ![Höhenprofil](maps/hoehenprofil.png)
