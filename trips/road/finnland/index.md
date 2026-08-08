@@ -30,7 +30,7 @@ Helsinki → Repovesi NP → Savonlinna (Saimaa) → Koli NP → Kuopio → Tamp
 
 > 💡 **Puffer-Regel:** Helsinki liegt am Ende der Route mit 1 Nacht Reserve. Bei Verzögerungen unterwegs kann ein Stopp gekürzt werden, ohne den Rückflug zu gefährden.
 
-[![Routenkarte](img/finnland-seenplatte.png)](img/finnland-seenplatte.png)
+[![Routenkarte](maps/finnland-seenplatte.png)](maps/finnland-seenplatte.png)
 
 ---
 

@@ -61,7 +61,7 @@ Einige Attraktionen und Transporte auf dieser Route erfordern oder empfehlen ein
 
 ### Tag 1 · Fr 4. Sep · Bilbao → Bakio · 22 km, ~30 Min.
 
-![Tag 1: Bilbao → Bakio](img/bilbao-bakio.png)
+![Tag 1: Bilbao → Bakio](maps/tag-01-bilbao-bakio.png)
 [Route in Google Maps](https://www.google.com/maps/dir/Bilbao+Airport/Bakio)
 
 **Hinflug:** BER → Bilbao (BIO), Direktflug Eurowings EW8552, ~2,5 Std. Abflug 17:00
@@ -322,7 +322,7 @@ Ankunft in Vitoria-Gasteiz am Nachmittag (~15:00 Uhr).
 
 ### Tag 14 · Do 17. Sep · Vitoria-Gasteiz & Rioja Alavesa (Tagesausflug) · ~140 km Rundfahrt
 
-![Tag 14: Vitoria → Valle Salado → Laguardia → Vitoria](img/vitoria-rioja-vitoria.png)
+![Tag 14: Vitoria → Valle Salado → Laguardia → Vitoria](maps/tag-14-vitoria-rioja-vitoria.png)
 
 [Route in Google Maps](https://www.google.com/maps/dir/Vitoria-Gasteiz/Valle+Salado+de+A%C3%B1ana/Laguardia/Vitoria-Gasteiz)
 
