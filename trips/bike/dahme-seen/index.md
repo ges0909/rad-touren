@@ -15,8 +15,6 @@ Königs Wusterhausen → Zeuthen → Zeuthener See → Prieros → Storkower See
 
 [![Dahme-Seen-Runde Karte](maps/dahme-seen.png)](maps/dahme-seen.png)
 
-[![Höhenprofil](maps/dahme-seen-elevation.png)](maps/dahme-seen-elevation.png)
-
 ---
 
 ## Streckenabschnitte

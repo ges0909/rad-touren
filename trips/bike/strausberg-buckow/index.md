@@ -19,8 +19,6 @@ S Strausberg Nord → Waldsieversdorf → Buckow → Pritzhagen → Garzau → S
 
 [![Strausberg–Buckow Karte](maps/strausberg-buckow.png)](maps/strausberg-buckow.png)
 
-[![Höhenprofil](maps/strausberg-buckow-elevation.png)](maps/strausberg-buckow-elevation.png)
-
 ---
 
 ## Streckenabschnitte

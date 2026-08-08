@@ -19,8 +19,6 @@ Erkner → Rahnsdorf → Müggelseedamm → Friedrichshagen → Schöneiche bei 
 
 [![Erkner–Müggelsee-Runde Karte](maps/erkner-mueggelsee.png)](maps/erkner-mueggelsee.png)
 
-[![Höhenprofil](maps/erkner-mueggelsee-elevation.png)](maps/erkner-mueggelsee-elevation.png)
-
 ---
 
 ## Streckenabschnitte

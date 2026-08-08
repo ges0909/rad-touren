@@ -39,7 +39,7 @@ Emoji by theme: 🏛️ culture, 🌿 nature, 🌸 seasonal, 🌊 water/lakes, �
 {Start} → {Waypoint 1} → {Waypoint 2} → … → {Start}
 ```
 
-Do NOT include image links to map or elevation profile in the markdown output. The map is displayed live in the frontend.
+Do NOT include image links to the map in the markdown output. The map is displayed live in the frontend.
 
 ## 5. Streckenabschnitte
 
