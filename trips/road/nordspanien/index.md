@@ -8,7 +8,7 @@ Tagesausflüge) **Flug:** BER ↔ Bilbao BIO, Direktflug Eurowings (nur Mo/Fr/So
 Abendflüge) **Mietwagen:** Übernahme Fr 4. Sep (Flughafen Bilbao) / Abgabe Fr 18. Sep
 (Flughafen) — 14 Tage
 
-**Reiseverlauf:** [Bilbao](#tag-1--fr-4-sep--bilbao--bakio--35-km-35-min) → [Bakio](#tag-1--fr-4-sep--bilbao--bakio--35-km-35-min) → [San Sebastián](#tag-3--so-6-sep--san-sebastián) → [Santander](#tag-4--mo-7-sep--san-sebastián--santander--198-km-25-std) → [Potes](#tag-6--mi-9-sep--santander--potes--liébana-tal--106-km-15-std--stopps) → [Picos de Europa](#tag-8--fr-11-sep--picos-de-europa-ruta-del-cares) → [Gijón](#tag-10--so-13-sep--cangas-de-onís--gijón--oviedo--76-km-1-std) / [Oviedo](#tag-11--mo-14-sep--oviedo-tagesausflug-ab-gijón) → [San Vicente de la Barquera](#tag-12--di-15-sep--gijón--san-vicente-de-la-barquera--119-km-15-std) → [Vitoria-Gasteiz](#tag-13--mi-16-sep--san-vicente--vitoria-gasteiz--210-km-25-std) → [Bilbao](#tag-15--fr-18-sep--vitoria-gasteiz--bilbao--70-km-1-std). Alle Etappen unter 2,5 Std. Fahrzeit.
+**Reiseverlauf:** [Bilbao](#tag-1) → [Bakio](#tag-1) → [San Sebastián](#tag-3) → [Santander](#tag-4) → [Potes](#tag-6) → [Picos de Europa](#tag-8) → [Gijón](#tag-10) / [Oviedo](#tag-11) → [San Vicente de la Barquera](#tag-12) → [Vitoria-Gasteiz](#tag-13) → [Bilbao](#tag-15). Alle Etappen unter 2,5 Std. Fahrzeit.
 
 🌊 Die spanische Nordküste: grüne Berge, wilde Atlantikküste, Pintxos-Bars, Sidra-Häuser und die Picos de Europa direkt hinter dem Strand. Anfang September: warm, wenig Touristen, perfekte Wanderbedingungen.
 
@@ -26,17 +26,17 @@ Abendflüge) **Mietwagen:** Übernahme Fr 4. Sep (Flughafen Bilbao) / Abgabe Fr 
 
 ## Übernachtungen im Überblick
 
-| Datum               | Nächte | Ort                                                                                             | Unterkunft                                                                                 |
-| ------------------- | ------ | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Fr 4. – Sa 5. Sep   | 1      | [Bakio](#tag-1--fr-4-sep--bilbao--bakio--22-km-30-min)                                          | [Casa Rural Lastoetxe](https://www.booking.com/hotel/es/casa-rural-lastoetxe-vizcaya.html) |
-| Sa 5. – Mo 7. Sep   | 2      | [San Sebastián](#tag-3--so-6-sep--san-sebastián)                                                | [A Room in the City](https://www.booking.com/hotel/es/a-room-in-the-city.html)             |
-| Mo 7. – Mi 9. Sep   | 2      | [Santander](#tag-4--mo-7-sep--san-sebastián--santander--203-km-25-std)                          |                                                                                            |
-| Mi 9. – Do 10. Sep  | 1      | [Potes](#tag-6--mi-9-sep--santander--potes--liébana-tal--106-km-15-std--stopps)                 | [Albergue La Cabaña](https://www.booking.com/hotel/es/albergue-la-cabana.html)             |
-| Do 10. – So 13. Sep | 3      | [Cangas de Onís](#tag-8--fr-11-sep--picos-de-europa-ruta-del-cares)                             | [Hotel Covadonga](https://www.booking.com/hotel/es/covadonga-cangas-de-onis.de.html)       |
-| So 13. – Di 15. Sep | 2      | [Gijón](#tag-10--so-13-sep--cangas-de-onís--gijón--oviedo--145-km-2-std-via-llanes)             |                                                                                            |
-| Di 15. – Mi 16. Sep | 1      | [San Vicente de Barquera](#tag-12--di-15-sep--gijón--san-vicente-de-la-barquera--119-km-15-std) |                                                                                            |
-| Mi 16. – Fr 18. Sep | 2      | [Vitoria-Gasteiz](#tag-13--mi-16-sep--san-vicente--vitoria-gasteiz--220-km-3-std)               |                                                                                            |
-| Fr 18. – So 20. Sep | 2      | [Bilbao](#tag-15--fr-18-sep--vitoria-gasteiz--bilbao--62-km-50-min)                             |                                                                                            |
+| Datum               | Nächte | Ort                                   | Unterkunft                                                                                 |
+| ------------------- | ------ | ------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Fr 4. – Sa 5. Sep   | 1      | [Bakio](#tag-1)                       | [Casa Rural Lastoetxe](https://www.booking.com/hotel/es/casa-rural-lastoetxe-vizcaya.html) |
+| Sa 5. – Mo 7. Sep   | 2      | [San Sebastián](#tag-3)               | [A Room in the City](https://www.booking.com/hotel/es/a-room-in-the-city.html)             |
+| Mo 7. – Mi 9. Sep   | 2      | [Santander](#tag-4)                   |                                                                                            |
+| Mi 9. – Do 10. Sep  | 1      | [Potes](#tag-6)                       | [Albergue La Cabaña](https://www.booking.com/hotel/es/albergue-la-cabana.html)             |
+| Do 10. – So 13. Sep | 3      | [Cangas de Onís](#tag-7)              | [Hotel Covadonga](https://www.booking.com/hotel/es/covadonga-cangas-de-onis.de.html)       |
+| So 13. – Di 15. Sep | 2      | [Gijón](#tag-10)                      |                                                                                            |
+| Di 15. – Mi 16. Sep | 1      | [San Vicente de la Barquera](#tag-12) |                                                                                            |
+| Mi 16. – Fr 18. Sep | 2      | [Vitoria-Gasteiz](#tag-13)            |                                                                                            |
+| Fr 18. – So 20. Sep | 2      | [Bilbao](#tag-15)                     |                                                                                            |
 
 **Gesamt:** 16 Nächte (4.–20. Sep 2026)
 
@@ -58,6 +58,8 @@ Einige Attraktionen und Transporte auf dieser Route erfordern oder empfehlen ein
 💡 **Tipp für Unterkünfte:** Beliebte Unterkünfte in Potes und Cangas de Onís sind im September durch Wanderer gut gebucht – frühzeitig sichern!
 
 ---
+
+<a id="tag-1"></a>
 
 ### Tag 1 · Fr 4. Sep · Bilbao → Bakio · 22 km, ~30 Min.
 
@@ -82,6 +84,8 @@ Uhr, Ankunft Bilbao ca. 19:35 Uhr Ortszeit (Fr).
 **Abendessen:** Hotel-Restaurant (regionale Küche) oder Bakio Ortskern (5 Min. zu Fuß).
 
 ---
+
+<a id="tag-2"></a>
 
 ### Tag 2 · Sa 5. Sep · Bakio → San Sebastián / Donostia · 137 km, ~2,5 Std. Fahrzeit + Stopps
 
@@ -111,6 +115,8 @@ Gaztelugatxe früh morgens, dann entspannt entlang der Küste nach San Sebastiá
 **Unterkunft:** Hostel in ehemaligem Kloster, zentral, 3 Min. zur Playa de La Concha, 10 Min. zur Altstadt.
 
 ---
+
+<a id="tag-3"></a>
 
 ### Tag 3 · So 6. Sep · San Sebastián
 
@@ -149,6 +155,8 @@ Gaztelugatxe früh morgens, dann entspannt entlang der Küste nach San Sebastiá
 
 ---
 
+<a id="tag-4"></a>
+
 ### Tag 4 · Mo 7. Sep · San Sebastián → Santander · 203 km, ~2,5 Std.
 
 <details>
@@ -176,6 +184,8 @@ Ankunft Santander ca. 13:00 Uhr.
 
 > Hinweis: Centro Botín montags geschlossen.
 
+<a id="tag-5"></a>
+
 ### Tag 5 · Di 8. Sep · Santander
 
 - 🥾 **Cabo Mayor → Mataleñas** — 6 km, 2 Std., leicht. Klippenpfad, Leuchtturm. 🏊
@@ -193,6 +203,8 @@ Ankunft Santander ca. 13:00 Uhr.
 - 🌿 **Jardines de Piquío** — Art-Deco-Gärten.
 
 ---
+
+<a id="tag-6"></a>
 
 ### Tag 6 · Mi 9. Sep · Santander → Potes / Liébana-Tal · 106 km, ~1,5 Std. + Stopps
 
@@ -229,6 +241,8 @@ Ankunft Santander ca. 13:00 Uhr.
 
 ---
 
+<a id="tag-7"></a>
+
 ### Tag 7 · Do 10. Sep · Potes → Picos de Europa / Cangas de Onís · ~150 km, ~2,5 Std. Fahrzeit (zzgl. Seilbahn-Ausflug)
 
 <details>
@@ -250,6 +264,8 @@ Nachmittags spektakuläre Fahrt über den Puerto de San Glorio und das Desfilade
 
 > 🌧️ **Plan B bei schlechtem Wetter:** Seilbahn fährt bei starkem Wind/Nebel nicht. Alternative: Direkt über die landschaftlich spektakuläre Route (Puerto de San Glorio) nach Cangas fahren. Unterwegs Stopp am **Mirador del Pozo de Andara** für Bergpanorama (auch bei Wolken beeindruckend). In Cangas früher ankommen → Sidrería-Nachmittag + römische Brücke.
 
+<a id="tag-8"></a>
+
 ### Tag 8 · Fr 11. Sep · Picos de Europa (Ruta del Cares)
 
 - 🥾 **Ruta del Cares** [PR-PNPE 3] — 22 km (hin+zurück), 6–8 Std., moderat. ⭐ 4,5 (1.880 Reviews). Schlucht-Wanderung durch die „Garganta Divina" — ~70 in den Fels gehauene Tunnel. Ganztageswanderung ab Poncebos. ⚠️ Steinschlagrisiko vorab prüfen. **Nur bei trockenem Wetter!**
@@ -257,6 +273,8 @@ Nachmittags spektakuläre Fahrt über den Puerto de San Glorio und das Desfilade
 - 🍷 **Quesu Cabrales & Gamonéu** — Blauschimmelkäse & Höhlenkäse-Tasting in Arenas de Cabrales.
 
 > 🌧️ **Plan B bei Regen:** Oviedo-Kulturtag vorziehen (Tag 8 ↔ Tag 11 tauschen). Oviedo funktioniert bei jedem Wetter: Kathedrale, präromanische Kirchen, Skulpturen-Tour, Mercado del Fontán. Die Ruta del Cares dann am ehemaligen Tag 11 nachholen, falls das Wetter besser ist.
+
+<a id="tag-9"></a>
 
 ### Tag 9 · Sa 12. Sep · Picos de Europa (Lagos de Covadonga & Río Dobra)
 
@@ -268,6 +286,8 @@ Nachmittags spektakuläre Fahrt über den Puerto de San Glorio und das Desfilade
 > 🌧️ **Plan B bei Regen:** Lagos de Covadonga bei Nebel/Regen meiden (keine Sicht). Stattdessen: Basílica de Covadonga (überdacht) + Museo de Covadonga + Käserei-Besuch in Arenas de Cabrales. Nachmittags entspannt in Cangas — Sidrería-Hopping bei jedem Wetter möglich.
 
 ---
+
+<a id="tag-10"></a>
 
 ### Tag 10 · So 13. Sep · Cangas de Onís → Gijón / Oviedo · 145 km, ~2 Std. (via Llanes)
 
@@ -296,6 +316,8 @@ Ankunft Gijón ca. 13:00 Uhr. Maritime Hafenstadt mit Atlantik-Flair.
 - 🏛️ **[Laboral Ciudad de la Cultura](https://www.laboralciudaddelacultura.com/)** — Größtes Gebäude Spaniens, heute Kulturzentrum. Turmbesteigung mit Panoramablick.
 - 🍷 **Cuesta de Cholo** (Cimadevilla) — Sidrerías-Gasse im Hafenviertel. Sidra escanciar + Cachopo oder Fabada.
 
+<a id="tag-11"></a>
+
 ### Tag 11 · Mo 14. Sep · Oviedo (Tagesausflug ab Gijón)
 
 - 🎊 **Fiestas de San Mateo** (Oviedo) — Größtes Stadtfest (11.–21. Sep.) mit Live-Musik & Chiringuitos.
@@ -306,6 +328,8 @@ Ankunft Gijón ca. 13:00 Uhr. Maritime Hafenstadt mit Atlantik-Flair.
 - 🍷 **Calle Gascona** („Bulevar de la Sidra") — Ganze Straße voller Sidrerías. Dazu: Fabada Asturiana oder Cachopo.
 
 ---
+
+<a id="tag-12"></a>
 
 ### Tag 12 · Di 15. Sep · Gijón → San Vicente de la Barquera · 119 km, ~1,5 Std.
 
@@ -341,6 +365,8 @@ Fahrt entlang der Küste nach Kantabrien. Malerisches Fischerstädtchen auf eine
 
 ---
 
+<a id="tag-13"></a>
+
 ### Tag 13 · Mi 16. Sep · San Vicente → Vitoria-Gasteiz · 220 km, ~3 Std.
 
 <details>
@@ -368,6 +394,8 @@ Ankunft in Vitoria-Gasteiz am Nachmittag (~15:00 Uhr).
 
 ---
 
+<a id="tag-14"></a>
+
 ### Tag 14 · Do 17. Sep · Vitoria-Gasteiz & Rioja Alavesa (Tagesausflug) · ~140 km Rundfahrt
 
 <details>
@@ -393,6 +421,8 @@ Ganztagesausflug in die berühmte Weinregion **Rioja Alavesa** mit Stopp an der 
 
 ---
 
+<a id="tag-15"></a>
+
 ### Tag 15 · Fr 18. Sep · Vitoria-Gasteiz → Bilbao · ~62 km, ~50 Min.
 
 <details>
@@ -416,6 +446,8 @@ Vormittags Fahrt nach Bilbao, Mietwagen-Rückgabe am Flughafen. Nachmittags Erku
 
 ---
 
+<a id="tag-16"></a>
+
 ### Tag 16 · Sa 19. Sep · Bilbao (Kultur & Altstadt)
 
 - 🎨 **[Guggenheim Bilbao](https://www.guggenheim-bilbao.eus/en)** — Gehry-Ikone, zeitgenössische Kunst. **Pflichtbesuch.** (~16 €/P., 3 Std., ⚠️ vorab buchen!) 💡 Tipp: morgens früh da sein — vor Öffnung reinigen sogenannte „Spidermans" die Titanfassade im Abseilverfahren, ein Spektakel für sich. Außenskulpturen: „Puppy" (Jeff Koons Blumenhund) und „Maman" (Louise Bourgeois Riesenspinne).
@@ -431,6 +463,8 @@ Vormittags Fahrt nach Bilbao, Mietwagen-Rückgabe am Flughafen. Nachmittags Erku
 - 🛶 **Kayak auf dem Nervión** — Geführte Touren entlang der Uferpromenade (Sommer).
 
 ---
+
+<a id="tag-17"></a>
 
 ### Tag 17 · So 20. Sep · Bilbao (Abreise)
 
