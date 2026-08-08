@@ -44,6 +44,7 @@ These rules override all other considerations when generating tour content:
 5. **Link policy.** Only official websites for major POIs. Never use Google Maps, TripAdvisor, or ephemeral URLs.
 6. **Link verification.** Before inserting any URL, confirm HTTP 200 via `web_fetch`. Remove or replace dead links.
 7. **Unverifiable data.** Mark with `ℹ️ Nicht verifiziert.` — never guess or fabricate.
+8. **Verification date updates.** Update `ℹ️ Zuletzt geprüft:` dates whenever you make substantive changes to a tour (GPX recalculation, route corrections, POI updates, map regeneration, fare updates). Format-only changes (toggles, styling, emoji) don't require a date update.
 
 ## Route Discovery Workflow
 

@@ -9,7 +9,7 @@ Every tour file MUST start with empty YAML front matter (`---\n---\n`) and conta
 
 ## Verification Date Rule
 
-**Update `ℹ️ Zuletzt geprüft:` dates** whenever you make substantive changes to the tour (GPX recalculation, route corrections, POI updates, map regeneration, fare updates). Format changes (toggles, styling) don't require a date update.
+Update `ℹ️ Zuletzt geprüft:` dates per rule 8 in `user-preferences.md`.
 
 ## 1. Title
 
