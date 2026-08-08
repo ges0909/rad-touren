@@ -1,6 +1,14 @@
 # Scripts
 
-Standalone-Skripte für die offline-Generierung von Tourkarten (PNG).
+Standalone-Skripte für die offline-Generierung von Tourkarten (PNG) und Projektpflege.
+
+**Wichtig:** Alle Scripts über die virtuelle Umgebung ausführen:
+
+```bash
+.venv/bin/python scripts/<script>.py ...
+```
+
+---
 
 ## render_roadtrip_map.py
 
@@ -9,7 +17,7 @@ Rendert eine Roadtrip-Route als PNG-Karte mit OpenStreetMap-Hintergrund, Station
 **Verwendung:**
 
 ```bash
-python scripts/render_roadtrip_map.py <gpx_file> <output_png> \
+.venv/bin/python scripts/render_roadtrip_map.py <gpx_file> <output_png> \
     [--stations 'Name:lon,lat' ...] \
     [--pois 'category:name:lon,lat' ...] \
     [--width 900] [--height 600]
@@ -18,7 +26,7 @@ python scripts/render_roadtrip_map.py <gpx_file> <output_png> \
 **Beispiel:**
 
 ```bash
-python scripts/render_roadtrip_map.py \
+.venv/bin/python scripts/render_roadtrip_map.py \
     trips/road/nordspanien/gpx/bilbao-bakio.gpx \
     trips/road/nordspanien/maps/tag-01-bilbao-bakio.png \
     --stations 'T1 Bilbao:-2.9253,43.2627' 'T2-3 San Sebastián:-1.9812,43.3183' \
@@ -54,10 +62,10 @@ Findet ungenutzte Bilder in `trips/` — also PNG/JPG-Dateien in `maps/`, die in
 
 ```bash
 # Nur anzeigen
-python3 scripts/check_unused_assets.py
+.venv/bin/python scripts/check_unused_assets.py
 
 # Ungenutzte Dateien löschen
-python3 scripts/check_unused_assets.py --delete
+.venv/bin/python scripts/check_unused_assets.py --delete
 ```
 
 **Pre-commit Hook:**
