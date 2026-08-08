@@ -1,20 +1,20 @@
 ---
 inclusion: fileMatch
-fileMatchPattern:
-  ["mcp/**", "app/backend/**", "app/frontend/**", "app/Dockerfile"]
+fileMatchPattern: ["mcp/**"]
 ---
 
-# Development Guide
+# MCP Server Development Guide
+
+Guidelines for developing MCP servers in this project.
 
 ## Tech Stack
 
-| Layer       | Technology                                                                                                                                  |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Backend     | FastAPI + uvicorn, Google Gemini 2.5 Flash (`google-genai`), SSE (`sse-starlette`), httpx, python-dotenv                                    |
-| Frontend    | Vue 3 Composition API (`<script setup lang="ts">`), Vite 8, Tailwind CSS 3 + @tailwindcss/typography, Leaflet (vanilla), marked + DOMPurify |
-| MCP Servers | FastMCP + httpx, self-contained uv packages, stdio JSON-RPC subprocess transport                                                            |
-| Python      | 3.12+, managed by **uv** (`uv sync --all-packages`)                                                                                         |
-| Node        | 20+, managed by **npm**                                                                                                                     |
+| Component | Technology                                                          |
+| --------- | ------------------------------------------------------------------- |
+| Framework | FastMCP + httpx                                                     |
+| Python    | 3.12+, managed by **uv**                                            |
+| Transport | stdio JSON-RPC subprocess                                           |
+| Testing   | pytest + pytest-asyncio, hypothesis for property-based tests, respx |
 
 ## Code Quality
 
@@ -23,17 +23,14 @@ Ruff (`ruff.toml` at project root):
 - Target: Python 3.12, line-length 100, double quotes
 - Rules: E, F, I, UP, B, SIM (E501 ignored — formatter handles line length)
 
-Run: `uvx ruff check .` and `uvx ruff format .`
+Run: `uvx ruff check mcp/` and `uvx ruff format mcp/`
 
 ## Common Commands
 
 ```bash
-uv sync --all-packages                          # install all Python packages
-cd app/backend && uv run uvicorn main:app --reload --port 8000  # backend dev
-cd app/frontend && npm run dev                  # frontend dev (proxies /api → :8000)
-cd app/frontend && npm run build                # frontend production build
-cd app/backend && uv run pytest tests/ -v       # backend tests
-cd app && docker build -t gerrit-on-tour .      # Docker build
+cd mcp/<name> && uv sync                # install dependencies
+cd mcp/<name> && uv run pytest          # run tests
+cd mcp/<name> && uv run python server.py  # run server locally
 ```
 
 ## Environment Variables
@@ -42,19 +39,32 @@ All keys in `.env` at project root (gitignored). MCP servers load via `python-do
 
 | Variable          | Used by                     |
 | ----------------- | --------------------------- |
-| `GEMINI_API_KEY`  | Backend agent               |
 | `ORS_API_KEY`     | OpenRouteService MCP        |
 | `TAVILY_API_KEY`  | Tavily / Travel Content MCP |
 | `SERPAPI_API_KEY` | SerpAPI Flights MCP         |
 
-## Testing
+## Existing MCP Servers
 
-- Backend + MCP: `pytest` + `pytest-asyncio`, `hypothesis` for property-based tests
-- Frontend: manual via dev server (no test framework)
+| Server            | Purpose                              | API Key Required |
+| ----------------- | ------------------------------------ | ---------------- |
+| `brouter`         | Cycling routing + elevation profiles | No               |
+| `ors`             | Car/foot routing + isochrones        | Yes              |
+| `osrm`            | Car routing (OpenStreetMap)          | No               |
+| `open-meteo`      | Weather forecasts                    | No               |
+| `vbb`             | Berlin/Brandenburg public transit    | No               |
+| `overpass`        | POI search along routes (OSM)        | No               |
+| `wikivoyage`      | Travel guide articles                | No               |
+| `waymarkedtrails` | Marked hiking/cycling routes         | No               |
+| `tavily`          | Web search                           | Yes              |
+| `travel-content`  | Travel blog/video search             | Yes              |
+| `serpapi-flights` | Google Flights search                | Yes              |
+| `podcasts`        | Travel podcast search + transcripts  | No               |
 
----
+## Naming Convention
 
-## MCP Server Architecture
+Server directories use `kebab-case` matching the server name (e.g., `mcp/open-meteo/`, `mcp/serpapi-flights/`).
+
+## Architecture
 
 ### File Layout
 

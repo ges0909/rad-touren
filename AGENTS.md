@@ -6,8 +6,8 @@ Universal guidelines for all AI assistants in this repository.
 
 **Gerrit on Tour** is an AI-powered travel planning tool serving two purposes:
 
-1. **Personal Travel Planning** — Planning and documenting bike, car, and hiking tours
-2. **Platform Development** — Developing the web app, MCP servers, and infrastructure
+1. **Personal Travel Planning** — Planning and documenting bike adn car tours
+2. **Platform Development** — Developing a web app, MCP servers, and infrastructure
 
 **Important:** This repository separates both contexts consistently:
 
